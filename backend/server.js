@@ -134,7 +134,7 @@ app.get("/", (req, res) => {
   ]);
 });
 
-// app.get("/games", authenticateUser);
+//app.get("/games", authenticateUser);
 app.get("/games", async (req, res) => {
   const games = await Game.find({}).limit(10)
   res.status(200).json({ success: true, response: games })
