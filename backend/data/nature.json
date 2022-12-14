@@ -86,194 +86,91 @@ Byn Lövsta kom att vara bebodd till slutet 1800-talet.",
         
         },
 
-        {
-            "Name": "Hellasgården, Nackareservatet",
-            
-            "Description": "Hellasgården är ett populärt utflyktsmål för hela Stockholmsregionen. 
-            I området finns bland annat bollplaner, tennisbanor, vandringsleder, elljusspår, motionsspår, 
-            utomhusgym, friluftsbad vid Källtorpssjön och Söderbysjön, fiskevatten och en 9-håls golfbana för fotbollsgolf.",
-            
-            "Adress": "Vinterviksvägen, 117 65 Stockholm",
-            
-            "Beach": true,
-            
-            "ClosestStation":  "Hellasgården",
-            
-            "Stroller friendly": true,
-            
-            "Café": true,
-            
-            "BarbecuePossibility": true,
-            
-            "Highlights": "",
-            
-            "Toilet": true,
-            
-            "Activites": "Vandring, skridskor, bad, golf, kajak, bastu, SUP",
-            
-            "Footpath": "Se karta över leder på: https://hellasgarden.se/aktiviteter/motion/",
-            
-            "Genre": "Utflyktsmål för hela familjen",
-            
-            "Handikappanpassat": "Ja"
-            
-            },
-
-            {
-                "Name": "Hagaparken",
-                
-                "Description": "I Hagaparken finns stora ytor och vackra sevärdheter att upptäcka. Här finns det även flera 
-                stora gräsytor där du kan äta din matsäck på sommaren. Detta blandas dessutom med öppna skogspartier 
-                samt öppna hagar där får och hästar håller till.",
-                
-                "Adress": "",
-                
-                "Beach": true,
-                
-                "ClosestStation":  "",
-                
-                "Stroller friendly": true,
-                
-                "Café": true,
-                
-                "BarbecuePossibility": true,
-                
-                "Highlights": "Haga parkmuseum, Fjärilsmuseet, Kinesiska templet, Ekotemplet",
-                
-                "Toilet": true,
-                
-                "Activites": "",
-                
-                "Footpath": "Se karta över leder på: https://www.kungligaslotten.se/artiklar-film-360/kungliga-parker/2022-06-21-kungliga-promenader-haga.html",
-                
-                "Genre": "Utflyktsmål för hela familjen",
-                
-                "Handikappanpassat": "Ja"
-                
-                },
-
-                {
-                    "Name": "Långholmen",
-                    
-                    "Description": "Långholmen är en grön och lummig naturpark med vildvuxen grönska. 
-                    Parken är en välbesökt promenadpark. Den vackra kulturmiljöbebyggelsen i parken, utblickarna 
-                    över vattnet och de många fantastiska träden bidrar till Långholmens särpräglade karaktär. 
-                    På ön ﬁnns lekplaner, idrottsplan, friluftsteater, klippbad, strandbad, koloniträdgårdar, 
-                    båtbryggor och båtupplagsplatser. Vintertid är det populärt att åka pulka i parken.
-                    ",
-                    
-                    "Adress": "",
-                    
-                    "Beach": true,
-                    
-                    "ClosestStation":  "T-bana Hornstull",
-                    
-                    "Stroller friendly": true,
-                    
-                    "Café": true,
-                    
-                    "BarbecuePossibility": true,
-                    
-                    "Highlights": "Långholmsparkens lekplats, Friluftsteater, Bellmanmuseet, Carlshälls Gård ",
-                    
-                    "Toilet": true,
-                    
-                    "Activites": "Kajak, SUP, Boule",
-                    
-                    "Footpath": "Promenad runt ön ca 3 km. ",
-                    
-                    "Genre": "Utflyktsmål för hela familjen",
-                    
-                    "Handikappanpassat": ""
-                    
-                    },
-
-                    {
-                        "Name": "Nyckelviken, Nacka",
-                        
-                        "Description": "Nyckelviken är ett kombinerat frilufts- och kulturområde.
-                        Omgivna av naturreservatets vidsträckta ängar och stora bestånd av gamla 
-                        ekar ligger Lilla och Stora Nyckelviken, två välbevarade sommarherrgårdar 
-                        från 1700-talets mitt. Utanför den vackra herrgårdsbyggnaden, Stora Nyckelviken 
-                        ligger en spegeldamm, en bondgård med djur, ett växthus och en blomstrande 
-                        visningsträdgård. Njut av en promenad, rid på en ponny, ta med matsäck, 
-                        besök bondgården eller hembygdsmuseet",
-                        
-                        "Adress": "",
-                        
-                        "Beach": true,
-                        
-                        "ClosestStation":  "Jarlaberg och Ektorp centrum",
-                        
-                        "Stroller friendly": true,
-                        
-                        "Café": true,
-                        
-                        "BarbecuePossibility": true,
-                        
-                        "Highlights": "Bondgård med djur, Hembygdsmuseum (fri entré), visningsträdgård och växthus",
-                        
-                        "Toilet": true,
-                        
-                        "Activites": "Evenemang under året",
-                        
-                        "Footpath": "Kulturpromenad, Motionsspår 5,1 km, Vandringsled 5,7 km.",
-                        
-                        "Genre": "Utflyktsmål för hela familjen",
-                        
-                        "Handikappanpassat": ""
-                        
-                        },
 {
-"name": "Hellasgården, Nackareservatet" ,
-"address": "https://goo.gl/maps/SZNz4BdwAzgFHx4c7",      
-"description": "Hellasgården är ett populärt utflyktsmål för hela Stockholmsregionen. 
-I området finns bland annat bollplaner, tennisbanor, vandringsleder, elljusspår, motionsspår,
-utomhusgym, friluftsbad vid Källtorpssjön och Söderbysjön, fiskevatten och en 9-håls golfbana för 
-fotbollsgolf.",
-"beach": true  ,   
-"closestStation": "Hellasgården" ,
-"strollerFriendly": true ,
-"café": true ,
-"barbecuePossibility": true ,
-"highlights": ,
-"toilet": true,
-"activites": "Vandring, skridskor, bad, golf, kajak, bastu, SUP" ,
-"hiking": "Flertalet leder av olika längd. Se karta över leder på: https://hellasgarden.se/aktiviteter/motion/" ,
+    "name": "Nyckelviken, Nacka",
+    "address": "https://goo.gl/maps/J6xCoGmcvaXn7dwc8",
+    "description": "Nyckelviken är ett kombinerat frilufts- och kulturområde.
+    Omgivna av naturreservatets vidsträckta ängar och stora bestånd av gamla 
+    ekar ligger Lilla och Stora Nyckelviken, två välbevarade sommarherrgårdar 
+    från 1700-talets mitt. Utanför den vackra herrgårdsbyggnaden, Stora Nyckelviken 
+    ligger en spegeldamm, en bondgård med djur, ett växthus och en blomstrande 
+    visningsträdgård. Njut av en promenad, rid på en ponny, ta med matsäck, 
+    besök bondgården eller hembygdsmuseet",
+    "beach": true,
+    "closestStation":  "Jarlaberg och Ektorp centrum",
+    "strollerFriendly": true,
+    "café": true,
+    "barbecuePossibility": true,
+    "highlights": "Bondgård med djur, Hembygdsmuseum (fri entré), visningsträdgård och växthus",
+    "toilet": true,
+    "activites": "Evenemang under året",
+    "hiking": "Kulturpromenad, Motionsspår 5,1 km, Vandringsled 5,7 km."                
 },
 {
-"name": "Nyckelviken" ,  
-"address": "https://goo.gl/maps/t4D7Mki5Bkq3FAMn8",    
-"description":"Nyckelviken är ett kombinerat frilufts- och kulturområde. Omgivna av naturreservatets vidsträckta ängar och stora 
-bestånd av gamla ekar ligger Lilla och Stora Nyckelviken, två välbevarade sommarherrgårdar från 1700-talets mitt.
-Utanför den vackra herrgårdsbyggnaden, Stora Nyckelviken ligger en spegeldamm, en bondgård med djur, ett växthus 
-och en blomstrande visningsträdgård. Njut av en promenad, rid på en ponny, ta med matsäck, besök bondgården eller hembygdsmuseet" ,
-"beach": true ,   
-"closestStation": "Jarlaberg och Ektorp centrum" ,
-"strollerFriendly": true ,
-"café": true,
-"barbecuePossibility": true ,
-"highlights": "Bondgård med djur, Hembygdsmuseum (fri entré), visningsträdgård och växthus" ,
-"toilet": true ,
-"activites":"Evenemang under året" ,
-"hiking": "Kulturpromenad, Motionsspår 5,1 km, Vandringsled 5,7 km." ,
+    "name": "Hellasgården, Nackareservatet" ,
+    "address": "https://goo.gl/maps/SZNz4BdwAzgFHx4c7",      
+    "description": "Hellasgården är ett populärt utflyktsmål för hela Stockholmsregionen. 
+    I området finns bland annat bollplaner, tennisbanor, vandringsleder, elljusspår, motionsspår,
+    utomhusgym, friluftsbad vid Källtorpssjön och Söderbysjön, fiskevatten och en 9-håls golfbana för 
+    fotbollsgolf.",
+    "beach": true  ,   
+    "closestStation": "Hellasgården" ,
+    "strollerFriendly": true ,
+    "café": true ,
+    "barbecuePossibility": true ,
+    "highlights": ,
+    "toilet": true,
+    "activites": "Vandring, skridskor, bad, golf, kajak, bastu, SUP" ,
+    "hiking": "Flertalet leder av olika längd. Se karta över leder på: https://hellasgarden.se/aktiviteter/motion/" ,
+    },
+{
+    "name": "Nyckelviken" ,  
+    "address": "https://goo.gl/maps/t4D7Mki5Bkq3FAMn8",    
+    "description":"Nyckelviken är ett kombinerat frilufts- och kulturområde. Omgivna av naturreservatets vidsträckta ängar och stora 
+    bestånd av gamla ekar ligger Lilla och Stora Nyckelviken, två välbevarade sommarherrgårdar från 1700-talets mitt.
+    Utanför den vackra herrgårdsbyggnaden, Stora Nyckelviken ligger en spegeldamm, en bondgård med djur, ett växthus 
+    och en blomstrande visningsträdgård. Njut av en promenad, rid på en ponny, ta med matsäck, besök bondgården eller hembygdsmuseet" ,
+    "beach": true ,   
+    "closestStation": "Jarlaberg och Ektorp centrum" ,
+    "strollerFriendly": true ,
+    "café": true,
+    "barbecuePossibility": true ,
+    "highlights": "Bondgård med djur, Hembygdsmuseum (fri entré), visningsträdgård och växthus" ,
+    "toilet": true ,
+    "activites":"Evenemang under året" ,
+    "hiking": "Kulturpromenad, Motionsspår 5,1 km, Vandringsled 5,7 km." ,
 },
 {
-"name": "Långholmen" , 
-"address": ,     
-"description": "Långholmen är en grön och lummig naturpark med vildvuxen grönska. Parken är en välbesökt promenadpark. Den vackra 
-kulturmiljöbebyggelsen i parken, utblickarna över vattnet och de många fantastiska träden bidrar till Långholmens särpräglade karaktär. 
-På ön ﬁnns lekplaner, idrottsplan, friluftsteater, klippbad, strandbad, koloniträdgårdar, båtbryggor och båtupplagsplatser. Vintertid är 
-det populärt att åka pulka i parken.
-" ,
-"beach":  ,   
-"closestStation": ,
-"strollerFriendly": ,
-"café": ,
-"barbecuePossibility": ,
-"highlights": ,
-"toilet": ,
-"activites": ,
-"hiking": ,
+    "name": "Långholmen" , 
+    "address": "https://goo.gl/maps/Bs9n3R361YHm526x8" ,    
+    "description": "Långholmen är en grön och lummig naturpark med vildvuxen grönska. Parken är en välbesökt promenadpark. Den vackra 
+    kulturmiljöbebyggelsen i parken, utblickarna över vattnet och de många fantastiska träden bidrar till Långholmens särpräglade karaktär. 
+    På ön ﬁnns lekplaner, idrottsplan, friluftsteater, klippbad, strandbad, koloniträdgårdar, båtbryggor och båtupplagsplatser. Vintertid är 
+    det populärt att åka pulka i parken." ,
+    "beach": true ,   
+    "closestStation": "Hornstull" ,
+    "strollerFriendly": true ,
+    "café": true ,
+    "barbecuePossibility": true ,
+    "highlights": "Långholmsparkens lekplats, Friluftsteater, Bellmanmuseet, Carlshälls Gård ",
+    "toilet": true ,
+    "activites": "Kajak, SUP, Boule" ,
+    "hiking":"Promenad runt ön ca 3 km",
+},
+{
+    "name": "Hagaparken" , 
+    "address": "https://goo.gl/maps/Tbrcsm2eSAe2aVp86" ,     
+    "description":"Hagaparken är en engelskinspirerad park som anlades på initiativ av Gustav III. I Hagaparken finns stora ytor och 
+    vackra sevärdheter att upptäcka. Här finns det även flera stora gräsytor där du kan äta din matsäck på sommaren. Detta blandas 
+    dessutom med öppna skogspartier samt öppna hagar där får och hästar håller till." ,
+    "beach": true  ,   
+    "closestStation": "Haga norra, Linvävartorpet, Haga södra",
+    "strollerFriendly": true ,
+    "café": true ,
+    "barbecuePossibility": true,
+    "highlights": "Haga parkmuseum, Fjärilsmuseet, Kinesiska templet, Ekotemplet, Turkiska kiosken",
+    "toilet": true ,
+    "activites": ,
+    "hiking":" Sinnenas stig, 1 km. Hälsans stig, 12 km." ,
 }
-]
+] 

@@ -1,5 +1,4 @@
-[
-/*{
+/*
   "name": ,
   "adress": ,
   "nearestStation": ,
@@ -9,7 +8,8 @@
   "entranceFee": ,
   "cafe": ,
   "openingHours": ,
-},*/
+*/
+[
 {
     "name": "Ersta museum",
     "adress": "Erstagatan 1M, 116 28 Stockholm,",
@@ -18,7 +18,7 @@
     Tillsammans med exempelvis Fredrika Bremer och Jenny Lind förändrar hon svensk sjukvård och utbildning samt kvinnors förutsättningar i 
     samhället. Möt Marie Cederschiöld, portsyster Maria, syster Greta på oblatbageriet, barnhemsbarnen och många fler i vårt museum. 
     Här finns berättelser om 170 år av kvinnohistoria, om några av de personer som verkat på Ersta; om vården, omsorgen och utbildningen 
-    som drivits och fortfarande drivs i Ersta diakonis regi. Här finns också beskrivningar av de byggnader som finns och har funnits på området. " ,
+    som drivits och fortfarande drivs i Ersta diakonis regi. Här finns också beskrivningar av de byggnader som finns och har funnits på området. ",
     "website": ":https://www.erstadiakoni.se/verksamheter/bo-och-motas/museum/om-ersta-museum/",
     "contact": "museum@erstadiakoni.se",
     "entranceFee": "Fritt inträde" ,
@@ -53,5 +53,44 @@
     "giftShop": ,
     "openingHours": ,
     "handicapFriendly": ,
+  },
+  {
+    "name": "Gustavsbergs Porslinsmuseum" ,
+    "adress": "Odelbergs väg 5, 134 40 Gustavsberg, https://goo.gl/maps/tQRMibp9buGh6PVd9",
+    "nearestStation": "Vattenhjulet",
+    "description": "Gustavsbergs Porslinsmuseum visar exempel på den välkända porslinsfabrikens produktion åren 1825–1993. 
+    Här finns både unikt konstgods från olika epoker och otaliga exempel på hushållsporslin, däribland klassiker skapade av 
+    fabrikens kända formgivare, men också många gamla älskade mönster av mer anonym karaktär, t.ex. Blå Blom och Allmoge. 
+    Samlingen i sig består av mer än 45 000 föremål tillverkade vid Gustavsbergs Porslinsfabrik under drygt 170 år.",
+    "website": "https://gustavsbergsporslinsmuseum.se/",
+    "contact": "info@gustavsbergsporslinsmuseum.se",
+    "entranceFee": "100",
+    "cafe": false ,
+    "openingHours": "Måndag–torsdag: stängt, Fredag–Söndag: 11:00–16:00" ,
+  },
+  {
+    "name": "Torekällberget" ,
+    "adress": "Källgatan 15, 151 45 Södertälje, https://goo.gl/maps/JZsVB63RsnKCyqPF7",
+    "nearestStation": "Torekällberget, Södertälje centrum",
+    "description": "Högt uppe på ett berg i centrala Södertälje ligger friluftsmuseet Torekällberget. 
+    Ett besök här är en gång in i den sörmländska historien. Här finns äldre bebyggelse, historiska trädgårdar 
+    och lantrasdjur som berättar om hur livet levdes på 1800-talet. I stadskvarteren finns café, krukmakeri, hantverksbutik 
+    och handelsbod. I hagarna runt bondgården och torpet går svenska lantraser såsom kaniner, getter, får, hästar och kossor.",
+    "website": "https://www.sodertalje.se/kultur-och-fritid/torekallberget/",
+    "contact": "torekallberget@sodertalje.se",
+    "entranceFee": "Fritt inträde",
+    "cafe": true ,
+    "openingHours": "Se https://www.sodertalje.se/kultur-och-fritid/torekallberget/infor-ditt-besok/oppettider/" ,
+  },
+  {
+    "name": "" ,
+    "adress": "",
+    "nearestStation": "",
+    "description": "",
+    "website": "",
+    "contact": "",
+    "entranceFee": "",
+    "cafe":  ,
+    "openingHours": "",
   },
 ]
