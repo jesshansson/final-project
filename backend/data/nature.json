@@ -1,176 +1,81 @@
 [
-/*{
-"name": , 
-"address": ,     
-"description": ,
-"beach":  ,   
-"closestStation": ,
-"strollerFriendly": ,
-"café": ,
-"barbecuePossibility": ,
-"highlights": ,
-"toilet": ,
-"activites": ,
-"hiking": ,
-}*/
 {
-"Name": "Lövsta",
-
-"Description": "Lövsta är ett område i stadsdelen Hässelby Villastad i Västerort inom Stockholms kommun, 
-med Mälaren i väster och Järfälla kommun i norr. Området har varit bebyggt i minst 2000 år. 
-Man har hittat två husgrundsterrasser och tre gravplatser i form av stensättningar. Platsens ålder har 
-bedömts till järnåldern det vill säga perioden från omkring 500 f.Kr. till omkring 500 e.Kr. 
-Byn Lövsta kom att vara bebodd till slutet 1800-talet.",
-
-"Adress": "Lövstavägen 491",
-
-"Beach": true,
-
-"ClosestStation":  "Lövsta Koloniväg",
-
-"Stroller friendly": true,
-
-"Café": true,
-
-"BarbecuePossibility": true,
-
-"Highlights": "Fornlämningar",
-
-"Toilet": true,
-
-"Activites": "bad, skridskor, längdskidåkning, vandringar, hiking, golf",
-
-"Footpath": "Motionsspår om 3,2 km.",
-
-"Genre": "Naturområde med fornlämningar",
-
-"Handikappanpassat": "Nej"
-
+    "name": "Lövsta",
+    "map": "https://goo.gl/maps/fsNvfFciBdJN17Cd8",
+    "description": "Lövsta är ett område i stadsdelen Hässelby Villastad i Västerort inom Stockholms kommun, med Mälaren i väster och Järfälla kommun i norr. Området har varit bebyggt i minst 2000 år.  Man har hittat två husgrundsterrasser och tre gravplatser i form av stensättningar. Platsens ålder har bedömts till järnåldern det vill säga perioden från omkring 500 f.Kr. till omkring 500 e.Kr. Byn Lövsta kom att vara bebodd till slutet 1800-talet.",
+    "beach": true,
+    "closestStation":  "Lövsta Koloniväg",
+    "strollerFriendly": true,
+    "cafe": true,
+    "barbecuePossibility": true,
+    "highlights": "Fornlämningar",
+    "toilet": true,
+    "activities": "bad, skridskor, längdskidåkning, vandringar, hiking, golf"
 },
 
-    {
-        "Name": "Vinterviken",
-        
-        "Description": "Vinterviken (äldre stavning Winterviken) är en vik av Östra Mälaren och en dalgång med 
-        tillhörande parkområde i stadsdelen Aspudden i Stockholm. Området gränsar till Gröndal. Över Vintervikens
-        östra del spänner Essingeledens Blommensbergsviadukt. Vinterviken domineras av Alfred Nobels anläggningar 
-        där olika former av industriell verksamhet bedrivits fram till 1980-talet. De historiska byggnaderna är 
-        numera K-märkta och används bland annat för restaurangverksamhet. I vikens sydvästra del ligger inom en 
-        inhägnad Ateljéerna Vinterviken. Här finns i Nobels gamla byggnader verkstäder för 14 konstnärer som sysslar 
-        med bland annat skulptur, måleri, fotobaserad konst och möbelformgivning. Bland andra har Guangjuan Zhang, 
-        Mats Eriksson och Hanns Karlewski sin ateljé här",
-        
-        "Adress": "Vinterviksvägen, 117 65 Stockholm",
-        
-        "Beach": true,
-        
-        "ClosestStation":  "Aspuddens tunnelbanestation",
-        
-        "Stroller friendly": true,
-        
-        "Café": true,
-        
-        "BarbecuePossibility": true,
-        
-        "Highlights": "Nobels spränggruvor",
-        
-        "Toilet": true,
-        
-        "Activites": "bad, skridskor, SUP, kajak,",
-        
-        "Footpath": "Nej",
-        
-        "Genre": "Naturområde där Alfred Nobel bedrev sin verksamhet",
-        
-        "Handikappanpassat": "Ja"
-        
-        },
-
 {
-    "name": "Nyckelviken, Nacka",
-    "address": "https://goo.gl/maps/J6xCoGmcvaXn7dwc8",
-    "description": "Nyckelviken är ett kombinerat frilufts- och kulturområde.
-    Omgivna av naturreservatets vidsträckta ängar och stora bestånd av gamla 
-    ekar ligger Lilla och Stora Nyckelviken, två välbevarade sommarherrgårdar 
-    från 1700-talets mitt. Utanför den vackra herrgårdsbyggnaden, Stora Nyckelviken 
-    ligger en spegeldamm, en bondgård med djur, ett växthus och en blomstrande 
-    visningsträdgård. Njut av en promenad, rid på en ponny, ta med matsäck, 
-    besök bondgården eller hembygdsmuseet",
+    "name": "Vinterviken",
+    "map": "https://goo.gl/maps/aitR4QCANnp1Nf8J7",
+    "description": "Vinterviken (äldre stavning Winterviken) är en vik av Östra Mälaren och en dalgång med tillhörande parkområde i stadsdelen Aspudden i Stockholm. Området gränsar till Gröndal. Över Vintervikens östra del spänner Essingeledens Blommensbergsviadukt. Vinterviken domineras av Alfred Nobels anläggningar där olika former av industriell verksamhet bedrivits fram till 1980-talet. De historiska byggnaderna är numera K-märkta och används bland annat för restaurangverksamhet. I vikens sydvästra del ligger inom en inhägnad Ateljéerna Vinterviken. Här finns Nobels gamla byggnader verkstäder för 14 konstnärer som sysslar med bland annat skulptur, måleri, fotobaserad konst och möbelformgivning. Bland andra har Guangjuan Zhang, Mats Eriksson och Hanns Karlewski sin ateljé här",
     "beach": true,
-    "closestStation":  "Jarlaberg och Ektorp centrum",
+    "closestStation":  "Aspuddens tunnelbanestation",
     "strollerFriendly": true,
-    "café": true,
+    "cafe": true,
     "barbecuePossibility": true,
-    "highlights": "Bondgård med djur, Hembygdsmuseum (fri entré), visningsträdgård och växthus",
+    "highlights": "Nobels spränggruvor",
     "toilet": true,
-    "activites": "Evenemang under året",
-    "hiking": "Kulturpromenad, Motionsspår 5,1 km, Vandringsled 5,7 km."                
+    "activities": "bad, skridskor, SUP, kajak,"
 },
 {
     "name": "Hellasgården, Nackareservatet" ,
-    "address": "https://goo.gl/maps/SZNz4BdwAzgFHx4c7",      
-    "description": "Hellasgården är ett populärt utflyktsmål för hela Stockholmsregionen. 
-    I området finns bland annat bollplaner, tennisbanor, vandringsleder, elljusspår, motionsspår,
-    utomhusgym, friluftsbad vid Källtorpssjön och Söderbysjön, fiskevatten och en 9-håls golfbana för 
-    fotbollsgolf.",
+    "map": "https://goo.gl/maps/SZNz4BdwAzgFHx4c7",      
+    "description": "Hellasgården är ett populärt utflyktsmål för hela Stockholmsregionen. I området finns bland annat bollplaner, tennisbanor, vandringsleder, elljusspår, motionsspår, utomhusgym, friluftsbad vid Källtorpssjön och Söderbysjön, fiskevatten och en 9-håls golfbana för fotbollsgolf.",
     "beach": true  ,   
     "closestStation": "Hellasgården" ,
     "strollerFriendly": true ,
-    "café": true ,
+    "cafe": true ,
     "barbecuePossibility": true ,
-    "highlights": ,
+    "highlights": "Källtorpssjön, bastubad året om",
     "toilet": true,
-    "activites": "Vandring, skridskor, bad, golf, kajak, bastu, SUP" ,
-    "hiking": "Flertalet leder av olika längd. Se karta över leder på: https://hellasgarden.se/aktiviteter/motion/" ,
+    "activities": "Vandring, skridskor, bad, golf, kajak, bastu, SUP, tennis, längdskidor, cykling, bangolf"
     },
 {
     "name": "Nyckelviken" ,  
-    "address": "https://goo.gl/maps/t4D7Mki5Bkq3FAMn8",    
-    "description":"Nyckelviken är ett kombinerat frilufts- och kulturområde. Omgivna av naturreservatets vidsträckta ängar och stora 
-    bestånd av gamla ekar ligger Lilla och Stora Nyckelviken, två välbevarade sommarherrgårdar från 1700-talets mitt.
-    Utanför den vackra herrgårdsbyggnaden, Stora Nyckelviken ligger en spegeldamm, en bondgård med djur, ett växthus 
-    och en blomstrande visningsträdgård. Njut av en promenad, rid på en ponny, ta med matsäck, besök bondgården eller hembygdsmuseet" ,
+    "map": "https://goo.gl/maps/t4D7Mki5Bkq3FAMn8",    
+    "description":"Nyckelviken är ett kombinerat frilufts- och kulturområde. Omgivna av naturreservatets vidsträckta ängar och stora bestånd av gamla ekar ligger Lilla och Stora Nyckelviken, två välbevarade sommarherrgårdar från 1700-talets mitt.Utanför den vackra herrgårdsbyggnaden, Stora Nyckelviken ligger en spegeldamm, en bondgård med djur, ett växthus och en blomstrande visningsträdgård. Njut av en promenad, rid på en ponny, ta med matsäck, besök bondgården eller hembygdsmuseet" ,
     "beach": true ,   
     "closestStation": "Jarlaberg och Ektorp centrum" ,
     "strollerFriendly": true ,
-    "café": true,
+    "cafe": true,
     "barbecuePossibility": true ,
     "highlights": "Bondgård med djur, Hembygdsmuseum (fri entré), visningsträdgård och växthus" ,
     "toilet": true ,
-    "activites":"Evenemang under året" ,
-    "hiking": "Kulturpromenad, Motionsspår 5,1 km, Vandringsled 5,7 km." ,
+    "activities":"Evenemang under året samt vandringsleder"
 },
 {
     "name": "Långholmen" , 
-    "address": "https://goo.gl/maps/Bs9n3R361YHm526x8" ,    
-    "description": "Långholmen är en grön och lummig naturpark med vildvuxen grönska. Parken är en välbesökt promenadpark. Den vackra 
-    kulturmiljöbebyggelsen i parken, utblickarna över vattnet och de många fantastiska träden bidrar till Långholmens särpräglade karaktär. 
-    På ön ﬁnns lekplaner, idrottsplan, friluftsteater, klippbad, strandbad, koloniträdgårdar, båtbryggor och båtupplagsplatser. Vintertid är 
-    det populärt att åka pulka i parken." ,
+    "map": "https://goo.gl/maps/Bs9n3R361YHm526x8" ,    
+    "description": "Långholmen är en grön och lummig naturpark med vildvuxen grönska. Parken är en välbesökt promenadpark. Den vackra kulturmiljöbebyggelsen i parken, utblickarna över vattnet och de många fantastiska träden bidrar till Långholmens särpräglade karaktär. På ön ﬁnns lekplaner, idrottsplan, friluftsteater, klippbad, strandbad, koloniträdgårdar, båtbryggor och båtupplagsplatser. Vintertid är det populärt att åka pulka i parken.",
     "beach": true ,   
     "closestStation": "Hornstull" ,
     "strollerFriendly": true ,
-    "café": true ,
+    "cafe": true ,
     "barbecuePossibility": true ,
     "highlights": "Långholmsparkens lekplats, Friluftsteater, Bellmanmuseet, Carlshälls Gård ",
     "toilet": true ,
-    "activites": "Kajak, SUP, Boule" ,
-    "hiking":"Promenad runt ön ca 3 km",
+    "activities": "Kajak, SUP, Boule, vandringsled"
 },
 {
     "name": "Hagaparken" , 
-    "address": "https://goo.gl/maps/Tbrcsm2eSAe2aVp86" ,     
-    "description":"Hagaparken är en engelskinspirerad park som anlades på initiativ av Gustav III. I Hagaparken finns stora ytor och 
-    vackra sevärdheter att upptäcka. Här finns det även flera stora gräsytor där du kan äta din matsäck på sommaren. Detta blandas 
-    dessutom med öppna skogspartier samt öppna hagar där får och hästar håller till." ,
+    "map": "https://goo.gl/maps/Tbrcsm2eSAe2aVp86" ,     
+    "description": "Hagaparken är en engelskinspirerad park som anlades på initiativ av Gustav III. I Hagaparken finns stora ytor och vackra sevärdheter att upptäcka. Här finns det även flera stora gräsytor där du kan äta din matsäck på sommaren. Detta blandas dessutom med öppna skogspartier samt öppna hagar där får och hästar håller till.",
     "beach": true  ,   
     "closestStation": "Haga norra, Linvävartorpet, Haga södra",
     "strollerFriendly": true ,
-    "café": true ,
+    "cafe": true ,
     "barbecuePossibility": true,
-    "highlights": "Haga parkmuseum, Fjärilsmuseet, Kinesiska templet, Ekotemplet, Turkiska kiosken",
+    "highlights": "Haga parkmuseum, Fjärilsmuseet, Kinesiska templet, Ekotemplet, Turkiska kiosken, Koppartälten",
     "toilet": true ,
-    "activites": ,
-    "hiking":" Sinnenas stig, 1 km. Hälsans stig, 12 km." ,
+    "activities": "Fjärilsmuseet, vandringsled"
 }
 ] 

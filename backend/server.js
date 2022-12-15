@@ -5,6 +5,11 @@ import games from "./data/games.json"
 import crypto from "crypto"
 import bcrypt from "bcrypt"
 import { UserSchema } from "./Schemas/user"
+import { NatureSchema } from "./Schemas/nature";
+import { CultureSchema } from "./Schemas/culture";
+import listEndpoints from "express-list-endpoints";
+import culture from "./data/culture.json";
+import nature from "./data/nature.json"
 
 const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/final-project";
 mongoose.connect(mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true });
@@ -114,17 +119,37 @@ const GameSchema = new mongoose.Schema({
 });
 
 const Game = mongoose.model("Game", GameSchema);
+const Nature = mongoose.model("Nature", NatureSchema);
+const Culture = mongoose.model("Culture", CultureSchema)
+
+
 
 if (true) {
   const resetDatabase = async () => {
-    await Game.deleteMany();
-    games.forEach(singleGame => {
-      const newGame = new Game(singleGame);
-      newGame.save();
+    await Culture.deleteMany();
+    culture.forEach(singleCulture => {
+      const newCulture = new Culture(singleCulture);
+      newCulture.save()
+    })
+    await Nature.deleteMany();
+    nature.forEach(singleNature => {
+      const newNature = new Nature(singleNature)
+      newNature.save()
     })
   }
   resetDatabase();
 }
+
+// if (true) {
+//   const resetDatabase = async () => {
+//     await Game.deleteMany();
+//     games.forEach(singleGame => {
+//       const newGame = new Game(singleGame);
+//       newGame.save();
+//     })
+//   }
+//   resetDatabase();
+// }
 
 app.get("/", (req, res) => {
   res.send([
@@ -134,12 +159,23 @@ app.get("/", (req, res) => {
   ]);
 });
 
+// list endpoints for all routers that is created in this file. 
+app.get("/endpoints", (req, res) => {
+  res.send(listEndpoints(app))
+})
+
 //app.get("/games", authenticateUser);
 app.get("/games", async (req, res) => {
   const games = await Game.find({}).limit(10)
   res.status(200).json({ success: true, response: games })
 });
 
+
+app.get("/locations", async (req, res) => {
+  const nature = await Nature.find({})
+  const culture = await Culture.find({})
+  res.status(200).json({ success: true, response: })
+});
 
 
 // Start defining your routes here

@@ -1,96 +1,204 @@
-/*
-  "name": ,
-  "adress": ,
-  "nearestStation": ,
-  "description": ,
-  "website": ,
-  "contact": ,
-  "entranceFee": ,
-  "cafe": ,
-  "openingHours": ,
-*/
 [
 {
     "name": "Ersta museum",
-    "adress": "Erstagatan 1M, 116 28 Stockholm,",
-    "nearestStation": "Ersta Sjukhus",
-    "description": "1851 öppnar Marie Cederschiöld sjukhus och utbildning för kvinnor. Hon är Sveriges första utbildade sjuksköterska och diakonissa. 
-    Tillsammans med exempelvis Fredrika Bremer och Jenny Lind förändrar hon svensk sjukvård och utbildning samt kvinnors förutsättningar i 
-    samhället. Möt Marie Cederschiöld, portsyster Maria, syster Greta på oblatbageriet, barnhemsbarnen och många fler i vårt museum. 
-    Här finns berättelser om 170 år av kvinnohistoria, om några av de personer som verkat på Ersta; om vården, omsorgen och utbildningen 
-    som drivits och fortfarande drivs i Ersta diakonis regi. Här finns också beskrivningar av de byggnader som finns och har funnits på området. ",
-    "website": ":https://www.erstadiakoni.se/verksamheter/bo-och-motas/museum/om-ersta-museum/",
+    "address": "Erstagatan 1M, 116 28 Stockholm,",
+    "map": "https://goo.gl/maps/9EDJj5U2w9MBAzn48",
+    "closestStation": "Ersta Sjukhus",
+    "description": "1851 öppnar Marie Cederschiöld sjukhus och utbildning för kvinnor. Hon är Sveriges första utbildade sjuksköterska och diakonissa. Tillsammans med exempelvis Fredrika Bremer och Jenny Lind förändrar hon svensk sjukvård och utbildning samt kvinnors förutsättningar i samhället. Möt Marie Cederschiöld, portsyster Maria, syster Greta på oblatbageriet, barnhemsbarnen och många fler i vårt museum. Här finns berättelser om 170 år av kvinnohistoria, om några av de personer som verkat på Ersta; om vården, omsorgen och utbildningen som drivits och fortfarande drivs i Ersta diakonis regi. Här finns också beskrivningar av de byggnader som finn och har funnits på området.",
+    "website": "https://www.erstadiakoni.se/verksamheter/bo-och-motas/museum/om-ersta-museum/",
     "contact": "museum@erstadiakoni.se",
-    "entranceFee": "Fritt inträde" ,
+    "entranceFee": 0 ,
     "cafe": true ,
     "openingHours": "Tis, ons, tors 11.30-13.30 samt sista söndagen i månaden 12.00-14.00",
+    "genre": "Museum"
   },
   {
     "name": "Långholmens fängelsemuseum" ,
-    "adress": "Långholmens Hotell, Långholmsmuren 20, 117 33 Stockholm",
-    "nearestStation": "Hornstull",
-    "description": "Långholmen är Stockholms 7:e största ö och kanske den mest mytomspunna på grund av det gamla fängelset. 
-    Långholmen har en lång historia, från Spinnhusets dagar på 1700-talet tills det att fängelset stängdes 1975. 
-    Gå in i en fängelsecell och upplev hur fångarna bodde på den tid det begav sig. Läs och upplev dåtidens fängelsevillkor, hur 
-    fångarna behandlades och hur deras vardag såg ut",
+    "address": "Långholmens Hotell, Långholmsmuren 20, 117 33 Stockholm",
+    "map": "https://goo.gl/maps/N3cfGspjYALGqroz5",
+    "closestStation": "Hornstull",
+    "description": "Långholmen är Stockholms 7:e största ö och kanske den mest mytomspunna på grund av det gamla fängelset. Långholmen har en lång historia, från Spinnhusets dagar på 1700-talet tills det att fängelset stängdes 1975. Gå in i en fängelsecell och upplev hur fångarna bodde på den tid det begav sig. Läs och upplev dåtidens fängelsevillkor hur fångarna behandlades och hur deras vardag såg ut",
     "website": "https://langholmen.com/upplev/fangelsemuseum/",
     "contact": "museum@langholmen.com" ,
-    "entranceFee": "35" ,
+    "entranceFee": 35,
     "cafe": true,
-    "openingHours":"Alla dagar 11.00-16.00" ,
-  },
-
-
-  {
-    "name": "Litografiska museet",
-    "adress": "Sundby Gårdsväg 6, 14191 Huddinge",
-    "nearestStation": ,
-    "description": ,
-    "website": ,
-    "contact": ,
-    "entranceFee": ,
-    "cafe": ,
-    "giftShop": ,
-    "openingHours": ,
-    "handicapFriendly": ,
+    "openingHours":"Alla dagar 11.00-16.00",
+    "genre": "Museum"
   },
   {
     "name": "Gustavsbergs Porslinsmuseum" ,
-    "adress": "Odelbergs väg 5, 134 40 Gustavsberg, https://goo.gl/maps/tQRMibp9buGh6PVd9",
-    "nearestStation": "Vattenhjulet",
-    "description": "Gustavsbergs Porslinsmuseum visar exempel på den välkända porslinsfabrikens produktion åren 1825–1993. 
-    Här finns både unikt konstgods från olika epoker och otaliga exempel på hushållsporslin, däribland klassiker skapade av 
-    fabrikens kända formgivare, men också många gamla älskade mönster av mer anonym karaktär, t.ex. Blå Blom och Allmoge. 
-    Samlingen i sig består av mer än 45 000 föremål tillverkade vid Gustavsbergs Porslinsfabrik under drygt 170 år.",
+    "address": "Odelbergs väg 5, 134 40 Gustavsberg",
+    "map": "https://goo.gl/maps/tQRMibp9buGh6PVd9",
+    "closestStation": "Vattenhjulet",
+    "description": "Gustavsbergs Porslinsmuseum visar exempel på den välkända porslinsfabrikens produktion åren 1825–1993. Här finns både unikt konstgods från olika epoker och otaliga exempel på hushållsporslin, däribland klassiker skapade av fabrikens kända formgivare, men också många gamla älskade mönster av mer anonym karaktär, t.ex. Blå Blom och Allmoge. Samlingen i sig består av mer än 45 000 föremål tillverkade vid Gustavsbergs Porslinsfabrik under drygt 170 år.",
     "website": "https://gustavsbergsporslinsmuseum.se/",
     "contact": "info@gustavsbergsporslinsmuseum.se",
-    "entranceFee": "100",
+    "entranceFee": 100,
     "cafe": false ,
-    "openingHours": "Måndag–torsdag: stängt, Fredag–Söndag: 11:00–16:00" ,
+    "openingHours": "Måndag–torsdag: stängt, Fredag–Söndag: 11:00–16:00",
+    "genre": "Museum"
+  },
+  
+  {
+    "name": "Tumba bruksmuseum" ,
+    "address": "Sven Palmes väg 2, 147 43 Tumba",
+    "map": "https://goo.gl/maps/3XrS71sJayBfqWCc9",
+    "closestStation": "Tumba bruk",
+    "description": "Unik, levande bruksmiljö sedan 250 år. Här skildras arbetet kring sedel- och papperstillverkningen och den speciella arbetsmiljön där arbetarna också bodde.  Miljön och byggnaderna i bruket speglar både det kulturhistoriska arvet och den industriella verksamheten. Möjlighet finns att testa att göra eget papper, museets kunniga personal hjälper dig genom hela processen.",
+    "website": "https://tumbabruksmuseum.se/",
+    "contact": "info@tumbabruksmuseum.se",
+    "entranceFee": 0,
+    "cafe": true  ,
+    "openingHours": "Torsdag-söndag klockan 11.00-16.00.",
+    "genre": "Museum"
+  },
+
+  {
+    "name": "Biocafé Tellus",
+    "address": "Vattenledningsvägen 46, 126 33 Hägersten",
+    "map": "https://goo.gl/maps/7kbbudzcffq8UKz7A",
+    "closestStation": "Midsommarkransens tunnelbana" ,
+    "description":"Biocafé Tellus är en kvartersbiograf från 1920 som sedan 1986 drivs av en ideell kulturförening. Idag är vi ett sjuttiotalmedlemmar som gör allt från att baka kakor till att laga projektorer. Föreningen är ekonomiskt och politiskt fristående",
+    "website": " https://tellusbio.nu",
+    "contact": "info@tellusbio.nu",
+    "entranceFee": 80,
+    "cafe": true,
+    "openingHours": "varierande",
+    "genre": "Bio"
+  },
+
+  {
+    "name": "Presens Improkällare",
+    "address": "Tegelbruksvägen 28, 126 34 Hägersten",
+    "map": "https://goo.gl/maps/ShUTfNqZ9qENRCCp7",
+    "closestStation": "Midsommarkransens tunnelbana" ,
+    "description": "Presens Impro är en improvisationsteater med inriktning på Impro Comedy. Det innebär att de vill skapa improviserad sketchhumor på scen, i den amerikanska stil som lärs ut på UCB och Second City i USA. En viktig skillnad mellan Presens och andra improvisationsteatrar i Sverige är att här är utgångspunkten är att impro är en humorform och allt som görs på scen syftar till att skapa humor. Förutom att varje helg spela föreställningar på de två scenerna i Vasastan och Midsommarkransen ger de även kurser i Impro comedy och utbildar företag inom samarbete, kommunikation och kreativitet.",
+    "website": "https://www.presensimpro.se/",
+    "contact": "info@presensimpro.se" ,
+    "entranceFee": 0,
+    "cafe": true,
+    "openingHours": "varierande",
+    "genre": "Teater"
+  },
+
+  {
+    "name": "Färgfabriken",
+    "address": "Lövholmsbrinken 1, 117 41 Stockholm",
+    "map":"https://goo.gl/maps/2235Loubp8NPapCc7",
+    "closestStation": "Liljeholmen" ,
+    "description": "Färgfabriken visar konstutställningar med stor iver och engagemang sedan 1995. Konst kan vara besvärlig, reflekterande, stillsam, tankeväckande, hotfull, provocerande. Konst är mycket. Konst ger oss impulser för reflektion, kontemplation och debatt. Konst innehåller många olika dimensioner och kan inte fångas i ett system eller en form. Det som visas på Färgfabriken skall vara engagerande och ha integritet.",
+    "website": "https://fargfabriken.se/sv",
+    "contact": "frontdesk@fargfabriken.se" ,
+    "entranceFee": 0,
+    "cafe": true,
+    "openingHours": "Torsdag–söndag 11–16",
+    "genre": "Konsthall"
+
+  },
+
+  {
+    "name": "Fullersta Gård" ,
+    "address": "Fullersta gårdsväg 18, 141 35 Huddinge",
+    "map": "https://goo.gl/maps/44dsJj8jnyQk88238",
+    "closestStation": "Huddinge Station",
+    "description": "Fullersta Gård konsthall är en del av Huddinge kommuns konstcentrum och ingår i verksamhetsområdet Konst och bibliotek som ingår i Huddinge kommuns Kultur- och fritidsförvaltning. Husets historia sträcker sig tillbaka till 1651 och är den äldsta bosättningen i centrala Huddinge. Här visas tillfälliga och permanenta utställningar. Vi arrangerar även föreläsningar och program.",
+    "website": "http://www.fullerstagard.se",
+    "contact": "fullerstagard@huddinge.se",
+    "entranceFee": 0,
+    "cafe":  true,
+    "openingHours": "Onsdag-söndag kl. 12.00-16.00, Torsdag kl. 12.00-19.00",
+    "genre": "Konsthall"
+  },
+
+  {
+    "name": "Teater Sláva" ,
+    "address": "Kyrkogårdsvägen 2, 141 62 Huddinge",
+    "map":"https://goo.gl/maps/HBdzXcsR2qsv2P1J8",
+    "closestStation": "Huddinge Station",
+    "description": "Teater Sláva är en fysisk och musikbaserad teater som gör föreställningar, konserter och pedagogik fyllt med röst och rörelse för barn som vuxna över hela världen. Teater Sláva är en fri teatergrupp som funnits och odlat sin särart i 25 år. Uttrycket är fysisk totalteater där sång, text, rörelse och energi blandas samman i visuellt starka bilder. Vi arbetar mycket med köruttryck i röst och rörelse, och med det solistiska i kontrast. Forskandet i den enskilda mänskliga förmågan och i gruppdynamikens kraft, i samarbetet och utbytet mellan kropp och röst har fört arbetet framåt. Den intensiva närvaron, energin och urkraften i sång och rörelse hjälper oss att komma åt laddningen av ögonblicket då aktör och publik kan mötas. Att våga utmana oss själva tillsammans med publiken och därmed visa på människans inneboende möjligheter är ett av våra mål.",
+    "website": "https://teater-slava.squarespace.com/",
+    "contact": "info@teaterslava.org",
+    "entranceFee": 0,
+    "cafe":  true,
+    "openingHours": "oklart",
+    "genre": "Teater"
   },
   {
-    "name": "Torekällberget" ,
-    "adress": "Källgatan 15, 151 45 Södertälje, https://goo.gl/maps/JZsVB63RsnKCyqPF7",
-    "nearestStation": "Torekällberget, Södertälje centrum",
-    "description": "Högt uppe på ett berg i centrala Södertälje ligger friluftsmuseet Torekällberget. 
-    Ett besök här är en gång in i den sörmländska historien. Här finns äldre bebyggelse, historiska trädgårdar 
-    och lantrasdjur som berättar om hur livet levdes på 1800-talet. I stadskvarteren finns café, krukmakeri, hantverksbutik 
-    och handelsbod. I hagarna runt bondgården och torpet går svenska lantraser såsom kaniner, getter, får, hästar och kossor.",
+    "name": "Torekällberget",
+    "address": "Källgatan 15, 151 45 Södertälje",
+    "map":"https://goo.gl/maps/JZsVB63RsnKCyqPF7",
+    "closestStation": "Torekällberget, Södertälje centrum",
+    "description": "Högt uppe på ett berg i centrala Södertälje ligger friluftsmuseet Torekällberget. Ett besök här är en gång in i den sörmländska historien. Här finns äldre bebyggelse, historiska trädgårdar och lantrasdjur som berättar om hur livet levdes på 1800-talet. I stadskvarteren finns café, krukmakeri, hantverksbutik och handelsbod. I hagarna runt bondgården och torpet går svenska lantraser såsom kaniner, getter, får, hästar och kossor.",
     "website": "https://www.sodertalje.se/kultur-och-fritid/torekallberget/",
     "contact": "torekallberget@sodertalje.se",
-    "entranceFee": "Fritt inträde",
-    "cafe": true ,
-    "openingHours": "Se https://www.sodertalje.se/kultur-och-fritid/torekallberget/infor-ditt-besok/oppettider/" ,
+    "entranceFee": 0,
+    "cafe": true,
+    "openingHours": "Se https://www.sodertalje.se/kultur-och-fritid/torekallberget/infor-ditt-besok/oppettider/",
+    "genre": "Friluftsmuseum"
   },
   {
-    "name": "" ,
-    "adress": "",
-    "nearestStation": "",
-    "description": "",
-    "website": "",
-    "contact": "",
-    "entranceFee": "",
-    "cafe":  ,
-    "openingHours": "",
+    "name": "K. A. Almgren sidenväveri & museum",
+    "map": "https://goo.gl/maps/7scR6igbUdRqsntC9",
+    "address": "Repslagargatan 15A, 118 46 Stockholm",
+    "closestStation": "Slussen",
+    "description": "Det enda ännu aktiva sidenväveri som finns kvar i Norden. Här vävs sidentyger och band på originalmaskiner i sin ursprungliga fabriksmiljö från 1860-talet. Det är också en plats för utställningar och program där det textila går som en röd tråd. Här möts samtid och historia.",
+    "website": "https://www.kasiden.se/",
+    "contact": "info@kasiden.se",
+    "entranceFee": 80,
+    "cafe": false,
+    "openingHours": "mån-lör 12-16",
+    "genre": "Museum"
   },
+  {
+    "name": "Litografiska museet",
+    "address": "Sundby gårdsväg 6, 141 91 Huddinge",
+    "map":"https://goo.gl/maps/7Z4nLYz4VHxwGucT7",
+    "closestStation": "Sundby gård",
+    "description": "Här visas stentryck med hundraåriga tryckpressar som fortfarande är i bruk. Snällpressen Johanna från 1897 är unik! I utställningshallen kan man se litografier, både nya och äldre. Museet ligger i den vackra parken på Sundby Gård med värdshus och fina strövområden",
+    "website": "https://www.litografiskamuseet.se/",
+    "contact": "info@litografiskamuseet.se",
+    "entranceFee": 0,
+    "cafe": true,
+    "openingHours": "tis-fre, sön 12-15",
+    "genre": "Museum"
+  },
+  {
+    "name": "Sveriges VVS-museum",
+    "address": "Archimedesvägen 1, 168 67 Bromma",
+    "map": "https://goo.gl/maps/m8SSGo3Vfj9MikQY8",
+    "closestStation": "Karlsbodavägen",
+    "description": "Sveriges VVS-museum visar VVS-branschens utveckling i Sverige. Tanken med museet är att visa hur VVS-branschen utvecklat det svenska samhället från Lort-Sverige till världens högsta levnadsstandard. Utställningen tar sin början i mitten på 1800-talet och framåt.",
+    "website": "http://www.sverigesvvsmuseum.se/",
+    "contact": " rolf.levin@sverigesvvsmuseum.se",
+    "entranceFee": 0,
+    "cafe": true,
+    "openingHours": "Se hemsida",
+    "genre": "Museum"
+  },
+  {
+    "name": "Svenska Tandläkare-sällskapets museum",
+    "address": "Haukadalsgatan 12, 164 40 Kista",
+    "map":"https://goo.gl/maps/ZMaCRQXJGHeGPGgN7",
+    "closestStation": "Kistavägen",
+    "description": "Föremålen började samlas 1860. Det är en av Europas förnämsta samlingar på 10 000 föremål och 2 000 böcker. T ex visas gamla sammetsklädda behandlingsstolar och hand- och trampborrar från tiden före elektriciteten. Finns porträtt, fotografier, särtryck, avhandlingar och läroböcker från olika epoker.",
+    "website": "https://tandlakarforbundet.se/museum/",
+    "contact": "museum@tandlakarforbundet.se",
+    "entranceFee": 0,
+    "cafe": false,
+    "openingHours": "Enligt överenskommelse",
+    "genre": "Museum"
+  },
+  {
+    "name": "Stockholm Toy Museum",
+    "address": "Svensksundsvägen 5, 111 49 Stockholm",
+    "map":"https://goo.gl/maps/uJ9u7snoh7yNhebn6",
+    "closestStation": "Östasiatiska museet",
+    "description": "Mycket nostalgi som tänder minnesstjärnor i ögonen på mormor och morfar, farmor och farfar och nyfikenhet och leklust hos alla barn. Lägg därtill de tillfälliga utställningar som visas och de specialarrangemang som anordnas med leksaker i fokus. För att inte tala om den stora modelljärnvägen som byggs och visas.",
+    "website": "https://leksaksmuseet.se/",
+    "contact": "info@leksaksmuseet.se",
+    "entranceFee": 80,
+    "cafe": true,
+    "openingHours": "tors-sön 11-16",
+    "genre": "Museum"
+  }
 ]
