@@ -31,10 +31,10 @@ app.post("/register", async (req, res) => {
   const { username, password } = req.body;
   try {
     const salt = bcrypt.genSaltSync();
-    if (password.length < 8) {
+    if (password.length < 5) {
       res.status(400).json({
         success: false,
-        response: "Password must be at least 8 characters long"
+        response: "Password must be at least 5 characters long"
       });
     } else {
       const newUser = await new User({ username: username, password: bcrypt.hashSync(password, salt) }).save();
@@ -118,7 +118,7 @@ const authenticateUser = async (req, res, next) => {
   }
 }); */
 
-//const Game = mongoose.model("Game", GameSchema);
+// const Game = mongoose.model("Game", GameSchema);
 const Nature = mongoose.model("Nature", NatureSchema);
 const Culture = mongoose.model("Culture", CultureSchema)
 
