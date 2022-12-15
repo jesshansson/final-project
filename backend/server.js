@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
-import games from "./data/games.json"
+//import games from "./data/games.json"
 import crypto from "crypto"
 import bcrypt from "bcrypt"
 import { UserSchema } from "./Schemas/user"
@@ -103,7 +103,7 @@ const authenticateUser = async (req, res, next) => {
   }
 }
 
-const GameSchema = new mongoose.Schema({
+/*const GameSchema = new mongoose.Schema({
   title: {
     type: String
   },
@@ -116,9 +116,9 @@ const GameSchema = new mongoose.Schema({
   release_date: {
     type: String
   }
-});
+}); */
 
-const Game = mongoose.model("Game", GameSchema);
+//const Game = mongoose.model("Game", GameSchema);
 const Nature = mongoose.model("Nature", NatureSchema);
 const Culture = mongoose.model("Culture", CultureSchema)
 
@@ -165,16 +165,16 @@ app.get("/endpoints", (req, res) => {
 })
 
 //app.get("/games", authenticateUser);
-app.get("/games", async (req, res) => {
+/*app.get("/games", async (req, res) => {
   const games = await Game.find({}).limit(10)
   res.status(200).json({ success: true, response: games })
-});
+}); */
 
 
 app.get("/locations", async (req, res) => {
   const nature = await Nature.find({})
   const culture = await Culture.find({})
-  res.status(200).json({ success: true, response: })
+  res.status(200).json({ success: true, response: nature})
 });
 
 
