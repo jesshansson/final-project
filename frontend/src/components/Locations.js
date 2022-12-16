@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useEffect } from 'react'
 import styled from "styled-components";
 import { useSelector } from "react-redux";
@@ -46,3 +47,26 @@ export const GridItem = styled.div`
   background-color: #ECB390;
   align-items: center;
   `
+=======
+import React, { useeffect, useState } from "react";
+
+export const Locations = () => {
+  const [location, setLocation] = useState()
+  const options = {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      // "Authorization": accessToken
+    }
+  }
+  fetch("http://localhost:8080/locations")
+    .then(res => res.json())
+    .then(data => setLocation(data))
+  return (
+    <>
+      <h1>Hello</h1>
+      {data.name}
+    </>
+  )
+}
+>>>>>>> 2998924 (trying fetches)
