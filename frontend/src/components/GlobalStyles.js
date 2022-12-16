@@ -6,21 +6,31 @@ export const GlobalStyle = createGlobalStyle`
     background-color: #FCF8E8;
     width: 100%;
     height: 100%;
-    display: flex; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
   footer {
     background-color: #CEE5D0;
-    height: 10vh;
+    height: 12vh;
     position: absolute;
     bottom: 0;
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  footer ul {
+    margin: 20px;
   }
   header {
     display: flex;
     align-items: center;
     justify-content: flex-end;
     width: 100vw;
-    height: 10vh;
+    height: 12vh;
     background-color: #CEE5D0;
   }
 
@@ -48,5 +58,4 @@ export const Devices = {
 //#CEE5D0 - lightgreen
 //#FCF8E8 - lightbeige
 
-//#D9D9D9
-//#D9D9D9
+//#D9D9D9 - orange-ish

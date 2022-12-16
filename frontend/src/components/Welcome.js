@@ -1,24 +1,21 @@
 import React from "react";
-//import styled from "styled-components";
+import styled from "styled-components";
 
 export const Welcome = () => {
 
   return (
     <section>
-      <header>
-          <ul>Link</ul>
-          <ul>Link</ul>
-          <ul>Link</ul>
-          <ul>Link</ul>
-      </header>
-        <section>
+        <WelcomeText>
           Content
-        </section>
-        <footer>
-          Footer
-        </footer>
+        </WelcomeText>
     </section>
   )
 }
 
+const WelcomeText = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`
 

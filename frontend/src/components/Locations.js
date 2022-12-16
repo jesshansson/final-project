@@ -5,7 +5,6 @@ export const Locations = () => {
 
   return (
     <section>
-    <header />
 
     <LocationGrid>
       <GridItem />
@@ -17,7 +16,6 @@ export const Locations = () => {
       <GridItem />
       <GridItem />
       </LocationGrid>
-      <footer />
 
     </section>
   )

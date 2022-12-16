@@ -1,16 +1,15 @@
 import React from "react";
 
 
-export const Header = () => {
+export const Footer = () => {
   return (
     <section>
-      <header>
+      <footer>
           <ul>Link</ul>
           <ul>Link</ul>
           <ul>Link</ul>
           <ul>Link</ul>
-      </header>
+      </footer>
     </section>
   )
 }
-
