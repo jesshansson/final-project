@@ -1,7 +1,6 @@
 import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
-//import games from "./data/games.json"
 import crypto from "crypto"
 import bcrypt from "bcrypt"
 import { UserSchema } from "./Schemas/user"
@@ -103,26 +102,8 @@ const authenticateUser = async (req, res, next) => {
   }
 }
 
-/*const GameSchema = new mongoose.Schema({
-  title: {
-    type: String
-  },
-  developer: {
-    type: String
-  },
-  publisher: {
-    type: String
-  },
-  release_date: {
-    type: String
-  }
-}); */
-
-// const Game = mongoose.model("Game", GameSchema);
 const Nature = mongoose.model("Nature", NatureSchema);
 const Culture = mongoose.model("Culture", CultureSchema)
-
-
 
 if (true) {
   const resetDatabase = async () => {
@@ -140,22 +121,9 @@ if (true) {
   resetDatabase();
 }
 
-// if (true) {
-//   const resetDatabase = async () => {
-//     await Game.deleteMany();
-//     games.forEach(singleGame => {
-//       const newGame = new Game(singleGame);
-//       newGame.save();
-//     })
-//   }
-//   resetDatabase();
-// }
-
 app.get("/", (req, res) => {
   res.send([
     { "test": "test" }
-    // { "API": "NES-games library at /games" },
-    // { "path": "/games", "url": 'https://project-auth-rrvntf6zcq-lz.a.run.app/games', "methods": ["GET"] }
   ]);
 });
 
@@ -164,24 +132,34 @@ app.get("/endpoints", (req, res) => {
   res.send(listEndpoints(app))
 })
 
-//app.get("/games", authenticateUser);
-/*app.get("/games", async (req, res) => {
-  const games = await Game.find({}).limit(10)
-  res.status(200).json({ success: true, response: games })
-}); */
-
-
 app.get("/locations", async (req, res) => {
   const nature = await Nature.find({})
   const culture = await Culture.find({})
   res.status(200).json({ success: true, response: {culture, nature}})
 });
 
-
-// Start defining your routes here
-app.get("/", (req, res) => {
-  res.send("Hello Technigos!");
-});
+app.get("/locations/:id", async (req, res) => {
+  try {
+    const singleLocationNature = await Nature.findById({ _id: req.params.id })
+    const singleLocationCulture = await Culture.findById({ _id: req.params.id })
+    if (singleLocationCulture || singleLocationNature) {
+      res.status(200).json({
+        success: true,
+        response: singleLocationCulture || singleLocationNature
+      })
+    } else {
+      res.status(404).json({
+        success: false,
+        response: "No such location"
+      })
+    }
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      response: "Invalid"
+    })
+  }
+})
 
 // Start the server
 app.listen(port, () => {
