@@ -1,5 +1,4 @@
 import React from 'react';
-<<<<<<< HEAD
 import { GlobalStyle } from 'components/GlobalStyles';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
@@ -19,60 +18,32 @@ import { Utloggad } from 'components/utloggad';
 const reducer = combineReducers({
   user: user.reducer,
 });
-const store = configureStore({reducer});
+const store = configureStore({ reducer });
 
 export const App = () => {
-    fetch("https://final-project-fovvngwz2q-lz.a.run.app/locations")
+  fetch("https://final-project-fovvngwz2q-lz.a.run.app/locations")
     .then(res => res.json())
     .then(data => console.log(data))
 
   return (
     <Provider store={store}>
-    <BrowserRouter>
-    <GlobalStyle/>
-    <Header/>
-    
-    <Routes>
-    <Route path='/' element={<Welcome/>} />
-      <Route path='/login' element={<Login/>} />
-      <Route path='/profile' element={<UserProfile/>} />
-      <Route path='/locations' element={<Locations/>} />
-      <Route path='/location' element={<SingleLocation/>} />
-      <Route path='/about' element={<AboutUs/>} />
-      <Route path='/utloggad' element={<Utloggad/>} />
-      <Route path='*' element={<NotFound/>} />
-    </Routes>
-    <Footer/>
-  </BrowserRouter>
-  </Provider>
-=======
-import { Locations } from 'components/Locations';
-// import { BrowserRouter, Routes, Route } from 'react-router-dom';
+      <BrowserRouter>
+        <GlobalStyle />
+        <Header />
 
-export const App = () => {
-  // fetch("http://localhost:8080/games")
-  //   .then(res => res.json())
-  //   .then(data => console.log(data))
-
-  // fetch("http://localhost:8080/locations")
-  // .then(res => res.json())
-  // .then(data => console.log(data))
-
-  return (
-    <>
-      <Locations />
-    </>
-    //   <BrowserRouter>
-    //   <Routes>
-    //     <Route path='/login' element={<Login/>}></Route>
-    //     <Route path='/profile' element={<UserProfile/>}></Route> /* Eller ska denna endast vara /? */
-    //     <Route path='/locations' element={<Locations/>}></Route> 
-    //     <Route path='/singlelocation' element={<SingleLocation/>}></Route>
-    //     <Route path='/about' element={<AboutUs/>}></Route>
-    //     <Route path='*' element={<NotFound/>}></Route>
-    //   </Routes>
-    // </BrowserRouter>
->>>>>>> 2998924 (trying fetches)
+        <Routes>
+          <Route path='/' element={<Welcome />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/profile' element={<UserProfile />} />
+          <Route path='/locations' element={<Locations />} />
+          <Route path='/location' element={<SingleLocation />} />
+          <Route path='/about' element={<AboutUs />} />
+          <Route path='/utloggad' element={<Utloggad />} />
+          <Route path='*' element={<NotFound />} />
+        </Routes>
+        <Footer />
+      </BrowserRouter>
+    </Provider>
   );
 }
 
