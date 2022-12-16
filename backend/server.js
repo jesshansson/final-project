@@ -174,7 +174,7 @@ app.get("/endpoints", (req, res) => {
 app.get("/locations", async (req, res) => {
   const nature = await Nature.find({})
   const culture = await Culture.find({})
-  res.status(200).json({ success: true, response: culture, nature})
+  res.status(200).json({ success: true, response: {culture, nature}})
 });
 
 
