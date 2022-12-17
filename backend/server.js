@@ -55,6 +55,65 @@ app.post("/register", async (req, res) => {
   }
 });
 
+
+const Nature = mongoose.model("Nature", NatureSchema);
+const Culture = mongoose.model("Culture", CultureSchema)
+
+if (true) {
+  const resetDatabase = async () => {
+    await Culture.deleteMany();
+    culture.forEach(singleCulture => {
+      const newCulture = new Culture(singleCulture);
+      newCulture.save()
+    })
+    await Nature.deleteMany();
+    nature.forEach(singleNature => {
+      const newNature = new Nature(singleNature)
+      newNature.save()
+    })
+  }
+  resetDatabase();
+}
+
+//Register new user
+app.post("/register", async (req, res) => {
+  const { username, password } = req.body;
+
+  try {
+    const salt = bcrypt.genSaltSync();
+
+    if (password.length < 5) {
+      res.status(400).json({
+        success: false,
+        response: "Password must be at least 5 characters long"
+      });
+    } else {
+      const newUser = await new User({username: username, password: bcrypt.hashSync(password, salt)}).save();
+      res.status(201).json({
+        success: true,
+        response: {
+          username: newUser.username,
+          accessToken: newUser.accessToken,
+          id: newUser._id
+        }
+      });
+    }
+  } catch(error) {
+    if (error.code === 11000) {
+      res.status(400).json({
+        success: false,
+        response: 'Username already in use',
+      });
+    } else {
+      res.status(400).json({
+        success: false,
+        response: error
+      });
+  }
+}
+});
+
+//Login
 app.post("/login", async (req, res) => {
   const { username, password } = req.body;
   try {
@@ -82,6 +141,7 @@ app.post("/login", async (req, res) => {
   }
 });
 
+// Authenticated endpoint - accesible after logged in
 const authenticateUser = async (req, res, next) => {
   const accessToken = req.header("Authorization");
   try {
@@ -102,24 +162,15 @@ const authenticateUser = async (req, res, next) => {
   }
 }
 
-const Nature = mongoose.model("Nature", NatureSchema);
-const Culture = mongoose.model("Culture", CultureSchema)
+// When user is authenticated they are directed to this endpoint
+app.get("/locations", authenticateUser)
+app.get("/locations", (req, res) => {
+  res.status(200).json({
+    sucess: true,
+    response: "Welcome, you are now logged in!"
+  })
+})
 
-if (true) {
-  const resetDatabase = async () => {
-    await Culture.deleteMany();
-    culture.forEach(singleCulture => {
-      const newCulture = new Culture(singleCulture);
-      newCulture.save()
-    })
-    await Nature.deleteMany();
-    nature.forEach(singleNature => {
-      const newNature = new Nature(singleNature)
-      newNature.save()
-    })
-  }
-  resetDatabase();
-}
 
 app.get("/", (req, res) => {
   res.send([

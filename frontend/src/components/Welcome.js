@@ -1,21 +1,23 @@
 import React from "react";
 import styled from "styled-components";
+import { Devices } from './GlobalStyles';
 
 export const Welcome = () => {
 
   return (
-    <section>
+    <WelcomeWrapper>
         <WelcomeText>
-          Content
+          Välkommen!
         </WelcomeText>
-    </section>
+    </WelcomeWrapper>
   )
 }
 
-const WelcomeText = styled.div`
+const WelcomeWrapper = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 `
+const WelcomeText = styled.div``
 

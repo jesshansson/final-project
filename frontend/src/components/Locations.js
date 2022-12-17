@@ -1,13 +1,14 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
+import { Devices } from './GlobalStyles';
 
 export const Locations = () => {
 
   return (
     <section>
-
     <LocationGrid>
-      <GridItem />
+      <Link to ="/location"><GridItem /></Link> 
       <GridItem />
       <GridItem />
       <GridItem />
@@ -16,7 +17,6 @@ export const Locations = () => {
       <GridItem />
       <GridItem />
       </LocationGrid>
-
     </section>
   )
 }

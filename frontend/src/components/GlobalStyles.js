@@ -25,6 +25,11 @@ export const GlobalStyle = createGlobalStyle`
   footer ul {
     margin: 20px;
   }
+
+  footer a {
+    text-decoration: none;
+  }
+
   header {
     display: flex;
     align-items: center;
@@ -32,10 +37,15 @@ export const GlobalStyle = createGlobalStyle`
     width: 100vw;
     height: 12vh;
     background-color: #CEE5D0;
+    text-decoration: none;
   }
 
   header ul {
     margin: 20px;
+  }
+
+  header a {
+    text-decoration: none;
   }
 `
 
@@ -50,12 +60,12 @@ export const Devices = {
   laptop: `(min-width: ${sizes.laptop})`,
   desktop: `(min-width: ${sizes.desktop})`
 };
-
-
+//@media ${Devices.tablet} {}
+//@media ${Devices.laptop} {}
+//@media ${Devices.desktop} {}
 
 
 //Colour scheme
 //#CEE5D0 - lightgreen
 //#FCF8E8 - lightbeige
-
-//#D9D9D9 - orange-ish
+//#ECB390 - orange-ish
