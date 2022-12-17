@@ -13,6 +13,7 @@ import { Footer } from 'components/Footer';
 import { SingleLocation } from 'components/SingleLocation';
 import { AboutUs } from 'components/AboutUs';
 import user from './reducers/user';
+import { Utloggad } from 'components/utloggad';
 
 const reducer = combineReducers({
   user: user.reducer,
@@ -37,6 +38,7 @@ export const App = () => {
       <Route path='/locations' element={<Locations/>} />
       <Route path='/location' element={<SingleLocation/>} />
       <Route path='/about' element={<AboutUs/>} />
+      <Route path='/utloggad' element={<Utloggad/>} />
       <Route path='*' element={<NotFound/>} />
     </Routes>
     <Footer/>

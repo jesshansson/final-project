@@ -1,9 +1,20 @@
-import React from "react";
+import React, { useEffect } from 'react'
 import styled from "styled-components";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import user from 'reducers/user';
 import { Devices } from './GlobalStyles';
 
 export const Locations = () => {
+  const accessToken = useSelector((store) => store.user.accessToken);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!accessToken) {
+      navigate("/utloggad");
+    }
+  }, [accessToken])
 
   return (
     <section>
