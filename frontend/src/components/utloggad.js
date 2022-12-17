@@ -1,8 +1,9 @@
+import React from "react";
+import { Link } from "react-router-dom";
 
 export const Utloggad = () => {
 
   return (
- <p>hej då</p>
-    
+ <Link to="/login"> Logga in igen</Link>
   )
 }
