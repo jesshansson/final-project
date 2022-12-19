@@ -18,32 +18,32 @@ import { Utloggad } from 'components/utloggad';
 const reducer = combineReducers({
   user: user.reducer,
 });
-const store = configureStore({reducer});
+const store = configureStore({ reducer });
 
 export const App = () => {
-    fetch("https://final-project-fovvngwz2q-lz.a.run.app/locations")
+  fetch("https://final-project-fovvngwz2q-lz.a.run.app/locations")
     .then(res => res.json())
     .then(data => console.log(data))
 
   return (
     <Provider store={store}>
-    <BrowserRouter>
-    <GlobalStyle/>
-    <Header/>
-    
-    <Routes>
-    <Route path='/' element={<Welcome/>} />
-      <Route path='/login' element={<Login/>} />
-      <Route path='/profile' element={<UserProfile/>} />
-      <Route path='/locations' element={<Locations/>} />
-      <Route path='/location' element={<SingleLocation/>} />
-      <Route path='/about' element={<AboutUs/>} />
-      <Route path='/utloggad' element={<Utloggad/>} />
-      <Route path='*' element={<NotFound/>} />
-    </Routes>
-    <Footer/>
-  </BrowserRouter>
-  </Provider>
+      <BrowserRouter>
+        <GlobalStyle />
+        <Header />
+
+        <Routes>
+          <Route path='/' element={<Welcome />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/profile' element={<UserProfile />} />
+          <Route path='/locations' element={<Locations />} />
+          <Route path='/location' element={<SingleLocation />} />
+          <Route path='/about' element={<AboutUs />} />
+          <Route path='/utloggad' element={<Utloggad />} />
+          <Route path='*' element={<NotFound />} />
+        </Routes>
+        <Footer />
+      </BrowserRouter>
+    </Provider>
   );
 }
 

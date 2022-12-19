@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -16,21 +16,76 @@ export const Locations = () => {
     }
   }, [accessToken])
 
+  const [cultureLocation, setCultureLocation] = useState([])
+  const [natureLocation, setNatureLocation] = useState([])
+
+  useEffect(() => {
+    const options = {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        // "Authorization": accessToken
+      }
+    }
+    fetch("https://final-project-fovvngwz2q-lz.a.run.app")
+      .then(res => res.json())
+      .then(data => setCultureLocation(data.response.culture))
+      .then(console.log(cultureLocation))
+      .catch(error => console.error(error))
+
+    fetch("https://final-project-fovvngwz2q-lz.a.run.app")
+      .then(res => res.json())
+      .then(data => setNatureLocation(data.response.nature))
+      .then(console.log(natureLocation))
+      .catch(error => console.error(error))
+
+  }, []);
+
   return (
-    <section>
-    <LocationGrid>
-      <Link to ="/location"><GridItem /></Link> 
-      <GridItem />
-      <GridItem />
-      <GridItem />
-      <GridItem />
-      <GridItem />
-      <GridItem />
-      <GridItem />
-      </LocationGrid>
-    </section>
+    <>
+      {cultureLocation.map((item) => (
+        <GridItem
+          key={item._id}>
+          <h1>Name: {item.name} </h1>
+          <h2>Adress: {item.address}</h2>
+          <h3>Map: {item.map}</h3>
+        </GridItem>
+      ))
+      }
+
+      {natureLocation.map((item) => (
+        <GridItem
+          key={item._id}>
+          <h1>Name: {item.name} </h1>
+          <h2>Cafe: {item.cafe.toString()}</h2>
+          <h3>Map: {item.map}</h3>
+        </GridItem>
+      ))
+      }
+    </>
   )
+
+
+  //     // <header />
+
+  //     // <LocationGrid>
+  //     //   <GridItem />
+  //     //   <GridItem />
+  //     //   <GridItem />
+  //     //   <GridItem />
+  //     //   <GridItem />
+  //     //   <GridItem />
+  //     //   <GridItem />
+  //     //   <GridItem />
+  //     // </LocationGrid>
+  //     // <footer />
+
+  //   </section>
+  // )
 }
+
+
+
 
 export const LocationGrid = styled.section`
   display: grid;
@@ -41,6 +96,7 @@ export const LocationGrid = styled.section`
 `
 export const GridItem = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   padding: 10px;
   background-color: #ECB390;
