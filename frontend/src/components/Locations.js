@@ -7,14 +7,25 @@ import user from 'reducers/user';
 import { Devices } from './GlobalStyles';
 
 export const Locations = () => {
-  const accessToken = useSelector((store) => store.user.accessToken);
   const navigate = useNavigate();
+//LOCAL STORAGE 
+  // const accessToken = localStorage.getItem('accessToken');
+  // const username = localStorage.getItem('username');
 
-  useEffect(() => {
-    if (!accessToken) {
-      navigate("/utloggad");
-    }
-  }, [accessToken])
+//   localStorage.removeItem('accessToken');
+//   localStorage.removeItem('username');
+//   navigate("/");
+// }
+
+
+  // const accessToken = useSelector((store) => store.user.accessToken);
+  // const navigate = useNavigate();
+
+  // useEffect(() => {
+  //   if (!accessToken) {
+  //     navigate("/utloggad");
+  //   }
+  // }, [accessToken])
 
   const [cultureLocation, setCultureLocation] = useState([])
   const [natureLocation, setNatureLocation] = useState([])
@@ -27,13 +38,13 @@ export const Locations = () => {
         // "Authorization": accessToken
       }
     }
-    fetch("https://final-project-fovvngwz2q-lz.a.run.app")
+    fetch("http://localhost:8080/locations")
       .then(res => res.json())
       .then(data => setCultureLocation(data.response.culture))
       .then(console.log(cultureLocation))
       .catch(error => console.error(error))
 
-    fetch("https://final-project-fovvngwz2q-lz.a.run.app")
+    fetch("http://localhost:8080/locations")
       .then(res => res.json())
       .then(data => setNatureLocation(data.response.nature))
       .then(console.log(natureLocation))
@@ -42,14 +53,22 @@ export const Locations = () => {
   }, []);
 
   return (
-    <>
+    <>   
+    <LocationGrid>
+
       {cultureLocation.map((item) => (
-        <GridItem
-          key={item._id}>
+         
+          <GridItem>
+          <Link 
+          key={item._id}
+          to={`/locations/${item._id}`}>
           <h1>Name: {item.name} </h1>
           <h2>Adress: {item.address}</h2>
           <h3>Map: {item.map}</h3>
+          </Link>
         </GridItem>
+        
+
       ))
       }
 
@@ -59,29 +78,13 @@ export const Locations = () => {
           <h1>Name: {item.name} </h1>
           <h2>Cafe: {item.cafe.toString()}</h2>
           <h3>Map: {item.map}</h3>
+          <button onClick={() => navigate("/locations/:id")}>Kolla här!</button>
         </GridItem>
       ))
       }
+      </LocationGrid>
     </>
   )
-
-
-  //     // <header />
-
-  //     // <LocationGrid>
-  //     //   <GridItem />
-  //     //   <GridItem />
-  //     //   <GridItem />
-  //     //   <GridItem />
-  //     //   <GridItem />
-  //     //   <GridItem />
-  //     //   <GridItem />
-  //     //   <GridItem />
-  //     // </LocationGrid>
-  //     // <footer />
-
-  //   </section>
-  // )
 }
 
 

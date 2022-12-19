@@ -141,6 +141,7 @@ app.post("/login", async (req, res) => {
   }
 });
 
+/*
 // Authenticated endpoint - accesible after logged in
 const authenticateUser = async (req, res, next) => {
   const accessToken = req.header("Authorization");
@@ -160,16 +161,16 @@ const authenticateUser = async (req, res, next) => {
       success: false
     });
   }
-}
+}*/
 
 // When user is authenticated they are directed to this endpoint
-app.get("/locations", authenticateUser)
+/*app.get("/locations", authenticateUser)
 app.get("/locations", (req, res) => {
   res.status(200).json({
     sucess: true,
     response: "Welcome, you are now logged in!"
   })
-})
+})*/
 
 
 app.get("/", (req, res) => {

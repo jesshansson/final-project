@@ -34,6 +34,27 @@ openingHours: {
 },
 genre: {
   type: String
+},
+opening_hours_mon: {
+  type: String
+},
+opening_hours_tue: {
+  type: String
+},
+opening_hours_wed: {
+  type: String
+},
+opening_hours_thu: {
+  type: String
+},
+opening_hours_fri: {
+  type: String
+},
+opening_hours_sat: {
+  type: String
+},
+opening_hours_sun: {
+  type: String
 }
 
 })

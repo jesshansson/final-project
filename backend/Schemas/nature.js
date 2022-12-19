@@ -5,6 +5,10 @@ export const NatureSchema = new mongoose.Schema({
   name: {
     type: String
   },
+
+  img: {
+    type: String
+  },
   // adress: {
   //   type: String
   // }, 
