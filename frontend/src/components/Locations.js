@@ -73,12 +73,14 @@ export const Locations = () => {
         }
 
         {natureLocation.map((item) => (
-          <GridItem
-            key={item._id}>
-            <h1>Name: {item.name} </h1>
-            <h2>Cafe: {item.cafe.toString()}</h2>
-            <h3>Map: {item.map}</h3>
-            <button onClick={() => navigate("/locations/:id")}>Kolla här!</button>
+          <GridItem>
+            <Link
+              key={item._id}
+              to={`/locations/${item.name}`}>
+              <h1>Name: {item.name} </h1>
+              <h2>Cafe: {item.cafe.toString()}</h2>
+              <h3>Map: {item.map}</h3>
+            </Link>
           </GridItem>
         ))
         }
