@@ -52,9 +52,9 @@ export const SingleLocation = () => {
         {detailsNature.map(() => (
           <SingleLocationDiv>
             <h1>Description: {matchNature.description} </h1>
-            <h2>Website: {matchNature.website}</h2>
             <h2>highlights: {matchNature.highlights}</h2>
-            <h3>Toilet: {matchNature.toilet}</h3>
+            <h2>activities: {matchNature.activities}</h2>
+            <h3>Toilet: {matchNature.toilet.toString()}</h3>
           </SingleLocationDiv>
         ))}
       </section>

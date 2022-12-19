@@ -55,9 +55,7 @@ export const Locations = () => {
   return (
     <>
       <LocationGrid>
-
         {cultureLocation.map((item) => (
-
           <GridItem>
             <Link
               key={item._id}
@@ -67,8 +65,6 @@ export const Locations = () => {
               <h3>Map: {item.map}</h3>
             </Link>
           </GridItem>
-
-
         ))
         }
 
