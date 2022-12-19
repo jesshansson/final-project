@@ -21,12 +21,11 @@ const reducer = combineReducers({
  const store = configureStore({ reducer });
 
 export const App = () => {
-   fetch("http://localhost:8080/locations")
-    .then(res => res.json())
-    .then(data => console.log(data))
+  //  fetch("http://localhost:8080/locations")
+  // 6  .then(res => res.json())
+  //   .then(data => console.log(data))
 
   return (
-    
    <Provider store={store}>
     <BrowserRouter>
     <GlobalStyle />
@@ -36,14 +35,14 @@ export const App = () => {
       <Route path='/login' element={<Login />} />
       <Route path='/profile' element={<UserProfile />} />
       <Route path='/locations' element={<Locations />} />
-      <Route path='/location' element={<SingleLocation />} />
+      <Route path='/locations/:id' element={<SingleLocation />} />
       <Route path='/about' element={<AboutUs />} />
       <Route path='/utloggad' element={<Utloggad />} />
       <Route path='*' element={<NotFound />} />
     </Routes>
     <Footer />
   </BrowserRouter>
-  </Provider>
+   </Provider>
   );
 }
 
