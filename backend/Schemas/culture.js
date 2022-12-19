@@ -5,7 +5,7 @@ export const CultureSchema = new mongoose.Schema({
 name: {
   type: String
 },
-adress: {
+address: {
   type: String
 },
 map: {
