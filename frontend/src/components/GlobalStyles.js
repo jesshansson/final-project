@@ -47,8 +47,11 @@ export const GlobalStyle = createGlobalStyle`
   header a {
     text-decoration: none;
   }
-`
 
+`
+export const Title = styled.h1`
+color: indianred;
+  `
 const sizes = {
   tablet: '668px',
   laptop: '1024px',
