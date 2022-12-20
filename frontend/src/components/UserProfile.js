@@ -12,15 +12,15 @@ export const UserProfile = () => {
 }
 
 /* <Button
-onClick={() => {
-if (item.user._id === userId) {
-navigate(`/userprofile/${userId}`);
-} else {
-navigate(`userprofile/${item.user._id}/visit`);
-}
-}}
-size="small"
-sx={{
-fontFamily: "secondary.fontFamily",
-}}
+    onClick={() => {
+    if (item.user._id === userId) {
+    navigate(`/userprofile/${userId}`);
+    } else {
+    navigate(`userprofile/${item.user._id}/visit`);
+    }
+    }}
+    size="small"
+    sx={{
+    fontFamily: "secondary.fontFamily",
+    }}
 > */

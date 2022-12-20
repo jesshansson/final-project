@@ -8,14 +8,14 @@ import { Devices } from './GlobalStyles';
 
 export const Locations = () => {
   const navigate = useNavigate();
-//LOCAL STORAGE 
+  //LOCAL STORAGE 
   // const accessToken = localStorage.getItem('accessToken');
   // const username = localStorage.getItem('username');
 
-//   localStorage.removeItem('accessToken');
-//   localStorage.removeItem('username');
-//   navigate("/");
-// }
+  //   localStorage.removeItem('accessToken');
+  //   localStorage.removeItem('username');
+  //   navigate("/");
+  // }
 
 
   // const accessToken = useSelector((store) => store.user.accessToken);
@@ -53,63 +53,57 @@ export const Locations = () => {
   }, []);
 
   return (
-    <>   
-    <LocationGrid>
-
-      {cultureLocation.map((item) => (
-         
-          
-          <GridItem 
-          key={item._id}
-          to={`/locations/${item._id}`}>
-          <h1>Name: {item.name} </h1>
-          <h2>Adress: {item.address}</h2>
-          <h3>Map: {item.map}</h3>
+    <>
+      <LocationGrid>
+        {cultureLocation.map((item) => (
+          <GridItem>
+            <Link
+              key={item._id}
+              to={`/locations/${item.name}`}>
+              <h1>Name: {item.name} </h1>
+              <h2>Adress: {item.address}</h2>
+              <h3>Map: {item.map}</h3>
+            </Link>
           </GridItem>
-        
-        
+        ))
+        }
 
-      ))
-      }
-
-      {natureLocation.map((item) => (
-        <GridItem
-          key={item._id}>
-          <h1>Name: {item.name} </h1>
-          <h2>Cafe: {item.cafe.toString()}</h2>
-          <h3>Map: {item.map}</h3>
-          <button onClick={() => navigate("/locations/:id")}>Kolla här!</button>
-        </GridItem>
-      ))
-      }
+        {natureLocation.map((item) => (
+          <GridItem>
+            <Link
+              key={item._id}
+              to={`/locations/${item.name}`}>
+              <h1>Name: {item.name} </h1>
+              <h2>Cafe: {item.cafe.toString()}</h2>
+              <h3>Map: {item.map}</h3>
+            </Link>
+          </GridItem>
+        ))
+        }
       </LocationGrid>
     </>
   )
 }
 
 
-
-
 export const LocationGrid = styled.section`
   display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  grid-template-rows: 50px 50px;
   grid-gap: 15px;
   margin: 30px;
 
-  @media ${Devices.tablet} {
+  @media (min-width:800px) {
     grid-template-columns: repeat(2, 1fr);
-  }
+  } 
+
   @media ${Devices.laptop} {
     grid-template-columns: repeat(4, 1fr);
   }
-`
+` 
 export const GridItem = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 20px;
+  padding: 10px;
   background-color: #ECB390;
   align-items: center;
-  border: 1px solid black;
-  `
+`

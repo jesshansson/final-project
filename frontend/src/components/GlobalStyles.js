@@ -1,6 +1,4 @@
-import styled from "styled-components";
 import { createGlobalStyle } from "styled-components";
-
 
 const sizes = {
   tablet: '668px',
@@ -26,13 +24,17 @@ export const GlobalStyle = createGlobalStyle`
   }
   footer {
     background-color: #CEE5D0;
-    height: 12vh;
-    position: absolute;
+    height: 10vh;
+    width: 100vw;
+    position: fixed;
     bottom: 0;
-    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+
+    @media ${Devices.tablet} {
+      height: 12vh;
+    }
   }
 
   footer ul {
@@ -47,8 +49,8 @@ export const GlobalStyle = createGlobalStyle`
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    width: 100vw;
     height: 12vh;
+    width: 100vw;
     background-color: #CEE5D0;
     text-decoration: none;
   }
@@ -65,6 +67,12 @@ export const GlobalStyle = createGlobalStyle`
 
   header a {
     text-decoration: none;
+  }
+
+  a {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
   }
 `
 

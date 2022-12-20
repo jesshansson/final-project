@@ -6,16 +6,14 @@ import { Devices } from './GlobalStyles';
 
 export const Footer = () => {
   return (
-    <FooterWrapper>
+    <section>
       <footer>
           <ul>Kontakt</ul>
           <ul><Link to ="/about">Om oss</Link></ul>
       </footer>
-    </FooterWrapper>
+    </section>
   )
 }
 
 const FooterWrapper = styled.footer`
-    position: absolute;
-    bottom: 0;
 `
