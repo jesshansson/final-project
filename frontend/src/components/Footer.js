@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import styled from "styled-components";
 import { Devices } from './GlobalStyles';
 
 
@@ -13,3 +14,6 @@ export const Footer = () => {
     </section>
   )
 }
+
+const FooterWrapper = styled.footer`
+`
