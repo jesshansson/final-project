@@ -58,15 +58,15 @@ export const Locations = () => {
 
       {cultureLocation.map((item) => (
          
-          <GridItem>
-          <Link 
+          
+          <GridItem 
           key={item._id}
           to={`/locations/${item._id}`}>
           <h1>Name: {item.name} </h1>
           <h2>Adress: {item.address}</h2>
           <h3>Map: {item.map}</h3>
-          </Link>
-        </GridItem>
+          </GridItem>
+        
         
 
       ))
@@ -92,16 +92,24 @@ export const Locations = () => {
 
 export const LocationGrid = styled.section`
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   grid-template-rows: 50px 50px;
   grid-gap: 15px;
   margin: 30px;
+
+  @media ${Devices.tablet} {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media ${Devices.laptop} {
+    grid-template-columns: repeat(4, 1fr);
+  }
 `
 export const GridItem = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 10px;
+  padding: 20px;
   background-color: #ECB390;
   align-items: center;
+  border: 1px solid black;
   `

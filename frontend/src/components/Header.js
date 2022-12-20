@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import user from "reducers/user";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { Devices } from "./GlobalStyles";
 
 
 export const Header = () => {
@@ -18,14 +19,13 @@ export const Header = () => {
           <ul><Link to ="/locations">Besöksmål</Link></ul>
           <ul><Link to ="/profile">Profil</Link></ul>
           <ul><Link to ="/login">Logga in</Link></ul>
-          <Button
-          type="button"
+          <ul><Link
           onClick={() => {
           dispatch(user.actions.setAccessToken(null));
           navigate("/utloggad");
           } }>
           Logga ut
-        </Button>
+        </Link></ul>
       </HeaderGroup>
       </header>
     </section>
@@ -33,13 +33,13 @@ export const Header = () => {
 }
 
 const HeaderGroup = styled.ul`
-margin: 10px;
+padding: 0px;
 display: flex;
 flex-direction: row;
+
+@media ${Devices.tablet} {
+  margin: 10px;
+  padding: 5px;
+  }
 `
-const Button = styled.button`
-background: transparent;
-border: none;
-cursor: pointer
-`
-//          <ul><Link to ="/login">Logga ut</Link></ul>
+

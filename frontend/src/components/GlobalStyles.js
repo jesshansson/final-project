@@ -1,6 +1,19 @@
 import styled from "styled-components";
 import { createGlobalStyle } from "styled-components";
 
+
+const sizes = {
+  tablet: '668px',
+  laptop: '1024px',
+  desktop: '2560px'
+};
+
+export const Devices = {
+  tablet: `(min-width: ${sizes.tablet})`,
+  laptop: `(min-width: ${sizes.laptop})`,
+  desktop: `(min-width: ${sizes.desktop})`
+};
+
 export const GlobalStyle = createGlobalStyle`
   body {
     background-color: #FCF8E8;
@@ -41,7 +54,13 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   header ul {
-    margin: 20px;
+    padding: 5px;
+    margin: 5px;
+    
+    @media ${Devices.tablet} {
+      padding: 10px;
+      margin: 20px;
+    }
   }
 
   header a {
@@ -49,20 +68,10 @@ export const GlobalStyle = createGlobalStyle`
   }
 `
 
-const sizes = {
-  tablet: '668px',
-  laptop: '1024px',
-  desktop: '2560px'
-};
 
-export const Devices = {
-  tablet: `(min-width: ${sizes.tablet})`,
-  laptop: `(min-width: ${sizes.laptop})`,
-  desktop: `(min-width: ${sizes.desktop})`
-};
-//@media ${Devices.tablet} {}
-//@media ${Devices.laptop} {}
-//@media ${Devices.desktop} {}
+//@media ${Devices.tablet} 
+//@media ${Devices.laptop} 
+//@media ${Devices.desktop} 
 
 
 //Colour scheme
