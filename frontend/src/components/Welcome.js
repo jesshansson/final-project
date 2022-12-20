@@ -36,6 +36,7 @@ const WelcomeHeader = styled.h1`
 const WelcomeText = styled.div`
   margin: 20px;
   width: 70vw;
+  //text-align: center;
 
 @media ${Devices.tablet} {
   width: 50vw;

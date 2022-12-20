@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { useParams } from "react-router-dom";
 import { API_URL } from "utils/utils";
+import { Link } from 'react-router-dom';
 
 export const SingleLocation = () => {
   // const params = useParams()
@@ -38,6 +39,8 @@ export const SingleLocation = () => {
   // if (matchCulture) {
     return (
       <section>
+        <Link to="/locations"> ↩ Tillbaka </Link>
+        <LocationWrapper>
         {detailsCulture.map((culture) => (
           <SingleLocationDiv>
             <h1>Description: {culture.description} </h1>
@@ -47,7 +50,8 @@ export const SingleLocation = () => {
             {/* <h2>highlights: {item.highlights}</h2>
               <h3>Toilet: {item.toilet}</h3> */}
           </SingleLocationDiv>
-        ))}
+        ))}</LocationWrapper>
+        
       </section>
     )
   // } else if (matchNature) {
@@ -64,7 +68,11 @@ export const SingleLocation = () => {
   //     </section>
   //   )
   // }
+
+  
 }
+
+const LocationWrapper= styled.section``
 
 export const SingleLocationDiv = styled.div`
   display: flex;
