@@ -33,13 +33,11 @@ export const Header = () => {
 }
 
 const HeaderGroup = styled.ul`
-padding: 0px;
 display: flex;
 flex-direction: row;
 
 @media ${Devices.tablet} {
   margin: 10px;
-  padding: 5px;
   }
 `
 
