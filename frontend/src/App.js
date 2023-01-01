@@ -12,7 +12,9 @@ import { NotFound } from 'components/NotFound';
 import { Footer } from 'components/Footer';
 import { SingleLocation } from 'components/SingleLocation';
 import { AboutUs } from 'components/AboutUs';
+import { PopUp } from 'components/PopUp';
 import user from './reducers/user';
+import { SlidePanel } from 'components/SlidePanel';
 //import { Utloggad } from 'components/utloggad';
 
 const reducer = combineReducers({
@@ -35,6 +37,8 @@ export const App = () => {
       <Route path='/locations/:name' element={<SingleLocation />} />
       <Route path='/about' element={<AboutUs />} />
       <Route path='*' element={<NotFound />} />
+      <Route path='/modal' element={<PopUp />} />
+      <Route path='/slidepanel' element={<SlidePanel />} />
     </Routes>
     <Footer />
   </BrowserRouter>
