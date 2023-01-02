@@ -1,9 +1,10 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 import user from "reducers/user";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { Devices } from "./GlobalStyles";
 
 
 export const Header = () => {
@@ -14,18 +15,13 @@ export const Header = () => {
     <section>
       <header>
       <HeaderGroup>
-          <ul><Link to ="/">Start</Link></ul>
-          <ul><Link to ="/locations">Besöksmål</Link></ul>
-          <ul><Link to ="/profile">Profil</Link></ul>
-          <ul><Link to ="/login">Logga in</Link></ul>
-          <Button
-          type="button"
-          onClick={() => {
-          dispatch(user.actions.setAccessToken(null));
-          navigate("/utloggad");
-          } }>
+          <ul><NavLink to ="/"style={({ isActive }) => ({ fontWeight: isActive ? '600'  : '400' })}> Start</NavLink></ul>
+          <ul><NavLink to ="/locations"style={({ isActive }) => ({ fontWeight: isActive ? '600'  : '400'  })}> Besöksmål</NavLink></ul>
+          <ul><NavLink to ="/profile"style={({ isActive }) => ({ fontWeight: isActive ? '600'  : '400'  })}> Profil</NavLink></ul>
+          <ul><NavLink to ="/login"style={({ isActive }) => ({ fontWeight: isActive ? '600'  : '400'  })}> Logga in</NavLink></ul>
+          <ul><NavLink onClick={() => {dispatch(user.actions.setAccessToken(null)); navigate("/utloggad");} }>
           Logga ut
-        </Button>
+        </NavLink></ul>
       </HeaderGroup>
       </header>
     </section>
@@ -33,13 +29,8 @@ export const Header = () => {
 }
 
 const HeaderGroup = styled.ul`
-margin: 10px;
-display: flex;
-flex-direction: row;
+  display: flex;
+  flex-direction: row;
+
 `
-const Button = styled.button`
-background: transparent;
-border: none;
-cursor: pointer
-`
-//          <ul><Link to ="/login">Logga ut</Link></ul>
+

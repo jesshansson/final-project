@@ -9,6 +9,7 @@
     "react-redux": "^8.0.5",
     "react-router": "^6.4.5",
     "react-router-dom": "^6.4.5",
+    "react-sliding-pane": "^7.3.0",
     "styled-components": "^5.3.6"
   },
   "scripts": {

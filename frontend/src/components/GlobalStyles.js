@@ -1,5 +1,16 @@
-import styled from "styled-components";
 import { createGlobalStyle } from "styled-components";
+
+const sizes = {
+  tablet: '668px',
+  laptop: '1024px',
+  desktop: '2560px'
+};
+
+export const Devices = {
+  tablet: `(min-width: ${sizes.tablet})`,
+  laptop: `(min-width: ${sizes.laptop})`,
+  desktop: `(min-width: ${sizes.desktop})`
+};
 
 export const GlobalStyle = createGlobalStyle`
   body {
@@ -10,16 +21,25 @@ export const GlobalStyle = createGlobalStyle`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    //padding-bottom: 10vh;
   }
+
   footer {
     background-color: #CEE5D0;
-    height: 12vh;
-    position: absolute;
+    height: 10vh;
+    //width: 100vw;
+    position: fixed;
     bottom: 0;
-    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+
+    @media ${Devices.tablet} {
+      height: 12vh;
+    }
   }
 
   footer ul {
@@ -34,35 +54,40 @@ export const GlobalStyle = createGlobalStyle`
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    width: 100vw;
     height: 12vh;
+    width: 100vw;
     background-color: #CEE5D0;
     text-decoration: none;
+    
   }
 
   header ul {
-    margin: 20px;
+    padding: 5px;
+    margin: 5px;
+    
+    @media ${Devices.tablet} {
+      padding: 10px;
+      margin: 20px;
+    }
   }
 
   header a {
     text-decoration: none;
   }
-`
 
+`
+export const Title = styled.h1`
+color: indianred;
+  `
 const sizes = {
   tablet: '668px',
   laptop: '1024px',
   desktop: '2560px'
 };
 
-export const Devices = {
-  tablet: `(min-width: ${sizes.tablet})`,
-  laptop: `(min-width: ${sizes.laptop})`,
-  desktop: `(min-width: ${sizes.desktop})`
-};
-//@media ${Devices.tablet} {}
-//@media ${Devices.laptop} {}
-//@media ${Devices.desktop} {}
+//@media ${Devices.tablet} 
+//@media ${Devices.laptop} 
+//@media ${Devices.desktop} 
 
 
 //Colour scheme

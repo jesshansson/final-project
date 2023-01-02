@@ -12,8 +12,10 @@ import { NotFound } from 'components/NotFound';
 import { Footer } from 'components/Footer';
 import { SingleLocation } from 'components/SingleLocation';
 import { AboutUs } from 'components/AboutUs';
+import { PopUp } from 'components/PopUp';
 import user from './reducers/user';
-import { Utloggad } from 'components/utloggad';
+import { SlidePanel } from 'components/SlidePanel';
+//import { Utloggad } from 'components/utloggad';
 
 const reducer = combineReducers({
   user: user.reducer,
@@ -21,10 +23,7 @@ const reducer = combineReducers({
  const store = configureStore({ reducer });
 
 export const App = () => {
-  //  fetch("http://localhost:8080/locations")
-  // 6  .then(res => res.json())
-  //   .then(data => console.log(data))
-
+  
   return (
    <Provider store={store}>
     <BrowserRouter>
@@ -35,10 +34,11 @@ export const App = () => {
       <Route path='/login' element={<Login />} />
       <Route path='/profile' element={<UserProfile />} />
       <Route path='/locations' element={<Locations />} />
-      <Route path='/locations/:id' element={<SingleLocation />} />
+      <Route path='/locations/:name' element={<SingleLocation />} />
       <Route path='/about' element={<AboutUs />} />
-      <Route path='/utloggad' element={<Utloggad />} />
       <Route path='*' element={<NotFound />} />
+      <Route path='/modal' element={<PopUp />} />
+      <Route path='/slidepanel' element={<SlidePanel />} />
     </Routes>
     <Footer />
   </BrowserRouter>
@@ -49,3 +49,4 @@ export const App = () => {
 //Frontend: https://brilliant-taffy-d19d1f.netlify.app/
 //Backend: https://final-project-fovvngwz2q-lz.a.run.app/
 
+//https://www.freecodecamp.org/news/how-to-persist-a-logged-in-user-in-react/
