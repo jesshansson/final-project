@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import styled from "styled-components";
 
 const sizes = {
   tablet: '668px',
@@ -77,13 +78,13 @@ export const GlobalStyle = createGlobalStyle`
 
 `
 export const Title = styled.h1`
-color: indianred;
+font-size: 48px;
   `
-const sizes = {
+/*const Sizes = {
   tablet: '668px',
   laptop: '1024px',
   desktop: '2560px'
-};
+}; */
 
 //@media ${Devices.tablet} 
 //@media ${Devices.laptop} 

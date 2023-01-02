@@ -12,35 +12,35 @@ code {
     monospace;
 }
 
-body {
+/*body {
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
 }
 
 html {
   box-sizing: border-box;
-}
+} 
 
 *, *:before, *:after {
   box-sizing: inherit;
-}
+} 
 
 .column {
   float: left;
   width: 33.3%;
   margin-bottom: 16px;
   padding: 0 8px;
-}
+} 
 
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   margin: 8px;
-}
+} 
 
 .about-section {
   padding: 50px;
   text-align: center;
-}
+} 
 
 .container {
   padding: 0 16px;
@@ -50,12 +50,7 @@ html {
   content: "";
   clear: both;
   display: table;
-}
-
-.title {
-  color: #ECB390;
-}
-
+} 
 .button {
   border: none;
   outline: 0;
@@ -78,6 +73,7 @@ html {
     display: block;
   }
 }
+ */
 
 i {
   display: flex;
