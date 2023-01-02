@@ -21,16 +21,21 @@ export const GlobalStyle = createGlobalStyle`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    //padding-bottom: 10vh;
   }
+
   footer {
     background-color: #CEE5D0;
     height: 10vh;
-    width: 100vw;
+    //width: 100vw;
     position: fixed;
     bottom: 0;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 
     @media ${Devices.tablet} {
       height: 12vh;
@@ -53,6 +58,7 @@ export const GlobalStyle = createGlobalStyle`
     width: 100vw;
     background-color: #CEE5D0;
     text-decoration: none;
+    
   }
 
   header ul {
