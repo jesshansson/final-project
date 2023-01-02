@@ -9,6 +9,7 @@ export const Welcome = () => {
   const [formMode, setFormMode] = useState('register'); // default form mode is "register"
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  
   const dispatch = useDispatch();
 
   function handleSubmit(e) {
