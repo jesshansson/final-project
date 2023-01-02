@@ -19,30 +19,30 @@ import { SlidePanel } from 'components/SlidePanel';
 
 const reducer = combineReducers({
   user: user.reducer,
- });
- const store = configureStore({ reducer });
+});
+const store = configureStore({ reducer });
 
 export const App = () => {
-  
+
   return (
-   <Provider store={store}>
-    <BrowserRouter>
-    <GlobalStyle />
-    <Header />
-    <Routes>
-      <Route path='/' element={<Welcome />} />
-      <Route path='/login' element={<Login />} />
-      <Route path='/profile' element={<UserProfile />} />
-      <Route path='/locations' element={<Locations />} />
-      <Route path='/locations/:name' element={<SingleLocation />} />
-      <Route path='/about' element={<AboutUs />} />
-      <Route path='*' element={<NotFound />} />
-      <Route path='/modal' element={<PopUp />} />
-      <Route path='/slidepanel' element={<SlidePanel />} />
-    </Routes>
-    <Footer />
-  </BrowserRouter>
-   </Provider>
+    <Provider store={store}>
+      <BrowserRouter>
+        <GlobalStyle />
+        <Header />
+        <Routes>
+          <Route path='/' element={<Welcome />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/profile' element={<UserProfile />} />
+          <Route path='/locations' element={<Locations />} />
+          <Route path='/locations/:name' element={<SingleLocation />} />
+          <Route path='/about' element={<AboutUs />} />
+          <Route path='*' element={<NotFound />} />
+          <Route path='/modal' element={<PopUp />} />
+          <Route path='/slidepanel' element={<SlidePanel />} />
+        </Routes>
+        <Footer />
+      </BrowserRouter>
+    </Provider>
   );
 }
 

@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import user from 'reducers/user';
 import { Devices } from './GlobalStyles';
+import picture from "./picture.jpg"
 
 export const Locations = () => {
   const navigate = useNavigate();
@@ -38,15 +39,14 @@ export const Locations = () => {
         // "Authorization": accessToken
       }
     }
-    fetch("http://localhost:8080/locations")
-      .then(res => res.json())
-      .then(data => setCultureLocation(data.response.culture))
-      .then(console.log(cultureLocation))
-      .catch(error => console.error(error))
+
 
     fetch("http://localhost:8080/locations")
       .then(res => res.json())
-      .then(data => setNatureLocation(data.response.nature))
+      .then(data => {
+        setNatureLocation(data.response.nature)
+        setCultureLocation(data.response.culture)
+      })
       .then(console.log(natureLocation))
       .catch(error => console.error(error))
 
@@ -57,13 +57,15 @@ export const Locations = () => {
       <LocationGrid>
         {cultureLocation.map((item) => (
           <GridItem>
-            <Link
-              key={item._id}
-              to={`/locations/${item.name}`}>
-              <h1>Name: {item.name} </h1>
-              <h2>Adress: {item.address}</h2>
-              <h3>Map: {item.map}</h3>
-            </Link>
+            <Picandname>
+              <Image src={picture} style={{ width: 150, height: 150 }} alt="picture" />
+              <Link
+                key={item._id}
+                to={`/locations/${item.name}`}>
+                <LocationName>{item.name} </LocationName>
+              </Link>
+            </Picandname>
+            <h2>{item.address}</h2>
           </GridItem>
         ))
         }
@@ -98,7 +100,7 @@ export const LocationGrid = styled.section`
   @media ${Devices.laptop} {
     grid-template-columns: repeat(3, 1fr);
   }
-` 
+`
 export const GridItem = styled.div`
   display: flex;
   flex-direction: column;
@@ -106,4 +108,22 @@ export const GridItem = styled.div`
   padding: 10px;
   background-color: #ECB390;
   align-items: center;
+`
+export const Image = styled.img`
+border-radius: 50%;
+
+`
+
+export const Picandname = styled.div`
+display: flex;
+flex-direction: row;
+`
+
+export const LocationName = styled.h1`
+text-transform: uppercase;
+text-decoration: none;
+
+&:focus, &:hover, &:visited, &:link, &:active {
+    text-decoration: none;
+}
 `
