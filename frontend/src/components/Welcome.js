@@ -33,22 +33,21 @@ export const Welcome = () => {
         <RegisterWrapper>Bli enkelt medlem genom att fylla i formuläret</RegisterWrapper>
         <RegisterForm>
         <form onSubmit={handleSubmit}>
-      <h1>{formMode === 'register' ? 'Registrera' : 'Logga in'}</h1>
-      <label htmlFor="username">Namn:</label>
-      <input type="username" id="email" value={username} onChange={e => setUsername(e.target.value)} />
-      <br />
-      <label htmlFor="password">Lösenord:</label>
-      <input type="password" id="password" value={password} onChange={e => setPassword(e.target.value)} />
-      <br />
-      <button type="submit">{formMode === 'register' ? 'Registrera' : 'Logga in'}</button>
-      <button type="button" onClick={() => setFormMode(formMode === 'register' ? 'signIn' : 'register')}>
-        {formMode === 'register' ? 'Logga in' : 'Register'}
-      </button>
-    </form>
+          <h1>{formMode === 'register' ? 'Registrera' : 'Logga in'}</h1>
+          <label htmlFor="username">Namn:</label>
+          <input type="username" id="email" value={username} onChange={e => setUsername(e.target.value)} />
+          <br />
+          <label htmlFor="password">Lösenord:</label>
+          <input type="password" id="password" value={password} onChange={e => setPassword(e.target.value)} />
+          <br />
+          <button type="submit">{formMode === 'register' ? 'Registrera' : 'Logga in'}</button>
+          <button type="button" onClick={() => setFormMode(formMode === 'register' ? 'signIn' : 'register')}>
+            {formMode === 'register' ? 'Logga in' : 'Register'}
+          </button>
+      </form>
         </RegisterForm>
         <LoginLink>Redan medlem?<Link to ="/login"> Klicka här för att logga in!</Link></LoginLink>
-        
-
+    
     </WelcomeWrapper>
   )
 }
