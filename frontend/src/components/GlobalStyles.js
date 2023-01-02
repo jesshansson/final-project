@@ -75,13 +75,15 @@ export const GlobalStyle = createGlobalStyle`
     text-decoration: none;
   }
 
-  a {
-    text-decoration: none;
-    cursor: pointer;
-    color: black;
-  }
 `
-
+export const Title = styled.h1`
+color: indianred;
+  `
+const sizes = {
+  tablet: '668px',
+  laptop: '1024px',
+  desktop: '2560px'
+};
 
 //@media ${Devices.tablet} 
 //@media ${Devices.laptop} 
