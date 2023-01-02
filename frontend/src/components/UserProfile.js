@@ -1,15 +1,20 @@
 import React from "react";
+import styled from "styled-components";
 import { Devices } from './GlobalStyles';
 
 
 export const UserProfile = () => {
 
   return (
-  <section>
+    <ProfileWrapper>
       <h1>Profile</h1>
-    </section>
+    </ProfileWrapper>
   )
 }
+
+const ProfileWrapper = styled.section`
+
+`
 
 /* <Button
     onClick={() => {
