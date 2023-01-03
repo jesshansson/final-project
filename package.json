@@ -5,6 +5,7 @@
     "postinstall": "npm install --prefix backend"
   },
   "dependencies": {
-    "styled-components": "^5.3.6"
+    "react-modal": "^3.16.1",
+    "react-sliding-pane": "^7.3.0"
   }
 }
