@@ -19,41 +19,41 @@ import { SlidePanel } from 'components/SlidePanel';
 
 const reducer = combineReducers({
   user: user.reducer,
- });
- const store = configureStore({ reducer });
+});
+const store = configureStore({ reducer });
 
 export const App = () => {
-  
-  return (
-   <Provider store={store}>
-    <BrowserRouter>
-    <GlobalStyle />
-    <Header />
-    <Routes>
-      <Route path='/' element={<Welcome />} />
 
-      <Route path='/profile' element={<UserProfile />} />
-      <Route path='/locations' element={<Locations />} />
-      <Route path='/locations/:name' element={<SingleLocation />} />
-      <Route path='/about' element={<AboutUs />} />
-      <Route path={"/register"} element={
-        <Login
-          siteType="register"
-          siteHeadline="Välkommen!"
-          submitBtn="Registrera" />}/>
-      <Route path={"/login"} element={
-        <Login
-          siteType="login"
-          siteHeadline="Välkommen tillbaka!"
-          submitBtn="Logga in" />}/>
-      <Route path='*' element={<NotFound />} />
-      
-      <Route path='/modal' element={<PopUp />} />
-      <Route path='/slidepanel' element={<SlidePanel />} /> 
-    </Routes>
-    <Footer />
-  </BrowserRouter>
-   </Provider>
+  return (
+    <Provider store={store}>
+      <BrowserRouter>
+        <GlobalStyle />
+        <Header />
+        <Routes>
+          <Route path='/' element={<Welcome />} />
+
+          <Route path='/profile' element={<UserProfile />} />
+          <Route path='/locations' element={<Locations />} />
+          <Route path='/locations/:name' element={<SingleLocation />} />
+          <Route path='/about' element={<AboutUs />} />
+          <Route path={"/register"} element={
+            <Login
+              siteType="register"
+              siteHeadline="Välkommen!"
+              submitBtn="Registrera" />} />
+          <Route path={"/login"} element={
+            <Login
+              siteType="login"
+              siteHeadline="Välkommen tillbaka!"
+              submitBtn="Logga in" />} />
+          <Route path='*' element={<NotFound />} />
+
+          <Route path='/modal' element={<PopUp />} />
+          <Route path='/slidepanel' element={<SlidePanel />} />
+        </Routes>
+        <Footer />
+      </BrowserRouter>
+    </Provider>
   );
 }
 
