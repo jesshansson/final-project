@@ -42,7 +42,7 @@ app.post("/register", async (req, res) => {
         response: {
           username: newUser.username,
           accessToken: newUser.accessToken,
-          id: newUser.id
+          id: newUser.id //_id eller id?
         }
       });
     }
@@ -59,21 +59,21 @@ app.post("/register", async (req, res) => {
 const Nature = mongoose.model("Nature", NatureSchema);
 const Culture = mongoose.model("Culture", CultureSchema)
 
-if (true) {
-  const resetDatabase = async () => {
-    await Culture.deleteMany();
-    culture.forEach(singleCulture => {
-      const newCulture = new Culture(singleCulture);
-      newCulture.save()
-    })
-    await Nature.deleteMany();
-    nature.forEach(singleNature => {
-      const newNature = new Nature(singleNature)
-      newNature.save()
-    })
-  }
-  resetDatabase();
-}
+// if (true) {
+//   const resetDatabase = async () => {
+//     await Culture.deleteMany();
+//     culture.forEach(singleCulture => {
+//       const newCulture = new Culture(singleCulture);
+//       newCulture.save()
+//     })
+//     await Nature.deleteMany();
+//     nature.forEach(singleNature => {
+//       const newNature = new Nature(singleNature)
+//       newNature.save()
+//     })
+//   }
+//   resetDatabase();
+// }
 
 //Register new user
 app.post("/register", async (req, res) => {
@@ -88,7 +88,7 @@ app.post("/register", async (req, res) => {
         response: "Password must be at least 5 characters long"
       });
     } else {
-      const newUser = await new User({username: username, password: bcrypt.hashSync(password, salt)}).save();
+      const newUser = await new User({ username: username, password: bcrypt.hashSync(password, salt) }).save();
       res.status(201).json({
         success: true,
         response: {
@@ -98,7 +98,7 @@ app.post("/register", async (req, res) => {
         }
       });
     }
-  } catch(error) {
+  } catch (error) {
     if (error.code === 11000) {
       res.status(400).json({
         success: false,
@@ -109,8 +109,8 @@ app.post("/register", async (req, res) => {
         success: false,
         response: error
       });
+    }
   }
-}
 });
 
 //Login
@@ -192,8 +192,8 @@ app.get("/locations", async (req, res) => {
 
 app.get("/locations/:id", async (req, res) => {
   try {
-    const singleLocationNature = await Nature.findById({ _id: req.params.id })
-    const singleLocationCulture = await Culture.findById({ _id: req.params.id })
+    const singleLocationNature = await Nature.findById({ _id: req.params.id }) //id eller _id?
+    const singleLocationCulture = await Culture.findById({ _id: req.params.id }) //id eller _id?
     if (singleLocationCulture || singleLocationNature) {
       res.status(200).json({
         success: true,

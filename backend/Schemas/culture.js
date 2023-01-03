@@ -2,59 +2,59 @@ import mongoose from "mongoose";
 
 export const CultureSchema = new mongoose.Schema({
 
-name: {
-  type: String
-},
-address: {
-  type: String
-},
-map: {
-  type: String
-},
-closestStation: {
-  type: String
-},
-description: {
-  type: String
-},
-website: {
-  type: String
-},
-contact: {
-  type: String
-},
-entranceFee: {
-  type: Number
-},
-cafe: {
-  type: Boolean
-},
-openingHours: {
-  type: String
-},
-genre: {
-  type: String
-},
-opening_hours_mon: {
-  type: String
-},
-opening_hours_tue: {
-  type: String
-},
-opening_hours_wed: {
-  type: String
-},
-opening_hours_thu: {
-  type: String
-},
-opening_hours_fri: {
-  type: String
-},
-opening_hours_sat: {
-  type: String
-},
-opening_hours_sun: {
-  type: String
-}
+  name: {
+    type: String
+  },
+  address: {
+    type: String
+  },
+  map: {
+    type: String
+  },
+  closestStation: {
+    type: String
+  },
+  description: {
+    type: String
+  },
+  website: {
+    type: String
+  },
+  contact: {
+    type: String
+  },
+  entranceFee: {
+    type: Number
+  },
+  cafe: {
+    type: Boolean
+  },
+  openingHours: {
+    type: String
+  },
+  genre: {
+    type: String
+  },
+  opening_hours_mon: {
+    type: String
+  },
+  opening_hours_tue: {
+    type: String
+  },
+  opening_hours_wed: {
+    type: String
+  },
+  opening_hours_thu: {
+    type: String
+  },
+  opening_hours_fri: {
+    type: String
+  },
+  opening_hours_sat: {
+    type: String
+  },
+  opening_hours_sun: {
+    type: String
+  }
 
 })

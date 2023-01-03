@@ -1,7 +1,7 @@
 import React, { Component, useState } from "react";
 import { render } from "react-dom";
-import { Link } from "react-router-dom";
 import SlidingPane from "react-sliding-pane";
+import styled from "styled-components";
 import "react-sliding-pane/dist/react-sliding-pane.css";
 
 export const SlidePanel = () => {
@@ -10,8 +10,14 @@ export const SlidePanel = () => {
     isPaneOpenLeft: false,
   });
 
+  // useEffect(() => {
+  //   if (!accessToken) {
+  //     navigate("/utloggad");
+  //   }
+  // }, [accessToken])
+  
   return (
-    <div>
+    <PanelWrapper>
       <button onClick={() => setState({ isPaneOpen: true })}>
         Click me to open right pane!
       </button>
@@ -24,7 +30,7 @@ export const SlidePanel = () => {
         className="some-custom-class"
         overlayClassName="some-custom-overlay-class"
         isOpen={state.isPaneOpen}
-        title="Hey, it is optional pane title.  I can be React component too."
+        title={"Hey, it is optional pane title.  I can be React component too."}
         subtitle="Optional subtitle."
         onRequestClose={() => {
           // triggered on "<" on left top click or on outside click
@@ -47,8 +53,12 @@ export const SlidePanel = () => {
       >
         <div>And I am pane content on left.</div>
       </SlidingPane>
-    </div>
+    </PanelWrapper>
   );
 };
+
+export const PanelWrapper = styled.div`
+
+`;
 
 //render(<App />, document.getElementById("app"));

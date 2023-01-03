@@ -1,7 +1,6 @@
 import React from "react";
-import { Devices } from './GlobalStyles';
-import { Title } from "./GlobalStyles";
-import styled from "styled-components";
+import { Devices } from './reusable-components/GlobalStyles';
+import { Title } from "./reusable-components/GlobalStyles";
 
 export const AboutUs = () => {
 
