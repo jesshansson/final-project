@@ -1,3 +1,4 @@
+import { Login } from 'components/Login';
 import React, { useState } from 'react';
 import Modal from 'react-modal';
 import { Link } from 'react-router-dom';
@@ -31,6 +32,7 @@ export const PopUp = () => {
       >
         <h1>Modal Title</h1>
         <p>Modal content</p>
+        
         <button onClick={() => setIsModalOpen(false)}>Close Modal</button>
       </Modal>
     </div>

@@ -7,7 +7,7 @@ import user from 'reducers/user';
 import { Devices } from './reusable-components/GlobalStyles';
 
 export const Locations = () => {
-  const navigate = useNavigate();
+  //const navigate = useNavigate();
   //LOCAL STORAGE 
   // const accessToken = localStorage.getItem('accessToken');
   // const username = localStorage.getItem('username');
@@ -18,14 +18,14 @@ export const Locations = () => {
   // }
 
 
-  // const accessToken = useSelector((store) => store.user.accessToken);
-  // const navigate = useNavigate();
+   const accessToken = useSelector((store) => store.user.accessToken);
+   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   if (!accessToken) {
-  //     navigate("/utloggad");
-  //   }
-  // }, [accessToken])
+   useEffect(() => {
+     if (!accessToken) {
+      navigate("/utloggad");
+     }
+   }, [accessToken])
 
   const [cultureLocation, setCultureLocation] = useState([])
   const [natureLocation, setNatureLocation] = useState([])
