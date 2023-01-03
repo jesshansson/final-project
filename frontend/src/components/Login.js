@@ -4,13 +4,14 @@ import { useNavigate } from "react-router-dom";
 import { API_URL } from '../utils/utils';
 import user from '../reducers/user';
 import styled from "styled-components";
-import { Devices } from './GlobalStyles';
+import { Devices, H1, CenterFlexDiv, PaigeWrapper } from './reusable-components/GlobalStyles';
+import { Link } from 'react-router-dom';
 
-export const Login = () => {
+export const Login = ({siteHeadline, siteType, submitBtn}) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [mode, setMode] = useState("login");
-  const [loginError, setLoginError] = useState(null) //funkar ej
+  //const [mode, setMode] = useState("login"); //behövs?
+  const [loginError, setLoginError] = useState("");//funkar ej
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -31,7 +32,7 @@ export const Login = () => {
       },
       body: JSON.stringify({ username: username, password: password })
     }
-    fetch(API_URL(mode), options)
+    fetch(API_URL(siteType), options) //Ändrade mode till siteType
       .then(response => response.json())
       .then(data => {
         if (data.success) {
@@ -40,7 +41,6 @@ export const Login = () => {
             dispatch(user.actions.setId(data.response.id))
             dispatch(user.actions.setAccessToken(data.response.accessToken));
             dispatch(user.actions.setError(null));
-            setLoginError(null) //funkar ej
           });
         } else {
           batch(() => {
@@ -49,32 +49,16 @@ export const Login = () => {
             dispatch(user.actions.setAccessToken(null));
             dispatch(user.actions.setError(data.response));
             window.alert(data.response)
-            setLoginError(null) //funkar ej
+            setLoginError(data.response) //funkar ej
           });
         }
       })
   }
   return (
-    <LoginWrapper>
+    <PaigeWrapper>
+      
       <LoginBox>
-        <SignupSignin>
-          <label htmlFor="Sign-Up">Do you wish to create an account? Sign up!</label>
-          <input
-          type="radio"
-          id="register"
-          checked={mode === "register"}
-          onChange={() => setMode("register")}
-          />
-          </SignupSignin>
-          <SignupSignin>
-          <label htmlFor="Sign-In"> Already have an account? Sign in!</label>
-            <input
-            type="radio"
-            id="login"
-            checked={mode === "login"}
-            onChange={() => setMode("login")}
-            />
-          </SignupSignin>
+        <H1>{siteHeadline}</H1>
           <FormSubmit onSubmit={onFormSubmit}>
             <Label htmlFor="username">Användarnamn: </Label>
             <Input
@@ -94,13 +78,27 @@ export const Login = () => {
               placeholder="******"
               onChange={(e) => setPassword(e.target.value)}
             />  
-            {loginError !== null && ( //funkar ej
-              <p>{loginError}</p>   //funkar ej
+            {loginError !== '' && ( 
+              <p>Error</p>   //funkar ej
           )}
-          <Button type="submit">Submit</Button>
+          <Button type="submit">{submitBtn}</Button>
           </FormSubmit>
+          
+          {siteType === "login" && (
+            <CenterFlexDiv>
+            <p>Inte medlem ännu?</p>
+            <Link to="/register">Registrera nytt konto här</Link>
+            </CenterFlexDiv>)
+          }
+          {siteType === "register" && (
+            <CenterFlexDiv>
+            <p>Redan medlem?</p>
+            <Link to="/login">Logga in här </Link>
+            </CenterFlexDiv>)
+            }
+
       </LoginBox>
-      </LoginWrapper>
+  </PaigeWrapper>
 )}
 
 export const LoginBox = styled.div`
@@ -115,10 +113,6 @@ export const LoginBox = styled.div`
   background-color: #FEF5ED;
   min-height: 35vh;
 `
-const LoginWrapper = styled.section`
-  display: flex;
-  align-items: center;
-  justify-content: center;`
 
 const FormSubmit = styled.form`
   display: flex;

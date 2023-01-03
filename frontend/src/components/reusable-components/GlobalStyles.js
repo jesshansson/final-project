@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import styled from "styled-components";
 
 const sizes = {
   tablet: '668px',
@@ -13,6 +14,7 @@ export const Devices = {
 };
 
 export const GlobalStyle = createGlobalStyle`
+
   body {
     background-color: #FCF8E8;
     width: 100%;
@@ -28,14 +30,15 @@ export const GlobalStyle = createGlobalStyle`
     background-color: #CEE5D0;
     height: 10vh;
     //width: 100vw;
-    position: fixed;
-    bottom: 0;
+    //position: fixed;
+    position: absolute;
+    //bottom: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: absolute;
-    bottom: 0;
     width: 100%;
+    //position: relative;
+    bottom: 0;
 
     @media ${Devices.tablet} {
       height: 12vh;
@@ -75,15 +78,31 @@ export const GlobalStyle = createGlobalStyle`
     text-decoration: none;
   }
 
+  a {
+    color: black;
+  }
 `
 export const Title = styled.h1`
 color: indianred;
-  `
-const sizes = {
-  tablet: '668px',
-  laptop: '1024px',
-  desktop: '2560px'
-};
+`
+export const H1 = styled.h1`
+  margin-bottom: 20px;
+  font-size: 20px;
+`
+export const CenterFlexDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 15px;
+`
+export const PaigeWrapper = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`
+
+
 
 //@media ${Devices.tablet} 
 //@media ${Devices.laptop} 

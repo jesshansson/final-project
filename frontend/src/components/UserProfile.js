@@ -1,31 +1,25 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import { PopUp } from "./reusable-components/PopUp";
 import styled from "styled-components";
-import { Devices } from './GlobalStyles';
+import { Devices, PaigeWrapper } from './reusable-components/GlobalStyles';
 
 
 export const UserProfile = () => {
-
+  
+  const username = useSelector((store) => store.user.username);
+  
   return (
-    <ProfileWrapper>
-      <h1>Profile</h1>
-    </ProfileWrapper>
-  )
-}
+    <PaigeWrapper>
+      
+      Hej {username}!
+  
+    </PaigeWrapper>
+  );
+};
 
 const ProfileWrapper = styled.section`
 
 `
 
-/* <Button
-    onClick={() => {
-    if (item.user._id === userId) {
-    navigate(`/userprofile/${userId}`);
-    } else {
-    navigate(`userprofile/${item.user._id}/visit`);
-    }
-    }}
-    size="small"
-    sx={{
-    fontFamily: "secondary.fontFamily",
-    }}
-> */
+//Använda popup modal för att redigera sin profil?

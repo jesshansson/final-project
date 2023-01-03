@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import user from 'reducers/user';
-import { Devices } from './GlobalStyles';
+import { Devices } from './reusable-components/GlobalStyles';
 
 export const Locations = () => {
   const navigate = useNavigate();

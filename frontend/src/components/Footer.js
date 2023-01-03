@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { Devices } from './GlobalStyles';
+import { Devices } from './reusable-components/GlobalStyles';
 
 //Det verkar vara GlobalStyles som rör till det med att footern inte hamnar längst ner
 export const Footer = () => {

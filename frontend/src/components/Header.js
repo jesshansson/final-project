@@ -4,7 +4,7 @@ import { useNavigate, NavLink } from "react-router-dom";
 import user from "reducers/user";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { Devices } from "./GlobalStyles";
+
 
 
 export const Header = () => {

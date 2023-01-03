@@ -42,7 +42,7 @@ app.post("/register", async (req, res) => {
         response: {
           username: newUser.username,
           accessToken: newUser.accessToken,
-          id: newUser.id
+          id: newUser.id //_id eller id?
         }
       });
     }
@@ -192,8 +192,8 @@ app.get("/locations", async (req, res) => {
 
 app.get("/locations/:id", async (req, res) => {
   try {
-    const singleLocationNature = await Nature.findById({ _id: req.params.id })
-    const singleLocationCulture = await Culture.findById({ _id: req.params.id })
+    const singleLocationNature = await Nature.findById({ _id: req.params.id }) //id eller _id?
+    const singleLocationCulture = await Culture.findById({ _id: req.params.id }) //id eller _id?
     if (singleLocationCulture || singleLocationNature) {
       res.status(200).json({
         success: true,
