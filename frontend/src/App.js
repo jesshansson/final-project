@@ -1,5 +1,5 @@
 import React from 'react';
-import { GlobalStyle } from 'components/reusable-components/GlobalStyles';
+import { GlobalStyle, OuterWrapper } from 'components/reusable-components/GlobalStyles';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
@@ -15,7 +15,7 @@ import { AboutUs } from 'components/AboutUs';
 import { PopUp } from 'components/reusable-components/PopUp';
 import user from './reducers/user';
 import { SlidePanel } from 'components/SlidePanel';
-//import { Utloggad } from 'components/utloggad';
+import { NotLoggedIn } from 'components/NotLoggedIn';
 
 const reducer = combineReducers({
   user: user.reducer,
@@ -36,6 +36,7 @@ export const App = () => {
           <Route path='/locations' element={<Locations />} />
           <Route path='/locations/:name' element={<SingleLocation />} />
           <Route path='/about' element={<AboutUs />} />
+          <Route path ='/unauthorized' element={< NotLoggedIn />} />
           <Route path={"/register"} element={
             <Login
               siteType="register"
@@ -52,6 +53,7 @@ export const App = () => {
           <Route path='/slidepanel' element={<SlidePanel />} />
         </Routes>
         <Footer />
+        
       </BrowserRouter>
     </Provider>
   );

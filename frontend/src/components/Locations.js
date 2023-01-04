@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import user from 'reducers/user';
 import { Devices } from './reusable-components/GlobalStyles';
-import { Devices } from './GlobalStyles';
 import picture from "./picture.jpg"
 
 export const Locations = () => {
@@ -23,11 +22,6 @@ export const Locations = () => {
    const accessToken = useSelector((store) => store.user.accessToken);
    const navigate = useNavigate();
 
-   useEffect(() => {
-     if (!accessToken) {
-      navigate("/utloggad");
-     }
-   }, [accessToken])
 
   const [cultureLocation, setCultureLocation] = useState([])
   const [natureLocation, setNatureLocation] = useState([])
@@ -37,7 +31,7 @@ export const Locations = () => {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        // "Authorization": accessToken
+        "Authorization": accessToken
       }
     }
 
