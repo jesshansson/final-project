@@ -8,7 +8,6 @@ import { Link } from 'react-router-dom';
 
 export const SingleLocation = () => {
   const params = useParams()
-  // console.log(params)
   // const { id } = useParams()
 
   const [detailsCulture, setDetailsCulture] = useState([])
@@ -60,8 +59,6 @@ export const SingleLocation = () => {
       </section>
     )
   }
-
-
 }
 
 const LocationWrapper = styled.section``
