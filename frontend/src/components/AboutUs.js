@@ -1,6 +1,7 @@
 import React from "react";
 import { Devices } from './reusable-components/GlobalStyles';
 import { Title } from "./reusable-components/GlobalStyles";
+import styled from "styled-components";
 
 export const AboutUs = () => {
 
@@ -22,13 +23,13 @@ export const AboutUs = () => {
         <NameTitle>Maria Westling</NameTitle>
         <SmallTitle>Frontend developer</SmallTitle>
         <Info>info info lorem ipsum ipsum lorem.</Info>
-        <a href="https://github.com/CeciliaMichele">
+        <a href="https://github.com/marwebdesign">
         <i className="fa-brands fa-github" />
           </a>
-          <a href="https://www.linkedin.com/in/ceciliaraden/">
+          <a href="https://www.linkedin.com/in/maria-westling-a6327315b/">
             <i className="fa-brands fa-linkedin-in" />
           </a>
-          <a href="mailto:webmaster@example.com">
+          <a href="mailto:maria.westling@gmail.com">
           <i class='far fa-envelope-open' />
           </a>
       </Container>
@@ -42,13 +43,13 @@ export const AboutUs = () => {
       <NameTitle>Jessica Hansson</NameTitle>
         <SmallTitle>Frontend developer</SmallTitle>
         <Info>info info lorem ipsum ipsum lorem.</Info>
-        <a href="https://github.com/CeciliaMichele">
+        <a href="https://github.com/jesshansson">
             <i className="fa-brands fa-github" />
           </a>
-          <a href="https://www.linkedin.com/in/ceciliaraden/">
+          <a href="https://www.linkedin.com/in/jesshansson/">
             <i className="fa-brands fa-linkedin-in" />
           </a>
-          <a href="mailto:webmaster@example.com">
+          <a href="mailto:jessica.hansson@hotmail.se">
           <i class='far fa-envelope-open' />
           </a>
       </Container>
@@ -68,7 +69,7 @@ export const AboutUs = () => {
           <a href="https://www.linkedin.com/in/ceciliaraden/">
             <i className="fa-brands fa-linkedin-in" />
           </a>
-          <a href="mailto:webmaster@example.com">
+          <a href="mailto:cecilia.raden@gmail.com">
           <i class='far fa-envelope-open' />
           </a>
       </Container>

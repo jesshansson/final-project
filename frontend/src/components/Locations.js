@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import user from 'reducers/user';
 import { Devices } from './reusable-components/GlobalStyles';
-import { Devices } from './GlobalStyles';
 import picture from "./picture.jpg"
 
 export const Locations = () => {
@@ -59,11 +58,11 @@ export const Locations = () => {
         {cultureLocation.map((item) => (
           <GridItem>
             <Picandname>
-              <Image src={picture} style={{ width: 150, height: 150 }} alt="picture" />
+              <Image src={item.img} style={{ width: 150, height: 150 }} alt="picture" />
               <Link
                 key={item._id}
                 to={`/locations/${item.name}`}>
-                <LocationName>{item.name} </LocationName>
+                <LocationName>{item.name}</LocationName>
               </Link>
             </Picandname>
             <h2>{item.address}</h2>
