@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 import { API_URL } from "utils/utils";
 import { Link } from 'react-router-dom';
 import picture from "./picture.jpg"
-import { Interested } from "./ShowInterest";
+//import { Interested } from "./ShowInterest";
 
 export const SingleLocation = () => {
   const params = useParams()

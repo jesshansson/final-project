@@ -61,7 +61,7 @@ export const Locations = () => {
         <Headline>För dig som gillar kultur</Headline>
         {cultureLocation.map((item) => (
           <GridItem>
-            <Image src={picture} style={{ width: 150, height: 150 }} alt="picture" />
+            <Image src={item.img} style={{ width: 150, height: 150 }} alt="picture" />
             <Link
               key={item._id}
               // onClick={() => setSingleLocationPane({ isPaneOpen: true })}
@@ -76,7 +76,7 @@ export const Locations = () => {
         <Headline>För dig som gillar natur</Headline>
         {natureLocation.map((item) => (
           <GridItem>
-            <Image src={picture} style={{ width: 150, height: 150 }} alt="picture" />
+            <Image src={item.img} style={{ width: 150, height: 150 }} alt="picture" />
             <Link
               key={item._id}
               to={`/locations/${item.name}`}>
