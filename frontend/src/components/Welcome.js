@@ -1,5 +1,5 @@
 import React, { useState }  from "react";
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import { Devices } from './reusable-components/GlobalStyles';
 import { Link } from "react-router-dom";
 import { PaigeWrapper } from "./reusable-components/GlobalStyles";
@@ -32,7 +32,7 @@ const WelcomeText = styled.div`
   margin: 20px;
   width: 70vw;
   font-size: 17px;
-  //text-align: center;
+  text-align: center;
 
 @media ${Devices.tablet} {
   width: 50vw;

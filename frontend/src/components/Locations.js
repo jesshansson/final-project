@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import user from 'reducers/user';
 import { Devices } from './reusable-components/GlobalStyles';
+import SlidingPane from "react-sliding-pane";
 import picture from "./picture.jpg"
 
 export const Locations = () => {
@@ -30,6 +31,7 @@ export const Locations = () => {
 
   const [cultureLocation, setCultureLocation] = useState([])
   const [natureLocation, setNatureLocation] = useState([])
+  const [singleLocationPane, setSingleLocationPane] = useState({ isPaneOpen: false })
 
   useEffect(() => {
     const options = {
@@ -54,30 +56,31 @@ export const Locations = () => {
 
   return (
     <>
+
       <LocationGrid>
+        <Headline>För dig som gillar kultur</Headline>
         {cultureLocation.map((item) => (
           <GridItem>
-            <Picandname>
-              <Image src={item.img} style={{ width: 150, height: 150 }} alt="picture" />
-              <Link
-                key={item._id}
-                to={`/locations/${item.name}`}>
-                <LocationName>{item.name}</LocationName>
-              </Link>
-            </Picandname>
-            <h2>{item.address}</h2>
+            <Image src={picture} style={{ width: 150, height: 150 }} alt="picture" />
+            <Link
+              key={item._id}
+              // onClick={() => setSingleLocationPane({ isPaneOpen: true })}
+              to={`/locations/${item.name}`}>
+              <LocationName>{item.name} </LocationName>
+            </Link>
           </GridItem>
         ))
         }
-
+      </LocationGrid>
+      <LocationGrid>
+        <Headline>För dig som gillar natur</Headline>
         {natureLocation.map((item) => (
           <GridItem>
+            <Image src={picture} style={{ width: 150, height: 150 }} alt="picture" />
             <Link
               key={item._id}
               to={`/locations/${item.name}`}>
-              <h1>Name: {item.name} </h1>
-              <h2>Cafe: {item.cafe.toString()}</h2>
-              <h3>Map: {item.map}</h3>
+              <LocationName>{item.name} </LocationName>
             </Link>
           </GridItem>
         ))
@@ -87,11 +90,9 @@ export const Locations = () => {
   )
 }
 
-
 export const LocationGrid = styled.section`
   display: grid;
-  grid-gap: 15px;
-  margin: 30px;
+  grid-gap: 30px;
 
   @media ${Devices.tablet} {
     grid-template-columns: repeat(2, 1fr);
@@ -104,26 +105,34 @@ export const LocationGrid = styled.section`
 export const GridItem = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 10px;
+  justify-content: space-between;
+  padding: 30px;
+  margin: 10px;
   background-color: #ECB390;
+  border-radius: 5%;
   align-items: center;
+  border: 3px solid #e8894f;
+
 `
 export const Image = styled.img`
 border-radius: 50%;
-
+border: 2px solid #FCF8E8;
+margin: 10px 0px;
 `
 
-export const Picandname = styled.div`
-display: flex;
-flex-direction: row;
-`
-
-export const LocationName = styled.h1`
+export const LocationName = styled.h2`
+padding-top: 10px;
+font-family: 'Comfortaa', cursive;
+font-size: 25px;
 text-transform: uppercase;
-text-decoration: none;
+text-align: center;
+`
 
-&:focus, &:hover, &:visited, &:link, &:active {
-    text-decoration: none;
-}
+export const Headline = styled.h1`
+font-family: 'Montserrat', sans-serif;
+text-align: center;
+font-size: 40px;
+grid-column: 1 / 4;
+grid-row: 1;
+margin-top: 15px;
 `

@@ -161,10 +161,10 @@ const authenticateUser = async (req, res, next) => {
       success: false
     });
   }
-}*/
+}
 
 // When user is authenticated they are directed to this endpoint
-/*app.get("/locations", authenticateUser)
+app.get("/locations", authenticateUser)
 app.get("/locations", (req, res) => {
   res.status(200).json({
     sucess: true,

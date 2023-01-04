@@ -29,24 +29,23 @@ export const GlobalStyle = createGlobalStyle`
   footer {
     background-color: #CEE5D0;
     height: 10vh;
-    //width: 100vw;
+    width: 100vw;
     //position: fixed;
-    position: absolute;
-    //bottom: 0;
+    //position: absolute;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
-    //position: relative;
+    //width: 100%;
+    position: relative;
     bottom: 0;
 
     @media ${Devices.tablet} {
-      height: 12vh;
+      height: 10vh;
     }
   }
 
   footer ul {
-    margin: 20px;
+    padding: 20px;
   }
 
   footer a {
@@ -57,7 +56,7 @@ export const GlobalStyle = createGlobalStyle`
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    height: 12vh;
+    height: 10vh;
     width: 100vw;
     background-color: #CEE5D0;
     text-decoration: none;
@@ -93,16 +92,60 @@ export const CenterFlexDiv = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 15px;
+  //margin: 15px;
 `
 export const PaigeWrapper = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  //justify-content: center;
+  height: 80vh;
 `
+/*export const OuterWrapper = styled.section`
 
+  body {
+    background-color: #FCF8E8;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    //padding-bottom: 10vh;
+  }
 
+ 
+
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 12vh;
+    width: 100vw;
+    background-color: #CEE5D0;
+    text-decoration: none;
+    
+  }
+
+  header ul {
+    padding: 5px;
+    margin: 5px;
+    
+    @media ${Devices.tablet} {
+      padding: 10px;
+      margin: 20px;
+    }
+  }
+
+  header a {
+    text-decoration: none;
+  }
+
+  a {
+    color: black;
+  }
+`
+*/
 
 //@media ${Devices.tablet} 
 //@media ${Devices.laptop} 

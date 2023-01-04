@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 
-
 export const Header = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -19,7 +18,7 @@ export const Header = () => {
           <ul><NavLink to ="/locations"style={({ isActive }) => ({ fontWeight: isActive ? '600'  : '400'  })}> Besöksmål</NavLink></ul>
           <ul><NavLink to ="/profile"style={({ isActive }) => ({ fontWeight: isActive ? '600'  : '400'  })}> Profil</NavLink></ul>
           <ul><NavLink to ="/login"style={({ isActive }) => ({ fontWeight: isActive ? '600'  : '400'  })}> Logga in</NavLink></ul>
-          <ul><NavLink onClick={() => {dispatch(user.actions.setAccessToken(null)); navigate("/utloggad");} }>
+          <ul><NavLink onClick={() => {dispatch(user.actions.setAccessToken(null)); navigate("/");} }>
           Logga ut
         </NavLink></ul>
       </HeaderGroup>
