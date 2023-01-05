@@ -5,6 +5,9 @@ export const CultureSchema = new mongoose.Schema({
   name: {
     type: String
   },
+  img: {
+    type: String, 
+  },
   address: {
     type: String
   },

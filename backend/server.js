@@ -59,21 +59,21 @@ app.post("/register", async (req, res) => {
 const Nature = mongoose.model("Nature", NatureSchema);
 const Culture = mongoose.model("Culture", CultureSchema)
 
-// if (true) {
-//   const resetDatabase = async () => {
-//     await Culture.deleteMany();
-//     culture.forEach(singleCulture => {
-//       const newCulture = new Culture(singleCulture);
-//       newCulture.save()
-//     })
-//     await Nature.deleteMany();
-//     nature.forEach(singleNature => {
-//       const newNature = new Nature(singleNature)
-//       newNature.save()
-//     })
-//   }
-//   resetDatabase();
-// }
+ if (true) {
+   const resetDatabase = async () => {
+     await Culture.deleteMany();
+    culture.forEach(singleCulture => {
+      const newCulture = new Culture(singleCulture);
+     newCulture.save()
+    })
+    await Nature.deleteMany();
+    nature.forEach(singleNature => {
+      const newNature = new Nature(singleNature)
+      newNature.save()    
+    })
+   }
+   resetDatabase();
+ }
 
 //Register new user
 app.post("/register", async (req, res) => {
