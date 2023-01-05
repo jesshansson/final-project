@@ -43,7 +43,7 @@ export const Locations = () => {
     }
 
 
-    fetch("https://final-project-m2dbj6puqa-lz.a.run.app/")
+    fetch("https://final-project-m2dbj6puqa-lz.a.run.app/locations")
       .then(res => res.json())
       .then(data => {
         setNatureLocation(data.response.nature)
