@@ -1,9 +1,8 @@
 import React from 'react';
-import { GlobalStyle, OuterWrapper } from 'components/reusable-components/GlobalStyles';
+import { GlobalStyle } from 'components/reusable-components/GlobalStyles';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
-import { Header } from 'components/Header';
 import { UserProfile } from 'components/UserProfile';
 import { Locations } from 'components/Locations';
 import { Welcome } from 'components/Welcome';
@@ -17,6 +16,8 @@ import user from './reducers/user';
 import { SlidePanel } from 'components/SlidePanel';
 import { NotLoggedIn } from 'components/NotLoggedIn';
 import { Navbar } from 'components/Navbar';
+import { Modal } from 'bootstrap';
+import { UserModal } from 'components/reusable-components/UserModal';
 
 const reducer = combineReducers({
   user: user.reducer,
@@ -28,6 +29,7 @@ export const App = () => {
   return (
     <Provider store={store}>
       <BrowserRouter>
+
         <GlobalStyle />
         <Navbar />
         <Routes>
@@ -35,7 +37,7 @@ export const App = () => {
 
           <Route path='/profile' element={<UserProfile />} />
           <Route path='/locations' element={<Locations />} />
-          <Route path='/locations/:name' element={<SingleLocation />} />
+          <Route path='/locations/:id' element={<SingleLocation />} />
           <Route path='/about' element={<AboutUs />} />
           <Route path ='/unauthorized' element={< NotLoggedIn />} />
           <Route path={"/register"} element={
@@ -52,16 +54,17 @@ export const App = () => {
 
           <Route path='/modal' element={<PopUp />} />
           <Route path='/slidepanel' element={<SlidePanel />} />
+          <Route path='/modal2' element={<UserModal />} />
         </Routes>
         <Footer />
-        
+
       </BrowserRouter>
     </Provider>
   );
 }
 
 //Frontend: https://brilliant-taffy-d19d1f.netlify.app/
-//Backend: https://final-project-fovvngwz2q-lz.a.run.app/
+//Backend: https://final-project-m2dbj6puqa-lz.a.run.app/
 
 //https://www.freecodecamp.org/news/how-to-persist-a-logged-in-user-in-react/
 

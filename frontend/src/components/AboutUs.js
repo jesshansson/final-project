@@ -94,7 +94,7 @@ const CardWrapper = styled.div`
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-align-items: center;
+  align-items: center;
     *, *:before, *:after {
       box-sizing: inherit;
     }

@@ -29,7 +29,7 @@ export const GlobalStyle = createGlobalStyle`
   footer {
     background-color: #CEE5D0;
     height: 10vh;
-    width: 100vw;
+    width: 100%;
     //position: fixed;
     //position: absolute;
     display: flex;
@@ -51,18 +51,18 @@ export const GlobalStyle = createGlobalStyle`
   footer a {
     text-decoration: none;
   }
-
+  /*
   header {
     display: flex;
     align-items: center;
     justify-content: flex-end;
     height: 10vh;
-    width: 100vw;
+    width: 100%;
     background-color: #CEE5D0;
     text-decoration: none;
     
   }
-
+*/
   header ul {
     padding: 5px;
     margin: 5px;
@@ -82,7 +82,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 `
 export const Title = styled.h1`
-color: indianred;
+  color: indianred;
 `
 export const H1 = styled.h1`
   margin-bottom: 20px;
@@ -100,6 +100,7 @@ export const PaigeWrapper = styled.section`
   align-items: center;
   //justify-content: center;
   height: 80vh;
+  width: 100vw;
 `
 /*export const OuterWrapper = styled.section`
 

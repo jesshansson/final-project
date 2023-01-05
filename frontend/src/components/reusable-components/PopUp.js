@@ -1,7 +1,7 @@
-
 import React, { useState } from 'react';
 import Modal from 'react-modal';
 import { Link } from 'react-router-dom';
+import { PaigeWrapper } from './GlobalStyles';
 
 // Binds modal to your appElement (https://reactcommunity.org/react-modal/accessibility/)
 Modal.setAppElement("#root");
@@ -23,7 +23,7 @@ export const PopUp = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <div>
+    <PaigeWrapper>
       <button onClick={() => setIsModalOpen(true)}>Open Modal</button>
       <Modal
         isOpen={isModalOpen}
@@ -35,7 +35,7 @@ export const PopUp = () => {
         
         <button onClick={() => setIsModalOpen(false)}>Close Modal</button>
       </Modal>
-    </div>
+    </PaigeWrapper>
   );
 }
 

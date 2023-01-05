@@ -11,7 +11,7 @@ export const Login = ({siteHeadline, siteType, submitBtn}) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   //const [mode, setMode] = useState("login"); //behövs?
-  const [loginError, setLoginError] = useState("");//funkar ej
+  const [loginError, setLoginError] = useState("");
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -48,15 +48,15 @@ export const Login = ({siteHeadline, siteType, submitBtn}) => {
             dispatch(user.actions.setId(null))
             dispatch(user.actions.setAccessToken(null));
             dispatch(user.actions.setError(data.response));
-            window.alert(data.response)
-            setLoginError(data.response) //funkar ej
+            //window.alert(data.response)
+            setLoginError(data.response) 
           });
         }
       })
   }
   return (
-    <PaigeWrapper>
-      
+ 
+      <PaigeWrapper>
       <LoginBox>
         <H1>{siteHeadline}</H1>
           <FormSubmit onSubmit={onFormSubmit}>
@@ -79,7 +79,7 @@ export const Login = ({siteHeadline, siteType, submitBtn}) => {
               onChange={(e) => setPassword(e.target.value)}
             />  
             {loginError !== '' && ( 
-              <p>Error</p>   //funkar ej
+              <ErrorText>{loginError} </ErrorText> 
           )}
           <Button type="submit">{submitBtn}</Button>
           </FormSubmit>
@@ -97,8 +97,8 @@ export const Login = ({siteHeadline, siteType, submitBtn}) => {
             </CenterFlexDiv>)
             }
 
-      </LoginBox>
-  </PaigeWrapper>
+        </LoginBox>
+      </PaigeWrapper>
 )}
 
 export const LoginBox = styled.div`
@@ -113,7 +113,9 @@ export const LoginBox = styled.div`
   background-color: #FEF5ED;
   min-height: 35vh;
 `
-
+const ErrorText = styled.p`
+margin-top: 5px;
+`
 const FormSubmit = styled.form`
   display: flex;
   flex-direction: column;

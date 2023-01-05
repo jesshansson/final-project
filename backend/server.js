@@ -33,7 +33,7 @@ app.post("/register", async (req, res) => {
     if (password.length < 5) {
       res.status(400).json({
         success: false,
-        response: "Password must be at least 5 characters long"
+        response: "Lösenordet måste vara minst 5 tecken långt"
       });
     } else {
       const newUser = await new User({ username: username, password: bcrypt.hashSync(password, salt) }).save();
@@ -50,7 +50,7 @@ app.post("/register", async (req, res) => {
   catch (error) {
     res.status(400).json({
       success: false,
-      response: "Username is already registered"
+      response: "Användarnamnet upptaget"
     });
   }
 });
@@ -85,7 +85,7 @@ app.post("/register", async (req, res) => {
     if (password.length < 5) {
       res.status(400).json({
         success: false,
-        response: "Password must be at least 5 characters long"
+        response: "Lösenordet måste vara minst 5 tecken långt"
       });
     } else {
       const newUser = await new User({ username: username, password: bcrypt.hashSync(password, salt) }).save();
@@ -102,7 +102,7 @@ app.post("/register", async (req, res) => {
     if (error.code === 11000) {
       res.status(400).json({
         success: false,
-        response: 'Username already in use',
+        response: 'Användarnamnet upptaget',
       });
     } else {
       res.status(400).json({
@@ -130,7 +130,7 @@ app.post("/login", async (req, res) => {
     } else {
       res.status(400).json({
         success: false,
-        response: "Credentials didn't match"
+        response: "Användarnamn och lösenord matchar inte"
       });
     }
   } catch (error) {
@@ -164,14 +164,14 @@ const authenticateUser = async (req, res, next) => {
 }
 
 // When user is authenticated they are directed to this endpoint
-app.get("/locations", authenticateUser)
-app.get("/locations", (req, res) => {
+app.get("/profile", authenticateUser)
+app.get("/profile", (req, res) => {
   res.status(200).json({
     sucess: true,
     response: "Welcome, you are now logged in!"
   })
-})*/
-
+})
+*/
 
 app.get("/", (req, res) => {
   res.send([

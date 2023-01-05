@@ -10,6 +10,7 @@ export const Welcome = () => {
   return (
     <PaigeWrapper>
          <Link to="/modal"> Modal</Link>
+         <Link to="/modal2"> Modal 2</Link>
         <Link to="/slidepanel">Slidepanel</Link>
         <WelcomeHeader>
           Välkommen!
@@ -36,7 +37,7 @@ const WelcomeText = styled.div`
 
 @media ${Devices.tablet} {
   width: 50vw;
-  }
+}
 `
 
 const RegisterLink = styled.p`

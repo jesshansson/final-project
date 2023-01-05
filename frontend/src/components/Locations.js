@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import user from 'reducers/user';
-import { Devices } from './reusable-components/GlobalStyles';
+import { Devices, PaigeWrapper } from './reusable-components/GlobalStyles';
 import SlidingPane from "react-sliding-pane";
 import picture from "./picture.jpg"
 
@@ -55,8 +55,8 @@ export const Locations = () => {
   }, []);
 
   return (
-    <>
-
+  
+  <LocationsWrapper>
       
         <Headline>För dig som gillar kultur</Headline>
         <LocationGrid>
@@ -87,51 +87,58 @@ export const Locations = () => {
         ))
         }
       </LocationGrid>
-    </>
+      </LocationsWrapper>
   )
 }
 
-export const LocationGrid = styled.section`
+const LocationsWrapper = styled.section`
+margin: 0;
+`
+
+const LocationGrid = styled.section`
   display: grid;
   grid-gap: 30px;
 
   @media ${Devices.tablet} {
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 20px;
+    grid-gap: 10px;
+    margin: 10px 30px;
   } 
 
   @media ${Devices.laptop} {
     grid-template-columns: repeat(3, 1fr);
   }
 `
-export const GridItem = styled.div`
+const GridItem = styled.div`
   flex-direction: column;
   justify-content: space-between;
   text-align: center;
-  padding: 20px;
+  padding: 20px 0px;
   margin: 10px 60px;
   background-color: #ECB390;
-  border-radius: 5%;
+  border-radius: 15px;
   align-items: center;
   border: 3px solid #e8894f;
+  min-width: 10vw;
 
   @media ${Devices.tablet} {
     grid-template-columns: repeat(2, 1fr);
-    //margin:  
-    //padding: 20px 50px 20px 60px;
+    margin:  15px;
+    padding: 20px 10px;
   } 
 
   @media ${Devices.laptop} {
     grid-template-columns: repeat(3, 1fr);
-    margin: 20px;
-    padding: 30px;
+    margin: 20px 20px;
+    padding: 30px 20px;
+    min-width: 5vw;
   }
 
 `
 export const Image = styled.img`
-border-radius: 50%;
-border: 2px solid #FCF8E8;
-margin: 10px 0px;
+  border-radius: 50%;
+  border: 2px solid #FCF8E8;
+  margin: 10px 0px;
 `
 
 export const LocationName = styled.h2`
@@ -143,28 +150,28 @@ text-align: center;
 //letter-spacing: 15px 0px;
 
 @media ${Devices.tablet} {
-  font-size: 25px;
+  font-size: 22px;
   } 
 
   @media ${Devices.laptop} {
-
+    
   }
 `
 
 export const Headline = styled.h1`
-font-family: 'Montserrat', sans-serif;
-text-align: center;
-font-size: 25px;
-grid-column: 1 / 4;
-grid-row: 1;
-margin: 20px;
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  font-size: 25px;
+  grid-column: 1 / 4;
+  grid-row: 1;
+  margin: 20px;
 
-@media ${Devices.tablet} {
-  font-size: 40px;
+  @media ${Devices.tablet} {
+  font-size: 30px;
   } 
 
   @media ${Devices.laptop} {
-
+    font-size: 35px;
   }
 
 `

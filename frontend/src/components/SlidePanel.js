@@ -3,6 +3,7 @@ import { render } from "react-dom";
 import SlidingPane from "react-sliding-pane";
 import styled from "styled-components";
 import "react-sliding-pane/dist/react-sliding-pane.css";
+import { PaigeWrapper } from "./reusable-components/GlobalStyles";
 
 export const SlidePanel = () => {
   const [state, setState] = useState({
@@ -17,7 +18,8 @@ export const SlidePanel = () => {
   // }, [accessToken])
   
   return (
-    <PanelWrapper>
+    <PaigeWrapper>
+      <PanelWrapper>
       <button onClick={() => setState({ isPaneOpen: true })}>
         Click me to open right pane!
       </button>
@@ -53,7 +55,8 @@ export const SlidePanel = () => {
       >
         <div>And I am pane content on left.</div>
       </SlidingPane>
-    </PanelWrapper>
+      </PanelWrapper>
+    </PaigeWrapper>
   );
 };
 

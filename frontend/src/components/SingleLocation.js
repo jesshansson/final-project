@@ -3,88 +3,96 @@ import { Devices } from './reusable-components/GlobalStyles';
 import { useState, useEffect } from "react";
 import styled from "styled-components/macro";
 import { useParams } from "react-router-dom";
-import { API_URL } from "utils/utils";
+import { BASE_URL, API_URL, API_SINGLE } from "utils/utils";
 import { Link } from 'react-router-dom';
 import picture from "./picture.jpg"
 //import { Interested } from "./ShowInterest";
 
 export const SingleLocation = () => {
   const params = useParams()
-  // console.log(params)
+  console.log(params)
   // const { id } = useParams()
 
   const [detailsCulture, setDetailsCulture] = useState([])
   const [detailsNature, setDetailsNature] = useState([])
 
-  const matchCulture = detailsCulture.find((location) => location.name === params.name)
-  const matchNature = detailsNature.find((location) => location.name === params.name)
+  const matchCulture = detailsCulture.find((location) => location.id === params.id)
+  const matchNature = detailsNature.find((location) => location.id === params.id)
   // (API_URL("games")
 
   useEffect(() => {
-    fetch("http://localhost:8080/locations/")
+    fetch(`http://localhost:8080/locations/${id}`)
       .then(res => res.json())
       .then((data) => {
+        console.log(data.response._id)
         setDetailsCulture(data.response.culture)
         setDetailsNature(data.response.nature)
       })
       .catch(error => console.error(error))
   }, [])
 
-  console.log(matchCulture)
-  console.log(matchNature)
+  // console.log(detailsCulture)
+  // console.log(detailsNature)
 
-
-
-  if (matchCulture) {
-    return (
-      <>
-        <Link to="/locations"> ↩ Tillbaka </Link>
-        <LocationWrapper>
-          <SingleLocationDiv>
-            <Image src={picture} style={{ width: 300, height: 200 }} alt="picture" />
-            <Name>{matchCulture.name}</Name>
-            <Description>{matchCulture.description} </Description>
+  // if (detailsCulture) {
+  return (
+    <>
+      <Link to="/locations"> ↩ Tillbaka </Link>
+      <LocationWrapper>
+        <SingleLocationDiv>
+          <section>
+            <SingleLocationDiv>
+              <h1>Description: {detailsCulture.description} </h1>
+              
+              <h3>entranceFee: {culture.entranceFee}</h3>
+              {/* <h1>Img: {details.img} </h1> */}
+              {/* <h2>highlights: {item.highlights}</h2>
+              <h3>Toilet: {item.toilet}</h3> */}
+            </SingleLocationDiv>
+          </section>
+          {/* <Image src={picture} style={{ width: 300, height: 200 }} alt="picture" />
+            <Name>{detailsCulture.name}</Name>
+            <Description>{detailsCulture.description} </Description>
             <LocationDetails>
               <ExtraInfo>
-                <h3><Bold>Inträde:</Bold> {matchCulture.entranceFee}:- kr</h3>
-                <h3><Bold>Tillgång till café:</Bold> {matchCulture.cafe.toString()}</h3>
-                <h3><Bold>Närmaste hållplats:</Bold> {matchCulture.closestStation}</h3>
-                <h3><Bold>Hemsida:</Bold> {matchCulture.website}</h3>
+                <h3><Bold>Inträde:</Bold> {detailsCulture.entranceFee}:- kr</h3>
+                <h3><Bold>Tillgång till café:</Bold> {detailsCulture.cafe.toString()}</h3>
+                <h3><Bold>Närmaste hållplats:</Bold> {detailsCulture.closestStation}</h3>
+                <h3><Bold>Hemsida:</Bold> {detailsCulture.website}</h3>
               </ExtraInfo>
               <OpeningHours><Bold>Öppettider:</Bold>
                 <li>Måndag: {matchCulture.opening_hours_mon}</li>
                 <li>Tisdag: {matchCulture.opening_hours_tue}</li>
                 <li>Onsdag: {matchCulture.opening_hours_wed}</li>
-                {/* thursday is called thu in schema and thur in json - change one or the other*/}
                 <li>Torsdag: {matchCulture.opening_hours_thu}</li>
                 <li>Fredag: {matchCulture.opening_hours_fri}</li>
                 <li>Lördag: {matchCulture.opening_hours_sat}</li>
                 <li>Söndag: {matchCulture.opening_hours_sun}</li>
               </OpeningHours>
             </LocationDetails>
-            {/* <Interested /> */}
-          </SingleLocationDiv>
-        </LocationWrapper>
-      </>
-    )
-  } else if (matchNature) {
-    return (
-      <>
-        <Link to="/locations"> ↩ Tillbaka </Link>
-        <LocationWrapper>
-          <SingleLocationDiv>
-            <Image src={picture} style={{ width: 300, height: 200 }} alt="picture" />
-            <Name>{matchNature.name}</Name>
-            <Description> {matchNature.description} </Description>
-            <h2>highlights: {matchNature.highlights}</h2>
-            <h2>activities: {matchNature.activities}</h2>
-            <h3>Toilet: {matchNature.toilet.toString()}</h3>
-            {/* <Interested /> */}
-          </SingleLocationDiv>
-        </LocationWrapper>
-      </>
-    )
-  }
+            <Interested /> */}
+        </SingleLocationDiv>
+      </LocationWrapper>
+    </>
+  )
+  // } else if (matchNature) {
+  //   return (
+  //     <>
+  //       <Link to="/locations"> ↩ Tillbaka </Link>
+  //       <LocationWrapper>
+  //         <SingleLocationDiv>
+  //           <Image src={picture} style={{ width: 300, height: 200 }} alt="picture" />
+  //           <Name>{matchNature.name}</Name>
+  //           <Description> {matchNature.description} </Description>
+  //           <h2>highlights: {matchNature.highlights}</h2>
+  //           <h2>activities: {matchNature.activities}</h2>
+  //           <h3>Toilet: {matchNature.toilet.toString()}</h3>
+  //           {/* <Interested /> */}
+  //         </SingleLocationDiv>
+  //       </LocationWrapper>
+  //     </>
+  //   )
+  // }
 }
 
 const LocationWrapper = styled.section`
@@ -139,5 +147,3 @@ padding: 10 10 10 0;
 export const Bold = styled.span`
 font-weight: bold;
 `
-
-
