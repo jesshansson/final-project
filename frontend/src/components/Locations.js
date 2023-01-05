@@ -57,8 +57,9 @@ export const Locations = () => {
   return (
     <>
 
-      <LocationGrid>
+      
         <Headline>För dig som gillar kultur</Headline>
+        <LocationGrid>
         {cultureLocation.map((item) => (
           <GridItem>
             <Image src={item.img} style={{ width: 150, height: 150 }} alt="picture" />
@@ -72,9 +73,9 @@ export const Locations = () => {
         ))
         }
       </LocationGrid>
-      <LocationGrid>
         <Headline>För dig som gillar natur</Headline>
-        {natureLocation.map((item) => (
+        <LocationGrid>
+          {natureLocation.map((item) => (
           <GridItem>
             <Image src={item.img} style={{ width: 150, height: 150 }} alt="picture" />
             <Link
@@ -96,6 +97,7 @@ export const LocationGrid = styled.section`
 
   @media ${Devices.tablet} {
     grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
   } 
 
   @media ${Devices.laptop} {
@@ -103,15 +105,27 @@ export const LocationGrid = styled.section`
   }
 `
 export const GridItem = styled.div`
-  display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 30px;
-  margin: 10px;
+  text-align: center;
+  padding: 20px;
+  margin: 10px 60px;
   background-color: #ECB390;
   border-radius: 5%;
   align-items: center;
   border: 3px solid #e8894f;
+
+  @media ${Devices.tablet} {
+    grid-template-columns: repeat(2, 1fr);
+    //margin:  
+    //padding: 20px 50px 20px 60px;
+  } 
+
+  @media ${Devices.laptop} {
+    grid-template-columns: repeat(3, 1fr);
+    margin: 20px;
+    padding: 30px;
+  }
 
 `
 export const Image = styled.img`
@@ -123,16 +137,34 @@ margin: 10px 0px;
 export const LocationName = styled.h2`
 padding-top: 10px;
 font-family: 'Comfortaa', cursive;
-font-size: 25px;
+font-size: 20px;
 text-transform: uppercase;
 text-align: center;
+//letter-spacing: 15px 0px;
+
+@media ${Devices.tablet} {
+  font-size: 25px;
+  } 
+
+  @media ${Devices.laptop} {
+
+  }
 `
 
 export const Headline = styled.h1`
 font-family: 'Montserrat', sans-serif;
 text-align: center;
-font-size: 40px;
+font-size: 25px;
 grid-column: 1 / 4;
 grid-row: 1;
-margin-top: 15px;
+margin: 20px;
+
+@media ${Devices.tablet} {
+  font-size: 40px;
+  } 
+
+  @media ${Devices.laptop} {
+
+  }
+
 `

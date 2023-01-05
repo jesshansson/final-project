@@ -16,6 +16,7 @@ import { PopUp } from 'components/reusable-components/PopUp';
 import user from './reducers/user';
 import { SlidePanel } from 'components/SlidePanel';
 import { NotLoggedIn } from 'components/NotLoggedIn';
+import { Navbar } from 'components/Navbar';
 
 const reducer = combineReducers({
   user: user.reducer,
@@ -28,7 +29,7 @@ export const App = () => {
     <Provider store={store}>
       <BrowserRouter>
         <GlobalStyle />
-        <Header />
+        <Navbar />
         <Routes>
           <Route path='/' element={<Welcome />} />
 
