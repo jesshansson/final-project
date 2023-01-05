@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 import { API_URL } from "utils/utils";
 import { Link } from 'react-router-dom';
 import picture from "./picture.jpg"
-import { Interested } from "./ShowInterest";
+// import { Interested } from "./ShowInterest";
 
 export const SingleLocation = () => {
   const params = useParams()
@@ -62,7 +62,7 @@ export const SingleLocation = () => {
                 <li>Söndag: {matchCulture.opening_hours_sun}</li>
               </OpeningHours>
             </LocationDetails>
-            <Interested />
+            {/* <Interested /> */}
           </SingleLocationDiv>
         </LocationWrapper>
       </>
@@ -79,7 +79,7 @@ export const SingleLocation = () => {
             <h2>highlights: {matchNature.highlights}</h2>
             <h2>activities: {matchNature.activities}</h2>
             <h3>Toilet: {matchNature.toilet.toString()}</h3>
-            <Interested />
+            {/* <Interested /> */}
           </SingleLocationDiv>
         </LocationWrapper>
       </>
