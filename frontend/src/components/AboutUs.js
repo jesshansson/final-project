@@ -2,6 +2,8 @@ import React from "react";
 import { Devices } from './reusable-components/GlobalStyles';
 import { Title } from "./reusable-components/GlobalStyles";
 import styled from "styled-components";
+import { Description } from "./SingleLocation";
+import { DescriptionProfile, SoMeIcon, SoMeIconLink } from "./reusable-components/GlobalStyles"
 
 export const AboutUs = () => {
 
@@ -10,9 +12,9 @@ export const AboutUs = () => {
 <OuterWrapper>
 <AboutSection>
   <Title>Om oss</Title>
-  <Info>Hej! Vi är tre utvecklare som har byggt en sida där vi hoppas kunna 
+  <DescriptionProfile>Hej! Vi är tre utvecklare som har byggt en sida där vi hoppas kunna 
     främja kultur- och naturlivet. Som en bonus kanske man även kan träffa 
-    andra människor med likasinnade intressen. XXX.se är byggd som en del av vår utbildning inom frontend development.  </Info>
+    andra människor med likasinnade intressen. XXX.se är byggd som en del av vår utbildning inom frontend development.  </DescriptionProfile>
 </AboutSection>
 
 <CardWrapper>
@@ -22,16 +24,18 @@ export const AboutUs = () => {
       <Container>
         <NameTitle>Maria Westling</NameTitle>
         <SmallTitle>Frontend developer</SmallTitle>
-        <Info>info info lorem ipsum ipsum lorem.</Info>
-        <a href="https://github.com/marwebdesign">
-        <i className="fa-brands fa-github" />
-          </a>
-          <a href="https://www.linkedin.com/in/maria-westling-a6327315b/">
-            <i className="fa-brands fa-linkedin-in" />
-          </a>
-          <a href="mailto:maria.westling@gmail.com">
-          <i class='far fa-envelope-open' />
-          </a>
+        <DescriptionProfile>info info lorem ipsum ipsum lorem.</DescriptionProfile>
+        <SoMeWrapper>
+        <SoMeIcon href="https://github.com/marwebdesign">
+        <SoMeIconLink className="fa-brands fa-github" />
+          </SoMeIcon>
+          <SoMeIcon href="https://www.linkedin.com/in/maria-westling-a6327315b/">
+            <SoMeIconLink className="fa-brands fa-linkedin-in" />
+          </SoMeIcon>
+          <SoMeIcon href="mailto:maria.westling@gmail.com">
+          <SoMeIconLink class='far fa-envelope-open' />
+          </SoMeIcon>
+          </SoMeWrapper>
       </Container>
     </Card>
     </Column>
@@ -42,16 +46,18 @@ export const AboutUs = () => {
       <Container>
       <NameTitle>Jessica Hansson</NameTitle>
         <SmallTitle>Frontend developer</SmallTitle>
-        <Info>info info lorem ipsum ipsum lorem.</Info>
-        <a href="https://github.com/jesshansson">
-            <i className="fa-brands fa-github" />
-          </a>
-          <a href="https://www.linkedin.com/in/jesshansson/">
-            <i className="fa-brands fa-linkedin-in" />
-          </a>
-          <a href="mailto:jessica.hansson@hotmail.se">
-          <i class='far fa-envelope-open' />
-          </a>
+        <DescriptionProfile>info info lorem ipsum ipsum lorem.</DescriptionProfile>
+        <SoMeWrapper>
+        <SoMeIcon href="https://github.com/jesshansson">
+            <SoMeIconLink className="fa-brands fa-github" />
+          </SoMeIcon>
+          <SoMeIcon href="https://www.linkedin.com/in/jesshansson/">
+            <SoMeIconLink className="fa-brands fa-linkedin-in" />
+          </SoMeIcon>
+          <SoMeIcon href="mailto:jessica.hansson@hotmail.se">
+          <SoMeIconLink class='far fa-envelope-open' />
+          </SoMeIcon>
+          </SoMeWrapper>
       </Container>
     </Card>
     </Column>
@@ -62,16 +68,18 @@ export const AboutUs = () => {
       <Container>
       <NameTitle>Cecilia Rådén</NameTitle>
         <SmallTitle>Frontend developer</SmallTitle>
-        <Info>info info lorem ipsum ipsum lorem.</Info>
-        <a href="https://github.com/CeciliaMichele">
-            <i className="fa-brands fa-github" />
-          </a>
-          <a href="https://www.linkedin.com/in/ceciliaraden/">
-            <i className="fa-brands fa-linkedin-in" />
-          </a>
-          <a href="mailto:cecilia.raden@gmail.com">
-          <i class='far fa-envelope-open' />
-          </a>
+        <DescriptionProfile>info info lorem ipsum ipsum lorem.</DescriptionProfile>
+        <SoMeWrapper>
+        <SoMeIcon href="https://github.com/CeciliaMichele">
+            <SoMeIconLink className="fa-brands fa-github" />
+          </SoMeIcon>
+          <SoMeIcon href="https://www.linkedin.com/in/ceciliaraden/">
+            <SoMeIconLink className="fa-brands fa-linkedin-in" />
+          </SoMeIcon>
+          <SoMeIcon href="mailto:cecilia.raden@gmail.com">
+          <SoMeIconLink class='far fa-envelope-open' />
+          </SoMeIcon>
+          </SoMeWrapper>
       </Container>
     </Card>
     </Column>
@@ -127,9 +135,7 @@ const Card = styled.div`
 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 margin: 8px;
 `
-const Info = styled.div`
-font-size: 16px;
-`
+
 
 const AboutSection = styled.div`
   padding: 50px;
@@ -162,4 +168,8 @@ const AboutUsImage = styled.img`
  width: 100%;
 `
 
-
+const SoMeWrapper = styled.section`
+display: flex;
+flex-direction: row;
+justify-content: center;
+` 
