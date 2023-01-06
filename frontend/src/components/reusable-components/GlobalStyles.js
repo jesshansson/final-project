@@ -52,7 +52,7 @@ export const GlobalStyle = createGlobalStyle`
     text-decoration: none;
   }
 
-  header {
+ /* header {
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -61,7 +61,7 @@ export const GlobalStyle = createGlobalStyle`
     background-color: #CEE5D0;
     text-decoration: none;
     
-  }
+  }*/
 
   header ul {
     padding: 5px;

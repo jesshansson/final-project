@@ -13,7 +13,6 @@ export const Navbar = () => {
 
   return (
     <Nav>
-      <header>
       <HamburgerButton>
             <Hamburger
               label="Show menu"
@@ -27,11 +26,8 @@ export const Navbar = () => {
           <ul><NavLink to ="/locations"style={({ isActive }) => ({ fontWeight: isActive ? '600'  : '400'  })}> Besöksmål</NavLink></ul>
           <ul><NavLink to ="/profile"style={({ isActive }) => ({ fontWeight: isActive ? '600'  : '400'  })}> Profil</NavLink></ul>
           <ul><NavLink to ="/login"style={({ isActive }) => ({ fontWeight: isActive ? '600'  : '400'  })}> Logga in</NavLink></ul>
-          <ul><NavLink onClick={() => {dispatch(user.actions.setAccessToken(null)); navigate("/");} }>
-          Logga ut
-        </NavLink></ul>
+          <ul><NavLink onClick={() => {dispatch(user.actions.setAccessToken(null)); navigate("/");} }>Logga ut</NavLink></ul>
         </Menu>
-      </header>
     </Nav>
   )
 }
@@ -41,31 +37,47 @@ export const Navbar = () => {
   flex-direction: row;
 `*/
 const Nav = styled.div`
-//display: flex;
-//align-items: center;
-//justify-content:center`
+overflow: hidden;
+background-color: #CEE5D0;
+
+a {
+  float: left;
+  display: block;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+a:hover {
+  color: black;
+  transform: scale(1.2);
+  transition: 0.3s;
+}
+` 
 
 const HamburgerButton = styled.div`
   display: none;
   color: black; 
   margin: 10px;
-  
+
   @media (max-width: 668px){
   display: flex;
   }
 `
 const Menu = styled.div`
   display: flex;
-  justify-content: space-between;
-  position: relative;
+position: relative;
 
   
   @media (max-width: 668px) {
-    overflow: hidden;
-    //background-color: green;
     flex-direction: column;
-    width: 100%;
-    max-height: ${({ isOpen }) => (isOpen ? "200px" : "0")};
+    max-height: ${({ isOpen }) => (isOpen ? "400px" : "0")};
+  }
+
+  @media (min-width: 668px) {
+    display: flex;
+    justify-content: flex-end;
   }
 `
 
