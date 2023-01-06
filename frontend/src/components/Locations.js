@@ -48,8 +48,10 @@ export const Locations = () => {
       .then(data => {
         setNatureLocation(data.response.nature)
         setCultureLocation(data.response.culture)
+        console.log(data.response.culture)
+        console.log(data.response.nature)
+
       })
-      .then(console.log(natureLocation))
       .catch(error => console.error(error))
 
   }, []);
@@ -65,7 +67,7 @@ export const Locations = () => {
             <Link
               key={item._id}
               // onClick={() => setSingleLocationPane({ isPaneOpen: true })}
-              to={`/locations/${item.name}`}>
+              to={`/locations/${item._id}`}>
               <LocationName>{item.name} </LocationName>
             </Link>
           </GridItem>
@@ -79,8 +81,8 @@ export const Locations = () => {
             <Image src={item.img} style={{ width: 150, height: 150 }} alt="picture" />
             <Link
               key={item._id}
-              to={`/locations/${item.name}`}>
-              <LocationName>{item.name} </LocationName>
+              to={`/locations/${item._id}`}>
+              <LocationName>{item.name}</LocationName>
             </Link>
           </GridItem>
         ))

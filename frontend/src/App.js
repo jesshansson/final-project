@@ -34,9 +34,9 @@ export const App = () => {
 
           <Route path='/profile' element={<UserProfile />} />
           <Route path='/locations' element={<Locations />} />
-          <Route path='/locations/:name' element={<SingleLocation />} />
+          <Route path='/locations/:id' element={<SingleLocation />} />
           <Route path='/about' element={<AboutUs />} />
-          <Route path ='/unauthorized' element={< NotLoggedIn />} />
+          <Route path='/unauthorized' element={< NotLoggedIn />} />
           <Route path={"/register"} element={
             <Login
               siteType="register"
@@ -53,7 +53,7 @@ export const App = () => {
           <Route path='/slidepanel' element={<SlidePanel />} />
         </Routes>
         <Footer />
-        
+
       </BrowserRouter>
     </Provider>
   );
