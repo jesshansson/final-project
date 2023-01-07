@@ -31,30 +31,9 @@ export const SingleLocation = () => {
 
   console.log(details)
 
-
-  //FÖRSÖK ATT FILTRERA EFTER GENRE FÖR ATT KUNNA AVGÖRA OM DET ÄR CULTURE OR NATURE
-  // const filteredLocations = Object.keys(details)
-  //   .filter((key) => key.includes("genre"))
-  //   .reduce((obj, key) => {
-  //     return Object.assign
-  //       (obj, {
-  //         [key]: details[key]
-  //       })
-  //   }, {
-  //   })
-
+  //turns object into array to be able to render it an use .includes
   const filteredLocations = Object.keys(details)
-  // .filter((key) => key.includes("genre"))
-  // .reduce((obj, key) => {
-  //   return Object.assign(obj, {
-  //     [key]: details[key]
-  //   })
-  // }, {
-  // })
   console.log(filteredLocations)
-  // const filteredLocations = details.filter((type) => (type.name === "Hellasgården, Nackareservatet") || (type.name === "Hagaparken") || (type.name === "Långholmen") || (type.name === "Nyckelviken") || (type.name === "Vinterviken") || (type.name === "Lövsta"))
-
-
 
   if (filteredLocations.includes("genre")) {
     return (
@@ -92,7 +71,7 @@ export const SingleLocation = () => {
         <LocationWrapper>
           <SingleLocationDiv>
             {details.description}
-            {details.highlights}
+            <p>Se och göra: {details.highlights}</p>
           </SingleLocationDiv>
         </LocationWrapper>
       </>
@@ -137,7 +116,6 @@ export const LocationDetails = styled.div`
 display: flex;
 flex-direction: row;
 width: 80%;
-
 `
 
 export const ExtraInfo = styled.div`
@@ -152,9 +130,3 @@ padding: 10 10 10 0;
 export const Bold = styled.span`
 font-weight: bold;
 `
-
-
-
-   // const filtered = asArray.filter(([genre, museum]) => typeof museum === "string")
-  // const matchCulture = Object.fromEntries(filtered)
-  // const filteredLocations = asArray.filter((type) => (type.genre === "Museum") || (type.genre === "Konsthall") || (type.genre === "Teater") || (type.genre === "Friluftsmuseum") || (type.genre === "Bio"))
