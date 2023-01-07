@@ -5,33 +5,19 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import user from 'reducers/user';
 import { Devices } from './reusable-components/GlobalStyles';
-import SlidingPane from "react-sliding-pane";
+import SlidingPanel from "react-sliding-side-panel";
 import picture from "./picture.jpg"
 
 export const Locations = () => {
   const navigate = useNavigate();
-  //LOCAL STORAGE 
-  // const accessToken = localStorage.getItem('accessToken');
-  // const username = localStorage.getItem('username');
-
-  //   localStorage.removeItem('accessToken');
-  //   localStorage.removeItem('username');
-  //   navigate("/");
-  // }
-
-
-  // const accessToken = useSelector((store) => store.user.accessToken);
-  // const navigate = useNavigate();
-
-  // useEffect(() => {
-  //   if (!accessToken) {
-  //     navigate("/utloggad");
-  //   }
-  // }, [accessToken])
 
   const [cultureLocation, setCultureLocation] = useState([])
   const [natureLocation, setNatureLocation] = useState([])
-  const [singleLocationPane, setSingleLocationPane] = useState({ isPaneOpen: false })
+  const [openPanel, setOpenPanel] = useState(false)
+
+  // onPanelButtonClick = () => {
+
+  // }
 
   useEffect(() => {
     const options = {
@@ -41,7 +27,6 @@ export const Locations = () => {
         // "Authorization": accessToken
       }
     }
-
 
     fetch("https://final-project-m2dbj6puqa-lz.a.run.app/locations")
       .then(res => res.json())
@@ -58,18 +43,29 @@ export const Locations = () => {
 
   return (
     <>
-
       <LocationGrid>
         <Headline>För dig som gillar kultur</Headline>
         {cultureLocation.map((item) => (
           <GridItem>
             <Image src={item.img} style={{ width: 150, height: 150 }} alt="picture" />
+            {/* <button onClick={() => setOpenPanel(true)}>
+              <LocationName>{item.name} </LocationName>
+            </button> */}
             <Link
               key={item._id}
-              // onClick={() => setSingleLocationPane({ isPaneOpen: true })}
               to={`/locations/${item._id}`}>
+              {/* <LocationName>{item.name} </LocationName> */}
               <LocationName>{item.name} </LocationName>
             </Link>
+            {/* <SlidingPanel
+              type={'right'}
+              isOpen={openPanel}
+              size={30}>
+              <div>
+                <button onClick={() => setOpenPanel(false)}>close</button>
+              </div>
+            </SlidingPanel> */}
+
           </GridItem>
         ))
         }
@@ -138,3 +134,23 @@ grid-column: 1 / 4;
 grid-row: 1;
 margin-top: 15px;
 `
+
+  //LOCAL STORAGE 
+  // const accessToken = localStorage.getItem('accessToken');
+  // const username = localStorage.getItem('username');
+
+  //   localStorage.removeItem('accessToken');
+  //   localStorage.removeItem('username');
+  //   navigate("/");
+  // }
+
+
+
+  // const accessToken = useSelector((store) => store.user.accessToken);
+  // const navigate = useNavigate();
+
+  // useEffect(() => {
+  //   if (!accessToken) {
+  //     navigate("/utloggad");
+  //   }
+  // }, [accessToken])
