@@ -107,7 +107,7 @@ export const LoginBox = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 15vh;
+  margin: 15vh;
   box-shadow: 0px 0px 7px 0px #888888;
   padding: 20px;
   background-color: #FEF5ED;

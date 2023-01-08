@@ -119,7 +119,7 @@ const GridItem = styled.div`
   border-radius: 15px;
   align-items: center;
   border: 3px solid #e8894f;
-  min-width: 10vw;
+  //width;
 
   @media ${Devices.tablet} {
     grid-template-columns: repeat(2, 1fr);
@@ -131,7 +131,6 @@ const GridItem = styled.div`
     grid-template-columns: repeat(3, 1fr);
     margin: 20px 20px;
     padding: 30px 20px;
-    min-width: 5vw;
   }
 
 `

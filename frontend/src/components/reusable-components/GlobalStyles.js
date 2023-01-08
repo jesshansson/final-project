@@ -26,58 +26,11 @@ export const GlobalStyle = createGlobalStyle`
     //padding-bottom: 10vh;
   }
 
-  footer {
-    background-color: #CEE5D0;
-    height: 10vh;
-    width: 100%;
-    //position: fixed;
-    //position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    //width: 100%;
-    position: relative;
-    bottom: 0;
-
-    @media ${Devices.tablet} {
-      height: 10vh;
-    }
-  }
-
-  footer ul {
-    padding: 20px;
-  }
-
-  footer a {
-    text-decoration: none;
-  }
-  /*
-  header {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    height: 10vh;
-    width: 100%;
-    background-color: #CEE5D0;
-    text-decoration: none;
-    
-  }
-*/
-  header ul {
-    padding: 5px;
-    margin: 5px;
-    
-    @media ${Devices.tablet} {
-      padding: 10px;
-      margin: 20px;
-    }
-  }
-
-  header a {
-    text-decoration: none;
-  }
-
   a {
+    color: black;
+  }
+
+  a:hover {
     color: black;
   }
 `

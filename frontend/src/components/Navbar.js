@@ -10,6 +10,7 @@ export const Navbar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [isOpen, setOpen] = useState(false)
+  const closeSideBar = () => {setOpen(false)}
 
   return (
     <Nav>
@@ -22,11 +23,11 @@ export const Navbar = () => {
             />
           </HamburgerButton>
           <Menu isOpen={isOpen}>
-          <ul><NavLink to ="/"style={({ isActive }) => ({ fontWeight: isActive ? '600'  : '400' })}> Start</NavLink></ul>
-          <ul><NavLink to ="/locations"style={({ isActive }) => ({ fontWeight: isActive ? '600'  : '400'  })}> Besöksmål</NavLink></ul>
-          <ul><NavLink to ="/profile"style={({ isActive }) => ({ fontWeight: isActive ? '600'  : '400'  })}> Profil</NavLink></ul>
-          <ul><NavLink to ="/login"style={({ isActive }) => ({ fontWeight: isActive ? '600'  : '400'  })}> Logga in</NavLink></ul>
-          <ul><NavLink onClick={() => {dispatch(user.actions.setAccessToken(null)); navigate("/");} }>Logga ut</NavLink></ul>
+          <ul><NavLink to ="/" onClick={closeSideBar} style={({ isActive }) => ({ fontWeight: isActive ? '600'  : '400' })}> Start</NavLink></ul>
+          <ul><NavLink to ="/locations" onClick={closeSideBar} style={({ isActive }) => ({ fontWeight: isActive ? '600'  : '400'  })}> Besöksmål</NavLink></ul>
+          <ul><NavLink to ="/profile" onClick={closeSideBar} style={({ isActive }) => ({ fontWeight: isActive ? '600'  : '400'  })}> Profil</NavLink></ul>
+          <ul><NavLink to ="/login" onClick={closeSideBar} style={({ isActive }) => ({ fontWeight: isActive ? '600'  : '400'  })}> Logga in</NavLink></ul>
+          <ul><NavLinkLogOut onClick={() => {dispatch(user.actions.setAccessToken(null)); navigate("/"); closeSideBar } } >Logga ut</NavLinkLogOut></ul>
         </Menu>
     </Nav>
   )
@@ -39,12 +40,13 @@ export const Navbar = () => {
 const Nav = styled.div`
 overflow: hidden;
 background-color: #CEE5D0;
+width: 100%;
 
 a {
   float: left;
   display: block;
   text-align: center;
-  padding: 14px 16px;
+  padding: 14px 12px;
   text-decoration: none;
   font-size: 17px;
 }
@@ -55,6 +57,11 @@ a:hover {
   transition: 0.3s;
 }
 ` 
+const NavLinkLogOut = styled.a`
+margin-right: 10px;
+cursor: pointer
+`
+
 
 const HamburgerButton = styled.div`
   display: none;
@@ -67,7 +74,8 @@ const HamburgerButton = styled.div`
 `
 const Menu = styled.div`
   display: flex;
-position: relative;
+  position: relative;
+
 
   
   @media (max-width: 668px) {
@@ -81,5 +89,32 @@ position: relative;
   }
 `
 
+/*
+header ul {
+  padding: 5px;
+  margin: 5px;
+  
+  @media ${Devices.tablet} {
+    padding: 10px;
+    margin: 20px;
+  }
+}
 
+header a {
+  text-decoration: none;
+}
 
+*/
+
+  /*
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 10vh;
+    width: 100%;
+    background-color: #CEE5D0;
+    text-decoration: none;
+    
+  }
+*/
