@@ -59,21 +59,21 @@ app.post("/register", async (req, res) => {
 const Nature = mongoose.model("Nature", NatureSchema);
 const Culture = mongoose.model("Culture", CultureSchema)
 
- if (true) {
-   const resetDatabase = async () => {
-     await Culture.deleteMany();
-    culture.forEach(singleCulture => {
-      const newCulture = new Culture(singleCulture);
-     newCulture.save()
-    })
-    await Nature.deleteMany();
-    nature.forEach(singleNature => {
-      const newNature = new Nature(singleNature)
-      newNature.save()    
-    })
-   }
-   resetDatabase();
- }
+// if (true) {
+//   const resetDatabase = async () => {
+//     await Culture.deleteMany();
+//     culture.forEach(singleCulture => {
+//       const newCulture = new Culture(singleCulture);
+//       newCulture.save()
+//     })
+//     await Nature.deleteMany();
+//     nature.forEach(singleNature => {
+//       const newNature = new Nature(singleNature)
+//       newNature.save()
+//     })
+//   }
+//   resetDatabase();
+// }
 
 //Register new user
 app.post("/register", async (req, res) => {
@@ -141,7 +141,7 @@ app.post("/login", async (req, res) => {
   }
 });
 
-/*
+
 // Authenticated endpoint - accesible after logged in
 const authenticateUser = async (req, res, next) => {
   const accessToken = req.header("Authorization");
@@ -171,7 +171,6 @@ app.get("/profile", (req, res) => {
     response: "Welcome, you are now logged in!"
   })
 })
-*/
 
 app.get("/", (req, res) => {
   res.send([

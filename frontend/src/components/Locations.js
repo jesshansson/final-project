@@ -10,28 +10,14 @@ import picture from "./picture.jpg"
 
 export const Locations = () => {
   const navigate = useNavigate();
-  //LOCAL STORAGE 
-  // const accessToken = localStorage.getItem('accessToken');
-  // const username = localStorage.getItem('username');
-
-  //   localStorage.removeItem('accessToken');
-  //   localStorage.removeItem('username');
-  //   navigate("/");
-  // }
-
-
-  // const accessToken = useSelector((store) => store.user.accessToken);
-  // const navigate = useNavigate();
-
-  // useEffect(() => {
-  //   if (!accessToken) {
-  //     navigate("/utloggad");
-  //   }
-  // }, [accessToken])
 
   const [cultureLocation, setCultureLocation] = useState([])
   const [natureLocation, setNatureLocation] = useState([])
-  const [singleLocationPane, setSingleLocationPane] = useState({ isPaneOpen: false })
+  const [openPanel, setOpenPanel] = useState(false)
+
+  // onPanelButtonClick = () => {
+
+  // }
 
   useEffect(() => {
     const options = {
@@ -42,52 +28,65 @@ export const Locations = () => {
       }
     }
 
-
     fetch("https://final-project-m2dbj6puqa-lz.a.run.app/locations")
       .then(res => res.json())
       .then(data => {
         setNatureLocation(data.response.nature)
         setCultureLocation(data.response.culture)
+        console.log(data.response.culture)
+        console.log(data.response.nature)
+
       })
-      .then(console.log(natureLocation))
       .catch(error => console.error(error))
 
   }, []);
 
   return (
-  
-  <LocationsWrapper>
-      
-        <Headline>För dig som gillar kultur</Headline>
-        <LocationGrid>
+
+    <LocationsWrapper>
+
+      <Headline>För dig som gillar kultur</Headline>
+      <LocationGrid>
         {cultureLocation.map((item) => (
           <GridItem>
             <Image src={item.img} style={{ width: 150, height: 150 }} alt="picture" />
+            {/* <button onClick={() => setOpenPanel(true)}>
+              <LocationName>{item.name} </LocationName>
+            </button> */}
             <Link
               key={item._id}
-              // onClick={() => setSingleLocationPane({ isPaneOpen: true })}
-              to={`/locations/${item.name}`}>
+              to={`/locations/${item._id}`}>
+              {/* <LocationName>{item.name} </LocationName> */}
               <LocationName>{item.name} </LocationName>
             </Link>
+            {/* <SlidingPanel
+              type={'right'}
+              isOpen={openPanel}
+              size={30}>
+              <div>
+                <button onClick={() => setOpenPanel(false)}>close</button>
+              </div>
+            </SlidingPanel> */}
+
           </GridItem>
         ))
         }
       </LocationGrid>
-        <Headline>För dig som gillar natur</Headline>
-        <LocationGrid>
-          {natureLocation.map((item) => (
+      <Headline>För dig som gillar natur</Headline>
+      <LocationGrid>
+        {natureLocation.map((item) => (
           <GridItem>
             <Image src={item.img} style={{ width: 150, height: 150 }} alt="picture" />
             <Link
               key={item._id}
-              to={`/locations/${item.name}`}>
-              <LocationName>{item.name} </LocationName>
+              to={`/locations/${item._id}`}>
+              <LocationName>{item.name}</LocationName>
             </Link>
           </GridItem>
         ))
         }
       </LocationGrid>
-      </LocationsWrapper>
+    </LocationsWrapper>
   )
 }
 
