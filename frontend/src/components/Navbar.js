@@ -32,6 +32,7 @@ export const Navbar = () => {
           <ul><NavLink to ="/locations" onClick={closeSideBar} style={({ isActive }) => ({ fontWeight: isActive ? '600'  : '400'  })}> Besöksmål</NavLink></ul>
           <ul><NavLink to ="/profile" onClick={closeSideBar} style={({ isActive }) => ({ fontWeight: isActive ? '600'  : '400'  })}> Profil</NavLink></ul>
           <ul><NavLink to ="/login" onClick={closeSideBar} style={({ isActive }) => ({ fontWeight: isActive ? '600'  : '400'  })}> Logga in</NavLink></ul>
+          <ul><NavLink to ="/about" onClick={closeSideBar} style={({ isActive }) => ({ fontWeight: isActive ? '600'  : '400'  })}> Om oss</NavLink></ul>
           <ul><NavLinkLogOut onClick={() => {dispatch(user.actions.setAccessToken(null)); navigate("/"); closeSideBar } } >Logga ut</NavLinkLogOut></ul>
         </Menu>
     </Nav>
@@ -76,7 +77,7 @@ const NavLinkLogOut = styled.a`
 const LogoTitle = styled.div`
 display: flex;
 justify-content: center;
-padding-left: 20px;
+margin-left: 25px;
 @media ${Devices.laptop} {
     justify-content: flex-start;
     }
@@ -87,7 +88,7 @@ padding-left: 20px;
 const Heading = styled.h1`
   font-family: 'Girassol', cursive;
   font-size: 60px;
-  
+
   @media ${Devices.laptop} {
     font-size: 80px;
     }
@@ -110,7 +111,7 @@ const Menu = styled.div`
   display: flex;
   align-items: center;
   position: relative;
-  margin-right: 15px;
+  margin-right: 25px;
 
   
   @media (max-width: 668px) {
