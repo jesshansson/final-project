@@ -53,7 +53,7 @@ export const PaigeWrapper = styled.section`
   align-items: center;
   //justify-content: center;
   height: 80vh;
-  width: 100vw;
+  //width: 100vw;
 `
 /*export const OuterWrapper = styled.section`
 

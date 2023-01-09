@@ -9,6 +9,7 @@ import { CultureSchema } from "./Schemas/culture";
 import listEndpoints from "express-list-endpoints";
 import culture from "./data/culture.json";
 import nature from "./data/nature.json"
+import { EditUser, SingleUser, DeleteUser } from "./Userprofile";
 
 const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/final-project";
 mongoose.connect(mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true });
@@ -211,6 +212,13 @@ app.get("/locations/:id", async (req, res) => {
     })
   }
 })
+
+
+app.get("/profile/:id", SingleUser);
+app.patch("/profile/:id/edit", EditUser);
+app.delete("/profile/:id/delete", DeleteUser);
+
+
 
 // Start the server
 app.listen(port, () => {

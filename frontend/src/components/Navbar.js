@@ -63,7 +63,7 @@ a:hover {
 }
 ` 
 const NavLinkLogOut = styled.a`
-  cursor: pointer
+  cursor: pointer;
 `
 
 

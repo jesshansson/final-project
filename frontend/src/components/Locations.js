@@ -91,7 +91,7 @@ export const Locations = () => {
 }
 
 const LocationsWrapper = styled.section`
- width: 100%;
+ width: 100vw;
  display: flex;
   align-items: center;
  flex-direction: column;
