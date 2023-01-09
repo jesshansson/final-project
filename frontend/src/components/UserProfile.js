@@ -18,13 +18,15 @@ export const UserProfile = () => {
   }, [accessToken])
 
   const username = useSelector((store) => store.user.username);
+  const email = useSelector((store) => store.user.email);
+  const age = useSelector((store) => store.user.age)
  
     return (
-      <PaigeWrapper>
+      <ProfileWrapper>
         <Card>
           <img src="https://th.bing.com/th/id/OIP.IB0XUg8PV5FGxOf0WWDdOQHaHa?pid=ImgDet&rs=1" alt="John" style={{ width: "80%" }} />
           <h1>{username}</h1>
-          <Age>34 år</Age>
+          <Age>34 år {age}</Age>
           <DescriptionProfile>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Velit egestas dui id ornare arcu odio. </DescriptionProfile>
           <SoMeWrapper>
           <SoMeIcon href="#">
@@ -36,26 +38,20 @@ export const UserProfile = () => {
           </SoMeWrapper>
           <p>
           <a href="mailto:minmail@jag.com">
+            
             <ContactButton>Maila mig!</ContactButton>
             </a>
           </p>
+          <p>{email}</p>
         </Card>
-      </PaigeWrapper>
+      </ProfileWrapper>
     );
   };
 
 
-export default UserProfile
-   
- /* return (
-    <PaigeWrapper>
-      
-      Hej {username}!
-  
-    </PaigeWrapper>
-  );
-};
-*/
+const ProfileWrapper = styled.section`
+margin: 10vh;`
+
 const SoMeWrapper = styled.section`
 display: flex;
 flex-direction: row;

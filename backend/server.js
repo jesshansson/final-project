@@ -43,7 +43,7 @@ app.post("/register", async (req, res) => {
         response: {
           username: newUser.username,
           accessToken: newUser.accessToken,
-          id: newUser.id //_id eller id?
+          id: newUser.id 
         }
       });
     }
@@ -192,8 +192,8 @@ app.get("/locations", async (req, res) => {
 
 app.get("/locations/:id", async (req, res) => {
   try {
-    const singleLocationNature = await Nature.findById({ _id: req.params.id }) //id eller _id?
-    const singleLocationCulture = await Culture.findById({ _id: req.params.id }) //id eller _id?
+    const singleLocationNature = await Nature.findById({ _id: req.params.id }) 
+    const singleLocationCulture = await Culture.findById({ _id: req.params.id }) 
     if (singleLocationCulture || singleLocationNature) {
       res.status(200).json({
         success: true,
@@ -213,9 +213,11 @@ app.get("/locations/:id", async (req, res) => {
   }
 })
 
-
+//Get a single users profile based on its id
 app.get("/profile/:id", SingleUser);
+//Edit a user based on its id
 app.patch("/profile/:id/edit", EditUser);
+//Delete user based on its id
 app.delete("/profile/:id/delete", DeleteUser);
 
 

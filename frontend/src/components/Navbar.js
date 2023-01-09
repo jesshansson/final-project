@@ -66,7 +66,6 @@ const NavLinkLogOut = styled.a`
   cursor: pointer;
 `
 
-
 const HeadingWrapper = styled.h1`
 display: flex;
 justify-content: center;
@@ -87,6 +86,7 @@ font-size: 70px;
     @media ${Devices.desktop} {
      font-size: 120px;
     }
+
 `
 
 const HamburgerButton = styled.div`
