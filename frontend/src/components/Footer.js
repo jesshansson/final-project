@@ -6,7 +6,6 @@ import { Devices } from './reusable-components/GlobalStyles';
 export const Footer = () => {
   return (
       <FooterWrapper>
-          <ul>Kontakt</ul>
           <ul><Link to ="/about">Om oss</Link></ul>
       </FooterWrapper>
   )

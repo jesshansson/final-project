@@ -6,8 +6,8 @@ import styled from "styled-components";
 export const AboutUs = () => {
 
   return (
-    <>
-<OuterWrapper>
+    
+<AboutUsWrapper>
 <AboutSection>
   <Title>Om oss</Title>
   <Info>Hej! Vi är tre utvecklare som har byggt en sida där vi hoppas kunna 
@@ -76,16 +76,16 @@ export const AboutUs = () => {
     </Card>
     </Column>
     </CardWrapper>
-    </OuterWrapper>
-</>
+    </AboutUsWrapper>
+
   )
 }
 
 
-const OuterWrapper = styled.section`
+const AboutUsWrapper = styled.section`
  width: 100%;
  display: flex;
-align-items: center;
+  align-items: center;
  flex-direction: column;
 `
 

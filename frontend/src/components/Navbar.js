@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate, NavLink } from "react-router-dom";
 import user from "reducers/user";
 import { Link } from "react-router-dom";
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import Hamburger from 'hamburger-react'
 
 export const Navbar = () => {
@@ -38,15 +38,15 @@ export const Navbar = () => {
   flex-direction: row;
 `*/
 const Nav = styled.div`
-overflow: hidden;
-background-color: #CEE5D0;
-width: 100%;
+  overflow: hidden;
+  background-color: #CEE5D0;
+  width: 100%;
 
 a {
   float: left;
   display: block;
   text-align: center;
-  padding: 14px 12px;
+  padding: 14px 0px;
   text-decoration: none;
   font-size: 17px;
 }
@@ -58,8 +58,7 @@ a:hover {
 }
 ` 
 const NavLinkLogOut = styled.a`
-margin-right: 10px;
-cursor: pointer
+  cursor: pointer
 `
 
 
@@ -75,12 +74,14 @@ const HamburgerButton = styled.div`
 const Menu = styled.div`
   display: flex;
   position: relative;
-
+  margin-right: 15px;
 
   
   @media (max-width: 668px) {
     flex-direction: column;
-    max-height: ${({ isOpen }) => (isOpen ? "400px" : "0")};
+    padding: 0px;
+    line-height: 5px;
+    max-height: ${({ isOpen }) => (isOpen ? "350px" : "0")};
   }
 
   @media (min-width: 668px) {

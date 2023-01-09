@@ -92,8 +92,12 @@ export const Locations = () => {
 }
 
 const LocationsWrapper = styled.section`
-margin: 0;
+ width: 100%;
+ display: flex;
+  align-items: center;
+ flex-direction: column;
 `
+
 
 const LocationGrid = styled.section`
   display: grid;
@@ -119,18 +123,20 @@ const GridItem = styled.div`
   border-radius: 15px;
   align-items: center;
   border: 3px solid #e8894f;
-  //width;
+  width: 270px;
 
   @media ${Devices.tablet} {
     grid-template-columns: repeat(2, 1fr);
     margin:  15px;
     padding: 20px 10px;
+    width: 300px;
   } 
 
   @media ${Devices.laptop} {
     grid-template-columns: repeat(3, 1fr);
     margin: 20px 20px;
     padding: 30px 20px;
+    width: 350px;
   }
 
 `
