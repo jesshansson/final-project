@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 import { BASE_URL, API_URL, API_SINGLE } from "utils/utils";
 import { Link } from 'react-router-dom';
 import picture from "./picture.jpg"
-import SlidingPanel from "react-sliding-side-panel";
+//import SlidingPanel from "react-sliding-side-panel";
 //import { Interested } from "./ShowInterest";
 
 export const SingleLocation = () => {
