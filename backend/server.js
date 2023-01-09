@@ -188,7 +188,7 @@ app.delete("/profile/:userId", authenticateUser)
 app.delete("/profile/:userId", async (req, res) => {
   const { userId } = req.params
   try {
-    const deleteProfile = await User.findByIdAndDelete({ userId })
+    const deleteProfile = await User.findByIdAndRemove(userId)
 
     if (deleteProfile) {
       res.status(200).json({
