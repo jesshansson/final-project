@@ -13,13 +13,14 @@ export const Login = ({ siteHeadline, siteType, submitBtn }) => {
   //const [mode, setMode] = useState("login"); //behövs?
   const [loginError, setLoginError] = useState("");
 
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const accessToken = useSelector((store) => store.user.accessToken);
 
   useEffect(() => {
     if (accessToken) {
-      navigate("/profile");
+      navigate("/profile/:userId");
     }
   }, [accessToken])
 

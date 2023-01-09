@@ -162,8 +162,8 @@ app.get("/profile/:userId", async (req, res) => {
 })
 
 //To update profile 
-app.patch("/profile/:userId", authenticateUser)
-app.patch("/profile/:userId", async (req, res) => {
+app.patch("/profile/:userId/update", authenticateUser)
+app.patch("/profile/:userId/update", async (req, res) => {
   //To bo able to use in frontend: 
   const { userId } = req.params
   try {
@@ -190,8 +190,8 @@ app.patch("/profile/:userId", async (req, res) => {
   }
 })
 //To delete profile 
-app.delete("/profile/:userId", authenticateUser)
-app.delete("/profile/:userId", async (req, res) => {
+app.delete("/profile/:userId/delete", authenticateUser)
+app.delete("/profile/:userId/delete", async (req, res) => {
   const { userId } = req.params
   try {
     const deleteProfile = await User.findByIdAndRemove(userId)

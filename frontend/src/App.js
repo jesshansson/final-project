@@ -16,7 +16,7 @@ import user from './reducers/user';
 import { SlidePanel } from 'components/SlidePanel';
 import { NotLoggedIn } from 'components/NotLoggedIn';
 import { Navbar } from 'components/Navbar';
-import { Modal } from 'bootstrap';
+// import { Modal } from 'bootstrap';
 import { UserModal } from 'components/reusable-components/UserModal';
 
 const reducer = combineReducers({
@@ -34,7 +34,7 @@ export const App = () => {
         <Navbar />
         <Routes>
           <Route path='/' element={<Welcome />} />
-          <Route path='/profile' element={<UserProfile />} />
+          <Route path='/profile/:userId' element={<UserProfile />} />
           <Route path='/locations' element={<Locations />} />
           <Route path='/locations/:id' element={<SingleLocation />} />
           <Route path='/about' element={<AboutUs />} />

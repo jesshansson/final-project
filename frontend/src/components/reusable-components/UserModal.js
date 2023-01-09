@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import {Modal, Button} from 'react-bootstrap';
+import { Modal, Button } from 'react-bootstrap';
 import { PaigeWrapper } from './GlobalStyles';
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 import styled from 'styled-components';
 
 export const UserModal = () => {
@@ -16,10 +16,10 @@ export const UserModal = () => {
         Launch demo modal
       </ButtonOpen>
 
-      <Modal show={show} 
-      onHide={handleClose}
-      size="lg"
-      scrollable>
+      <Modal show={show}
+        onHide={handleClose}
+        size="lg"
+        scrollable>
         <Modal.Header closeButton>
           <Modal.Title>Modal heading</Modal.Title>
         </Modal.Header>
@@ -37,13 +37,13 @@ export const UserModal = () => {
   );
 }
 
-const ButtonClose =styled.button`
+const ButtonClose = styled.button`
 background-color: tomato`
 
-const ButtonSave =styled.button`
+const ButtonSave = styled.button`
 background-color: tomato`
 
-const ButtonOpen =styled.button`
+const ButtonOpen = styled.button`
 background-color: tomato`
 
 
