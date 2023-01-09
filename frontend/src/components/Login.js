@@ -7,7 +7,7 @@ import styled from "styled-components";
 import { Devices, H1, CenterFlexDiv, PaigeWrapper } from './reusable-components/GlobalStyles';
 import { Link } from 'react-router-dom';
 
-export const Login = ({siteHeadline, siteType, submitBtn}) => {
+export const Login = ({ siteHeadline, siteType, submitBtn }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   //const [mode, setMode] = useState("login"); //behövs?
@@ -19,7 +19,7 @@ export const Login = ({siteHeadline, siteType, submitBtn}) => {
 
   useEffect(() => {
     if (accessToken) {
-      navigate("/locations");
+      navigate("/profile");
     }
   }, [accessToken])
 
@@ -56,50 +56,51 @@ export const Login = ({siteHeadline, siteType, submitBtn}) => {
   }
   return (
     <PaigeWrapper>
-      
+
       <LoginBox>
         <H1>{siteHeadline}</H1>
-          <FormSubmit onSubmit={onFormSubmit}>
-            <Label htmlFor="username">Användarnamn: </Label>
-            <Input
-              type="text"
-              id="username"
-              value={username}
-              required
-              placeholder=""
-              onChange={(e) => setUsername(e.target.value)}
-            />
-            <Label htmlFor="password">Lösenord: </Label>
-            <Input
-              type="password"
-              id="password"
-              value={password}
-              required
-              placeholder="******"
-              onChange={(e) => setPassword(e.target.value)}
-            />  
-            {loginError !== '' && ( 
-              <p>Error</p>   //funkar ej
+        <FormSubmit onSubmit={onFormSubmit}>
+          <Label htmlFor="username">Användarnamn: </Label>
+          <Input
+            type="text"
+            id="username"
+            value={username}
+            required
+            placeholder=""
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <Label htmlFor="password">Lösenord: </Label>
+          <Input
+            type="password"
+            id="password"
+            value={password}
+            required
+            placeholder="******"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          {loginError !== '' && (
+            <p>Error</p>   //funkar ej
           )}
           <Button type="submit">{submitBtn}</Button>
-          </FormSubmit>
-          
-          {siteType === "login" && (
-            <CenterFlexDiv>
+        </FormSubmit>
+
+        {siteType === "login" && (
+          <CenterFlexDiv>
             <p>Inte medlem ännu?</p>
             <Link to="/register">Registrera nytt konto här</Link>
-            </CenterFlexDiv>)
-          }
-          {siteType === "register" && (
-            <CenterFlexDiv>
+          </CenterFlexDiv>)
+        }
+        {siteType === "register" && (
+          <CenterFlexDiv>
             <p>Redan medlem?</p>
             <Link to="/login">Logga in här </Link>
-            </CenterFlexDiv>)
-            }
+          </CenterFlexDiv>)
+        }
 
       </LoginBox>
-  </PaigeWrapper>
-)}
+    </PaigeWrapper>
+  )
+}
 
 export const LoginBox = styled.div`
   min-width: 45vw;
@@ -129,7 +130,7 @@ export const Form = styled.form`
   display: flex;
   flex-direction: column;
 `
-  export const Input = styled.input`
+export const Input = styled.input`
   border-radius: 3px;
   padding: 2px;
   margin: 5px;

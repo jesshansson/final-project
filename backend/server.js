@@ -59,21 +59,21 @@ app.post("/register", async (req, res) => {
 const Nature = mongoose.model("Nature", NatureSchema);
 const Culture = mongoose.model("Culture", CultureSchema)
 
- if (true) {
-   const resetDatabase = async () => {
-     await Culture.deleteMany();
-    culture.forEach(singleCulture => {
-      const newCulture = new Culture(singleCulture);
-     newCulture.save()
-    })
-    await Nature.deleteMany();
-    nature.forEach(singleNature => {
-      const newNature = new Nature(singleNature)
-      newNature.save()    
-    })
-   }
-   resetDatabase();
- }
+// if (true) {
+//   const resetDatabase = async () => {
+//     await Culture.deleteMany();
+//     culture.forEach(singleCulture => {
+//       const newCulture = new Culture(singleCulture);
+//       newCulture.save()
+//     })
+//     await Nature.deleteMany();
+//     nature.forEach(singleNature => {
+//       const newNature = new Nature(singleNature)
+//       newNature.save()
+//     })
+//   }
+//   resetDatabase();
+// }
 
 //Register new user
 app.post("/register", async (req, res) => {
@@ -141,7 +141,7 @@ app.post("/login", async (req, res) => {
   }
 });
 
-/*
+
 // Authenticated endpoint - accesible after logged in
 const authenticateUser = async (req, res, next) => {
   const accessToken = req.header("Authorization");
@@ -163,14 +163,14 @@ const authenticateUser = async (req, res, next) => {
   }
 }
 
-// When user is authenticated they are directed to this endpoint
+//When user is authenticated they are directed to this endpoint
 app.get("/locations", authenticateUser)
 app.get("/locations", (req, res) => {
   res.status(200).json({
     sucess: true,
     response: "Welcome, you are now logged in!"
   })
-})*/
+})
 
 
 app.get("/", (req, res) => {

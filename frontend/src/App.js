@@ -31,7 +31,6 @@ export const App = () => {
         <Header />
         <Routes>
           <Route path='/' element={<Welcome />} />
-
           <Route path='/profile' element={<UserProfile />} />
           <Route path='/locations' element={<Locations />} />
           <Route path='/locations/:id' element={<SingleLocation />} />
