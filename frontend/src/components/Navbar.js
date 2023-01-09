@@ -15,10 +15,10 @@ export const Navbar = () => {
 
   return (
     <Nav>
-      <HeadingWrapper>
+      <LogoTitle>
       <Heading>Samlas</Heading>
       <img src='https://i.postimg.cc/vZTKLG42/icons8-speech-bubble-80.png' />
-      </HeadingWrapper>
+      </LogoTitle>
       <HamburgerButton>
             <Hamburger
               label="Show menu"
@@ -45,7 +45,14 @@ export const Navbar = () => {
 const Nav = styled.div`
   overflow: hidden;
   background-color: #CEE5D0;
-  width: 100%;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+
+  @media ${Devices.tablet} {
+  flex-direction:row;
+  justify-content: space-between ;
+  }
 
 a {
   float: left;
@@ -66,10 +73,10 @@ const NavLinkLogOut = styled.a`
   cursor: pointer;
 `
 
-const HeadingWrapper = styled.h1`
+const LogoTitle = styled.div`
 display: flex;
 justify-content: center;
-padding: 20px;
+padding-left: 20px;
 @media ${Devices.laptop} {
     justify-content: flex-start;
     }
@@ -78,13 +85,14 @@ padding: 20px;
     }
 `
 const Heading = styled.h1`
-font-family: 'Girassol', cursive;
-font-size: 70px;
-@media ${Devices.laptop} {
-    font-size: 100px;
+  font-family: 'Girassol', cursive;
+  font-size: 60px;
+  
+  @media ${Devices.laptop} {
+    font-size: 80px;
     }
     @media ${Devices.desktop} {
-     font-size: 120px;
+     font-size: 100px;
     }
 
 `
@@ -100,6 +108,7 @@ const HamburgerButton = styled.div`
 `
 const Menu = styled.div`
   display: flex;
+  align-items: center;
   position: relative;
   margin-right: 15px;
 
