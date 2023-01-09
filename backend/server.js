@@ -164,12 +164,37 @@ const authenticateUser = async (req, res, next) => {
 }
 
 // When user is authenticated they are directed to this endpoint
-app.get("/profile", authenticateUser)
-app.get("/profile", (req, res) => {
+app.get("/profile/:id", authenticateUser)
+app.get("/profile/:id", (req, res) => {
   res.status(200).json({
-    sucess: true,
+    success: true,
     response: "Welcome, you are now logged in!"
   })
+})
+
+app.patch("/profile/:id", authenticateUser)
+app.patch("/profile/:id", async (req, res) => {
+  try {
+    const { email, name, age, presentation, facebook, instagram, bookmark, createdAt } = req.body
+    const userProfile = await User.findByIdAndUpdate({ email, name, age, presentation, facebook, instagram, bookmark, createdAt }).save()
+
+    if (userProfile) {
+      res.status(200).json({
+        success: true,
+        response: userProfile
+      })
+    } else {
+      res.status(404).json({
+        success: false,
+        response: "No such user"
+      })
+    }
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      response: "Could not update user to database"
+    })
+  }
 })
 
 app.get("/", (req, res) => {

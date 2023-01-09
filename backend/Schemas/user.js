@@ -35,8 +35,12 @@ export const UserSchema = new mongoose.Schema({
   },
   instagram: {
     type: String
+  },
+  bookmark: {
+    type: Boolean
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now
   }
-  // likedLocation: {
-  //   type: g
-  // }
 });
