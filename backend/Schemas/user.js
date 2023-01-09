@@ -37,7 +37,8 @@ export const UserSchema = new mongoose.Schema({
     type: String
   },
   bookmark: {
-    type: Boolean
+    type: Boolean,
+    default: false
   },
   createdAt: {
     type: Date,

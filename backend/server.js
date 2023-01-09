@@ -55,25 +55,8 @@ app.post("/register", async (req, res) => {
   }
 });
 
-
 const Nature = mongoose.model("Nature", NatureSchema);
 const Culture = mongoose.model("Culture", CultureSchema)
-
-// if (true) {
-//   const resetDatabase = async () => {
-//     await Culture.deleteMany();
-//     culture.forEach(singleCulture => {
-//       const newCulture = new Culture(singleCulture);
-//       newCulture.save()
-//     })
-//     await Nature.deleteMany();
-//     nature.forEach(singleNature => {
-//       const newNature = new Nature(singleNature)
-//       newNature.save()
-//     })
-//   }
-//   resetDatabase();
-// }
 
 //Register new user
 app.post("/register", async (req, res) => {
@@ -172,16 +155,20 @@ app.get("/profile/:id", (req, res) => {
   })
 })
 
-app.patch("/profile/:id", authenticateUser)
-app.patch("/profile/:id", async (req, res) => {
+//To update profile 
+app.patch("/profile/:userId", authenticateUser)
+app.patch("/profile/:userId", async (req, res) => {
+  //To bo able to use in frontend: 
+  const { userId } = req.params
   try {
     const { email, name, age, presentation, facebook, instagram, bookmark, createdAt } = req.body
-    const userProfile = await User.findByIdAndUpdate({ email, name, age, presentation, facebook, instagram, bookmark, createdAt }).save()
+    console.log(req.body)
+    const updateProfile = await User.findByIdAndUpdate(userId, { email, name, age, presentation, facebook, instagram, bookmark, createdAt })
 
-    if (userProfile) {
+    if (updateProfile) {
       res.status(200).json({
         success: true,
-        response: userProfile
+        response: updateProfile
       })
     } else {
       res.status(404).json({
@@ -196,6 +183,59 @@ app.patch("/profile/:id", async (req, res) => {
     })
   }
 })
+//To delete profile 
+app.delete("/profile/:userId", authenticateUser)
+app.delete("/profile/:userId", async (req, res) => {
+  const { userId } = req.params
+  try {
+    const deleteProfile = await User.findByIdAndDelete({ userId })
+
+    if (deleteProfile) {
+      res.status(200).json({
+        success: true,
+        response: deleteProfile
+      })
+    } else {
+      res.status(404).json({
+        success: false,
+        response: "No such user"
+      })
+    }
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      response: "Could not delete user to database"
+    })
+  }
+})
+
+//To use bookmark
+// app.post("/profile/:userId", authenticateUser)
+// app.post("/profile/:userId", async (req, res) => {
+// const { userId } = req.params
+// try {
+//   const { bookmark } = req.body
+//   console.log(req.body)
+//   const userProfile = await User.findByIdAnd(userId, { bookmark })
+
+//   if (userProfile) {
+//     res.status(200).json({
+//       success: true,
+//       response: userProfile
+//     })
+//   } else {
+//     res.status(404).json({
+//       success: false,
+//       response: "No such user"
+//     })
+//   }
+// } catch (error) {
+//   res.status(400).json({
+//     success: false,
+//     response: "Could not delete user to database"
+//   })
+// }
+// })
 
 app.get("/", (req, res) => {
   res.send([
