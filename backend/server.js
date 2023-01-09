@@ -147,12 +147,18 @@ const authenticateUser = async (req, res, next) => {
 }
 
 // When user is authenticated they are directed to this endpoint
-app.get("/profile/:id", authenticateUser)
-app.get("/profile/:id", (req, res) => {
-  res.status(200).json({
-    success: true,
-    response: "Welcome, you are now logged in!"
-  })
+app.get("/profile/:userId", authenticateUser)
+app.get("/profile/:userId", async (req, res) => {
+  const { userId } = req.params
+  try {
+    const singleUser = await User.findById(userId)
+    res.status(200).json({
+      success: true,
+      response: singleUser
+    })
+  } catch (error) {
+    res.status(400).json({ success: false, response: error });
+  }
 })
 
 //To update profile 
