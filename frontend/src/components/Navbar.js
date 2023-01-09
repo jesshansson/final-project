@@ -5,6 +5,7 @@ import user from "reducers/user";
 import { Link } from "react-router-dom";
 import styled from "styled-components/macro";
 import Hamburger from 'hamburger-react'
+import { Devices } from './reusable-components/GlobalStyles';
 
 export const Navbar = () => {
   const dispatch = useDispatch();
@@ -14,6 +15,10 @@ export const Navbar = () => {
 
   return (
     <Nav>
+      <HeadingWrapper>
+      <Heading>Samlas</Heading>
+      <img src='https://i.postimg.cc/vZTKLG42/icons8-speech-bubble-80.png' />
+      </HeadingWrapper>
       <HamburgerButton>
             <Hamburger
               label="Show menu"
@@ -61,6 +66,28 @@ const NavLinkLogOut = styled.a`
   cursor: pointer
 `
 
+
+const HeadingWrapper = styled.h1`
+display: flex;
+justify-content: center;
+padding: 20px;
+@media ${Devices.laptop} {
+    justify-content: flex-start;
+    }
+    @media ${Devices.desktop} {
+     justify-content: flex-start;
+    }
+`
+const Heading = styled.h1`
+font-family: 'Girassol', cursive;
+font-size: 70px;
+@media ${Devices.laptop} {
+    font-size: 100px;
+    }
+    @media ${Devices.desktop} {
+     font-size: 120px;
+    }
+`
 
 const HamburgerButton = styled.div`
   display: none;
