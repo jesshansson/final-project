@@ -17,10 +17,11 @@ export const Login = ({ siteHeadline, siteType, submitBtn }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const accessToken = useSelector((store) => store.user.accessToken);
+  const userId = useSelector((store) => store.user.id)
 
   useEffect(() => {
     if (accessToken) {
-      navigate("/profile/:userId");
+      navigate(`/profile/${userId}`);
     }
   }, [accessToken])
 
