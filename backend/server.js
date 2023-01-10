@@ -148,11 +148,11 @@ const authenticateUser = async (req, res, next) => {
 }
 
 // When user is authenticated they are directed to this endpoint
-app.get("/profile/:userId", authenticateUser)
-app.get("/profile/:userId", async (req, res) => {
-  const { userId } = req.params
+app.get("/profile/:id", authenticateUser)
+app.get("/profile/:id", async (req, res) => {
+  const { id } = req.params
   try {
-    const singleUser = await User.findById(userId)
+    const singleUser = await User.findById(id)
     res.status(200).json({
       success: true,
       response: singleUser
@@ -163,14 +163,21 @@ app.get("/profile/:userId", async (req, res) => {
 })
 
 //To update profile 
-app.patch("/profile/:userId/update", authenticateUser)
-app.patch("/profile/:userId/update", async (req, res) => {
+app.patch("/profile/:id/update", authenticateUser)
+app.patch("/profile/:id/update", async (req, res) => {
   //To bo able to use in frontend: 
-  const { userId } = req.params
+  const updatedProfileInfo = req.body
+  const { id } = req.params
   try {
-    const { email, name, age, presentation, facebook, instagram, bookmark, createdAt } = req.body
+    // const { email, name, age, presentation, facebook, instagram, bookmark, createdAt } = req.body
+    
     console.log(req.body)
-    const updateProfile = await User.findByIdAndUpdate(userId, { email, name, age, presentation, facebook, instagram, bookmark, createdAt })
+    const updateProfile = await User.findByIdAndUpdate(
+      id, 
+      { $set: updatedProfileInfo},
+      {
+        new: true
+      })
 
     if (updateProfile) {
       res.status(200).json({
@@ -191,11 +198,11 @@ app.patch("/profile/:userId/update", async (req, res) => {
   }
 })
 //To delete profile 
-app.delete("/profile/:userId/delete", authenticateUser)
-app.delete("/profile/:userId/delete", async (req, res) => {
-  const { userId } = req.params
+app.delete("/profile/:id/delete", authenticateUser)
+app.delete("/profile/:id/delete", async (req, res) => {
+  const { id } = req.params
   try {
-    const deleteProfile = await User.findByIdAndRemove(userId)
+    const deleteProfile = await User.findByIdAndRemove(id)
 
     if (deleteProfile) {
       res.status(200).json({
@@ -284,12 +291,7 @@ app.get("/locations/:id", async (req, res) => {
   }
 })
 
-//Get a single users profile based on its id
-app.get("/profile/:id", SingleUser);
-//Edit a user based on its id
-app.patch("/profile/:id/edit", EditUser);
-//Delete user based on its id
-app.delete("/profile/:id/delete", DeleteUser);
+
 
 
 

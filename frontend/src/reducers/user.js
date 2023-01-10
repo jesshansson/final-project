@@ -6,7 +6,9 @@ export const user = createSlice({
         error: null,
         username: null,
         id: null,
-        accessToken: null
+        accessToken: null,
+        presentation: "",
+        age: null
     },
     reducers: {
         setUsername: (store, action) => {
@@ -20,7 +22,28 @@ export const user = createSlice({
         },
         setAccessToken: (store, action) => {
             store.accessToken = action.payload;
-        }
+        },
+        setEmail: (store, action) => {
+            store.email = action.payload;
+        },
+       setName: (store, action) => {
+        store.name = action.payload;
+       }, 
+       setAge: (store, action) => {
+        store.age = action.payload;
+       }, 
+        setPresentation: (store, action) => {
+        store.presentation = action.payload;
+        }, 
+        setFacebook: (store, action) => {
+        store.facebook = action.payload;
+        }, 
+        setInstagram: (store, action) => {
+        store.instagram = action.payload;
+        }, 
+        setBookmark: (store, action) => {
+            store.bookmark = action.payload
+        } 
     }
 });
 

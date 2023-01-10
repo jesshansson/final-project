@@ -1,7 +1,7 @@
 import React from 'react';
 import { GlobalStyle } from 'components/reusable-components/GlobalStyles';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import { combineReducers, configureStore, createStore, compose, applyMiddleware } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 import { UserProfile } from 'components/UserProfile';
 import { Locations } from 'components/Locations';
@@ -16,13 +16,38 @@ import user from './reducers/user';
 import { SlidePanel } from 'components/SlidePanel';
 import { NotLoggedIn } from 'components/NotLoggedIn';
 import { Navbar } from 'components/Navbar';
-// import { Modal } from 'bootstrap';
+import { Modal } from 'bootstrap';
 import { UserModal } from 'components/reusable-components/UserModal';
+import thunkMiddleware from "redux-thunk";
 
 const reducer = combineReducers({
   user: user.reducer,
 });
-const store = configureStore({ reducer });
+const persistedStateJSON = localStorage.getItem("userReduxState");
+let persistedState = {};
+
+if (persistedStateJSON) {
+  persistedState = JSON.parse(persistedStateJSON);
+}
+
+const composedEnhancers =
+  (process.env.NODE_ENV !== "production" &&
+    typeof window !== "undefined" &&
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
+  compose;
+
+const store = createStore(
+  reducer,
+  persistedState,
+  composedEnhancers(applyMiddleware(thunkMiddleware))
+);
+
+// Ska in i store  persistedState
+store.subscribe(() => {
+  localStorage.setItem("userReduxState", JSON.stringify(store.getState()));
+});
+
+// const store = configureStore({ reducer });
 
 export const App = () => {
 
@@ -34,7 +59,7 @@ export const App = () => {
         <Navbar />
         <Routes>
           <Route path='/' element={<Welcome />} />
-          <Route path='/profile/:userId' element={<UserProfile />} />
+          <Route path='/profile/:id' element={<UserProfile />} />
           <Route path='/locations' element={<Locations />} />
           <Route path='/locations/:id' element={<SingleLocation />} />
           <Route path='/about' element={<AboutUs />} />

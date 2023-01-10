@@ -4,14 +4,19 @@ import { useNavigate, useParams } from "react-router-dom";
 import { PopUp } from "./reusable-components/PopUp";
 import styled, { ThemeConsumer } from "styled-components";
 import { Devices, PaigeWrapper, DescriptionProfile, SoMeIcon, SoMeIconLink } from './reusable-components/GlobalStyles';
-
+import { UserModal } from './reusable-components/UserModal';
 
 export const UserProfile = () => {
   const [updateUserProfile, setUpdateUserProfile] = useState([])
   const [userDetails, setUserDetails] = useState([])
   const accessToken = useSelector((store) => store.user.accessToken);
+  const username = useSelector((store) => store.user.username);
+  const email = useSelector((store) => store.user.email);
+  const age = useSelector((store) => store.user.age)
+  const presentation = useSelector((store) => store.user.presentation)
   const navigate = useNavigate();
-  const { userId } = useParams()
+  const { id } = useParams()
+  console.log("id",id)
 
   useEffect(() => {
     if (!accessToken) {
@@ -28,7 +33,7 @@ export const UserProfile = () => {
       }
     }
 
-    fetch(`https://final-project-m2dbj6puqa-lz.a.run.app/profile/${userId}`, options)
+    fetch(`https://final-project-m2dbj6puqa-lz.a.run.app/profile/${id}`, options)
       .then(res => res.json())
       .then(data => {
         console.log(data)
@@ -37,17 +42,15 @@ export const UserProfile = () => {
   }, [])
 
 
-  const username = useSelector((store) => store.user.username);
-  const email = useSelector((store) => store.user.email);
-  const age = useSelector((store) => store.user.age)
-
+  
   return (
     <ProfileWrapper>
+      <UserModal accessToken={accessToken}/>
       <Card>
         <img src="https://th.bing.com/th/id/OIP.IB0XUg8PV5FGxOf0WWDdOQHaHa?pid=ImgDet&rs=1" alt="John" style={{ width: "80%" }} />
         <h1>{username}</h1>
         <Age>34 år {age}</Age>
-        <DescriptionProfile>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Velit egestas dui id ornare arcu odio. </DescriptionProfile>
+        <DescriptionProfile>{presentation}</DescriptionProfile>
         <SoMeWrapper>
           <SoMeIcon href="#">
             <SoMeIconLink className="fa fa-instagram" />
@@ -70,7 +73,8 @@ export const UserProfile = () => {
 
 
 const ProfileWrapper = styled.section`
-margin: 10vh;`
+margin: 10vh;
+color: black`
 
 const SoMeWrapper = styled.section`
 display: flex;
