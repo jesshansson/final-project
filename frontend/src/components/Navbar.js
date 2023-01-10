@@ -59,7 +59,7 @@ a {
   float: left;
   display: block;
   text-align: center;
-  padding: 14px 0px;
+  padding: 14px 10px;
   text-decoration: none;
   font-size: 17px;
 }
