@@ -10,7 +10,8 @@ import picture from "./picture.jpg"
 //import { Interested } from "./ShowInterest";
 
 export const SingleLocation = () => {
-  const { id } = useParams()
+  const { id } = useParams() 
+
   // console.log(params)
   // const [openPanel, setOpenPanel] = useState(false);
 
@@ -50,7 +51,9 @@ export const SingleLocation = () => {
       </SlidingPanel> */}
         <LocationWrapper>
           <SingleLocationDiv>
+            <SingleLocationName> {details.name}</SingleLocationName>
             {details.description}
+            <HoursDiv>
             <OpeningHours><Bold>Öppettider:</Bold>
               <li>Måndag: {details.opening_hours_mon}</li>
               <li>Tisdag: {details.opening_hours_tue}</li>
@@ -59,7 +62,9 @@ export const SingleLocation = () => {
               <li>Fredag: {details.opening_hours_fri}</li>
               <li>Lördag: {details.opening_hours_sat}</li>
               <li>Söndag: {details.opening_hours_sun}</li>
+              
             </OpeningHours>
+            </HoursDiv>
           </SingleLocationDiv>
         </LocationWrapper>
       </>
@@ -86,8 +91,12 @@ export const LocationWrapper = styled.section`
   justify-content: center;
 `
 
+const SingleLocationName = styled.h1`
+  font-size: 25px;
+  margin-bottom: 10px;`
+
 export const SingleLocationDiv = styled.div`
-width: 40%;
+  width: 80%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -96,6 +105,16 @@ width: 40%;
   align-items: center;
   border-radius: 5%;
   border: 2px solid #e8894f;
+  margin-top: 10vh;
+  box-shadow: 0px 0px 7px 0px #888888;
+
+  @media ${Devices.tablet} {
+    width: 60%;
+  }
+
+  @media ${Devices.laptop} {
+    width: 40%;
+  }
 `
 export const Image = styled.img`
 border-radius: 10%;
@@ -124,8 +143,15 @@ padding: 10px 10px 10px 10px;
 `
 
 export const OpeningHours = styled.ul`
-padding: 10 10 10 0;
+  padding: 10 10 10 0;
+  justify-content: flex-start;
+  align-items: flex-start;
 `
+
+const HoursDiv = styled.div`
+display:flex;
+justify-content: space-between;
+align-items: space-between`
 
 export const Bold = styled.span`
 font-weight: bold;

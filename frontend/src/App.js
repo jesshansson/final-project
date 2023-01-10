@@ -16,7 +16,7 @@ import user from './reducers/user';
 import { SlidePanel } from 'components/SlidePanel';
 import { NotLoggedIn } from 'components/NotLoggedIn';
 import { Navbar } from 'components/Navbar';
-// import { Modal } from 'bootstrap';
+//import { Modal } from 'bootstrap';
 import { UserModal } from 'components/reusable-components/UserModal';
 
 const reducer = combineReducers({

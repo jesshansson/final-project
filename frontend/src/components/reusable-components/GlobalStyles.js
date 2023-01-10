@@ -21,7 +21,8 @@ export const GlobalStyle = createGlobalStyle`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    overflow-x: hidden
+    overflow-x: hidden;
+    color: black;
   }
 
   a {
@@ -51,6 +52,7 @@ export const PaigeWrapper = styled.section`
   align-items: center;
   //justify-content: center;
   height: 80vh;
+  color: black;
   //width: 100vw;
 `
 
