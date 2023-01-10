@@ -38,15 +38,17 @@ export const UserProfile = () => {
 
 
   const username = useSelector((store) => store.user.username);
-
-  return (
-    <PaigeWrapper>
-      <Card>
-        <img src="https://th.bing.com/th/id/OIP.IB0XUg8PV5FGxOf0WWDdOQHaHa?pid=ImgDet&rs=1" alt="John" style={{ width: "80%" }} />
-        <h1>{username}</h1>
-        <Age>34 år</Age>
-        <DescriptionProfile>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Velit egestas dui id ornare arcu odio. </DescriptionProfile>
-        <SoMeWrapper>
+  const email = useSelector((store) => store.user.email);
+  const age = useSelector((store) => store.user.age)
+ 
+    return (
+      <ProfileWrapper>
+        <Card>
+          <img src="https://th.bing.com/th/id/OIP.IB0XUg8PV5FGxOf0WWDdOQHaHa?pid=ImgDet&rs=1" alt="John" style={{ width: "80%" }} />
+          <h1>{username}</h1>
+          <Age>34 år {age}</Age>
+          <DescriptionProfile>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Velit egestas dui id ornare arcu odio. </DescriptionProfile>
+          <SoMeWrapper>
           <SoMeIcon href="#">
             <SoMeIconLink className="fa fa-instagram" />
           </SoMeIcon>
@@ -56,26 +58,20 @@ export const UserProfile = () => {
         </SoMeWrapper>
         <p>
           <a href="mailto:minmail@jag.com">
+            
             <ContactButton>Maila mig!</ContactButton>
-          </a>
-        </p>
-      </Card>
-    </PaigeWrapper>
-  );
-};
+            </a>
+          </p>
+          <p>{email}</p>
+        </Card>
+      </ProfileWrapper>
+    );
+  };
 
 
-export default UserProfile
+const ProfileWrapper = styled.section`
+margin: 10vh;`
 
-/* return (
-   <PaigeWrapper>
-     
-     Hej {username}!
- 
-   </PaigeWrapper>
- );
-};
-*/
 const SoMeWrapper = styled.section`
 display: flex;
 flex-direction: row;

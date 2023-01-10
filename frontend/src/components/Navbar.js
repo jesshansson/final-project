@@ -15,10 +15,10 @@ export const Navbar = () => {
 
   return (
     <Nav>
-      <HeadingWrapper>
+      <LogoTitle>
       <Heading>Samlas</Heading>
       <img src='https://i.postimg.cc/vZTKLG42/icons8-speech-bubble-80.png' />
-      </HeadingWrapper>
+      </LogoTitle>
       <HamburgerButton>
             <Hamburger
               label="Show menu"
@@ -32,6 +32,7 @@ export const Navbar = () => {
           <ul><NavLink to ="/locations" onClick={closeSideBar} style={({ isActive }) => ({ fontWeight: isActive ? '600'  : '400'  })}> Besöksmål</NavLink></ul>
           <ul><NavLink to ="/profile" onClick={closeSideBar} style={({ isActive }) => ({ fontWeight: isActive ? '600'  : '400'  })}> Profil</NavLink></ul>
           <ul><NavLink to ="/login" onClick={closeSideBar} style={({ isActive }) => ({ fontWeight: isActive ? '600'  : '400'  })}> Logga in</NavLink></ul>
+          <ul><NavLink to ="/about" onClick={closeSideBar} style={({ isActive }) => ({ fontWeight: isActive ? '600'  : '400'  })}> Om oss</NavLink></ul>
           <ul><NavLinkLogOut onClick={() => {dispatch(user.actions.setAccessToken(null)); navigate("/"); closeSideBar } } >Logga ut</NavLinkLogOut></ul>
         </Menu>
     </Nav>
@@ -45,7 +46,14 @@ export const Navbar = () => {
 const Nav = styled.div`
   overflow: hidden;
   background-color: #CEE5D0;
-  width: 100%;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+
+  @media ${Devices.tablet} {
+  flex-direction:row;
+  justify-content: space-between ;
+  }
 
 a {
   float: left;
@@ -63,14 +71,13 @@ a:hover {
 }
 ` 
 const NavLinkLogOut = styled.a`
-  cursor: pointer
+  cursor: pointer;
 `
 
-
-const HeadingWrapper = styled.h1`
+const LogoTitle = styled.div`
 display: flex;
 justify-content: center;
-padding: 20px;
+margin-left: 25px;
 @media ${Devices.laptop} {
     justify-content: flex-start;
     }
@@ -79,14 +86,16 @@ padding: 20px;
     }
 `
 const Heading = styled.h1`
-font-family: 'Girassol', cursive;
-font-size: 70px;
-@media ${Devices.laptop} {
-    font-size: 100px;
+  font-family: 'Girassol', cursive;
+  font-size: 60px;
+
+  @media ${Devices.laptop} {
+    font-size: 80px;
     }
     @media ${Devices.desktop} {
-     font-size: 120px;
+     font-size: 100px;
     }
+
 `
 
 const HamburgerButton = styled.div`
@@ -100,8 +109,9 @@ const HamburgerButton = styled.div`
 `
 const Menu = styled.div`
   display: flex;
+  align-items: center;
   position: relative;
-  margin-right: 15px;
+  margin-right: 25px;
 
   
   @media (max-width: 668px) {

@@ -91,9 +91,9 @@ export const Locations = () => {
 }
 
 const LocationsWrapper = styled.section`
- width: 100%;
+ max-width: 100vw;
  display: flex;
-  align-items: center;
+ align-items: center;
  flex-direction: column;
 `
 
@@ -122,7 +122,7 @@ const GridItem = styled.div`
   border-radius: 15px;
   align-items: center;
   border: 3px solid #e8894f;
-  width: 270px;
+  width: 260px;
 
   @media ${Devices.tablet} {
     grid-template-columns: repeat(2, 1fr);

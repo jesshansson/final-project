@@ -17,8 +17,6 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     background-color: #FCF8E8;
-    width: 100%;
-    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -53,53 +51,8 @@ export const PaigeWrapper = styled.section`
   align-items: center;
   //justify-content: center;
   height: 80vh;
-  width: 100vw;
+  //width: 100vw;
 `
-/*export const OuterWrapper = styled.section`
-
-  body {
-    background-color: #FCF8E8;
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    //padding-bottom: 10vh;
-  }
-
- 
-
-  header {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    height: 12vh;
-    width: 100vw;
-    background-color: #CEE5D0;
-    text-decoration: none;
-    
-  }
-
-  header ul {
-    padding: 5px;
-    margin: 5px;
-    
-    @media ${Devices.tablet} {
-      padding: 10px;
-      margin: 20px;
-    }
-  }
-
-  header a {
-    text-decoration: none;
-  }
-
-  a {
-    color: black;
-  }
-`
-*/
 
 //@media ${Devices.tablet} 
 //@media ${Devices.laptop} 
@@ -129,6 +82,6 @@ export const SoMeIcon = styled.a`
 
   :hover {
     opacity: 0.7;
-    transform: scale(1.2)
+    transform: scale(1.2);
   }
 ` 

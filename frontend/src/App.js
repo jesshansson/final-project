@@ -55,7 +55,6 @@ export const App = () => {
           <Route path='/slidepanel' element={<SlidePanel />} />
           <Route path='/modal2' element={<UserModal />} />
         </Routes>
-        <Footer />
 
       </BrowserRouter>
     </Provider>

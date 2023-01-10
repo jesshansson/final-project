@@ -9,6 +9,7 @@ import { CultureSchema } from "./Schemas/culture";
 import listEndpoints from "express-list-endpoints";
 import culture from "./data/culture.json";
 import nature from "./data/nature.json"
+import { EditUser, SingleUser, DeleteUser } from "./Userprofile";
 
 const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/final-project";
 mongoose.connect(mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true });
@@ -42,7 +43,7 @@ app.post("/register", async (req, res) => {
         response: {
           username: newUser.username,
           accessToken: newUser.accessToken,
-          id: newUser.id //_id eller id?
+          id: newUser.id 
         }
       });
     }
@@ -262,8 +263,8 @@ app.get("/locations", async (req, res) => {
 
 app.get("/locations/:id", async (req, res) => {
   try {
-    const singleLocationNature = await Nature.findById({ _id: req.params.id }) //id eller _id?
-    const singleLocationCulture = await Culture.findById({ _id: req.params.id }) //id eller _id?
+    const singleLocationNature = await Nature.findById({ _id: req.params.id }) 
+    const singleLocationCulture = await Culture.findById({ _id: req.params.id }) 
     if (singleLocationCulture || singleLocationNature) {
       res.status(200).json({
         success: true,
@@ -282,6 +283,15 @@ app.get("/locations/:id", async (req, res) => {
     })
   }
 })
+
+//Get a single users profile based on its id
+app.get("/profile/:id", SingleUser);
+//Edit a user based on its id
+app.patch("/profile/:id/edit", EditUser);
+//Delete user based on its id
+app.delete("/profile/:id/delete", DeleteUser);
+
+
 
 // Start the server
 app.listen(port, () => {
