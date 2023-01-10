@@ -28,7 +28,7 @@ export const UserProfile = () => {
       }
     }
 
-    fetch(`http://localhost:8080/profile/${userId}`, options)
+    fetch(`https://final-project-m2dbj6puqa-lz.a.run.app/${userId}`, options)
       .then(res => res.json())
       .then(data => {
         console.log(data)
