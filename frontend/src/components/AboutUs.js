@@ -95,52 +95,39 @@ const AboutUsWrapper = styled.section`
  display: flex;
   align-items: center;
  flex-direction: column;
- @media ${Devices.laptop} {
-width: 80%
-    }
-    @media ${Devices.desktop} {
-width: 60%;
-    }
 `
 
 const CardWrapper = styled.div`
-  margin: 0;
-  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-    *, *:before, *:after {
-      box-sizing: inherit;
-    }
+  width: 100%;
 
     @media ${Devices.laptop} {
       flex-direction: row; 
+      width: 80%;
     }
     @media ${Devices.desktop} {
      flex-direction: row;
-
+width: 60%;
     }
 `
 
 const Column = styled.div`
  
-  width: 80%;
+
   margin-bottom: 16px;
   padding: 0 8px;
  
 
-  @media ${Devices.laptop} {
-    width: 50%;
-    }
-    @media ${Devices.desktop} {
-      width: 20%;
-    }
 `
 
 const Card = styled.div`
 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 margin: 8px;
+width: 100%;
+height: 100%;
 `
 
 
@@ -167,15 +154,16 @@ const SmallTitle = styled.p`
  color: #ECB390;
  font-size: 17px;
  @media ${Devices.laptop} {
-    width: 20px;
+    font-size: 20px;
     }
     @media ${Devices.desktop} {
-      width: 25px;
+      font-size: 25px;
     }
 `
 
 const NameTitle = styled.h2`
 font-size: 24px;
+font-family: 'Roboto', sans-serif;
 @media ${Devices.laptop} {
     font-size: 30px;
     }
