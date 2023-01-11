@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import user from 'reducers/user';
-import { Devices, PaigeWrapper } from './reusable-components/GlobalStyles';
+import { Devices, PaigeWrapper, Headline } from './reusable-components/GlobalStyles';
 import SlidingPane from "react-sliding-pane";
 import picture from "./picture.jpg"
 
@@ -162,20 +162,4 @@ text-align: center;
   }
 `
 
-export const Headline = styled.h1`
-  font-family: 'Montserrat', sans-serif;
-  text-align: center;
-  font-size: 25px;
-  grid-column: 1 / 4;
-  grid-row: 1;
-  margin: 20px;
 
-  @media ${Devices.tablet} {
-  font-size: 30px;
-  } 
-
-  @media ${Devices.laptop} {
-    font-size: 35px;
-  }
-
-`

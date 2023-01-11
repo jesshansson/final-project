@@ -1,7 +1,7 @@
 [
   {
       "name": "Ersta museum",
-      "img": "https://i.postimg.cc/VLZrvmGg/badson.jpg",
+      "img": "https://i.postimg.cc/JhHJ8L98/icons8-museum-96.png",
       "address": "Erstagatan 1M, 116 28 Stockholm,",
       "opening_hours_mon": "Stängt",
       "opening_hours_tue": "11.30-13.30",
@@ -21,7 +21,7 @@
     },
     {
       "name": "Långholmens fängelsemuseum" ,
-      "img": "https://i.postimg.cc/3RZWTT0g/hej.jpg",
+      "img": "https://i.postimg.cc/JhHJ8L98/icons8-museum-96.png",
       "address": "Långholmens Hotell, Långholmsmuren 20, 117 33 Stockholm",
       "opening_hours_mon": "11.00-16.00",
       "opening_hours_tue": "11.00-16.00",
@@ -41,7 +41,7 @@
     },
     {
       "name": "Gustavsbergs Porslinsmuseum" ,
-      "img": "https://i.postimg.cc/nV0MSnJx/banana.jpg",
+      "img": "https://i.postimg.cc/JhHJ8L98/icons8-museum-96.png",
       "address": "Odelbergs väg 5, 134 40 Gustavsberg",
       "opening_hours_mon": "Stängt",
       "opening_hours_tue": "Stängt",
@@ -62,7 +62,7 @@
     
     {
       "name": "Tumba bruksmuseum" ,
-      "img": "https://i.postimg.cc/CKTKn1jG/bajs.jpg",
+      "img": "https://i.postimg.cc/JhHJ8L98/icons8-museum-96.png",
       "address": "Sven Palmes väg 2, 147 43 Tumba",
       "opening_hours_mon": "Stängt",
       "opening_hours_tue": "Stängt",
@@ -83,7 +83,7 @@
   
     {
       "name": "Biocafé Tellus",
-      "img": "https://i.postimg.cc/L8dJ71zb/Pngtree-cinema-popcorn-vector-png-3247726.png",
+      "img": "https://i.postimg.cc/nckRN4Jx/icons8-theatre-stage-96.png",
       "address": "Vattenledningsvägen 46, 126 33 Hägersten",
       "opening_hours_mon": "Se månadsvis program",
       "opening_hours_tue": "Se månadsvis program",
@@ -104,7 +104,7 @@
   
     {
       "name": "Presens Improkällare",
-      "img": "https://i.postimg.cc/sxVKCgbk/Pngtree-auditorium-theatre-2311363.png",
+      "img": "https://i.postimg.cc/FF0nVtC7/icons8-theatre-mask-96.png",
       "address": "Tegelbruksvägen 28, 126 34 Hägersten",
       "opening_hours_mon": "Se hemsida",
       "opening_hours_tue": "Se hemsida",
@@ -125,7 +125,7 @@
   
     {
       "name": "Färgfabriken",
-      "img": "https://i.postimg.cc/VLZrvmGg/badson.jpg",
+      "img": "https://i.postimg.cc/MpZ37qTq/icons8-physical-gallery-96.png",
       "address": "Lövholmsbrinken 1, 117 41 Stockholm",
       "opening_hours_mon": "Stängt",
       "opening_hours_tue": "Stängt",
@@ -147,7 +147,7 @@
   
     {
       "name": "Fullersta Gård" ,
-      "img": "https://i.postimg.cc/VLZrvmGg/badson.jpg",
+      "img": "https://i.postimg.cc/MpZ37qTq/icons8-physical-gallery-96.png",
       "address": "Fullersta gårdsväg 18, 141 35 Huddinge",
       "opening_hours_mon": "Stängt",
       "opening_hours_tue": "Stängt",
@@ -168,7 +168,7 @@
   
     {
       "name": "Teater Sláva" ,
-      "img": "https://i.postimg.cc/sxVKCgbk/Pngtree-auditorium-theatre-2311363.png",
+      "img": "https://i.postimg.cc/FF0nVtC7/icons8-theatre-mask-96.png",
       "address": "Kyrkogårdsvägen 2, 141 62 Huddinge",
       "opening_hours_mon": "Vid föreställning",
       "opening_hours_tue": "Vid föreställning",
@@ -188,7 +188,7 @@
     },
     {
       "name": "Torekällberget",
-      "img": "https://i.postimg.cc/VLZrvmGg/badson.jpg",
+      "img": "https://i.postimg.cc/0jK2Mk05/icons8-lake-96.png",
       "address": "Källgatan 15, 151 45 Södertälje",
       "opening_hours_mon": "10:00-16:00",
       "opening_hours_tue": "10:00-16:00",
@@ -208,7 +208,7 @@
     },
     {
       "name": "K. A. Almgren sidenväveri & museum",
-      "img": "https://i.postimg.cc/VLZrvmGg/badson.jpg",
+      "img": "https://i.postimg.cc/JhHJ8L98/icons8-museum-96.png",
       "address": "Repslagargatan 15A, 118 46 Stockholm",
       "opening_hours_mon": "12-16",
       "opening_hours_tue": "12-16",
@@ -228,7 +228,7 @@
     },
     {
       "name": "Litografiska museet",
-      "img": "https://i.postimg.cc/VLZrvmGg/badson.jpg",
+      "img": "https://i.postimg.cc/JhHJ8L98/icons8-museum-96.png",
       "address": "Sundby gårdsväg 6, 141 91 Huddinge",
       "opening_hours_mon": "Stängt",
       "opening_hours_tue": "12-15",
@@ -248,7 +248,7 @@
     },
     {
       "name": "Sveriges VVS-museum",
-      "img": "https://i.postimg.cc/VLZrvmGg/badson.jpg",
+      "img": "https://i.postimg.cc/JhHJ8L98/icons8-museum-96.png",
       "address": "Archimedesvägen 1, 168 67 Bromma",
       "opening_hours_mon": "Se hemsida",
       "opening_hours_tue": "Se hemsida",
@@ -268,7 +268,7 @@
     },
     {
       "name": "ValstaKonst",
-      "img": "https://i.postimg.cc/fR6V75h0/ru.jpg",
+      "img": "https://i.postimg.cc/MpZ37qTq/icons8-physical-gallery-96.png",
       "address": "Bragegatan 11, 195 53 Märsta",
       "opening_hours_mon": "Stängt",
       "opening_hours_tue": "Stängt",
@@ -288,7 +288,7 @@
     },
     {
       "name": "Stockholm Toy Museum",
-      "img": "https://i.postimg.cc/VLZrvmGg/badson.jpg",
+      "img": "https://i.postimg.cc/JhHJ8L98/icons8-museum-96.png",
       "address": "Svensksundsvägen 5, 111 49 Stockholm",
       "opening_hours_mon": "Stängt",
       "opening_hours_tue": "Stängt",

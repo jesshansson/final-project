@@ -3,7 +3,7 @@ import { Devices } from './reusable-components/GlobalStyles';
 import { Title } from "./reusable-components/GlobalStyles";
 import styled from "styled-components";
 import { Description } from "./SingleLocation";
-import { DescriptionProfile, SoMeIcon, SoMeIconLink } from "./reusable-components/GlobalStyles"
+import { DescriptionProfile, SoMeIcon, SoMeIconLink, Headline } from "./reusable-components/GlobalStyles"
 
 export const AboutUs = () => {
 
@@ -11,16 +11,16 @@ export const AboutUs = () => {
     
 <AboutUsWrapper>
 <AboutSection>
-  <Title>Om oss</Title>
+  <Headline>Om oss</Headline>
   <DescriptionProfile>Hej! Vi är tre utvecklare som har byggt en sida där vi hoppas kunna 
     främja kultur- och naturlivet. Som en bonus kanske man även kan träffa 
-    andra människor med likasinnade intressen. XXX.se är byggd som en del av vår utbildning inom frontend development.  </DescriptionProfile>
+    andra människor med likasinnade intressen. Kulturligtvis är byggd som en del av vår utbildning inom frontend development.  </DescriptionProfile>
 </AboutSection>
 
 <CardWrapper>
 <Column>
     <Card>
-    <AboutUsImage src="https://i.postimg.cc/VLZrvmGg/badson.jpg" alt="Picture of Maria"/>
+    <AboutUsImage src="https://i.postimg.cc/sx2jt19K/maria.jpg" alt="Picture of Maria"/>
       <Container>
         <NameTitle>Maria Westling</NameTitle>
         <SmallTitle>Frontend developer</SmallTitle>
@@ -42,7 +42,7 @@ export const AboutUs = () => {
 
     <Column>
     <Card>
-    <AboutUsImage src="https://i.postimg.cc/tJSTsN5J/spenat.jpg" alt="Picture of Jessica"/>
+    <AboutUsImage src="https://i.postimg.cc/d1zVbJ3y/jessica-hansson.png" alt="Picture of Jessica"/>
       <Container>
       <NameTitle>Jessica Hansson</NameTitle>
         <SmallTitle>Frontend developer</SmallTitle>
@@ -64,11 +64,11 @@ export const AboutUs = () => {
 
     <Column>
     <Card>
-    <AboutUsImage src="https://i.postimg.cc/TPV3V69Z/hejhopp.jpg" alt="Picture of Cecilia"/>
+    <AboutUsImage src="https://i.postimg.cc/HWbV57VD/cicci.jpg" alt="Picture of Cecilia"/>
       <Container>
       <NameTitle>Cecilia Rådén</NameTitle>
         <SmallTitle>Frontend developer</SmallTitle>
-        <DescriptionProfile>info info lorem ipsum ipsum lorem.</DescriptionProfile>
+        <DescriptionProfile>Frontendutvecklare med en förkärlek för gröna växter och pingviner</DescriptionProfile>
         <SoMeWrapper>
         <SoMeIcon href="https://github.com/CeciliaMichele">
             <SoMeIconLink className="fa-brands fa-github" />
@@ -95,6 +95,12 @@ const AboutUsWrapper = styled.section`
  display: flex;
   align-items: center;
  flex-direction: column;
+ @media ${Devices.laptop} {
+width: 80%
+    }
+    @media ${Devices.desktop} {
+width: 60%;
+    }
 `
 
 const CardWrapper = styled.div`
@@ -103,17 +109,17 @@ const CardWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
     *, *:before, *:after {
       box-sizing: inherit;
     }
 
     @media ${Devices.laptop} {
       flex-direction: row; 
-      justify-content: space-around
     }
     @media ${Devices.desktop} {
      flex-direction: row;
-     justify-content: space-evenly
+
     }
 `
 
@@ -122,6 +128,7 @@ const Column = styled.div`
   width: 80%;
   margin-bottom: 16px;
   padding: 0 8px;
+ 
 
   @media ${Devices.laptop} {
     width: 50%;
@@ -158,14 +165,28 @@ padding: 20px;
 `
 const SmallTitle = styled.p`
  color: #ECB390;
+ font-size: 17px;
+ @media ${Devices.laptop} {
+    width: 20px;
+    }
+    @media ${Devices.desktop} {
+      width: 25px;
+    }
 `
 
 const NameTitle = styled.h2`
 font-size: 24px;
+@media ${Devices.laptop} {
+    font-size: 30px;
+    }
+    @media ${Devices.desktop} {
+      font-size: 36px;
+    }
 `
 
 const AboutUsImage = styled.img`
- width: 100%;
+    width:  100%;
+    height: 100%;
 `
 
 const SoMeWrapper = styled.section`

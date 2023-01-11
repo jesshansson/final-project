@@ -32,6 +32,24 @@ export const GlobalStyle = createGlobalStyle`
     color: black;
   }
 `
+export const Headline = styled.h1`
+ font-family: 'Roboto', sans-serif;
+  text-align: center;
+  font-size: 35px;
+  grid-column: 1 / 4;
+  grid-row: 1;
+  margin: 20px;
+
+  @media ${Devices.tablet} {
+  font-size: 40px;
+  } 
+
+  @media ${Devices.laptop} {
+    font-size: 45px;
+  }
+
+`
+
 export const Title = styled.h1`
   color: black;
 `
@@ -66,6 +84,12 @@ export const PaigeWrapper = styled.section`
 
 export const DescriptionProfile = styled.div`
 font-size: 18px;
+@media ${Devices.laptop} {
+    font-size: 20px;
+    }
+    @media ${Devices.desktop} {
+      font-size: 25px;
+    }
 `
 
 export const SoMeIconLink = styled.i`
