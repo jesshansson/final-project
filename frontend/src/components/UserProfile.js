@@ -11,12 +11,15 @@ export const UserProfile = () => {
   const [userDetails, setUserDetails] = useState([])
   const accessToken = useSelector((store) => store.user.accessToken);
   const username = useSelector((store) => store.user.username);
+  const name = useSelector((store) => store.user.name);
   const email = useSelector((store) => store.user.email);
   const age = useSelector((store) => store.user.age)
   const presentation = useSelector((store) => store.user.presentation)
+  const facebook = useSelector((store) => store.user.facebook)
+  const instagram = useSelector((store) => store.user.instagram)
   const navigate = useNavigate();
   const { id } = useParams()
-  console.log("id",id)
+  console.log("id", id)
 
   useEffect(() => {
     if (!accessToken) {
@@ -42,38 +45,38 @@ export const UserProfile = () => {
   }, [])
 
 
-  
   return (
     <ProfileWrapper>
-      <UserModal accessToken={accessToken}/>
+
       <Card>
         <img src="https://th.bing.com/th/id/OIP.IB0XUg8PV5FGxOf0WWDdOQHaHa?pid=ImgDet&rs=1" alt="John" style={{ width: "80%" }} />
-        <h1>{username}</h1>
-        <Age>34 år {age}</Age>
+        <h1>{name}</h1>
+        <h2>{username}</h2>
+        <Age>{age} år</Age>
         <DescriptionProfile>{presentation}</DescriptionProfile>
         <SoMeWrapper>
-          <SoMeIcon href="#">
+          <SoMeIcon href={`https://instagram.com/${instagram}`}>
             <SoMeIconLink className="fa fa-instagram" />
           </SoMeIcon>
-          <SoMeIcon href="#">
+          <SoMeIcon href={facebook}>
             <SoMeIconLink className="fa fa-facebook" />
           </SoMeIcon>
         </SoMeWrapper>
         <p>
-          <a href="mailto:minmail@jag.com">
-
+          <a href={`mailto:${email}`}>
             <ContactButton>Maila mig!</ContactButton>
           </a>
         </p>
         <p>{email}</p>
-      </Card>
-    </ProfileWrapper>
+      </Card >
+      <UserModal accessToken={accessToken} />
+    </ProfileWrapper >
   );
 };
 
 
 const ProfileWrapper = styled.section`
-margin: 10vh;
+padding-top: 40px;
 color: black`
 
 const SoMeWrapper = styled.section`

@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom';
 
 export const Login = ({ siteHeadline, siteType, submitBtn }) => {
   const [username, setUsername] = useState("");
+  //const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   //const [mode, setMode] = useState("login"); //behövs?
   const [loginError, setLoginError] = useState("");
@@ -40,6 +41,7 @@ export const Login = ({ siteHeadline, siteType, submitBtn }) => {
         if (data.success) {
           batch(() => {
             dispatch(user.actions.setUsername(data.response.username));
+            //dispatch(user.actions.setName(data.response.name));
             dispatch(user.actions.setId(data.response.id))
             dispatch(user.actions.setAccessToken(data.response.accessToken));
             dispatch(user.actions.setError(null));
@@ -47,6 +49,7 @@ export const Login = ({ siteHeadline, siteType, submitBtn }) => {
         } else {
           batch(() => {
             dispatch(user.actions.setUsername(null));
+            //dispatch(user.actions.setName(null));
             dispatch(user.actions.setId(null))
             dispatch(user.actions.setAccessToken(null));
             dispatch(user.actions.setError(data.response));
@@ -71,6 +74,7 @@ export const Login = ({ siteHeadline, siteType, submitBtn }) => {
             placeholder=""
             onChange={(e) => setUsername(e.target.value)}
           />
+
           <Label htmlFor="password">Lösenord: </Label>
           <Input
             type="password"
@@ -103,6 +107,15 @@ export const Login = ({ siteHeadline, siteType, submitBtn }) => {
     </PaigeWrapper>
   )
 }
+/*<Label htmlFor="name">Namn: </Label>
+<Input
+  type="text"
+  id="username"
+  value={name}
+  required
+  placeholder=""
+  onChange={(e) => setName(e.target.value)}
+/>*/
 
 export const LoginBox = styled.div`
   min-width: 45vw;

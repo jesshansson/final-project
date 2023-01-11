@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useDispatch } from "react-redux";
+import React, { useState, useParams } from 'react';
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, NavLink } from "react-router-dom";
 import user from "reducers/user";
 import { Link } from "react-router-dom";
@@ -11,31 +11,32 @@ export const Navbar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [isOpen, setOpen] = useState(false)
-  const closeSideBar = () => {setOpen(false)}
+  const closeSideBar = () => { setOpen(false) }
+  const userId = useSelector((store) => store.user.id)
 
   return (
     <Nav>
       <LogoTitle>
-      <Heading>Samlas</Heading>
-      <img src='https://i.postimg.cc/vZTKLG42/icons8-speech-bubble-80.png' />
+        <Heading>Samlas</Heading>
+        <img src='https://i.postimg.cc/vZTKLG42/icons8-speech-bubble-80.png' />
       </LogoTitle>
       <HamburgerButton>
-            <Hamburger
-              label="Show menu"
-              rounded 
-              toggled={isOpen}
-              toggle={setOpen}
-            />
-          </HamburgerButton>
-          <Menu isOpen={isOpen}>
-          <ul><NavLink to ="/" onClick={closeSideBar} style={({ isActive }) => ({ fontWeight: isActive ? '600'  : '400' })}> Start</NavLink></ul>
-          <ul><NavLink to ="/locations" onClick={closeSideBar} style={({ isActive }) => ({ fontWeight: isActive ? '600'  : '400'  })}> Besöksmål</NavLink></ul>
-          <ul><NavLink to ="/profile" onClick={closeSideBar} style={({ isActive }) => ({ fontWeight: isActive ? '600'  : '400'  })}> Profil</NavLink></ul>
-          <ul><NavLink to ="/login" onClick={closeSideBar} style={({ isActive }) => ({ fontWeight: isActive ? '600'  : '400'  })}> Logga in</NavLink></ul>
-          <ul><NavLink to ="/about" onClick={closeSideBar} style={({ isActive }) => ({ fontWeight: isActive ? '600'  : '400'  })}> Om oss</NavLink></ul>
-          <ul><NavLinkLogOut onClick={() => {dispatch(user.actions.setAccessToken(null)); navigate("/"); closeSideBar } } >Logga ut</NavLinkLogOut></ul>
-        </Menu>
-    </Nav>
+        <Hamburger
+          label="Show menu"
+          rounded
+          toggled={isOpen}
+          toggle={setOpen}
+        />
+      </HamburgerButton>
+      <Menu isOpen={isOpen}>
+        <ul><NavLink to="/" onClick={closeSideBar} style={({ isActive }) => ({ fontWeight: isActive ? '600' : '400' })}> Start</NavLink></ul>
+        <ul><NavLink to="/locations" onClick={closeSideBar} style={({ isActive }) => ({ fontWeight: isActive ? '600' : '400' })}> Besöksmål</NavLink></ul>
+        <ul><NavLink to={`/profile/${userId}`} onClick={closeSideBar} style={({ isActive }) => ({ fontWeight: isActive ? '600' : '400' })}> Profil</NavLink></ul>
+        <ul><NavLink to="/login" onClick={closeSideBar} style={({ isActive }) => ({ fontWeight: isActive ? '600' : '400' })}> Logga in</NavLink></ul>
+        <ul><NavLink to="/about" onClick={closeSideBar} style={({ isActive }) => ({ fontWeight: isActive ? '600' : '400' })}> Om oss</NavLink></ul>
+        <ul><NavLinkLogOut onClick={() => { dispatch(user.actions.setAccessToken(null)); navigate("/"); closeSideBar }} >Logga ut</NavLinkLogOut></ul>
+      </Menu>
+    </Nav >
   )
 }
 
@@ -69,7 +70,7 @@ a:hover {
   transform: scale(1.2);
   transition: 0.3s;
 }
-` 
+`
 const NavLinkLogOut = styled.a`
   cursor: pointer;
 `
@@ -144,15 +145,15 @@ header a {
 
 */
 
-  /*
-  header {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    height: 10vh;
-    width: 100%;
-    background-color: #CEE5D0;
-    text-decoration: none;
-    
-  }
+/*
+header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 10vh;
+  width: 100%;
+  background-color: #CEE5D0;
+  text-decoration: none;
+  
+}
 */

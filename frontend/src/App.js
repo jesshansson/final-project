@@ -47,7 +47,7 @@ store.subscribe(() => {
   localStorage.setItem("userReduxState", JSON.stringify(store.getState()));
 });
 
-// const store = configureStore({ reducer });
+//const store = configureStore({ reducer });
 
 export const App = () => {
 
