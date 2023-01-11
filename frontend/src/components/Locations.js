@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 import user from 'reducers/user';
 import { Devices, PaigeWrapper } from './reusable-components/GlobalStyles';
 import SlidingPane from "react-sliding-pane";
-import picture from "./picture.jpg"
 
 export const Locations = () => {
   const navigate = useNavigate();
