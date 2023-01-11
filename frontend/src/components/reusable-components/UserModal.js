@@ -6,9 +6,11 @@ import { API_URL } from 'utils/utils';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import styled from 'styled-components';
 import { useSelector, batch, useDispatch } from 'react-redux';
+import { Devices } from './GlobalStyles';
 
 export const UserModal = () => {
   const age = useSelector((store) => store.user.age)
+  const name = useSelector((store) => store.user.name)
   const email = useSelector((store) => store.user.email)
   const facebook = useSelector((store) => store.user.facebook)
   const instagram = useSelector((store) => store.user.instagram)
@@ -19,6 +21,7 @@ export const UserModal = () => {
   const [show, setShow] = useState(false);
   const [userData, setUserData] = useState({
     age: age,
+    name: name,
     email: email,
     facebook: facebook,
     instagram: instagram,
@@ -48,6 +51,7 @@ export const UserModal = () => {
         if (data.success) {
           batch(() => {
             dispatch(user.actions.setUsername(data.response.username));
+            dispatch(user.actions.setName(data.response.name));
             dispatch(user.actions.setAge(data.response.age))
             dispatch(user.actions.setEmail(data.response.email));
             dispatch(user.actions.setInstagram(data.response.instagram));
@@ -58,6 +62,7 @@ export const UserModal = () => {
         } else {
           batch(() => {
             dispatch(user.actions.setUsername(null));
+            dispatch(user.actions.setName(null));
             dispatch(user.actions.setAge(null))
             dispatch(user.actions.setEmail(null));
             dispatch(user.actions.setInstagram(null));
@@ -73,7 +78,7 @@ export const UserModal = () => {
   return (
     <>
       <ButtonOpen variant="primary" onClick={handleShow}>
-        Redigera
+        Redigera 
       </ButtonOpen>
 
       <Modal show={show}
@@ -81,50 +86,76 @@ export const UserModal = () => {
         size="lg"
         scrollable>
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>Redigera profil</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Woohoo, you're reading this text in a modal!
-          <form onSubmit={editProfile}>
-            <label id="email" hmtlfor="email">
-              Email
+        <Modal.Body>
+          <ModalForm onSubmit={editProfile}>
+          <label id="name" htmlFor="name">
+              Namn:
             </label>
-            <input type="email" defaultValue={userData.email} onChange={(e) => setUserData({ ...userData, email: e.target.value })} />
-            <label id="age" hmtlfor="age">Ålder
+            <Input type="string" defaultValue={userData.name} onChange={(e) => setUserData({ ...userData, name: e.target.value })} />
+            <label id="email" htmlFor="email">
+              Email:
             </label>
-            <input type="number" name="age" defaultValue={userData.age} onChange={(e) => setUserData({ ...userData, age: e.target.value })} />
-            <label id="facebook" hmtlfor="facebook">Facebook
+            <Input type="email" defaultValue={userData.email} onChange={(e) => setUserData({ ...userData, email: e.target.value })} />
+            <label id="age" htmlFor="age">Ålder:
             </label>
-            <input type="text" name="facebook" defaultValue={userData.facebook} onChange={(e) => setUserData({ ...userData, facebook: e.target.value })} />
-            <label id="instagram" hmtlfor="instagram">Instagram
+            <Input type="number" name="age" defaultValue={userData.age} onChange={(e) => setUserData({ ...userData, age: e.target.value })} />
+            <label id="facebook" htmlFor="facebook">Facebook:
             </label>
-            <input type="text" name="instagram" defaultValue={userData.instagram} onChange={(e) => setUserData({ ...userData, instagram: e.target.value })} />
-            <label id="presentation" hmtlfor="presentation">Presentation
+            <Input type="text" name="facebook" defaultValue={userData.facebook} onChange={(e) => setUserData({ ...userData, facebook: e.target.value })} />
+            <label id="instagram" htmlFor="instagram">Instagram:
+            </label>
+            <Input type="text" name="instagram" defaultValue={userData.instagram} onChange={(e) => setUserData({ ...userData, instagram: e.target.value })} />
+            <label id="presentation" htmlFor="presentation">Presentation:
             </label>
             <textarea type="text" name="presentation" defaultValue={userData.presentation} onChange={(e) => setUserData({ ...userData, presentation: e.target.value })} />
-            <button type="submit">Spara</button>
-          </form>
+            <ButtonSave type="submit">Spara</ButtonSave>
+          </ModalForm>
         </Modal.Body>
         <Modal.Footer>
-          <ButtonClose variant="secondary" onClick={handleClose}>
-            Close
-          </ButtonClose>
-          <ButtonSave variant="primary" onClick={handleClose}>
-            Save Changes
-          </ButtonSave>
+
         </Modal.Footer>
       </Modal>
     </>
   );
 }
 
-const ButtonClose = styled.button`
-background-color: tomato`
+/*           <ButtonClose onClick={handleClose}>
+            Stäng
+          </ButtonClose>*/
+
+const ModalForm = styled.form`
+  display: flex;
+  flex-direction: column;
+`
+
+const Input = styled.input`
+  margin-bottom: 10px;
+`
 
 const ButtonSave = styled.button`
-background-color: tomato`
+  background-color: #ECB390;
+  width: 80px;
+  border: solid 1px black;
+  border-radius: 5px;
+  padding: 5px;
+  margin-top: 10px;
+  
+    @media ${Devices.laptop} {
+      width: 100px;
+      margin-top: 15px;
+    }
+    @media ${Devices.desktop} {
+      width: 120px;
+    }`
 
-const ButtonOpen = styled.button`
-background-color: tomato`
+const ButtonOpen = styled(ButtonSave)`
+  background-color: #ECB390;
+  border: solid 1px black;`
+  
+const ButtonClose = styled(ButtonSave)`
+  `
 
 
 //https://react-bootstrap.github.io/components/modal/

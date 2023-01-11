@@ -46,8 +46,12 @@ export const UserProfile = () => {
 
 
   return (
-    <ProfileWrapper>
-
+    <>
+    <UserModalButton>
+      <UserModal accessToken={accessToken} />
+      </UserModalButton>
+      <ProfileWrapper>
+      
       <Card>
         <img src="https://th.bing.com/th/id/OIP.IB0XUg8PV5FGxOf0WWDdOQHaHa?pid=ImgDet&rs=1" alt="John" style={{ width: "80%" }} />
         <h1>{name}</h1>
@@ -69,15 +73,24 @@ export const UserProfile = () => {
         </p>
         <p>{email}</p>
       </Card >
-      <UserModal accessToken={accessToken} />
+      
     </ProfileWrapper >
+    </>
   );
 };
 
+const UserModalButton = styled.div`
+ display: flex;
+ justify-content: flex-end;
+ margin-right: 30px;
+ `
+ 
 
 const ProfileWrapper = styled.section`
-padding-top: 40px;
-color: black`
+  padding-top: 30px;
+  color: black;
+ 
+  flex-direction: column`
 
 const SoMeWrapper = styled.section`
 display: flex;

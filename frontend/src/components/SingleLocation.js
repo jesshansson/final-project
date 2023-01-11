@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 import { BASE_URL, API_URL, API_SINGLE } from "utils/utils";
 import { Link } from 'react-router-dom';
 import picture from "./picture.jpg"
+import { LocationName } from "./Locations";
 //import SlidingPanel from "react-sliding-side-panel";
 //import { Interested } from "./ShowInterest";
 
@@ -49,7 +50,9 @@ export const SingleLocation = () => {
         </div>
       </SlidingPanel> */}
         <LocationWrapper>
+          <SingleLocationName>{details.name}</SingleLocationName>
           <SingleLocationDiv>
+          
             {details.description}
             <OpeningHours><Bold>Öppettider:</Bold>
               <li>Måndag: {details.opening_hours_mon}</li>
@@ -69,6 +72,7 @@ export const SingleLocation = () => {
       <>
         <Link to="/locations"> ↩ Tillbaka </Link>
         <LocationWrapper>
+        <SingleLocationName>{details.name}</SingleLocationName>
           <SingleLocationDiv>
             {details.description}
             <p>Se och göra: {details.highlights}</p>
@@ -79,6 +83,10 @@ export const SingleLocation = () => {
   }
 }
 
+const SingleLocationName = styled.h1`
+font-size: 25px;
+margin-top: 10px`
+
 export const LocationWrapper = styled.section`
   display: flex;
   flex-direction: column;
@@ -87,14 +95,15 @@ export const LocationWrapper = styled.section`
 `
 
 export const SingleLocationDiv = styled.div`
-width: 40%;
+  width: 75%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: 10px;
+  margin-top: 20px;
   background-color: #ECB390;
   align-items: center;
-  border-radius: 5%;
+  border-radius: 10px;
   border: 2px solid #e8894f;
 `
 export const Image = styled.img`

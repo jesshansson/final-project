@@ -1,7 +1,7 @@
 [
   {
       "name": "Ersta museum",
-      "img": "https://i.postimg.cc/VLZrvmGg/badson.jpg",
+      "img": "https://i.postimg.cc/JhHJ8L98/icons8-museum-96.png",
       "address": "Erstagatan 1M, 116 28 Stockholm,",
       "opening_hours_mon": "Stängt",
       "opening_hours_tue": "11.30-13.30",
@@ -21,7 +21,7 @@
     },
     {
       "name": "Långholmens fängelsemuseum" ,
-      "img": "https://i.postimg.cc/3RZWTT0g/hej.jpg",
+      "img": "https://i.postimg.cc/JhHJ8L98/icons8-museum-96.png",
       "address": "Långholmens Hotell, Långholmsmuren 20, 117 33 Stockholm",
       "opening_hours_mon": "11.00-16.00",
       "opening_hours_tue": "11.00-16.00",
@@ -41,7 +41,7 @@
     },
     {
       "name": "Gustavsbergs Porslinsmuseum" ,
-      "img": "https://i.postimg.cc/nV0MSnJx/banana.jpg",
+      "img": "https://i.postimg.cc/JhHJ8L98/icons8-museum-96.png",
       "address": "Odelbergs väg 5, 134 40 Gustavsberg",
       "opening_hours_mon": "Stängt",
       "opening_hours_tue": "Stängt",
@@ -62,7 +62,7 @@
     
     {
       "name": "Tumba bruksmuseum" ,
-      "img": "https://i.postimg.cc/CKTKn1jG/bajs.jpg",
+      "img": "https://i.postimg.cc/JhHJ8L98/icons8-museum-96.png",
       "address": "Sven Palmes väg 2, 147 43 Tumba",
       "opening_hours_mon": "Stängt",
       "opening_hours_tue": "Stängt",
@@ -208,7 +208,7 @@
     },
     {
       "name": "K. A. Almgren sidenväveri & museum",
-      "img": "https://i.postimg.cc/VLZrvmGg/badson.jpg",
+      "img": "https://i.postimg.cc/JhHJ8L98/icons8-museum-96.png",
       "address": "Repslagargatan 15A, 118 46 Stockholm",
       "opening_hours_mon": "12-16",
       "opening_hours_tue": "12-16",
@@ -228,7 +228,7 @@
     },
     {
       "name": "Litografiska museet",
-      "img": "https://i.postimg.cc/VLZrvmGg/badson.jpg",
+      "img": "https://i.postimg.cc/JhHJ8L98/icons8-museum-96.png",
       "address": "Sundby gårdsväg 6, 141 91 Huddinge",
       "opening_hours_mon": "Stängt",
       "opening_hours_tue": "12-15",
@@ -248,7 +248,7 @@
     },
     {
       "name": "Sveriges VVS-museum",
-      "img": "https://i.postimg.cc/VLZrvmGg/badson.jpg",
+      "img": "https://i.postimg.cc/JhHJ8L98/icons8-museum-96.png",
       "address": "Archimedesvägen 1, 168 67 Bromma",
       "opening_hours_mon": "Se hemsida",
       "opening_hours_tue": "Se hemsida",
@@ -288,7 +288,7 @@
     },
     {
       "name": "Stockholm Toy Museum",
-      "img": "https://i.postimg.cc/VLZrvmGg/badson.jpg",
+      "img": "https://i.postimg.cc/JhHJ8L98/icons8-museum-96.png",
       "address": "Svensksundsvägen 5, 111 49 Stockholm",
       "opening_hours_mon": "Stängt",
       "opening_hours_tue": "Stängt",

@@ -14,10 +14,11 @@ export const Navbar = () => {
   const closeSideBar = () => { setOpen(false) }
   const userId = useSelector((store) => store.user.id)
 
+
   return (
     <Nav>
       <LogoTitle>
-        <Heading>Samlas</Heading>
+        <Heading>Kulturligtvis</Heading>
         <img src='https://i.postimg.cc/vZTKLG42/icons8-speech-bubble-80.png' />
       </LogoTitle>
       <HamburgerButton>
@@ -88,10 +89,10 @@ margin-left: 25px;
 `
 const Heading = styled.h1`
   font-family: 'Girassol', cursive;
-  font-size: 60px;
+  font-size: 55px;
 
   @media ${Devices.laptop} {
-    font-size: 80px;
+    font-size: 60px;
     }
     @media ${Devices.desktop} {
      font-size: 100px;

@@ -55,6 +55,7 @@ export const Locations = () => {
             </button> */}
             <Link
               key={item._id}
+              style={{ textDecoration: 'none' }}
               to={`/locations/${item._id}`}>
               {/* <LocationName>{item.name} </LocationName> */}
               <LocationName>{item.name} </LocationName>
@@ -79,6 +80,7 @@ export const Locations = () => {
             <Image src={item.img} style={{ width: 150, height: 150 }} alt="picture" />
             <Link
               key={item._id}
+              style={{ textDecoration: 'none' }}
               to={`/locations/${item._id}`}>
               <LocationName>{item.name}</LocationName>
             </Link>
@@ -123,6 +125,7 @@ const GridItem = styled.div`
   align-items: center;
   border: 3px solid #e8894f;
   width: 260px;
+  
 
   @media ${Devices.tablet} {
     grid-template-columns: repeat(2, 1fr);
@@ -151,6 +154,8 @@ font-family: 'Comfortaa', cursive;
 font-size: 20px;
 text-transform: uppercase;
 text-align: center;
+text-decoration: none;
+font-weight: 600;
 //letter-spacing: 15px 0px;
 
 @media ${Devices.tablet} {
@@ -160,7 +165,13 @@ text-align: center;
   @media ${Devices.laptop} {
     
   }
+ 
 `
+export const LocationLink = styled.link`
+text-decoration: none
+`
+
+
 
 export const Headline = styled.h1`
   font-family: 'Montserrat', sans-serif;
