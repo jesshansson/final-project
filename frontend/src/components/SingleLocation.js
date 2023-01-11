@@ -7,25 +7,18 @@ import { BASE_URL, API_URL, API_SINGLE } from "utils/utils";
 import { Link } from 'react-router-dom';
 import picture from "./picture.jpg"
 import { LocationName } from "./Locations";
-//import SlidingPanel from "react-sliding-side-panel";
-//import { Interested } from "./ShowInterest";
 
 export const SingleLocation = () => {
   const { id } = useParams()
-  // console.log(params)
-  // const [openPanel, setOpenPanel] = useState(false);
 
   const [details, setDetails] = useState([])
-  // const [detailsNature, setDetailsNature] = useState([])
 
   useEffect(() => {
     fetch(`https://final-project-m2dbj6puqa-lz.a.run.app/locations/${id}`)
       .then(res => res.json())
       .then((data) => {
         console.log(id)
-        // console.log(matchCulture)
         setDetails(data.response)
-        // console.log(details)
       })
       .catch(error => console.error(error))
   }, [])
@@ -39,31 +32,31 @@ export const SingleLocation = () => {
   if (filteredLocations.includes("genre")) {
     return (
       <>
-        <Link to="/locations"> ↩ Tillbaka </Link>
-        {/* <SlidingPanel
-        type={'right'}
-        isOpen={openPanel}
-        size={30}>
-        <h2>TEST</h2>
-        <div>
-          <button onClick={() => setOpenPanel(false)}>close</button>
-        </div>
-      </SlidingPanel> */}
         <LocationWrapper>
           <SingleLocationName>{details.name}</SingleLocationName>
           <SingleLocationDiv>
-          
+
+
             {details.description}
-            <OpeningHours><Bold>Öppettider:</Bold>
-              <li>Måndag: {details.opening_hours_mon}</li>
-              <li>Tisdag: {details.opening_hours_tue}</li>
-              <li>Onsdag: {details.opening_hours_wed}</li>
-              <li>Torsdag:{details.opening_hours_thu}</li>
-              <li>Fredag: {details.opening_hours_fri}</li>
-              <li>Lördag: {details.opening_hours_sat}</li>
-              <li>Söndag: {details.opening_hours_sun}</li>
-            </OpeningHours>
+            <ImageAndDetails>
+              <Image src={details.img} style={{ width: 150, height: 150 }} alt="picture" />
+              <a href={details.website}>Hemsida</a>
+              <a href={details.googlemap}>Hitta hit</a>
+              {details.closetStation}
+              {details.entranceFee}
+              <p>{details.cafe.toString()}</p>
+              <OpeningHours><Bold>Öppettider:</Bold>
+                <li><Bold>Måndag:</Bold> {details.opening_hours_mon}</li>
+                <li><Bold>Tisdag:</Bold> {details.opening_hours_tue}</li>
+                <li><Bold>Onsdag:</Bold> {details.opening_hours_wed}</li>
+                <li><Bold>Torsdag:</Bold>{details.opening_hours_thu}</li>
+                <li><Bold>Fredag:</Bold> {details.opening_hours_fri}</li>
+                <li><Bold>Lördag:</Bold> {details.opening_hours_sat}</li>
+                <li><Bold>Söndag:</Bold> {details.opening_hours_sun}</li>
+              </OpeningHours>
+            </ImageAndDetails>
           </SingleLocationDiv>
+          <Link to="/locations"> Tillbaka </Link>
         </LocationWrapper>
       </>
     )
@@ -72,11 +65,12 @@ export const SingleLocation = () => {
       <>
         <Link to="/locations"> ↩ Tillbaka </Link>
         <LocationWrapper>
-        <SingleLocationName>{details.name}</SingleLocationName>
+          <SingleLocationName>{details.name}</SingleLocationName>
           <SingleLocationDiv>
             {details.description}
             <p>Se och göra: {details.highlights}</p>
           </SingleLocationDiv>
+          <Link to="/locations"> Tillbaka </Link>
         </LocationWrapper>
       </>
     )
@@ -95,7 +89,8 @@ export const LocationWrapper = styled.section`
 `
 
 export const SingleLocationDiv = styled.div`
-  width: 75%;
+  width: 60%;
+  height: 70vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -110,6 +105,10 @@ export const Image = styled.img`
 border-radius: 10%;
 margin: 10px;
 border: 2px solid #FCF8E8;
+`
+export const ImageAndDetails = styled.div`
+display: flex;
+flex-direction: row;
 `
 
 export const Description = styled.h2`

@@ -6,12 +6,12 @@ export const CultureSchema = new mongoose.Schema({
     type: String
   },
   img: {
-    type: String, 
+    type: String,
   },
   address: {
     type: String
   },
-  map: {
+  googlemap: {
     type: String
   },
   closestStation: {
