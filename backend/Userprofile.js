@@ -8,6 +8,8 @@ export const SingleUser = async (req, res) => {
 
   try {
     const queriedUser = await User.findById(id)
+      .populate("post")
+      .populate("image")
     if (queriedUser) {
       res.status(201).json({ response: queriedUser, success: true });
     } else {
