@@ -23,31 +23,20 @@ import thunkMiddleware from "redux-thunk";
 const reducer = combineReducers({
   user: user.reducer,
 });
-const persistedStateJSON = localStorage.getItem("userReduxState");
-let persistedState = {};
+// const persistedStateJSON = localStorage.getItem("userReduxState");
+// let persistedState = {};
 
-if (persistedStateJSON) {
-  persistedState = JSON.parse(persistedStateJSON);
-}
+// if (persistedStateJSON) {
+//   persistedState = JSON.parse(persistedStateJSON);
 
-const composedEnhancers =
-  (process.env.NODE_ENV !== "production" &&
-    typeof window !== "undefined" &&
-    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
-  compose;
-
-const store = createStore(
-  reducer,
-  persistedState,
-  composedEnhancers(applyMiddleware(thunkMiddleware))
-);
+//   compose;
 
 // Ska in i store  persistedState
-store.subscribe(() => {
-  localStorage.setItem("userReduxState", JSON.stringify(store.getState()));
-});
+// store.subscribe(() => {
+//   localStorage.setItem("userReduxState", JSON.stringify(store.getState()));
+// });
 
-//const store = configureStore({ reducer });
+const store = configureStore({ reducer });
 
 export const App = () => {
 

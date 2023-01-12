@@ -8,7 +8,11 @@ export const user = createSlice({
         id: null,
         accessToken: null,
         presentation: "",
-        age: null
+        age: null,
+        email: "",
+        instagram: "",
+        facebook: "",
+        bookmark: false
     },
     reducers: {
         setUsername: (store, action) => {

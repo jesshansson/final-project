@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react'
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch, batch } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { PopUp } from "./reusable-components/PopUp";
 import styled, { ThemeConsumer } from "styled-components";
 import { Devices } from './reusable-components/GlobalStyles';
 import { UserModal } from './reusable-components/UserModal';
+import user from 'reducers/user';
 
 export const UserProfile = () => {
   const [updateUserProfile, setUpdateUserProfile] = useState([])
-  const [userDetails, setUserDetails] = useState([])
+  const [userDetails, setUserDetails] = useState({})
   const accessToken = useSelector((store) => store.user.accessToken);
   const username = useSelector((store) => store.user.username);
   const name = useSelector((store) => store.user.name);
@@ -19,8 +20,7 @@ export const UserProfile = () => {
   const instagram = useSelector((store) => store.user.instagram)
   const navigate = useNavigate();
   const { id } = useParams()
-  console.log("id", id)
-
+  const dispatch = useDispatch();
   useEffect(() => {
     if (!accessToken) {
       navigate("/unauthorized");
@@ -38,8 +38,18 @@ export const UserProfile = () => {
 
     fetch(`https://final-project-m2dbj6puqa-lz.a.run.app/profile/${id}`, options)
       .then(res => res.json())
-      .then(data => {
-        console.log(data)
+      .then(data => { 
+          batch(() => {
+            dispatch(user.actions.setBookmark(data.response.bookmark));
+            dispatch(user.actions.setName(data.response.name));
+            dispatch(user.actions.setEmail(data.response.email));
+            dispatch(user.actions.setAge(data.response.age));
+            dispatch(user.actions.setPresentation(data.response.presentation));
+            dispatch(user.actions.setInstagram(data.response.instagram));
+            dispatch(user.actions.setFacebook(data.response.facebook));
+            dispatch(user.actions.setError(null));
+          });
+        console.log(userDetails);
       })
       .catch(error => console.error(error))
   }, [])
@@ -52,13 +62,14 @@ export const UserProfile = () => {
       
       <Card>
         <UserModalButton>
-          <UserModal accessToken={accessToken} />
+          <UserModal accessToken={accessToken} userDetails={userDetails} />
         </UserModalButton>
         <ProfileImg src="https://th.bing.com/th/id/OIP.IB0XUg8PV5FGxOf0WWDdOQHaHa?pid=ImgDet&rs=1" alt="John"/>
         <h1>{name}</h1>
         <h2>{username}</h2>
         <Age>{age} år</Age>
-        <DescriptionProfile2>{presentation}Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse purus odio, feugiat quis dolor non, tincidunt varius mauris. Duis at nibh nec urna hendrerit pulvinar. Quisque viverra finibus nisl quis bibendum. Donec a est leo. Quisque id consectetur ligula. Sed hendrerit vitae enim non rutrum. Praesent nibh est, feugiat hendrerit</DescriptionProfile2>
+        <DescriptionProfile2>{presentation}  
+        </DescriptionProfile2>
         <SoMeWrapperProfile>
           <SoMeIconProfile href={`https://instagram.com/${instagram}`}>
             <SoMeIconLinkProfile className="fa fa-instagram" />
@@ -74,7 +85,6 @@ export const UserProfile = () => {
         </p>
         <p>{email}</p>
       </Card >
-      
     </ProfileWrapper >
     </>
   );
