@@ -199,7 +199,7 @@ app.get("/profile/:id", authenticateUser)
 app.get("/profile/:id", async (req, res) => {
   const { id } = req.params
   try {
-    const singleUser = await User.findById(id)
+    const singleUser = await User.findById(id).populate("culture")
     res.status(200).json({
       success: true,
       response: singleUser
@@ -311,17 +311,14 @@ app.get("/endpoints", (req, res) => {
 
 app.get("/locations", async (req, res) => {
   const nature = await Nature.find({})
-  const culture = await Culture.find({})
+  const culture = await Culture.find({}).populate("user")
   res.status(200).json({ success: true, response: { culture, nature } })
 });
 
 app.get("/locations/:id", async (req, res) => {
   try {
     const singleLocationNature = await Nature.findById({ _id: req.params.id })
-    const singleLocationCulture = await Culture.findById({ _id: req.params.id }).populate("user", {
-      username: 1,
-      name: 1
-    })
+    const singleLocationCulture = await Culture.findById({ _id: req.params.id }).populate("user")
     if (singleLocationCulture || singleLocationNature) {
       res.status(200).json({
         success: true,
