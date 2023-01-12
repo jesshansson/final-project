@@ -55,9 +55,14 @@ const Nav = styled.div`
   float: left;
   display: block;
   text-align: center;
-  padding: 14px 7px;
+  padding: 14px 5px;
   text-decoration: none;
   font-size: 17px;
+
+  @media ${Devices.tablet} {
+    padding: 14px 0px;
+  }
+
   }
 
   a:hover {
