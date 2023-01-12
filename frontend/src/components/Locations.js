@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components/macro";
-import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import user from 'reducers/user';
-import { Devices, PaigeWrapper, Headline } from './reusable-components/GlobalStyles';
-import SlidingPane from "react-sliding-pane";
+import { Devices, Headline } from './reusable-components/GlobalStyles';
+
 
 export const Locations = () => {
   const navigate = useNavigate();
@@ -13,10 +11,6 @@ export const Locations = () => {
   const [cultureLocation, setCultureLocation] = useState([])
   const [natureLocation, setNatureLocation] = useState([])
   const [openPanel, setOpenPanel] = useState(false)
-
-  // onPanelButtonClick = () => {
-
-  // }
 
   useEffect(() => {
     const options = {
@@ -47,27 +41,14 @@ export const Locations = () => {
       <Headline>För dig som gillar kultur</Headline>
       <LocationGrid>
         {cultureLocation.map((item) => (
-          <GridItem>
+          <GridItem key={item._id}>
             <Image src={item.img} style={{ width: 150, height: 150 }} alt="picture" />
-            {/* <button onClick={() => setOpenPanel(true)}>
-              <LocationName>{item.name} </LocationName>
-            </button> */}
             <Link
-              key={item._id}
+
               style={{ textDecoration: 'none' }}
               to={`/locations/${item._id}`}>
-              {/* <LocationName>{item.name} </LocationName> */}
               <LocationName>{item.name} </LocationName>
             </Link>
-            {/* <SlidingPanel
-              type={'right'}
-              isOpen={openPanel}
-              size={30}>
-              <div>
-                <button onClick={() => setOpenPanel(false)}>close</button>
-              </div>
-            </SlidingPanel> */}
-
           </GridItem>
         ))
         }
@@ -75,10 +56,9 @@ export const Locations = () => {
       <Headline>För dig som gillar natur</Headline>
       <LocationGrid>
         {natureLocation.map((item) => (
-          <GridItem>
+          <GridItem key={item._id}>
             <Image src={item.img} style={{ width: 150, height: 150 }} alt="picture" />
             <Link
-              key={item._id}
               style={{ textDecoration: 'none' }}
               to={`/locations/${item._id}`}>
               <LocationName>{item.name}</LocationName>
@@ -141,14 +121,14 @@ const GridItem = styled.div`
   }
 
 `
-export const Image = styled.img`
+const Image = styled.img`
   border-radius: 50%;
   border: 2px solid #FCF8E8;
   margin: 10px 0px;
   padding: 10px;
 `
 
-export const LocationName = styled.h2`
+const LocationName = styled.h2`
 padding-top: 10px;
 font-family: 'Comfortaa', cursive;
 font-size: 20px;
@@ -167,7 +147,7 @@ font-weight: 600;
   }
  
 `
-export const LocationLink = styled.link`
+const LocationLink = styled.link`
 text-decoration: none
 `
 

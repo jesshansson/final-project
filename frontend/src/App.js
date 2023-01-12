@@ -1,24 +1,19 @@
 import React from 'react';
+import user from './reducers/user';
+import thunkMiddleware from "redux-thunk";
 import { GlobalStyle } from 'components/reusable-components/GlobalStyles';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { combineReducers, configureStore, createStore, compose, applyMiddleware } from '@reduxjs/toolkit';
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 import { UserProfile } from 'components/UserProfile';
 import { Locations } from 'components/Locations';
 import { Welcome } from 'components/Welcome';
 import { Login } from 'components/Login';
 import { NotFound } from 'components/NotFound';
-import { Footer } from 'components/Footer';
 import { SingleLocation } from 'components/SingleLocation';
 import { AboutUs } from 'components/AboutUs';
-import { PopUp } from 'components/reusable-components/PopUp';
-import user from './reducers/user';
-import { SlidePanel } from 'components/SlidePanel';
 import { NotLoggedIn } from 'components/NotLoggedIn';
 import { Navbar } from 'components/Navbar';
-import { Modal } from 'bootstrap';
-import { UserModal } from 'components/reusable-components/UserModal';
-import thunkMiddleware from "redux-thunk";
 
 const reducer = combineReducers({
   user: user.reducer,
@@ -64,10 +59,6 @@ export const App = () => {
               siteHeadline="Välkommen tillbaka!"
               submitBtn="Logga in" />} />
           <Route path='*' element={<NotFound />} />
-
-          <Route path='/modal' element={<PopUp />} />
-          <Route path='/slidepanel' element={<SlidePanel />} />
-          <Route path='/modal2' element={<UserModal />} />
         </Routes>
 
       </BrowserRouter>
@@ -77,7 +68,3 @@ export const App = () => {
 
 //Frontend: https://brilliant-taffy-d19d1f.netlify.app/
 //Backend: https://final-project-m2dbj6puqa-lz.a.run.app/
-
-//https://www.freecodecamp.org/news/how-to-persist-a-logged-in-user-in-react/
-
-//<Route path='/login' element={<Login />} />

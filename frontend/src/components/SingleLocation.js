@@ -30,6 +30,7 @@ export const SingleLocation = () => {
           <SingleLocationName> <a href={details.website} target="_blank">{details.name}</a></SingleLocationName>
           <Description>{details.description}</Description>
           <SingleLocationDivs>
+            <Link to="/locations"><BackLink>Tillbaka</BackLink></Link>
             <SingleLocationDivLeft>
               <Image src={details.img} style={{ width: 220, height: 220 }} alt="picture" />
               <OpeningHours><Bold>Öppettider:</Bold>
@@ -54,7 +55,7 @@ export const SingleLocation = () => {
               <Users>Klicka här</Users>
             </IWantToGoDiv>
             <SingleLocationDivRight>
-              <p>Jag vill gå! Kontakta mig</p>
+              <p>Jag vill gå! Kontakta mig ❤️</p>
               <Users>Cecilia</Users>
               <Users>Maria</Users>
               <Users>Jessica</Users>
@@ -67,7 +68,6 @@ export const SingleLocation = () => {
               <Users>Emil</Users>
             </SingleLocationDivRight>
           </SingleLocationDivs>
-          <Link to="/locations"> Tillbaka </Link>
         </LocationWrapper>
       </>
     )
@@ -79,6 +79,7 @@ export const SingleLocation = () => {
           <SingleLocationName> <a href={details.website} target="_blank">{details.name}</a></SingleLocationName>
           <Description>{details.description}</Description>
           <SingleLocationDivs>
+            <Link to="/locations"><BackLink>Tillbaka</BackLink></Link>
             <SingleLocationDivLeft>
               <Image src={details.img} style={{ width: 220, height: 220 }} alt="picture" />
               <LocationDetails><Bold>Höjdpunkter:</Bold> {details.highlights}</LocationDetails>
@@ -91,15 +92,15 @@ export const SingleLocation = () => {
               </GoogleLink>
               <LocationDetails><Bold>Närmaste station:</Bold> {details.closestStation}</LocationDetails>
               <LocationDetails><Bold>Tillgång till café:</Bold> {details.cafe} </LocationDetails>
-              {/* <LocationDetails><Bold>Tillgång till grillplats:</Bold> {details.barbecuePossibility.toString()} </LocationDetails>
-              <LocationDetails><Bold>Tillgång till toalett:</Bold> {details.toilet.toString()} </LocationDetails> */}
+              <LocationDetails><Bold>Tillgång till grillplats:</Bold> {details.barbecuePossibility} </LocationDetails>
+              <LocationDetails><Bold>Tillgång till toalett:</Bold> {details.toilet} </LocationDetails>
             </SingleLocationDivMiddle>
             <IWantToGoDiv>
-              <p>Jag vill gå! </p>
-              <Users>Cecilia</Users>
+              <p>Jag vill gå!</p>
+              <Users>Klicka här</Users>
             </IWantToGoDiv>
             <SingleLocationDivRight>
-              <p>Jag vill gå! Kontakta mig</p>
+              <p>Jag vill gå! Kontakta mig ❤️</p>
               <Users>Cecilia</Users>
               <Users>Maria</Users>
               <Users>Jessica</Users>
@@ -112,7 +113,6 @@ export const SingleLocation = () => {
               <Users>Emil</Users>
             </SingleLocationDivRight>
           </SingleLocationDivs>
-          <Link to="/locations"> Tillbaka </Link>
         </LocationWrapper>
       </>
     )
@@ -285,6 +285,7 @@ const Description = styled.p`
 
 const LocationDetails = styled.p`
   font-size: 17px;
+  text-align: center;
 `
 
 const OpeningHours = styled.ul`
@@ -299,6 +300,7 @@ const Bold = styled.span`
 const Users = styled.button`
   padding: 0px, 5px;
   background-color: #CEE5D0;
+  border-radius: 5px;
   width: 100px;
   margin: 2px;
 `
@@ -307,4 +309,12 @@ const GoogleLink = styled.a`
 &:hover {
   transition: width 2s, height 4s;
 }
+`
+const BackLink = styled.button`
+  padding: 0px, 5px;
+  background-color: #CEE5D0;
+  border-radius: 5px;
+  width: 150px;
+  margin: 0px 0px 20px 0px;
+  align-self: flex-start;
 `

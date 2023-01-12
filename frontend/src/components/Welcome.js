@@ -1,33 +1,30 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import user from "reducers/user";
 import styled from "styled-components/macro";
 import { Devices } from './reusable-components/GlobalStyles';
 import { Link } from "react-router-dom";
-import { PaigeWrapper } from "./reusable-components/GlobalStyles";
 import { useDispatch } from 'react-redux';
-import user from "reducers/user";
+
 
 export const Welcome = () => {
   const dispatch = useDispatch();
 
   const persistedStateJSON = localStorage.getItem("userReduxState");
   if (persistedStateJSON) {
-   const persistedState = JSON.parse(persistedStateJSON);
-   dispatch(user.actions.setId(persistedState.id))
-   dispatch(user.actions.setAccessToken(persistedState.accessToken));
-   dispatch(user.actions.setUsername(persistedState.username));
-   dispatch(user.actions.setName(persistedState.name));
-   dispatch(user.actions.setAge(persistedState.age))
-   dispatch(user.actions.setEmail(persistedState.email));
-   dispatch(user.actions.setInstagram(persistedState.instagram));
-   dispatch(user.actions.setPresentation(persistedState.presentation));
-   dispatch(user.actions.setFacebook(persistedState.facebook));
+    const persistedState = JSON.parse(persistedStateJSON);
+    dispatch(user.actions.setId(persistedState.id))
+    dispatch(user.actions.setAccessToken(persistedState.accessToken));
+    dispatch(user.actions.setUsername(persistedState.username));
+    dispatch(user.actions.setName(persistedState.name));
+    dispatch(user.actions.setAge(persistedState.age))
+    dispatch(user.actions.setEmail(persistedState.email));
+    dispatch(user.actions.setInstagram(persistedState.instagram));
+    dispatch(user.actions.setPresentation(persistedState.presentation));
+    dispatch(user.actions.setFacebook(persistedState.facebook));
   }
   return (
     <WelcomeWrapper>
-      {/* <Link to="/modal"> Modal</Link>
-         <Link to="/modal2"> Modal 2</Link>
-        <Link to="/slidepanel">Slidepanel</Link> */}
-<SmallHeaderText>Välkommen till</SmallHeaderText>
+      <SmallHeaderText>Välkommen till</SmallHeaderText>
       <WelcomeHeader>
         KULTURLIGTVIS!
       </WelcomeHeader>
@@ -42,13 +39,11 @@ export const Welcome = () => {
           Spana in <StyledLink to="/locations">Besöksmålen!</StyledLink> Vill du komma i kontakt med någon som känner likadant? <StyledLink to="/register">Skapa ett konto</StyledLink> för att kunna kontakta varandra.
         </Smalltext>
       </WelcomeText>
-      {/* <RegisterLink>Bli enkelt medlem genom att klicka <Link to="/register"> här </Link></RegisterLink>
-      <LoginLink>Redan medlem?<Link to="/login"> Klicka här för att logga in!</Link></LoginLink> */}
     </WelcomeWrapper>
   )
 }
 
-const StyledLink = styled(Link) `
+const StyledLink = styled(Link)`
   transition: ease-out 0.2s;
 
   &:hover {
@@ -113,7 +108,6 @@ const WelcomeText = styled.div`
   background-color: #FCF8E8;
   border: 2px solid #e8894f;
   box-shadow: 5px 3px 3px #e8894f;
-
 
 @media ${Devices.laptop} {
   width: 40%;

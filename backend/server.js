@@ -141,15 +141,16 @@ app.post("/login", async (req, res) => {
   }
 });
 
+//To be able to bookmark a location
 app.post("/location/:locationId/bookmark/:userId", async (req, res) => {
   const { locationId, userId } = req.params
   try {
     const locationVisitor = await User.findById(userId)
     if (locationVisitor) {
       const bookmarkedLocation = await Culture.findByIdAndUpdate(
-        locationId, 
+        locationId,
         {
-          $push: {visitors: locationVisitor}
+          $push: { visitors: locationVisitor }
         },
         {
           new: true
@@ -270,34 +271,6 @@ app.delete("/profile/:id/delete", async (req, res) => {
   }
 })
 
-//To use bookmark
-// app.post("/profile/:userId", authenticateUser)
-// app.post("/profile/:userId", async (req, res) => {
-// const { userId } = req.params
-// try {
-//   const { bookmark } = req.body
-//   console.log(req.body)
-//   const userProfile = await User.findByIdAnd(userId, { bookmark })
-
-//   if (userProfile) {
-//     res.status(200).json({
-//       success: true,
-//       response: userProfile
-//     })
-//   } else {
-//     res.status(404).json({
-//       success: false,
-//       response: "No such user"
-//     })
-//   }
-// } catch (error) {
-//   res.status(400).json({
-//     success: false,
-//     response: "Could not delete user to database"
-//   })
-// }
-// })
-
 app.get("/", (req, res) => {
   res.send([
     { "test": "test" }
@@ -314,7 +287,7 @@ app.get("/locations", async (req, res) => {
   const culture = await Culture.find({}).populate("visitors", {
     username: 1,
     name: 1
-})
+  })
   res.status(200).json({ success: true, response: { culture, nature } })
 });
 
@@ -324,7 +297,7 @@ app.get("/locations/:id", async (req, res) => {
     const singleLocationCulture = await Culture.findById({ _id: req.params.id }).populate('visitors', {
       username: 1,
       name: 1
-  })
+    })
     if (singleLocationCulture || singleLocationNature) {
       res.status(200).json({
         success: true,
