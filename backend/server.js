@@ -144,7 +144,7 @@ app.post("/login", async (req, res) => {
 app.post("/location/:locationId/bookmark/:userId", async (req, res) => {
   const { locationId, userId } = req.params
   try {
-    const locationVisitor = await User.findById(userId)
+    const locationVisitor = await User.findById(userId, {username: 1, name: 1})
     if (locationVisitor) {
       const bookmarkedLocation = await Culture.findByIdAndUpdate(
         locationId, 
@@ -311,14 +311,16 @@ app.get("/endpoints", (req, res) => {
 
 app.get("/locations", async (req, res) => {
   const nature = await Nature.find({})
-  const culture = await Culture.find({}).populate("user")
+  const culture = await Culture.find({}).populate("user", {
+    username: 1
+})
   res.status(200).json({ success: true, response: { culture, nature } })
 });
 
 app.get("/locations/:id", async (req, res) => {
   try {
     const singleLocationNature = await Nature.findById({ _id: req.params.id })
-    const singleLocationCulture = await Culture.findById({ _id: req.params.id }).populate("user")
+    const singleLocationCulture = await Culture.findById({ _id: req.params.id }).populate('user')
     if (singleLocationCulture || singleLocationNature) {
       res.status(200).json({
         success: true,
