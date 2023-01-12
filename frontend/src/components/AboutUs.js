@@ -3,11 +3,7 @@ import { Devices } from './reusable-components/GlobalStyles';
 import { Title } from "./reusable-components/GlobalStyles";
 import styled from "styled-components";
 import { Description } from "./SingleLocation";
-<<<<<<< HEAD
 import { DescriptionProfile, SoMeIcon, SoMeIconLink, Headline } from "./reusable-components/GlobalStyles"
-=======
-import { DescriptionProfile, SoMeIcon, SoMeIconLink  } from "./reusable-components/GlobalStyles";
->>>>>>> jessica4
 
 export const AboutUs = () => {
 
