@@ -18,13 +18,12 @@ export const AboutUs = () => {
       </AboutSection>
 
       <CardWrapper>
-        <Column>
           <Card>
-            <AboutUsImage src="https://i.postimg.cc/sx2jt19K/maria.jpg" alt="Picture of Maria" />
+            <AboutUsImage src="https://i.postimg.cc/sx2jt19K/maria.jpg" alt="Picture of Maria" width={300} height={300}/>
             <Container>
               <NameTitle>Maria Westling</NameTitle>
               <SmallTitle>Frontend developer</SmallTitle>
-              <DescriptionProfile>info info lorem ipsum ipsum lorem.</DescriptionProfile>
+              <DescriptionProfile>Frontendutvecklare med en förkärlek för gröna växter och pingviner</DescriptionProfile>
               <SoMeWrapper>
                 <SoMeIcon href="https://github.com/marwebdesign">
                   <SoMeIconLink className="fa-brands fa-github" />
@@ -38,15 +37,13 @@ export const AboutUs = () => {
               </SoMeWrapper>
             </Container>
           </Card>
-        </Column>
 
-        <Column>
           <Card>
-            <AboutUsImage src="https://i.postimg.cc/d1zVbJ3y/jessica-hansson.png" alt="Picture of Jessica" />
+            <AboutUsImage src="https://i.postimg.cc/d1zVbJ3y/jessica-hansson.png" alt="Picture of Jessica" width={300} height={300}/>
             <Container>
               <NameTitle>Jessica Hansson</NameTitle>
               <SmallTitle>Frontend developer</SmallTitle>
-              <DescriptionProfile>info info lorem ipsum ipsum lorem.</DescriptionProfile>
+              <DescriptionProfile>Frontendutvecklare med en förkärlek för gröna växter och pingviner</DescriptionProfile>
               <SoMeWrapper>
                 <SoMeIcon href="https://github.com/jesshansson">
                   <SoMeIconLink className="fa-brands fa-github" />
@@ -60,11 +57,10 @@ export const AboutUs = () => {
               </SoMeWrapper>
             </Container>
           </Card>
-        </Column>
 
-        <Column>
+
           <Card>
-            <AboutUsImage src="https://i.postimg.cc/HWbV57VD/cicci.jpg" alt="Picture of Cecilia" />
+            <AboutUsImage src="https://i.postimg.cc/Nfd6YX0W/cicci.jpg" alt="Picture of Cecilia" width={300} height={300} />
             <Container>
               <NameTitle>Cecilia Rådén</NameTitle>
               <SmallTitle>Frontend developer</SmallTitle>
@@ -82,7 +78,6 @@ export const AboutUs = () => {
               </SoMeWrapper>
             </Container>
           </Card>
-        </Column>
       </CardWrapper>
     </AboutUsWrapper>
 
@@ -102,34 +97,25 @@ const CardWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100%;
+ width: 350px;
 
     @media ${Devices.laptop} {
       flex-direction: row; 
-      width: 80%;
+      width: 300px;
     }
     @media ${Devices.desktop} {
      flex-direction: row;
-width: 60%;
+    width: 200px;
     }
-`
-
-const Column = styled.div`
- 
-
-  margin-bottom: 16px;
-  padding: 0 8px;
- 
-
 `
 
 const Card = styled.div`
 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 margin: 8px;
-width: 100%;
-height: 100%;
+display: flex; 
+justify-content: center;
+flex-direction: column;
 `
-
 
 const AboutSection = styled.div`
   padding: 50px;
@@ -173,8 +159,7 @@ font-family: 'Roboto', sans-serif;
 `
 
 const AboutUsImage = styled.img`
-    width:  100%;
-    height: 100%;
+object-fit: cover;
 `
 
 const SoMeWrapper = styled.section`
