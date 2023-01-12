@@ -58,15 +58,15 @@ export const UserProfile = () => {
         <h1>{name}</h1>
         <h2>{username}</h2>
         <Age>{age} år</Age>
-        <DescriptionProfile>{presentation}Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse purus odio, feugiat quis dolor non, tincidunt varius mauris. Duis at nibh nec urna hendrerit pulvinar. Quisque viverra finibus nisl quis bibendum. Donec a est leo. Quisque id consectetur ligula. Sed hendrerit vitae enim non rutrum. Praesent nibh est, feugiat hendrerit</DescriptionProfile>
-        <SoMeWrapper>
-          <SoMeIcon href={`https://instagram.com/${instagram}`}>
-            <SoMeIconLink className="fa fa-instagram" />
-          </SoMeIcon>
-          <SoMeIcon href={facebook}>
-            <SoMeIconLink className="fa fa-facebook" />
-          </SoMeIcon>
-        </SoMeWrapper>
+        <DescriptionProfile2>{presentation}Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse purus odio, feugiat quis dolor non, tincidunt varius mauris. Duis at nibh nec urna hendrerit pulvinar. Quisque viverra finibus nisl quis bibendum. Donec a est leo. Quisque id consectetur ligula. Sed hendrerit vitae enim non rutrum. Praesent nibh est, feugiat hendrerit</DescriptionProfile2>
+        <SoMeWrapperProfile>
+          <SoMeIconProfile href={`https://instagram.com/${instagram}`}>
+            <SoMeIconLinkProfile className="fa fa-instagram" />
+          </SoMeIconProfile>
+          <SoMeIconProfile href={facebook}>
+            <SoMeIconLinkProfile className="fa fa-facebook" />
+          </SoMeIconProfile>
+        </SoMeWrapperProfile>
         <p>
           <a href={`mailto:${email}`}>
             <ContactButton>Maila mig!</ContactButton>
@@ -90,6 +90,8 @@ const ProfileImg = styled.img`
   width: 30vw;
   height: auto;
   margin: 20px;
+  border-radius: 50%;
+  border: 3px solid #ecb390;
 
   @media ${Devices.tablet} {
   width: 25vw;
@@ -127,7 +129,7 @@ const Age = styled.p`
   }
 `
 
-const DescriptionProfile = styled.p`
+export const DescriptionProfile2 = styled.p`
   font-size: 18px;
   margin: 30px;
 
@@ -138,7 +140,7 @@ const DescriptionProfile = styled.p`
     margin: 30px 80px;
   }
 `
-const SoMeWrapper = styled.section`
+export const SoMeWrapperProfile = styled.section`
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -150,7 +152,7 @@ const SoMeWrapper = styled.section`
   }
 `
 
-const SoMeIconLink = styled.i`
+export const SoMeIconLinkProfile = styled.i`
   display: flex;
   margin: 5px;
   font-size: 30px;
@@ -170,7 +172,7 @@ const SoMeIconLink = styled.i`
 
 `
 
-const SoMeIcon = styled.a`
+export const SoMeIconProfile = styled.a`
   text-decoration: none;
   font-size: 22px;
   color: black;
@@ -181,7 +183,7 @@ const SoMeIcon = styled.a`
   }
 ` 
 
-const ContactButton = styled.button`
+export const ContactButton = styled.button`
   border: none;
   outline: 0;
   margin-top: 15px;

@@ -64,4 +64,23 @@ export const PaigeWrapper = styled.section`
 //#FCF8E8 - lightbeige
 //#ECB390 - orange-ish
 
+export const DescriptionProfile = styled.div`
+font-size: 18px;
+`
 
+export const SoMeIconLink = styled.i`
+  display: flex;
+  margin: 5px;
+  font-size: 24px;
+  color: #ECB390;
+`
+
+export const SoMeIcon = styled.a`
+  text-decoration: none;
+  font-size: 22px;
+  color: black;
+  :hover {
+    opacity: 0.7;
+    transform: scale(1.2);
+  }
+` 

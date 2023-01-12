@@ -90,6 +90,10 @@ export const UserModal = () => {
         </Modal.Header>
         <Modal.Body>
           <ModalForm onSubmit={editProfile}>
+          <label id="profilepic" htmlFor="profilepic">
+              Profilbild:
+            </label>
+            <Input type="button" defaultValue={userData.profilepic} onChange={(e) => setUserData({ ...userData, profilepic: e.target.value })} />
           <label id="name" htmlFor="name">
               Namn:
             </label>
