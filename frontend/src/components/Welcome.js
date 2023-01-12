@@ -64,13 +64,13 @@ const WelcomeHeader = styled.h1`
   font-family: 'Caveat', cursive;
   
   @media ${Devices.tablet} {
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   font-size: 65px;
 }
 `
 const SmallHeaderText = styled.p`
   font-family: "Montserrat";
-  margin-top: 50px;
+  margin-top: 40px;
   font-size: 25px;
 `
 
@@ -102,15 +102,24 @@ const Smalltext = styled.h5`
 
 const WelcomeText = styled.div`
   margin: 20px;
-  width: 70vw;
+  width: 90%;
   text-align: center;
   border-radius: 10px;
   background-color: #FCF8E8;
   border: 2px solid #e8894f;
   box-shadow: 5px 3px 3px #e8894f;
 
+<<<<<<< HEAD
 @media ${Devices.laptop} {
   width: 40%;
+=======
+  @media ${Devices.tablet} {
+  width: 80%;
+
+}
+  @media ${Devices.laptop} {
+  width: 60%;
+>>>>>>> 566c9986e911d36afc19b281f7cb5ea25d4091de
   margin-top: 45px;
 }
 `
