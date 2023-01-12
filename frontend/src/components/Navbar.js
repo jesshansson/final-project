@@ -2,7 +2,6 @@ import React, { useState, useParams } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, NavLink } from "react-router-dom";
 import user from "reducers/user";
-import { Link } from "react-router-dom";
 import styled from "styled-components/macro";
 import Hamburger from 'hamburger-react'
 import { Devices } from './reusable-components/GlobalStyles';
@@ -19,7 +18,6 @@ export const Navbar = () => {
     <Nav>
       <LogoTitle>
         <Heading>Kulturligtvis</Heading>
-        <img src='https://i.postimg.cc/vZTKLG42/icons8-speech-bubble-80.png' />
       </LogoTitle>
       <HamburgerButton>
         <Hamburger
@@ -41,10 +39,6 @@ export const Navbar = () => {
   )
 }
 
-/*const HeaderGroup = styled.ul`
-  display: flex;
-  flex-direction: row;
-`*/
 const Nav = styled.div`
   overflow: hidden;
   background-color: #CEE5D0;
@@ -57,31 +51,39 @@ const Nav = styled.div`
   justify-content: space-between ;
   }
 
-a {
+  a {
   float: left;
   display: block;
   text-align: center;
-  padding: 14px 10px;
+  padding: 14px 5px;
   text-decoration: none;
   font-size: 17px;
-}
 
-a:hover {
+  @media ${Devices.tablet} {
+    padding: 14px 0px;
+  }
+
+  }
+
+  a:hover {
   color: black;
   transform: scale(1.2);
   transition: 0.3s;
-}
+  }
 `
 const NavLinkLogOut = styled.a`
   cursor: pointer;
+  margin-right: 5px;
 `
 
 const LogoTitle = styled.div`
-display: flex;
-justify-content: center;
-margin-left: 25px;
-@media ${Devices.laptop} {
+  display: flex;
+  justify-content: center;
+  margin-left: 25px;
+
+  @media ${Devices.laptop} {
     justify-content: flex-start;
+    padding: 10px;
     }
     @media ${Devices.desktop} {
      justify-content: flex-start;
@@ -128,33 +130,3 @@ const Menu = styled.div`
     justify-content: flex-end;
   }
 `
-
-/*
-header ul {
-  padding: 5px;
-  margin: 5px;
-  
-  @media ${Devices.tablet} {
-    padding: 10px;
-    margin: 20px;
-  }
-}
-
-header a {
-  text-decoration: none;
-}
-
-*/
-
-/*
-header {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  height: 10vh;
-  width: 100%;
-  background-color: #CEE5D0;
-  text-decoration: none;
-  
-}
-*/
