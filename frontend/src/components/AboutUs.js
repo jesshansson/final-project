@@ -3,91 +3,87 @@ import { Devices } from './reusable-components/GlobalStyles';
 import { Title } from "./reusable-components/GlobalStyles";
 import styled from "styled-components";
 import { Description } from "./SingleLocation";
-<<<<<<< HEAD
 import { DescriptionProfile, SoMeIcon, SoMeIconLink, Headline } from "./reusable-components/GlobalStyles"
-=======
-import { DescriptionProfile, SoMeIcon, SoMeIconLink  } from "./reusable-components/GlobalStyles";
->>>>>>> jessica4
 
 export const AboutUs = () => {
 
   return (
-    
-<AboutUsWrapper>
-<AboutSection>
-  <Headline>Om oss</Headline>
-  <DescriptionProfile>Hej! Vi är tre utvecklare som har byggt en sida där vi hoppas kunna 
-    främja kultur- och naturlivet. Som en bonus kanske man även kan träffa 
-    andra människor med likasinnade intressen. Kulturligtvis är byggd som en del av vår utbildning inom frontend development.  </DescriptionProfile>
-</AboutSection>
 
-<CardWrapper>
-<Column>
-    <Card>
-    <AboutUsImage src="https://i.postimg.cc/sx2jt19K/maria.jpg" alt="Picture of Maria"/>
-      <Container>
-        <NameTitle>Maria Westling</NameTitle>
-        <SmallTitle>Frontend developer</SmallTitle>
-        <DescriptionProfile>info info lorem ipsum ipsum lorem.</DescriptionProfile>
-        <SoMeWrapper>
-        <SoMeIcon href="https://github.com/marwebdesign">
-        <SoMeIconLink className="fa-brands fa-github" />
-          </SoMeIcon>
-          <SoMeIcon href="https://www.linkedin.com/in/maria-westling-a6327315b/">
-            <SoMeIconLink className="fa-brands fa-linkedin-in" />
-          </SoMeIcon>
-          <SoMeIcon href="mailto:maria.westling@gmail.com">
-          <SoMeIconLink class='far fa-envelope-open' />
-          </SoMeIcon>
-          </SoMeWrapper>
-      </Container>
-    </Card>
-    </Column>
+    <AboutUsWrapper>
+      <AboutSection>
+        <Headline>Om oss</Headline>
+        <DescriptionProfile>Hej! Vi är tre utvecklare som har byggt en sida där vi hoppas kunna
+          främja kultur- och naturlivet. Som en bonus kanske man även kan träffa
+          andra människor med likasinnade intressen. Kulturligtvis är byggd som en del av vår utbildning inom frontend development.  </DescriptionProfile>
+      </AboutSection>
 
-    <Column>
-    <Card>
-    <AboutUsImage src="https://i.postimg.cc/d1zVbJ3y/jessica-hansson.png" alt="Picture of Jessica"/>
-      <Container>
-      <NameTitle>Jessica Hansson</NameTitle>
-        <SmallTitle>Frontend developer</SmallTitle>
-        <DescriptionProfile>info info lorem ipsum ipsum lorem.</DescriptionProfile>
-        <SoMeWrapper>
-        <SoMeIcon href="https://github.com/jesshansson">
-            <SoMeIconLink className="fa-brands fa-github" />
-          </SoMeIcon>
-          <SoMeIcon href="https://www.linkedin.com/in/jesshansson/">
-            <SoMeIconLink className="fa-brands fa-linkedin-in" />
-          </SoMeIcon>
-          <SoMeIcon href="mailto:jessica.hansson@hotmail.se">
-          <SoMeIconLink class='far fa-envelope-open' />
-          </SoMeIcon>
-          </SoMeWrapper>
-      </Container>
-    </Card>
-    </Column>
+      <CardWrapper>
+        <Column>
+          <Card>
+            <AboutUsImage src="https://i.postimg.cc/sx2jt19K/maria.jpg" alt="Picture of Maria" />
+            <Container>
+              <NameTitle>Maria Westling</NameTitle>
+              <SmallTitle>Frontend developer</SmallTitle>
+              <DescriptionProfile>info info lorem ipsum ipsum lorem.</DescriptionProfile>
+              <SoMeWrapper>
+                <SoMeIcon href="https://github.com/marwebdesign">
+                  <SoMeIconLink className="fa-brands fa-github" />
+                </SoMeIcon>
+                <SoMeIcon href="https://www.linkedin.com/in/maria-westling-a6327315b/">
+                  <SoMeIconLink className="fa-brands fa-linkedin-in" />
+                </SoMeIcon>
+                <SoMeIcon href="mailto:maria.westling@gmail.com">
+                  <SoMeIconLink class='far fa-envelope-open' />
+                </SoMeIcon>
+              </SoMeWrapper>
+            </Container>
+          </Card>
+        </Column>
 
-    <Column>
-    <Card>
-    <AboutUsImage src="https://i.postimg.cc/HWbV57VD/cicci.jpg" alt="Picture of Cecilia"/>
-      <Container>
-      <NameTitle>Cecilia Rådén</NameTitle>
-        <SmallTitle>Frontend developer</SmallTitle>
-        <DescriptionProfile>Frontendutvecklare med en förkärlek för gröna växter och pingviner</DescriptionProfile>
-        <SoMeWrapper>
-        <SoMeIcon href="https://github.com/CeciliaMichele">
-            <SoMeIconLink className="fa-brands fa-github" />
-          </SoMeIcon>
-          <SoMeIcon href="https://www.linkedin.com/in/ceciliaraden/">
-            <SoMeIconLink className="fa-brands fa-linkedin-in" />
-          </SoMeIcon>
-          <SoMeIcon href="mailto:cecilia.raden@gmail.com">
-          <SoMeIconLink class='far fa-envelope-open' />
-          </SoMeIcon>
-          </SoMeWrapper>
-      </Container>
-    </Card>
-    </Column>
-    </CardWrapper>
+        <Column>
+          <Card>
+            <AboutUsImage src="https://i.postimg.cc/d1zVbJ3y/jessica-hansson.png" alt="Picture of Jessica" />
+            <Container>
+              <NameTitle>Jessica Hansson</NameTitle>
+              <SmallTitle>Frontend developer</SmallTitle>
+              <DescriptionProfile>info info lorem ipsum ipsum lorem.</DescriptionProfile>
+              <SoMeWrapper>
+                <SoMeIcon href="https://github.com/jesshansson">
+                  <SoMeIconLink className="fa-brands fa-github" />
+                </SoMeIcon>
+                <SoMeIcon href="https://www.linkedin.com/in/jesshansson/">
+                  <SoMeIconLink className="fa-brands fa-linkedin-in" />
+                </SoMeIcon>
+                <SoMeIcon href="mailto:jessica.hansson@hotmail.se">
+                  <SoMeIconLink class='far fa-envelope-open' />
+                </SoMeIcon>
+              </SoMeWrapper>
+            </Container>
+          </Card>
+        </Column>
+
+        <Column>
+          <Card>
+            <AboutUsImage src="https://i.postimg.cc/HWbV57VD/cicci.jpg" alt="Picture of Cecilia" />
+            <Container>
+              <NameTitle>Cecilia Rådén</NameTitle>
+              <SmallTitle>Frontend developer</SmallTitle>
+              <DescriptionProfile>Frontendutvecklare med en förkärlek för gröna växter och pingviner</DescriptionProfile>
+              <SoMeWrapper>
+                <SoMeIcon href="https://github.com/CeciliaMichele">
+                  <SoMeIconLink className="fa-brands fa-github" />
+                </SoMeIcon>
+                <SoMeIcon href="https://www.linkedin.com/in/ceciliaraden/">
+                  <SoMeIconLink className="fa-brands fa-linkedin-in" />
+                </SoMeIcon>
+                <SoMeIcon href="mailto:cecilia.raden@gmail.com">
+                  <SoMeIconLink class='far fa-envelope-open' />
+                </SoMeIcon>
+              </SoMeWrapper>
+            </Container>
+          </Card>
+        </Column>
+      </CardWrapper>
     </AboutUsWrapper>
 
   )
