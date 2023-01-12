@@ -9,7 +9,7 @@
       "opening_hours_thu": "11.30-13.30",
       "opening_hours_fri": "Stängt",
       "opening_hours_sat": "Stängt",
-      "opening_hours_sun": "Stängt, förutom sista söndagen i månaden då öppettiderna är 12.00 - 14.00",
+      "opening_hours_sun": "Stängt, sista söndagen i månaden: 12.00 - 14.00",
       "googlemap": "https://goo.gl/maps/9EDJj5U2w9MBAzn48",
       "closestStation": "Ersta Sjukhus",
       "description": "1851 öppnar Marie Cederschiöld sjukhus och utbildning för kvinnor. Hon är Sveriges första utbildade sjuksköterska och diakonissa. Tillsammans med exempelvis Fredrika Bremer och Jenny Lind förändrar hon svensk sjukvård och utbildning samt kvinnors förutsättningar i samhället. Möt Marie Cederschiöld, portsyster Maria, syster Greta på oblatbageriet, barnhemsbarnen och många fler i vårt museum. Här finns berättelser om 170 år av kvinnohistoria, om några av de personer som verkat på Ersta; om vården, omsorgen och utbildningen som drivits och fortfarande drivs i Ersta diakonis regi. Här finns också beskrivningar av de byggnader som finns och har funnits på området.",
@@ -188,7 +188,7 @@
     },
     {
       "name": "Torekällberget",
-      "img": "https://i.postimg.cc/0jK2Mk05/icons8-lake-96.png",
+      "img": "https://i.postimg.cc/JhHJ8L98/icons8-museum-96.png",
       "address": "Källgatan 15, 151 45 Södertälje",
       "opening_hours_mon": "10:00-16:00",
       "opening_hours_tue": "10:00-16:00",
