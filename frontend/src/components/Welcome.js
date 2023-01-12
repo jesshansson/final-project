@@ -109,17 +109,12 @@ const WelcomeText = styled.div`
   border: 2px solid #e8894f;
   box-shadow: 5px 3px 3px #e8894f;
 
-<<<<<<< HEAD
-@media ${Devices.laptop} {
-  width: 40%;
-=======
   @media ${Devices.tablet} {
   width: 80%;
 
 }
   @media ${Devices.laptop} {
-  width: 60%;
->>>>>>> 566c9986e911d36afc19b281f7cb5ea25d4091de
+  width: 40%;
   margin-top: 45px;
 }
 `
