@@ -3,10 +3,8 @@ import { Devices } from './reusable-components/GlobalStyles';
 import { useState, useEffect } from "react";
 import styled from "styled-components/macro";
 import { useParams } from "react-router-dom";
-import { BASE_URL, API_URL, API_SINGLE } from "utils/utils";
 import { Link } from 'react-router-dom';
 import googleIcon from "./googleIcon.png"
-import { LocationName } from "./Locations";
 
 export const SingleLocation = () => {
   const { id } = useParams()
@@ -17,23 +15,19 @@ export const SingleLocation = () => {
     fetch(`https://final-project-m2dbj6puqa-lz.a.run.app/locations/${id}`)
       .then(res => res.json())
       .then((data) => {
-        console.log(id)
         setDetails(data.response)
       })
       .catch(error => console.error(error))
   }, [])
 
-  console.log(details)
-
   //turns object into array to be able to render it an use .includes
   const filteredLocations = Object.keys(details)
-  console.log(filteredLocations)
 
   if (filteredLocations.includes("genre")) {
     return (
       <>
         <LocationWrapper>
-          <SingleLocationName> <a href={details.website}>{details.name}</a></SingleLocationName>
+          <SingleLocationName> <a href={details.website} target="_blank">{details.name}</a></SingleLocationName>
           <Description>{details.description}</Description>
           <SingleLocationDivs>
             <SingleLocationDivLeft>
@@ -49,13 +43,15 @@ export const SingleLocation = () => {
               </OpeningHours>
             </SingleLocationDivLeft>
             <SingleLocationDivMiddle>
-              <Image src={googleIcon} style={{ width: 220, height: 220 }} alt="googlemaps icon " />
-              <a href={details.googlemap}>Hitta hit</a>
-              <LocationDetails>Närmaste station: {details.closestStation}</LocationDetails>
-              <LocationDetails>Inträde: {details.entranceFee}:- </LocationDetails>
+              <GoogleLink href={details.googlemap} target="_blank">
+                <Image src={googleIcon} style={{ width: 220, height: 220 }} alt="googlemaps icon" />
+              </GoogleLink>
+              <LocationDetails><Bold>Närmaste station:</Bold> {details.closestStation}</LocationDetails>
+              <LocationDetails><Bold>Inträde:</Bold> {details.entranceFee}:- </LocationDetails>
             </SingleLocationDivMiddle>
             <IWantToGoDiv>
               <p>Jag vill gå! </p>
+              <Users>Klicka här</Users>
             </IWantToGoDiv>
             <SingleLocationDivRight>
               <p>Jag vill gå! Kontakta mig</p>
@@ -80,22 +76,27 @@ export const SingleLocation = () => {
       <>
 
         <LocationWrapper>
-          <SingleLocationName> <a href={details.website}>{details.name}</a></SingleLocationName>
+          <SingleLocationName> <a href={details.website} target="_blank">{details.name}</a></SingleLocationName>
           <Description>{details.description}</Description>
           <SingleLocationDivs>
             <SingleLocationDivLeft>
               <Image src={details.img} style={{ width: 220, height: 220 }} alt="picture" />
-              <LocationDetails>Höjdpunkter: {details.highlights}</LocationDetails>
-              <LocationDetails>Aktiviteter: {details.activities}</LocationDetails>
+              <LocationDetails><Bold>Höjdpunkter:</Bold> {details.highlights}</LocationDetails>
+              <LocationDetails><Bold>Aktiviteter:</Bold> {details.activities}</LocationDetails>
             </SingleLocationDivLeft>
             <SingleLocationDivMiddle>
-              <Image src={googleIcon} style={{ width: 220, height: 220 }} alt="googlemaps icon " />
-              <a href={details.googlemap}>Hitta hit</a>
-              <LocationDetails>Närmaste station: {details.closestStation}</LocationDetails>
-              <LocationDetails>Inträde: {details.entranceFee}:- </LocationDetails>
+
+              <GoogleLink href={details.googlemap} target="_blank">
+                <Image src={googleIcon} style={{ width: 220, height: 220 }} alt="googlemaps icon" />
+              </GoogleLink>
+              <LocationDetails><Bold>Närmaste station:</Bold> {details.closestStation}</LocationDetails>
+              <LocationDetails><Bold>Tillgång till café:</Bold> {details.cafe} </LocationDetails>
+              {/* <LocationDetails><Bold>Tillgång till grillplats:</Bold> {details.barbecuePossibility.toString()} </LocationDetails>
+              <LocationDetails><Bold>Tillgång till toalett:</Bold> {details.toilet.toString()} </LocationDetails> */}
             </SingleLocationDivMiddle>
             <IWantToGoDiv>
               <p>Jag vill gå! </p>
+              <Users>Cecilia</Users>
             </IWantToGoDiv>
             <SingleLocationDivRight>
               <p>Jag vill gå! Kontakta mig</p>
@@ -119,16 +120,24 @@ export const SingleLocation = () => {
 }
 
 const SingleLocationName = styled.h1`
-font-family: 'Girassol', cursive;
-font-size: 45px;
-padding: 20px;
-margin: 10px;
-text-decoration: none;
-border-radius: 3px;
-background-color: #FCF8E8;
+  font-family: 'Girassol', cursive;
+  font-size: 30px;
+  padding: 20px;
+  margin: 10px;
+  text-decoration: none;
+  border-radius: 3px;
+  background-color: #FCF8E8;
+
+  @media ${Devices.tablet} {
+  font-size: 35px;
+  } 
+
+  @media ${Devices.laptop} {
+    font-size: 45px;
+  }
 `
 
-export const LocationWrapper = styled.section`
+const LocationWrapper = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -136,32 +145,26 @@ export const LocationWrapper = styled.section`
   background: linear-gradient(140deg, #FCF8E8 60%, #ECB390 60%);
   font-family: "montserrat";
 `
-export const SingleLocationDivs = styled.div`
-display: grid;
-justify-items: center;
-grid-template-columns: repeat(1, 1fr);
-grid-template-rows: repeat(3, 1fr);
+const SingleLocationDivs = styled.div`
+  display: grid;
+  justify-items: center;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
 
 @media ${Devices.tablet} {
-  grid-template-columns: repeat(1, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-    /* margin:  15px;
-    padding: 20px 10px;
-    width: 300px; */
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
   } 
 
   @media ${Devices.laptop} {
-    grid-template-columns: repeat(3, 1fr);
-grid-template-rows: repeat(3, 1fr);
-grid-gap: 40px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-gap: 30px;
   }
 `
 
-export const SingleLocationDivLeft = styled.div`
-grid-row-start: 1;
-grid-row-end: 4;
-width: 350px;
-  /* height: 70vh; */
+const SingleLocationDivLeft = styled.div`
+  width: 300px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -172,13 +175,44 @@ width: 350px;
   background-color: #FCF8E8;
   border: 2px solid #e8894f;
   box-shadow: 5px 3px 3px #e8894f;
+
+  @media ${Devices.tablet} {
+    width: 350px;
+  } 
+
+  @media ${Devices.laptop} {
+    grid-row-start: 1;
+    grid-row-end: 4;
+    width: 350px;
+  }
 `
 
-export const SingleLocationDivMiddle = styled.div`
-grid-row-start: 1;
-grid-row-end: 3;
-width: 350px;
-  /* height: 70vh; */
+const SingleLocationDivMiddle = styled.div`
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  margin-top: 20px;
+  border-radius: 10px;
+  background-color: #FCF8E8;
+  border: 2px solid #e8894f;
+  box-shadow: 5px 3px 3px #e8894f;
+
+  @media ${Devices.tablet} {
+    width: 350px;
+  } 
+
+  @media ${Devices.laptop} {
+    grid-row-start: 1;
+    grid-row-end: 3;
+    width: 350px;
+  }
+`
+
+const IWantToGoDiv = styled.div`
+  width: 300px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -189,29 +223,20 @@ width: 350px;
   background-color: #FCF8E8;
   border: 2px solid #e8894f;
   box-shadow: 5px 3px 3px #e8894f;
+
+  @media ${Devices.tablet} {
+    width: 350px;
+  } 
+
+  @media ${Devices.laptop} {
+    grid-row-start: 3;
+    grid-row-end: 4;
+    width: 350px;
+  }
 `
 
-export const IWantToGoDiv = styled.div`
-grid-row-start: 3;
-grid-row-end: 4;
-width: 350px;
-  /* height: 70vh; */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 10px;
-  align-items: center;
-  border-radius: 10px;
-  background-color: #FCF8E8;
-  border: 2px solid #e8894f;
-  box-shadow: 5px 3px 3px #e8894f;
-`
-
-export const SingleLocationDivRight = styled.div`
-grid-row-start: 1;
-grid-row-end: 4;
-width: 350px;
-  /* height: 70vh; */
+const SingleLocationDivRight = styled.div`
+  width: 300px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -222,47 +247,64 @@ width: 350px;
   background-color: #FCF8E8;
   border: 2px solid #e8894f;
   box-shadow: 5px 3px 3px #e8894f;
+
+  @media ${Devices.laptop} {
+    grid-row-start: 1;
+    grid-row-end: 4;
+    width: 350px;
+  }
+
+  @media ${Devices.laptop} {
+    grid-row-start: 1;
+    grid-row-end: 4;
+    width: 350px;
+  }
 `
 
-export const Image = styled.img`
+const Image = styled.img`
   border-radius: 50%;
-margin: 10px;
-border: 2px solid #FCF8E8;
+  margin: 10px;
+  border: 2px solid #FCF8E8;
+
+  @media ${Devices.tablet} {
+    width: 300px;
+  } 
+
+  @media ${Devices.tablet} {
+    width: 200px;
+    height: 200px;
+  } 
+
 `
 
-export const Description = styled.p`
-width: 70%;
-padding: 15px;
-text-align: center;
+const Description = styled.p`
+  width: 70%;
+  padding: 15px;
+  text-align: center;
 `
 
-export const Name = styled.h1`
-font-size: 30px ;
+const LocationDetails = styled.p`
+  font-size: 17px;
 `
 
-export const LocationDetails = styled.p`
-font-size: 17px;
+const OpeningHours = styled.ul`
+  padding: 10px;
+  font-size: 17px;
+  border-radius: 5%;
 `
 
-export const ExtraInfo = styled.div`
-/* width: 50%; */
-padding: 10px 10px 10px 10px;
+const Bold = styled.span`
+  font-weight: bold;
+`
+const Users = styled.button`
+  padding: 0px, 5px;
+  background-color: #CEE5D0;
+  width: 100px;
+  margin: 2px;
 `
 
-export const OpeningHours = styled.ul`
-padding: 10px;
-/* border: 2px solid #ECB390; */
-font-size: 17px;
-border-radius: 5%;
-`
-
-export const Bold = styled.span`
-font-weight: bold;
-`
-export const Users = styled.button`
-padding: 0px, 5px;
-background-color: #CEE5D0;
-width: 100px;
-margin: 2px;
-
+const GoogleLink = styled.a`
+&:hover {
+  transition: width 2s, height 4s;
+}
 `
