@@ -35,7 +35,7 @@ export const Navbar = () => {
         <ul><NavLink to={`/profile/${userId}`} onClick={closeSideBar} style={({ isActive }) => ({ fontWeight: isActive ? '600' : '400' })}> Profil</NavLink></ul>
         <ul><NavLink to="/login" onClick={closeSideBar} style={({ isActive }) => ({ fontWeight: isActive ? '600' : '400' })}> Logga in</NavLink></ul>
         <ul><NavLink to="/about" onClick={closeSideBar} style={({ isActive }) => ({ fontWeight: isActive ? '600' : '400' })}> Om oss</NavLink></ul>
-        <ul><NavLinkLogOut onClick={() => { dispatch(user.actions.setAccessToken(null)); navigate("/"); closeSideBar }} >Logga ut</NavLinkLogOut></ul>
+        <ul><NavLinkLogOut onClick={() => { dispatch(user.actions.setAccessToken(null)); navigate("/"); closeSideBar; localStorage.removeItem("userReduxState") }} >Logga ut</NavLinkLogOut></ul>
       </Menu>
     </Nav >
   )

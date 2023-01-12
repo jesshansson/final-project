@@ -36,10 +36,10 @@ export const UserSchema = new mongoose.Schema({
   instagram: {
     type: String
   },
-  bookmark: {
-    type: Boolean,
-    default: false
-  },
+  bookmark: [
+    {type: mongoose.Schema.Types.ObjectId,
+      ref: "Culture"}
+  ],
   createdAt: {
     type: Date,
     default: Date.now

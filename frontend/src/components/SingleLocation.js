@@ -119,7 +119,8 @@ export const SingleLocation = () => {
 }
 
 const SingleLocationName = styled.h1`
-font-size: 30px;
+font-family: 'Girassol', cursive;
+font-size: 45px;
 padding: 20px;
 margin: 10px;
 text-decoration: none;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import user from 'reducers/user';
 import { Modal, Button } from 'react-bootstrap';
 import { PaigeWrapper } from './GlobalStyles';
@@ -8,29 +8,32 @@ import styled from 'styled-components';
 import { useSelector, batch, useDispatch } from 'react-redux';
 import { Devices } from './GlobalStyles';
 
-export const UserModal = () => {
-  const age = useSelector((store) => store.user.age)
-  const name = useSelector((store) => store.user.name)
-  const email = useSelector((store) => store.user.email)
-  const facebook = useSelector((store) => store.user.facebook)
-  const instagram = useSelector((store) => store.user.instagram)
-  const presentation = useSelector((store) => store.user.presentation)
-  const accessToken = useSelector((store) => store.user.accessToken);
+export const UserModal = ({userDetails}) => {
+  // const age = useSelector((store) => store.user.age)
+  // const name = useSelector((store) => store.user.name)
+  // const email = useSelector((store) => store.user.email)
+  // const facebook = useSelector((store) => store.user.facebook)
+  // const instagram = useSelector((store) => store.user.instagram)
+  // const presentation = useSelector((store) => store.user.presentation)
+  // const accessToken = useSelector((store) => store.user.accessToken);
 
   const userId = useSelector((store) => store.user.id)
+  const {age, name, email,facebook,instagram,presentation,accessToken} = userDetails
   const [show, setShow] = useState(false);
-  const [userData, setUserData] = useState({
-    age: age,
-    name: name,
-    email: email,
-    facebook: facebook,
-    instagram: instagram,
-    presentation: presentation
-  });
+  const [userData, setUserData] = useState({});
 
   const dispatch = useDispatch()
-
-  console.log(userId)
+  useEffect(()=> {
+    // setUserData({
+    //   age: age,
+    //   name: name,
+    //   email: email,
+    //   facebook: facebook,
+    //   instagram: instagram,
+    //   presentation: presentation
+    // });
+    console.log({age, name, email,facebook,instagram,presentation,accessToken})
+  }, []);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -93,27 +96,27 @@ export const UserModal = () => {
           <label id="profilepic" htmlFor="profilepic">
               Profilbild:
             </label>
-            <Input type="button" defaultValue={userData.profilepic} onChange={(e) => setUserData({ ...userData, profilepic: e.target.value })} />
+            <Input type="button" defaultValue={userDetails.profilepic} onChange={(e) => setUserData({ ...userData, profilepic: e.target.value })} />
           <label id="name" htmlFor="name">
               Namn:
             </label>
-            <Input type="string" defaultValue={userData.name} onChange={(e) => setUserData({ ...userData, name: e.target.value })} />
+            <Input type="string" defaultValue={name} onChange={(e) => setUserData({ ...userData, name: e.target.value })} />
             <label id="email" htmlFor="email">
               Email:
             </label>
-            <Input type="email" defaultValue={userData.email} onChange={(e) => setUserData({ ...userData, email: e.target.value })} />
+            <Input type="email" defaultValue={email} onChange={(e) => setUserData({ ...userData, email: e.target.value })} />
             <label id="age" htmlFor="age">Ålder:
             </label>
-            <Input type="number" name="age" defaultValue={userData.age} onChange={(e) => setUserData({ ...userData, age: e.target.value })} />
+            <Input type="number" name="age" defaultValue={age} onChange={(e) => setUserData({ ...userData, age: e.target.value })} />
             <label id="facebook" htmlFor="facebook">Facebook:
             </label>
-            <Input type="text" name="facebook" defaultValue={userData.facebook} onChange={(e) => setUserData({ ...userData, facebook: e.target.value })} />
+            <Input type="text" name="facebook" defaultValue={facebook} onChange={(e) => setUserData({ ...userData, facebook: e.target.value })} />
             <label id="instagram" htmlFor="instagram">Instagram:
             </label>
-            <Input type="text" name="instagram" defaultValue={userData.instagram} onChange={(e) => setUserData({ ...userData, instagram: e.target.value })} />
+            <Input type="text" name="instagram" defaultValue={instagram} onChange={(e) => setUserData({ ...userData, instagram: e.target.value })} />
             <label id="presentation" htmlFor="presentation">Presentation:
             </label>
-            <textarea type="text" name="presentation" defaultValue={userData.presentation} onChange={(e) => setUserData({ ...userData, presentation: e.target.value })} />
+            <textarea type="text" name="presentation" defaultValue={presentation} onChange={(e) => setUserData({ ...userData, presentation: e.target.value })} />
             <ButtonSave type="submit">Spara</ButtonSave>
           </ModalForm>
         </Modal.Body>

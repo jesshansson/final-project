@@ -11,7 +11,7 @@ import culture from "./data/culture.json";
 import nature from "./data/nature.json"
 import { EditUser, SingleUser, DeleteUser } from "./Userprofile";
 
-const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/final-project";
+const mongoUrl = process.env.MONGO_URL || "book";
 mongoose.connect(mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.Promise = Promise;
 
@@ -141,6 +141,37 @@ app.post("/login", async (req, res) => {
   }
 });
 
+app.post("/location/:locationId/bookmark/:userId", async (req, res) => {
+  const { locationId, userId } = req.params
+  try {
+    const locationVisitor = await User.findById(userId)
+    if (locationVisitor) {
+      const bookmarkedLocation = await Culture.findByIdAndUpdate(
+        locationId, 
+        {
+          $push: {visitors: locationVisitor}
+        },
+        {
+          new: true
+        }
+      )
+      res.status(201).json({
+        response: bookmarkedLocation,
+        success: true
+      })
+    } else {
+      res.status(404).json({
+        response: "No visitor bookmarked location",
+        success: false
+      })
+    }
+  } catch (error) {
+    res.status(400).json({
+      response: "Super wrong",
+      success: false
+    })
+  }
+})
 
 // Authenticated endpoint - accesible after logged in
 const authenticateUser = async (req, res, next) => {
@@ -168,7 +199,7 @@ app.get("/profile/:id", authenticateUser)
 app.get("/profile/:id", async (req, res) => {
   const { id } = req.params
   try {
-    const singleUser = await User.findById(id)
+    const singleUser = await User.findById(id).populate("culture")
     res.status(200).json({
       success: true,
       response: singleUser
@@ -280,14 +311,20 @@ app.get("/endpoints", (req, res) => {
 
 app.get("/locations", async (req, res) => {
   const nature = await Nature.find({})
-  const culture = await Culture.find({})
+  const culture = await Culture.find({}).populate("visitors", {
+    username: 1,
+    name: 1
+})
   res.status(200).json({ success: true, response: { culture, nature } })
 });
 
 app.get("/locations/:id", async (req, res) => {
   try {
     const singleLocationNature = await Nature.findById({ _id: req.params.id })
-    const singleLocationCulture = await Culture.findById({ _id: req.params.id })
+    const singleLocationCulture = await Culture.findById({ _id: req.params.id }).populate('visitors', {
+      username: 1,
+      name: 1
+  })
     if (singleLocationCulture || singleLocationNature) {
       res.status(200).json({
         success: true,

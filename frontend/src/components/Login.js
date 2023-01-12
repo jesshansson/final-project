@@ -46,6 +46,12 @@ export const Login = ({ siteHeadline, siteType, submitBtn }) => {
             dispatch(user.actions.setAccessToken(data.response.accessToken));
             dispatch(user.actions.setError(null));
           });
+          const persistedStateJSON = {
+            username: data.response.username,
+            id: data.response.id,
+            accessToken: data.response.accessToken
+          }
+          localStorage.setItem("userReduxState", JSON.stringify(persistedStateJSON));
         } else {
           batch(() => {
             dispatch(user.actions.setUsername(null));
