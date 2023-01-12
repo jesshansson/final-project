@@ -103,7 +103,6 @@ export const SoMeIcon = styled.a`
   text-decoration: none;
   font-size: 22px;
   color: black;
-
   :hover {
     opacity: 0.7;
     transform: scale(1.2);

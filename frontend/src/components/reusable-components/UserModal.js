@@ -90,6 +90,10 @@ export const UserModal = () => {
         </Modal.Header>
         <Modal.Body>
           <ModalForm onSubmit={editProfile}>
+          <label id="profilepic" htmlFor="profilepic">
+              Profilbild:
+            </label>
+            <Input type="button" defaultValue={userData.profilepic} onChange={(e) => setUserData({ ...userData, profilepic: e.target.value })} />
           <label id="name" htmlFor="name">
               Namn:
             </label>
@@ -121,9 +125,6 @@ export const UserModal = () => {
   );
 }
 
-/*           <ButtonClose onClick={handleClose}>
-            Stäng
-          </ButtonClose>*/
 
 const ModalForm = styled.form`
   display: flex;
@@ -142,7 +143,7 @@ const ButtonSave = styled.button`
   padding: 5px;
   margin-top: 10px;
   
-    @media ${Devices.laptop} {
+  @media ${Devices.laptop} {
       width: 100px;
       margin-top: 15px;
     }
@@ -152,10 +153,21 @@ const ButtonSave = styled.button`
 
 const ButtonOpen = styled(ButtonSave)`
   background-color: #ECB390;
-  border: solid 1px black;`
-  
-const ButtonClose = styled(ButtonSave)`
-  `
+  border: 0px;
+  transition: ease-out 0.2s;
+  font-size: 17px;
+ 
+  &:hover {
+    transform: scale(1.05);
+  }
 
+  @media ${Devices.tablet} {
+    padding: 7px;
+    }
+
+  @media ${Devices.laptop} {
+    padding: 5px;
+    }`
+  
 
 //https://react-bootstrap.github.io/components/modal/
