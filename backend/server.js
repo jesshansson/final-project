@@ -43,7 +43,7 @@ app.post("/register", async (req, res) => {
         response: {
           username: newUser.username,
           accessToken: newUser.accessToken,
-          id: newUser.id 
+          id: newUser.id
         }
       });
     }
@@ -58,6 +58,8 @@ app.post("/register", async (req, res) => {
 
 const Nature = mongoose.model("Nature", NatureSchema);
 const Culture = mongoose.model("Culture", CultureSchema)
+
+
 
 //Register new user
 app.post("/register", async (req, res) => {
@@ -170,11 +172,11 @@ app.patch("/profile/:id/update", async (req, res) => {
   const { id } = req.params
   try {
     // const { email, name, age, presentation, facebook, instagram, bookmark, createdAt } = req.body
-    
+
     console.log(req.body)
     const updateProfile = await User.findByIdAndUpdate(
-      id, 
-      { $set: updatedProfileInfo},
+      id,
+      { $set: updatedProfileInfo },
       {
         new: true
       })
@@ -270,8 +272,8 @@ app.get("/locations", async (req, res) => {
 
 app.get("/locations/:id", async (req, res) => {
   try {
-    const singleLocationNature = await Nature.findById({ _id: req.params.id }) 
-    const singleLocationCulture = await Culture.findById({ _id: req.params.id }) 
+    const singleLocationNature = await Nature.findById({ _id: req.params.id })
+    const singleLocationCulture = await Culture.findById({ _id: req.params.id })
     if (singleLocationCulture || singleLocationNature) {
       res.status(200).json({
         success: true,
