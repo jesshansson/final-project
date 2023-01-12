@@ -68,7 +68,7 @@ export const UserProfile = () => {
         <h1>{name}</h1>
         <h2>{username}</h2>
         <Age>{age} år</Age>
-        <DescriptionProfile2>{presentation}  
+        <DescriptionProfile2>{presentation}Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vulputate aliquet ex, tristique sagittis nisl hendrerit eu. Integer quis sapien fermentum justo convallis dignissim. Curabitur sem tortor, luctus eget sollicitudin vel, fermentum id justo. Cras interdum dolor vel neque dapibus, aliquam rhoncus nibh varius. Nam id ultrices leo. Morbi eu.  
         </DescriptionProfile2>
         <SoMeWrapperProfile>
           <SoMeIconProfile href={`https://instagram.com/${instagram}`}>
@@ -114,6 +114,7 @@ const ProfileImg = styled.img`
 const ProfileWrapper = styled.section`
   padding: 35px 0px;
   flex-direction: column;
+  background: linear-gradient(140deg, #FCF8E8 60%, #ECB390 60%);
 `
 
 const Card = styled.section`
@@ -122,6 +123,7 @@ const Card = styled.section`
   margin: auto;
   text-align: center;
   
+
   @media ${Devices.tablet} {
     max-width: 70%;
     }

@@ -1,7 +1,7 @@
 import React from "react";
 import { Devices } from './reusable-components/GlobalStyles';
 import { Title } from "./reusable-components/GlobalStyles";
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import { Description } from "./SingleLocation";
 import { DescriptionProfile, SoMeIcon, SoMeIconLink, Headline } from "./reusable-components/GlobalStyles"
 
@@ -91,10 +91,12 @@ export const AboutUs = () => {
 
 
 const AboutUsWrapper = styled.section`
+background: linear-gradient(140deg, #FCF8E8 60%, #ECB390 60%);
  width: 100%;
  display: flex;
   align-items: center;
  flex-direction: column;
+ 
 `
 
 const CardWrapper = styled.div`
@@ -103,6 +105,8 @@ const CardWrapper = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
+  // height: auto;
+  background-color: #FCF8E8;
 
     @media ${Devices.laptop} {
       flex-direction: row; 
@@ -110,13 +114,11 @@ const CardWrapper = styled.div`
     }
     @media ${Devices.desktop} {
      flex-direction: row;
-width: 60%;
+width: 300px;
     }
 `
 
 const Column = styled.div`
- 
-
   margin-bottom: 16px;
   padding: 0 8px;
  

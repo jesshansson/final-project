@@ -11,7 +11,7 @@ import culture from "./data/culture.json";
 import nature from "./data/nature.json"
 import { EditUser, SingleUser, DeleteUser } from "./Userprofile";
 
-const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/final-project";
+const mongoUrl = process.env.MONGO_URL || "book";
 mongoose.connect(mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.Promise = Promise;
 
@@ -141,6 +141,37 @@ app.post("/login", async (req, res) => {
   }
 });
 
+app.post("/location/:locationId/bookmark/:userId", async (req, res) => {
+  const { locationId, userId } = req.params
+  try {
+    const locationVisitor = await User.findById(userId)
+    if (locationVisitor) {
+      const bookmarkedLocation = await Culture.findByIdAndUpdate(
+        locationId, 
+        {
+          $push: {visitors: locationVisitor}
+        },
+        {
+          new: true
+        }
+      )
+      res.status(201).json({
+        response: bookmarkedLocation,
+        success: true
+      })
+    } else {
+      res.status(404).json({
+        response: "No visitor bookmarked location",
+        success: false
+      })
+    }
+  } catch (error) {
+    res.status(400).json({
+      response: "Super wrong",
+      success: false
+    })
+  }
+})
 
 // Authenticated endpoint - accesible after logged in
 const authenticateUser = async (req, res, next) => {

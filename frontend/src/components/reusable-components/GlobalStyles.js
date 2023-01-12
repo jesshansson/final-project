@@ -33,7 +33,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 `
 export const Headline = styled.h1`
- font-family: 'Roboto', sans-serif;
+ font-family: 'Girassol', cursive;
   text-align: center;
   font-size: 35px;
   grid-column: 1 / 4;
@@ -67,6 +67,7 @@ export const PaigeWrapper = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+  background: linear-gradient(140deg, #FCF8E8 60%, #ECB390 60%);
   //justify-content: center;
   height: 80vh;
   //width: 100vw;

@@ -145,6 +145,7 @@ export const Image = styled.img`
   border-radius: 50%;
   border: 2px solid #FCF8E8;
   margin: 10px 0px;
+  padding: 10px;
 `
 
 export const LocationName = styled.h2`
