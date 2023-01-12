@@ -118,17 +118,19 @@ const ProfileWrapper = styled.section`
 `
 
 const Card = styled.section`
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 90%;
+  max-width: 80%;
   margin: auto;
   text-align: center;
+  background-color: #FCF8E8;
+  border: 2px solid #e8894f;
+  box-shadow: 5px 3px 3px #e8894f;
+  border-radius: 10px;
   
-
   @media ${Devices.tablet} {
-    max-width: 70%;
+    max-width: 65%;
     }
   @media ${Devices.laptop} {
-      max-width: 50%;
+      max-width: 45%;
     }
 `
 const Age = styled.p`

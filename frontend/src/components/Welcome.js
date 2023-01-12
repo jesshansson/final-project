@@ -23,13 +23,13 @@ export const Welcome = () => {
    dispatch(user.actions.setFacebook(persistedState.facebook));
   }
   return (
-    <PaigeWrapper>
+    <WelcomeWrapper>
       {/* <Link to="/modal"> Modal</Link>
          <Link to="/modal2"> Modal 2</Link>
         <Link to="/slidepanel">Slidepanel</Link> */}
-
+<SmallHeaderText>Välkommen till</SmallHeaderText>
       <WelcomeHeader>
-        KULTURLIGTVIS
+        KULTURLIGTVIS!
       </WelcomeHeader>
       <WelcomeText>
         <Bigtext>
@@ -39,54 +39,86 @@ export const Welcome = () => {
         </Bigtext>
         <Smalltext>
           Så letar du efter du ett spännande museum du inte ens visste fanns? En stig du aldrig vandrat? En ny kultur- eller naturupplevelse?
-          Spana in <Link to="/locations">Besöksmålen!</Link> Vill du komma i kontakt med någon som känner likadant? <Link to="/register">Skapa ett konto</Link> för att kunna kontakta varandra.
+          Spana in <StyledLink to="/locations">Besöksmålen!</StyledLink> Vill du komma i kontakt med någon som känner likadant? <StyledLink to="/register">Skapa ett konto</StyledLink> för att kunna kontakta varandra.
         </Smalltext>
       </WelcomeText>
       {/* <RegisterLink>Bli enkelt medlem genom att klicka <Link to="/register"> här </Link></RegisterLink>
       <LoginLink>Redan medlem?<Link to="/login"> Klicka här för att logga in!</Link></LoginLink> */}
-    </PaigeWrapper>
+    </WelcomeWrapper>
   )
 }
 
+const StyledLink = styled(Link) `
+  transition: ease-out 0.2s;
+
+  &:hover {
+  transform: scale(1.1);
+};`
+
+
+export const WelcomeWrapper = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(140deg, #FCF8E8 60%, #ECB390 60%);
+  height: 100vh;
+`
+
 const WelcomeHeader = styled.h1`
-  margin-top: 5vh;
-  font-size: 48px;
+  font-size: 50px;
+  font-family: 'Caveat', cursive;
+  
+  @media ${Devices.tablet} {
+  margin-bottom: 10px;
+  font-size: 65px;
+}
+`
+const SmallHeaderText = styled.p`
   font-family: "Montserrat";
+  margin-top: 50px;
+  font-size: 25px;
 `
 
 const Bigtext = styled.h4`
-font-family: "Montserrat";
-margin: 20px;
-font-size: 17px;
+  font-family: "Montserrat";
+  margin: 20px;
+  font-size: 19px;
+
+  @media ${Devices.tablet} {
+    font-size: 20px;
+}
+  @media ${Devices.laptop} {
+    font-size: 22px;
+}
 `
 const Smalltext = styled.h5`
-font-family: "Montserrat";
-padding: 20px;
-margin: 20px;
-font-size: 15px;
+  font-family: "Montserrat";
+  padding: 20px;
+  margin: 20px;
+  font-size: 17px;
+
+  @media ${Devices.tablet} {
+    font-size: 19px;
+}
+  @media ${Devices.laptop} {
+    font-size: 20px;
+}
 `
 
 const WelcomeText = styled.div`
   margin: 20px;
   width: 70vw;
   text-align: center;
+  border-radius: 10px;
+  background-color: #FCF8E8;
+  border: 2px solid #e8894f;
+  box-shadow: 5px 3px 3px #e8894f;
 
-@media ${Devices.tablet} {
-  width: 50vw;
+
+@media ${Devices.laptop} {
+  width: 40%;
+  margin-top: 45px;
 }
 `
 
-const RegisterLink = styled.p`
-  font-size: 20px;
-  margin-top: 20px;
-  width: 50vw;
-  text-align: center;
 
-&:hover {
-    text-decoration: none;
-  }
-`
-
-const LoginLink = styled(RegisterLink)`
-  font-size: 17px;
-`
