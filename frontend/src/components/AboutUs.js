@@ -18,66 +18,66 @@ export const AboutUs = () => {
       </AboutSection>
 
       <CardWrapper>
-          <Card>
-            <AboutUsImage src="https://i.postimg.cc/sx2jt19K/maria.jpg" alt="Picture of Maria" width={300} height={300}/>
-            <Container>
-              <NameTitle>Maria Westling</NameTitle>
-              <SmallTitle>Frontend developer</SmallTitle>
-              <DescriptionProfile>Frontendutvecklare med en förkärlek för gröna växter och pingviner</DescriptionProfile>
-              <SoMeWrapper>
-                <SoMeIcon href="https://github.com/marwebdesign">
-                  <SoMeIconLink className="fa-brands fa-github" />
-                </SoMeIcon>
-                <SoMeIcon href="https://www.linkedin.com/in/maria-westling-a6327315b/">
-                  <SoMeIconLink className="fa-brands fa-linkedin-in" />
-                </SoMeIcon>
-                <SoMeIcon href="mailto:maria.westling@gmail.com">
-                  <SoMeIconLink class='far fa-envelope-open' />
-                </SoMeIcon>
-              </SoMeWrapper>
-            </Container>
-          </Card>
+        <Card>
+          <AboutUsImage src="https://i.postimg.cc/sx2jt19K/maria.jpg" alt="Picture of Maria" width={300} height={300} />
+          <Container>
+            <NameTitle>Maria Westling</NameTitle>
+            <SmallTitle>Frontend developer</SmallTitle>
+            <DescriptionProfile>Frontendutvecklare med en förkärlek för gröna växter och pingviner</DescriptionProfile>
+            <SoMeWrapper>
+              <SoMeIcon href="https://github.com/marwebdesign">
+                <SoMeIconLink className="fa-brands fa-github" />
+              </SoMeIcon>
+              <SoMeIcon href="https://www.linkedin.com/in/maria-westling-a6327315b/">
+                <SoMeIconLink className="fa-brands fa-linkedin-in" />
+              </SoMeIcon>
+              <SoMeIcon href="mailto:maria.westling@gmail.com">
+                <SoMeIconLink class='far fa-envelope-open' />
+              </SoMeIcon>
+            </SoMeWrapper>
+          </Container>
+        </Card>
 
-          <Card>
-            <AboutUsImage src="https://i.postimg.cc/d1zVbJ3y/jessica-hansson.png" alt="Picture of Jessica" width={300} height={300}/>
-            <Container>
-              <NameTitle>Jessica Hansson</NameTitle>
-              <SmallTitle>Frontend developer</SmallTitle>
-              <DescriptionProfile>Frontendutvecklare med en förkärlek för gröna växter och pingviner</DescriptionProfile>
-              <SoMeWrapper>
-                <SoMeIcon href="https://github.com/jesshansson">
-                  <SoMeIconLink className="fa-brands fa-github" />
-                </SoMeIcon>
-                <SoMeIcon href="https://www.linkedin.com/in/jesshansson/">
-                  <SoMeIconLink className="fa-brands fa-linkedin-in" />
-                </SoMeIcon>
-                <SoMeIcon href="mailto:jessica.hansson@hotmail.se">
-                  <SoMeIconLink class='far fa-envelope-open' />
-                </SoMeIcon>
-              </SoMeWrapper>
-            </Container>
-          </Card>
+        <Card>
+          <AboutUsImage src="https://i.postimg.cc/d1zVbJ3y/jessica-hansson.png" alt="Picture of Jessica" width={300} height={300} />
+          <Container>
+            <NameTitle>Jessica Hansson</NameTitle>
+            <SmallTitle>Frontend developer</SmallTitle>
+            <DescriptionProfile>Frontendutvecklare med en förkärlek för gröna växter och pingviner</DescriptionProfile>
+            <SoMeWrapper>
+              <SoMeIcon href="https://github.com/jesshansson">
+                <SoMeIconLink className="fa-brands fa-github" />
+              </SoMeIcon>
+              <SoMeIcon href="https://www.linkedin.com/in/jesshansson/">
+                <SoMeIconLink className="fa-brands fa-linkedin-in" />
+              </SoMeIcon>
+              <SoMeIcon href="mailto:jessica.hansson@hotmail.se">
+                <SoMeIconLink class='far fa-envelope-open' />
+              </SoMeIcon>
+            </SoMeWrapper>
+          </Container>
+        </Card>
 
 
-          <Card>
-            <AboutUsImage src="https://i.postimg.cc/Nfd6YX0W/cicci.jpg" alt="Picture of Cecilia" width={300} height={300} />
-            <Container>
-              <NameTitle>Cecilia Rådén</NameTitle>
-              <SmallTitle>Frontend developer</SmallTitle>
-              <DescriptionProfile>Frontendutvecklare med en förkärlek för gröna växter och pingviner</DescriptionProfile>
-              <SoMeWrapper>
-                <SoMeIcon href="https://github.com/CeciliaMichele">
-                  <SoMeIconLink className="fa-brands fa-github" />
-                </SoMeIcon>
-                <SoMeIcon href="https://www.linkedin.com/in/ceciliaraden/">
-                  <SoMeIconLink className="fa-brands fa-linkedin-in" />
-                </SoMeIcon>
-                <SoMeIcon href="mailto:cecilia.raden@gmail.com">
-                  <SoMeIconLink class='far fa-envelope-open' />
-                </SoMeIcon>
-              </SoMeWrapper>
-            </Container>
-          </Card>
+        <Card>
+          <AboutUsImage src="https://i.postimg.cc/Nfd6YX0W/cicci.jpg" alt="Picture of Cecilia" width={300} height={300} />
+          <Container>
+            <NameTitle>Cecilia Rådén</NameTitle>
+            <SmallTitle>Frontend developer</SmallTitle>
+            <DescriptionProfile>Frontendutvecklare med en förkärlek för gröna växter och pingviner</DescriptionProfile>
+            <SoMeWrapper>
+              <SoMeIcon href="https://github.com/CeciliaMichele">
+                <SoMeIconLink className="fa-brands fa-github" />
+              </SoMeIcon>
+              <SoMeIcon href="https://www.linkedin.com/in/ceciliaraden/">
+                <SoMeIconLink className="fa-brands fa-linkedin-in" />
+              </SoMeIcon>
+              <SoMeIcon href="mailto:cecilia.raden@gmail.com">
+                <SoMeIconLink class='far fa-envelope-open' />
+              </SoMeIcon>
+            </SoMeWrapper>
+          </Container>
+        </Card>
       </CardWrapper>
     </AboutUsWrapper>
 
@@ -136,6 +136,7 @@ const AboutSection = styled.div`
 `
 
 const Container = styled.div`
+background-color: #FCF8E8;
 padding: 20px;
 `
 const SmallTitle = styled.p`
