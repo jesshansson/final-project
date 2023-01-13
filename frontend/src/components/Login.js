@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { API_URL } from '../utils/utils';
 import user from '../reducers/user';
 import styled from "styled-components";
-import { Devices, H1, CenterFlexDiv, PaigeWrapper } from './reusable-components/GlobalStyles';
+import { H1, CenterFlexDiv, PaigeWrapper } from './reusable-components/GlobalStyles';
 import { Link } from 'react-router-dom';
 
 export const Login = ({ siteHeadline, siteType, submitBtn }) => {
@@ -59,7 +59,6 @@ export const Login = ({ siteHeadline, siteType, submitBtn }) => {
             dispatch(user.actions.setId(null))
             dispatch(user.actions.setAccessToken(null));
             dispatch(user.actions.setError(data.response));
-            //window.alert(data.response)
             setLoginError(data.response)
           });
         }
@@ -123,7 +122,7 @@ export const Login = ({ siteHeadline, siteType, submitBtn }) => {
   onChange={(e) => setName(e.target.value)}
 />*/
 
-export const LoginBox = styled.div`
+const LoginBox = styled.div`
   min-width: 45vw;
   display: flex;
   flex-direction: column;
@@ -145,15 +144,15 @@ const FormSubmit = styled.form`
   align-items: center
 `
 
-export const Label = styled.label`
+const Label = styled.label`
   font-weight: 600;
 `
 
-export const Form = styled.form`
+const Form = styled.form`
   display: flex;
   flex-direction: column;
 `
-export const Input = styled.input`
+const Input = styled.input`
   border-radius: 3px;
   padding: 2px;
   margin: 5px;
@@ -171,7 +170,7 @@ export const Input = styled.input`
   }
 `
 
-export const Button = styled.button`
+const Button = styled.button`
   margin: 10px;
   padding: 10px;
   cursor: pointer;
@@ -194,7 +193,7 @@ export const Button = styled.button`
   }
 `
 
-export const SignupSignin = styled.div`
+const SignupSignin = styled.div`
   padding: 1px;
   margin-bottom: 20px;
 `
