@@ -1,24 +1,59 @@
 import React from "react";
 import { Devices } from './reusable-components/GlobalStyles';
+import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect } from "react";
+import user from "reducers/user";
 import styled from "styled-components/macro";
 import { useParams } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import googleIcon from "./googleIcon.png"
 
 export const SingleLocation = () => {
-  const { id } = useParams()
-
+  const [toggleBookmark, setToggleBookmark] = useState(false)
   const [details, setDetails] = useState([])
+  const [idOfUserWhoWantsToGo, SetIdOfUserWhoWantsToGo] = useState({})
+  const accessToken = useSelector((store) => store.user.accessToken);
+  const visitorId = useSelector((store) => store.user.id)
+  const bookmark = useSelector((store) => store.user.bookmark)
+  const { id } = useParams()
+  const { locationId, userId } = useParams()
+  const dispatch = useDispatch()
+
 
   useEffect(() => {
     fetch(`https://final-project-m2dbj6puqa-lz.a.run.app/locations/${id}`)
       .then(res => res.json())
       .then((data) => {
         setDetails(data.response)
+        SetIdOfUserWhoWantsToGo(data.response.visitors)
+        console.log(data.response.visitors)
       })
       .catch(error => console.error(error))
   }, [])
+
+  // const onBookmarkButtonClick = () => {
+
+  //   useEffect(() => {
+  //     const options = {
+  //       method: "POST",
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //         "Authorization": accessToken
+  //       }
+  //     }
+  //     fetch(`https://final-project-m2dbj6puqa-lz.a.run.app/location/${locationId}/bookmark/${userId}`, options)
+  //       .then(res => res.json())
+  //       .then((data) => {
+  //         SetIdOfUserWhoWantsToGo(data.response.visitors)
+  //         console.log(data)
+  //         if (data.success) {
+  //           dispatch(user.actions.setBookmark(data.response.bookmark))
+  //         }
+  //       })
+  //       .catch(error => console.error(error))
+  //   }, [])
+  // }
+
 
   //turns object into array to be able to render it an use .includes
   const filteredLocations = Object.keys(details)
@@ -52,20 +87,15 @@ export const SingleLocation = () => {
             </SingleLocationDivMiddle>
             <IWantToGoDiv>
               <p>Jag vill gå! </p>
-              <Users>Klicka här</Users>
+              <Visitor
+                type="button"
+                onClick={() => onBookmarkButtonClick()}>Klicka här</Visitor>
             </IWantToGoDiv>
             <SingleLocationDivRight>
               <p>Jag vill gå! Kontakta mig ❤️</p>
-              <Users>Cecilia</Users>
-              <Users>Maria</Users>
-              <Users>Jessica</Users>
-              <Users>Fanny</Users>
-              <Users>Jessika</Users>
-              <Users>Linnéa</Users>
-              <Users>Tina</Users>
-              <Users>Thérèse</Users>
-              <Users>Linda</Users>
-              <Users>Emil</Users>
+              {idOfUserWhoWantsToGo.map((people) => (
+                <Users>{people}</Users>
+              ))}
             </SingleLocationDivRight>
           </SingleLocationDivs>
         </LocationWrapper>
@@ -298,6 +328,14 @@ const Bold = styled.span`
   font-weight: bold;
 `
 const Users = styled.button`
+  padding: 0px, 5px;
+  background-color: #CEE5D0;
+  border-radius: 5px;
+  width: 100px;
+  margin: 2px;
+`
+
+const Visitor = styled.button`
   padding: 0px, 5px;
   background-color: #CEE5D0;
   border-radius: 5px;
