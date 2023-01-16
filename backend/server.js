@@ -209,7 +209,7 @@ app.get("/profile/:id", authenticateUser)
 app.get("/profile/:id", async (req, res) => {
   const { id } = req.params
   try {
-    const singleUser = await User.findById(id)
+    const singleUser = await User.findById(id) //.populate("culture")
     res.status(200).json({
       success: true,
       response: singleUser
