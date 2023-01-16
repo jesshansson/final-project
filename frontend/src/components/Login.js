@@ -65,8 +65,8 @@ export const Login = ({ siteHeadline, siteType, submitBtn }) => {
       })
   }
   return (
-
-    <PaigeWrapper>
+<>
+    <LoginWrapper>
       <LoginBox>
         <H1>{siteHeadline}</H1>
         <FormSubmit onSubmit={onFormSubmit}>
@@ -109,7 +109,8 @@ export const Login = ({ siteHeadline, siteType, submitBtn }) => {
         }
 
       </LoginBox>
-    </PaigeWrapper>
+    </LoginWrapper>
+    </>
   )
 }
 /*<Label htmlFor="name">Namn: </Label>
@@ -122,20 +123,31 @@ export const Login = ({ siteHeadline, siteType, submitBtn }) => {
   onChange={(e) => setName(e.target.value)}
 />*/
 
+const LoginWrapper = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  //justify-content: center;
+  background: linear-gradient(140deg, #FCF8E8 60%, #ECB390 60%);
+  height: 100vh;
+`
+
 const LoginBox = styled.div`
   min-width: 45vw;
+  font-size: 17px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 15vh;
+  margin-top: 10vh;
   box-shadow: 0px 0px 7px 0px #888888;
   padding: 20px;
   background-color: #FEF5ED;
-  min-height: 35vh;
+  max-height: 80vh;
 `
 const ErrorText = styled.p`
-margin-top: 5px;
+  margin-top: 5px;
+  color: red;
 `
 const FormSubmit = styled.form`
   display: flex;
@@ -179,7 +191,7 @@ const Button = styled.button`
   background-color: #ECB390;
   border-radius: 5px;
   box-shadow: 0px 0px 7px 0px #888888;
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 600;
   text-align: center;
 

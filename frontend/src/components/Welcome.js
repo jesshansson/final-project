@@ -102,7 +102,7 @@ const Smalltext = styled.h5`
 
 const WelcomeText = styled.div`
   margin: 20px;
-  width: 90%;
+  width: 85%;
   text-align: center;
   border-radius: 10px;
   background-color: #FCF8E8;
@@ -114,7 +114,7 @@ const WelcomeText = styled.div`
 
 }
   @media ${Devices.laptop} {
-  width: 40%;
+  width: 50%;
   margin-top: 45px;
 }
 `

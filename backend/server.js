@@ -11,7 +11,7 @@ import culture from "./data/culture.json";
 import nature from "./data/nature.json"
 import { EditUser, SingleUser, DeleteUser } from "./Userprofile";
 
-const mongoUrl = process.env.MONGO_URL || "book";
+const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/final-project";
 mongoose.connect(mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.Promise = Promise;
 
@@ -147,7 +147,7 @@ app.post("/location/:locationId/bookmark/:userId", async (req, res) => {
   try {
     const locationVisitor = await User.findById(userId)
     if (locationVisitor) {
-      const bookmarkedLocation = await Culture.findByIdAndUpdate(
+      const bookmarkedLocation = await Culture.findByIdAndUpdate (
         locationId,
         {
           $push: { visitors: locationVisitor }
@@ -156,6 +156,15 @@ app.post("/location/:locationId/bookmark/:userId", async (req, res) => {
           new: true
         }
       )
+       || await Nature.findByIdAndUpdate (
+        locationId,
+        {
+          $push: { visitors: locationVisitor }
+        },
+        {
+          new: true
+        }
+       )
       res.status(201).json({
         response: bookmarkedLocation,
         success: true
