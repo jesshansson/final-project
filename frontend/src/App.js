@@ -66,5 +66,5 @@ export const App = () => {
   );
 }
 
-//Frontend: https://brilliant-taffy-d19d1f.netlify.app/
+//Frontend: https://kulturligtvis.netlify.app/
 //Backend: https://final-project-m2dbj6puqa-lz.a.run.app/

@@ -141,6 +141,27 @@ app.post("/login", async (req, res) => {
   }
 });
 
+// Authenticated endpoint - accesible after logged in
+const authenticateUser = async (req, res, next) => {
+  const accessToken = req.header("Authorization");
+  try {
+    const user = await User.findOne({ accessToken: accessToken });
+    if (user) {
+      next()
+    } else {
+      res.status(401).json({
+        response: "Please log in",
+        success: false
+      });
+    }
+  } catch (error) {
+    res.status(400).json({
+      response: error,
+      success: false
+    });
+  }
+}
+
 //To be able to bookmark a location
 app.post("/location/:locationId/bookmark/:userId", authenticateUser)
 app.post("/location/:locationId/bookmark/:userId", async (req, res) => {
@@ -184,26 +205,7 @@ app.post("/location/:locationId/bookmark/:userId", async (req, res) => {
   }
 })
 
-// Authenticated endpoint - accesible after logged in
-const authenticateUser = async (req, res, next) => {
-  const accessToken = req.header("Authorization");
-  try {
-    const user = await User.findOne({ accessToken: accessToken });
-    if (user) {
-      next()
-    } else {
-      res.status(401).json({
-        response: "Please log in",
-        success: false
-      });
-    }
-  } catch (error) {
-    res.status(400).json({
-      response: error,
-      success: false
-    });
-  }
-}
+
 
 // When user is authenticated they are directed to this endpoint
 app.get("/profile/:id", authenticateUser)

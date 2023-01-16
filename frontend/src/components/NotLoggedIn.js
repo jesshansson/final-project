@@ -13,15 +13,15 @@ export const NotLoggedIn = () => {
 }
 
 const LoggedOutWrapper = styled.section`
-display: flex;
-flex-direction: column;
-align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `
 
 const Text = styled.p`
-margin-top: 10vh;
-font-size: 40px;
-font-family: 'Girassol', cursive;
+  margin-top: 10vh;
+  font-size: 40px;
+  font-family: 'Girassol', cursive;
 
 
 a {
@@ -33,6 +33,5 @@ a {
   transform: scale(1.05);
 }
 }
-
 
 `
