@@ -142,6 +142,7 @@ app.post("/login", async (req, res) => {
 });
 
 //To be able to bookmark a location
+app.post("/location/:locationId/bookmark/:userId", authenticateUser)
 app.post("/location/:locationId/bookmark/:userId", async (req, res) => {
   const { locationId, userId } = req.params
   try {
