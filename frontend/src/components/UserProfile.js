@@ -37,6 +37,7 @@ export const UserProfile = () => {
     fetch(`https://final-project-m2dbj6puqa-lz.a.run.app/profile/${id}`, options)
       .then(res => res.json())
       .then(data => {
+        setUserDetails(data.response)
         batch(() => {
           dispatch(user.actions.setBookmark(data.response.bookmark));
           dispatch(user.actions.setName(data.response.name));
