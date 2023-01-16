@@ -38,10 +38,10 @@ export const NatureSchema = new mongoose.Schema({
   activities: {
     type: String
   },
-  visitors: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "User"
-    }
-  ]
+  // visitors: [
+  //   {
+  //     type: mongoose.Schema.Types.ObjectId,
+  //     ref: "User"
+  //   }
+  // ]
 });
