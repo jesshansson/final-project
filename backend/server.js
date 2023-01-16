@@ -284,7 +284,7 @@ app.delete("/profile/:id/delete", async (req, res) => {
 
 app.get("/", (req, res) => {
   res.send([
-    { "test": "test" }
+    { "test": "testing" }
   ]);
 });
 
