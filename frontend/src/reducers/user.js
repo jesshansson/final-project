@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 export const user = createSlice({
-    name:"user",
-    initialState:{
+    name: "user",
+    initialState: {
         error: null,
         username: null,
         id: null,
@@ -12,7 +12,7 @@ export const user = createSlice({
         email: "",
         instagram: "",
         facebook: "",
-        bookmark: false
+        bookmark: ""
     },
     reducers: {
         setUsername: (store, action) => {
@@ -30,24 +30,24 @@ export const user = createSlice({
         setEmail: (store, action) => {
             store.email = action.payload;
         },
-       setName: (store, action) => {
-        store.name = action.payload;
-       }, 
-       setAge: (store, action) => {
-        store.age = action.payload;
-       }, 
+        setName: (store, action) => {
+            store.name = action.payload;
+        },
+        setAge: (store, action) => {
+            store.age = action.payload;
+        },
         setPresentation: (store, action) => {
-        store.presentation = action.payload;
-        }, 
+            store.presentation = action.payload;
+        },
         setFacebook: (store, action) => {
-        store.facebook = action.payload;
-        }, 
+            store.facebook = action.payload;
+        },
         setInstagram: (store, action) => {
-        store.instagram = action.payload;
-        }, 
+            store.instagram = action.payload;
+        },
         setBookmark: (store, action) => {
             store.bookmark = action.payload
-        } 
+        }
     }
 });
 

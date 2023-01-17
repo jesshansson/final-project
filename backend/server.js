@@ -169,7 +169,7 @@ app.post("/location/:locationId/bookmark/:userId", async (req, res) => {
   try {
     const locationVisitor = await User.findById(userId)
     if (locationVisitor) {
-      const bookmarkedLocation = await Culture.findByIdAndUpdate (
+      const bookmarkedLocation = await Culture.findByIdAndUpdate(
         locationId,
         {
           $push: { visitors: locationVisitor }
