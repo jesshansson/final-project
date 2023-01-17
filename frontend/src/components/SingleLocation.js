@@ -24,6 +24,7 @@ export const SingleLocation = () => {
     fetch(`https://final-project-m2dbj6puqa-lz.a.run.app/locations/${id}`)
       .then(res => res.json())
       .then((data) => {
+        console.log(data)
         setDetails(data.response)
         SetIdOfUserWhoWantsToGo(data.response.visitors)
         console.log(data.response.visitors)
