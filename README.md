@@ -13,7 +13,6 @@ This is the final project of our education,
 ## View it live
 
 - Backend: https://final-project-m2dbj6puqa-lz.a.run.app/endpoints
-
 - Frontend: https://kulturligtvis.netlify.app/
 
 

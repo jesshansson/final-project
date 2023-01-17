@@ -7,9 +7,11 @@ import { UserSchema } from "./Schemas/user"
 import { NatureSchema } from "./Schemas/nature";
 import { CultureSchema } from "./Schemas/culture";
 import listEndpoints from "express-list-endpoints";
-import culture from "./data/culture.json";
-import nature from "./data/nature.json"
-import { EditUser, SingleUser, DeleteUser } from "./Userprofile";
+import culture from "./data/culture.json"; //Används?
+import nature from "./data/nature.json" //Används?
+import { EditUser, SingleUser, DeleteUser } from "./Userprofile"; //Används?
+
+// Ta bort populate?
 
 const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/final-project";
 mongoose.connect(mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true });
@@ -199,12 +201,11 @@ app.post("/location/:locationId/bookmark/:userId", async (req, res) => {
     }
   } catch (error) {
     res.status(400).json({
-      response: "Super wrong",
+      response: "Super wrong", //Ändra?
       success: false
     })
   }
 })
-
 
 
 // When user is authenticated they are directed to this endpoint
@@ -213,7 +214,7 @@ app.get("/profile/:id", async (req, res) => {
   const { id } = req.params
   try {
     const singleUser = await User.findById(id)
-    //.populate("culture")
+    //.populate("culture") //Ta bort?
     res.status(200).json({
       success: true,
       response: singleUser
@@ -230,7 +231,7 @@ app.patch("/profile/:id/update", async (req, res) => {
   const updatedProfileInfo = req.body
   const { id } = req.params
   try {
-    // const { email, name, age, presentation, facebook, instagram, bookmark, createdAt } = req.body
+    // const { email, name, age, presentation, facebook, instagram, bookmark, createdAt } = req.body //Ta bort?
 
     console.log(req.body)
     const updateProfile = await User.findByIdAndUpdate(
@@ -286,7 +287,7 @@ app.delete("/profile/:id/delete", async (req, res) => {
 
 app.get("/", (req, res) => {
   res.send([
-    { "test": "testing" }
+    { "Welcome!": "See all endpoints at /endpoints. See live frontend at https://kulturligtvis.netlify.app/" }
   ]);
 });
 
@@ -331,9 +332,6 @@ app.get("/locations/:id", async (req, res) => {
     })
   }
 })
-
-
-
 
 
 // Start the server

@@ -55,10 +55,7 @@ export const UserProfile = () => {
 
 
   return (
-    <>
-
       <ProfileWrapper>
-
         <Card>
           <UserModalButton>
             <UserModal accessToken={accessToken} userDetails={userDetails} />
@@ -84,14 +81,12 @@ export const UserProfile = () => {
           </p>
         </Card >
       </ProfileWrapper >
-    </>
   );
 };
 
 const UserModalButton = styled.div`
- display: flex;
- justify-content: flex-end;
- margin-right: 15px;
+  display: flex;
+  justify-content: flex-end;
 `
 
 const ProfileImg = styled.img`
@@ -111,13 +106,16 @@ const ProfileImg = styled.img`
 
 const ProfileWrapper = styled.section`
   padding: 35px 0px;
+  display: flex;
+  align-items: center;
   flex-direction: column;
   background: linear-gradient(140deg, #FCF8E8 60%, #ECB390 60%);
 `
 
 const Card = styled.section`
-  max-width: 80%;
-  margin: auto;
+  width: 80%;
+  margin: 20px;
+  padding: 20px 40px;
   text-align: center;
   background-color: #FCF8E8;
   border: 2px solid #e8894f;
@@ -125,10 +123,10 @@ const Card = styled.section`
   border-radius: 10px;
   
   @media ${Devices.tablet} {
-    max-width: 65%;
+    width: 65%;
     }
   @media ${Devices.laptop} {
-      max-width: 45%;
+    width: 45%;
     }
 `
 const Age = styled.p`
@@ -181,7 +179,6 @@ const SoMeIconLinkProfile = styled.i`
     font-size: 40px;
     margin-bottom: 20px;
   }
-
 `
 
 const SoMeIconProfile = styled.a`
@@ -221,7 +218,6 @@ const ContactButton = styled.button`
     font-size: 40px;
     padding: 20px;
   }
-
 `
 
 

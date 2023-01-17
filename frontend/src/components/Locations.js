@@ -10,7 +10,7 @@ export const Locations = () => {
 
   const [cultureLocation, setCultureLocation] = useState([])
   const [natureLocation, setNatureLocation] = useState([])
-  const [openPanel, setOpenPanel] = useState(false)
+  const [openPanel, setOpenPanel] = useState(false) // Ha panel?
 
   useEffect(() => {
     const options = {
@@ -37,7 +37,6 @@ export const Locations = () => {
   return (
 
     <LocationsWrapper>
-
       <Headline>För dig som gillar kultur</Headline>
       <LocationGrid>
         {cultureLocation.map((item) => (
@@ -53,6 +52,7 @@ export const Locations = () => {
         ))
         }
       </LocationGrid>
+
       <Headline>För dig som gillar natur</Headline>
       <LocationGrid>
         {natureLocation.map((item) => (
@@ -72,12 +72,11 @@ export const Locations = () => {
 }
 
 const LocationsWrapper = styled.section`
- max-width: 100vw;
- display: flex;
- align-items: center;
- flex-direction: column;
+  max-width: 100vw;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 `
-
 
 const LocationGrid = styled.section`
   display: grid;
@@ -129,26 +128,17 @@ const Image = styled.img`
 `
 
 const LocationName = styled.h2`
-padding-top: 10px;
-font-family: 'Comfortaa', cursive;
-font-size: 20px;
-text-transform: uppercase;
-text-align: center;
-text-decoration: none;
-font-weight: 600;
-//letter-spacing: 15px 0px;
+  padding-top: 10px;
+  font-family: 'Comfortaa', cursive;
+  font-size: 20px;
+  text-transform: uppercase;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 600;
 
 @media ${Devices.tablet} {
   font-size: 22px;
   } 
-
-  @media ${Devices.laptop} {
-    
-  }
- 
-`
-const LocationLink = styled.link`
-text-decoration: none
 `
 
 

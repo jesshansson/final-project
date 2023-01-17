@@ -4,14 +4,13 @@ import { useNavigate } from "react-router-dom";
 import { API_URL } from '../utils/utils';
 import user from '../reducers/user';
 import styled from "styled-components";
-import { H1, CenterFlexDiv } from './reusable-components/GlobalStyles';
+import { H1 } from './reusable-components/GlobalStyles';
 import { Link } from 'react-router-dom';
 
 export const Login = ({ siteHeadline, siteType, submitBtn }) => {
   const [username, setUsername] = useState("");
-  //const [name, setName] = useState("");
+  //const [name, setName] = useState(""); //Om man ska fylla i namn också?
   const [password, setPassword] = useState("");
-  //const [mode, setMode] = useState("login"); //behövs?
   const [loginError, setLoginError] = useState("");
 
 
@@ -35,7 +34,7 @@ export const Login = ({ siteHeadline, siteType, submitBtn }) => {
       },
       body: JSON.stringify({ username: username, password: password })
     }
-    fetch(API_URL(siteType), options) //Ändrade mode till siteType
+    fetch(API_URL(siteType), options) 
       .then(response => response.json())
       .then(data => {
         if (data.success) {
@@ -127,9 +126,14 @@ const LoginWrapper = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  //justify-content: center;
   background: linear-gradient(140deg, #FCF8E8 60%, #ECB390 60%);
   height: 100vh;
+`
+
+const CenterFlexDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `
 
 const LoginBox = styled.div`
@@ -160,10 +164,6 @@ const Label = styled.label`
   font-weight: 600;
 `
 
-const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-`
 const Input = styled.input`
   border-radius: 3px;
   padding: 2px;
@@ -208,4 +208,8 @@ const Button = styled.button`
 const SignupSignin = styled.div`
   padding: 1px;
   margin-bottom: 20px;
+`
+const Form = styled.form`
+  display: flex;
+  flex-direction: column;
 `

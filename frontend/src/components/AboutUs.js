@@ -1,14 +1,11 @@
 import React from "react";
 import { Devices } from './reusable-components/GlobalStyles';
-import { Title } from "./reusable-components/GlobalStyles";
 import styled from "styled-components/macro";
-import { Description } from "./SingleLocation";
-import { DescriptionProfile, SoMeIcon, SoMeIconLink, Headline } from "./reusable-components/GlobalStyles"
+import { SoMeIcon, SoMeIconLink, Headline } from "./reusable-components/GlobalStyles"
 
 export const AboutUs = () => {
 
   return (
-
     <AboutUsWrapper>
       <AboutSection>
         <Headline>Om oss</Headline>
@@ -58,7 +55,6 @@ export const AboutUs = () => {
           </Container>
         </Card>
 
-
         <Card>
           <AboutUsImage src="https://i.postimg.cc/Nfd6YX0W/cicci.jpg" alt="Picture of Cecilia" width={300} height={300} />
           <Container>
@@ -80,7 +76,6 @@ export const AboutUs = () => {
         </Card>
       </CardWrapper>
     </AboutUsWrapper>
-
   )
 }
 
@@ -91,6 +86,17 @@ const AboutUsWrapper = styled.section`
   display: flex;
   align-items: center;
   flex-direction: column;
+`
+const DescriptionProfile = styled.div`
+  font-size: 18px;
+
+  @media ${Devices.laptop} {
+    font-size: 20px;
+  }
+
+  @media ${Devices.desktop} {
+    font-size: 25px;
+  }
 `
 
 const CardWrapper = styled.div`
