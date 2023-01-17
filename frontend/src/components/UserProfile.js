@@ -67,7 +67,7 @@ export const UserProfile = () => {
           <h1>{name}</h1>
           <h2>{username}</h2>
           <Age>{age} år</Age>
-          <DescriptionProfile2>{presentation}Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vulputate aliquet ex, tristique sagittis nisl hendrerit eu. Integer quis sapien fermentum justo convallis dignissim. Curabitur sem tortor, luctus eget sollicitudin vel, fermentum id justo. Cras interdum dolor vel neque dapibus, aliquam rhoncus nibh varius. Nam id ultrices leo. Morbi eu.
+          <DescriptionProfile2>{presentation}
           </DescriptionProfile2>
           <SoMeWrapperProfile>
             <SoMeIconProfile href={`https://instagram.com/${instagram}`}>
@@ -82,7 +82,6 @@ export const UserProfile = () => {
               <ContactButton>Maila mig!</ContactButton>
             </a>
           </p>
-          <p>{email}</p>
         </Card >
       </ProfileWrapper >
     </>
