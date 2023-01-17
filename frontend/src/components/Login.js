@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { API_URL } from '../utils/utils';
 import user from '../reducers/user';
 import styled from "styled-components";
-import { H1, CenterFlexDiv, PaigeWrapper } from './reusable-components/GlobalStyles';
+import { H1, CenterFlexDiv } from './reusable-components/GlobalStyles';
 import { Link } from 'react-router-dom';
 
 export const Login = ({ siteHeadline, siteType, submitBtn }) => {
@@ -204,7 +204,7 @@ const Button = styled.button`
     font-size:17px;
   }
 `
-
+//Används ej?
 const SignupSignin = styled.div`
   padding: 1px;
   margin-bottom: 20px;

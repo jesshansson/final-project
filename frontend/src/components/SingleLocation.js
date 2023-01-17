@@ -247,6 +247,7 @@ const SingleLocationDivRight = styled.div`
   background-color: #FCF8E8;
   border: 2px solid #e8894f;
   box-shadow: 5px 3px 3px #e8894f;
+  margin-bottom: 30px;
 
   @media ${Devices.laptop} {
     grid-row-start: 1;

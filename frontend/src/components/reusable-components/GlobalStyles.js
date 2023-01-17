@@ -63,7 +63,9 @@ export const CenterFlexDiv = styled.div`
   align-items: center;
   //margin: 15px;
 `
-export const PaigeWrapper = styled.section`
+
+//Används ej?
+/*export const PaigeWrapper = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -71,7 +73,7 @@ export const PaigeWrapper = styled.section`
   //justify-content: center;
   height: 80vh;
   //width: 100vw;
-`
+`*/
 
 //@media ${Devices.tablet} 
 //@media ${Devices.laptop} 
