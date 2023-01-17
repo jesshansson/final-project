@@ -164,12 +164,12 @@ const authenticateUser = async (req, res, next) => {
 
 //To be able to bookmark a location
 //app.post("/location/:locationId/bookmark/:userId", authenticateUser)
-app.post("/location/:locationId/bookmark/:userId", async (req, res) => {
+app.post("/location/:locationId/bookmarkCulture/:userId", async (req, res) => {
   const { locationId, userId } = req.params
   try {
     const locationVisitor = await User.findById(userId)
     if (locationVisitor) {
-      const bookmarkedLocation = await Culture.findByIdAndUpdate(
+      const bookmarkedLocationCulture = await Culture.findByIdAndUpdate(
         locationId,
         {
           $push: { visitors: locationVisitor }
@@ -178,17 +178,8 @@ app.post("/location/:locationId/bookmark/:userId", async (req, res) => {
           new: true
         }
       )
-      /* || await Nature.findByIdAndUpdate (
-        locationId,
-        {
-          $push: { visitors: locationVisitor }
-        },
-        {
-          new: true
-        }
-       ) */
       res.status(201).json({
-        response: bookmarkedLocation,
+        response: bookmarkedLocationCulture,
         success: true
       })
     } else {
@@ -205,6 +196,39 @@ app.post("/location/:locationId/bookmark/:userId", async (req, res) => {
   }
 })
 
+//app.post("/location/:locationId/bookmark/:userId", authenticateUser)
+app.post("/location/:locationId/bookmarkNature/:userId", async (req, res) => {
+  const { locationId, userId } = req.params
+  try {
+    const locationVisitor = await User.findById(userId)
+    if (locationVisitor) {
+      const bookmarkedLocationNature = await Nature.findByIdAndUpdate(
+        locationId,
+        {
+          $push: { visitors: locationVisitor }
+        },
+        {
+          new: true
+        }
+      )
+
+      res.status(201).json({
+        response: bookmarkedLocationNature,
+        success: true
+      })
+    } else {
+      res.status(404).json({
+        response: "No visitor bookmarked location",
+        success: false
+      })
+    }
+  } catch (error) {
+    res.status(400).json({
+      response: "Super wrong",
+      success: false
+    })
+  }
+})
 
 
 // When user is authenticated they are directed to this endpoint

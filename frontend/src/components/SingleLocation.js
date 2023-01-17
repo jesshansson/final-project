@@ -281,8 +281,6 @@ const SingleLocationDivRight = styled.div`
   margin-bottom: 30px;
 
   @media ${Devices.laptop} {
-    grid-row-start: 1;
-    grid-row-end: 4;
     width: 350px;
   }
 
@@ -327,13 +325,13 @@ const OpeningHours = styled.ul`
 `
 
 const Bold = styled.span`
-  font-weight: bold;
+  font-weight: 600;
+  
 `
 const Users = styled.button`
   padding: 0px, 5px;
   background-color: #CEE5D0;
   border-radius: 5px;
-  width: 100px;
   margin: 2px;
 `
 
