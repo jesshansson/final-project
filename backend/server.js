@@ -7,8 +7,8 @@ import { UserSchema } from "./Schemas/user"
 import { NatureSchema } from "./Schemas/nature";
 import { CultureSchema } from "./Schemas/culture";
 import listEndpoints from "express-list-endpoints";
-import culture from "./data/culture.json"; //Används?
-import nature from "./data/nature.json" //Används?
+import culture from "./data/culture.json";
+import nature from "./data/nature.json";
 import { EditUser, SingleUser, DeleteUser } from "./Userprofile"; //Används?
 
 // Ta bort populate?

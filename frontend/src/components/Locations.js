@@ -10,7 +10,6 @@ export const Locations = () => {
 
   const [cultureLocation, setCultureLocation] = useState([])
   const [natureLocation, setNatureLocation] = useState([])
-  const [openPanel, setOpenPanel] = useState(false) // Ha panel?
 
   useEffect(() => {
     const options = {
@@ -41,11 +40,10 @@ export const Locations = () => {
       <LocationGrid>
         {cultureLocation.map((item) => (
           <GridItem key={item._id}>
-            <Image src={item.img} style={{ width: 150, height: 150 }} alt="picture" />
             <Link
-
               style={{ textDecoration: 'none' }}
               to={`/locations/${item._id}`}>
+              <Image src={item.img} style={{ width: 150, height: 150 }} alt="picture" />
               <LocationName>{item.name} </LocationName>
             </Link>
           </GridItem>
@@ -57,10 +55,10 @@ export const Locations = () => {
       <LocationGrid>
         {natureLocation.map((item) => (
           <GridItem key={item._id}>
-            <Image src={item.img} style={{ width: 150, height: 150 }} alt="picture" />
             <Link
               style={{ textDecoration: 'none' }}
               to={`/locations/${item._id}`}>
+              <Image src={item.img} style={{ width: 150, height: 150 }} alt="picture" />
               <LocationName>{item.name}</LocationName>
             </Link>
           </GridItem>

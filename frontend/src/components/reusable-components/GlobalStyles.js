@@ -1,5 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 
 const sizes = {
@@ -78,7 +79,11 @@ export const SoMeIcon = styled.a`
     transform: scale(1.2);
   }
 ` 
-
+export const StyledLink = styled(Link)`
+:hover{
+  text-decoration: none;
+}
+`
 //Colour scheme
 //#CEE5D0 - lightgreen
 //#FCF8E8 - lightbeige

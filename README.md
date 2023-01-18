@@ -2,7 +2,7 @@
 We created a website where people with an interest in culture and/or nature, can discover new places in Stockholm which are a bit unknown. 
 We have listed a selection of different landmarks, and all registered users can connect with others who wants to visit the same location. That way - you can both explore new areas in Stockholm, and meet new friends who share the same interests as you.
 
-This is the final project of our education, 
+This is the final project of our education, Technigo Web Development Boot Camp. 
 
 
 ## Tech used

@@ -1,5 +1,5 @@
 import React from "react";
-import { Devices } from './reusable-components/GlobalStyles';
+import { Devices, StyledLink } from './reusable-components/GlobalStyles';
 import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import user from "reducers/user";
@@ -11,49 +11,55 @@ import googleIcon from "./googleIcon.png"
 export const SingleLocation = () => {
   const [toggleBookmark, setToggleBookmark] = useState(false)
   const [details, setDetails] = useState([])
-  const [idOfUserWhoWantsToGo, SetIdOfUserWhoWantsToGo] = useState({})
+  const [idOfUserWhoWantsToGo, SetIdOfUserWhoWantsToGo] = useState([])
   const accessToken = useSelector((store) => store.user.accessToken);
   const visitorId = useSelector((store) => store.user.id)
   const bookmark = useSelector((store) => store.user.bookmark)
+  const { locationId, userId, visitors } = useParams()
   const { id } = useParams()
-  const { locationId, userId } = useParams()
   const dispatch = useDispatch()
 
-
+// this useEffect needs to be here, otherwise tuggar den 1000 gånger i consollen
   useEffect(() => {
     fetch(`https://final-project-m2dbj6puqa-lz.a.run.app/locations/${id}`)
       .then(res => res.json())
       .then((data) => {
-        console.log(data)
+        console.log(data.response)
         setDetails(data.response)
         SetIdOfUserWhoWantsToGo(data.response.visitors)
         console.log(data.response.visitors)
       })
       .catch(error => console.error(error))
-  }, [])
+    }, []);
 
-  // const onBookmarkButtonClick = () => {
+  const onBookmarkButtonClick = () => {
+    // const [iWantToGo, SetIWantToGo] = useState()
 
-  //   useEffect(() => {
-  //     const options = {
-  //       method: "POST",
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //         "Authorization": accessToken
-  //       }
-  //     }
-  //     fetch(`https://final-project-m2dbj6puqa-lz.a.run.app/location/${locationId}/bookmark/${userId}`, options)
-  //       .then(res => res.json())
-  //       .then((data) => {
-  //         SetIdOfUserWhoWantsToGo(data.response.visitors)
-  //         console.log(data)
-  //         if (data.success) {
-  //           dispatch(user.actions.setBookmark(data.response.bookmark))
-  //         }
-  //       })
-  //       .catch(error => console.error(error))
-  //   }, [])
-  // }
+
+    //With useEffect: invalid Hook call
+    //Without useEffect: failed to load resource: bad request (400)
+    // useEffect(() => {
+      const options = {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json',
+          // "Authorization": accessToken
+        },
+            //Something needed here?
+        body: JSON.stringify({ body: visitors })
+      }
+      fetch(`http://localhost:8080/location/${locationId}/bookmarkCulture/${userId}`, options)
+        .then(res => res.json())
+        .then((data) => {
+          // SetIWantToGo(data.response.visitors)
+          console.log(data)
+          // if (data.success) {
+          //   dispatch(user.actions.setBookmark(data.response.bookmark))
+          // }
+        })
+        .catch(error => console.error(error))
+      // }, []);
+  }
 
 
   //turns object into array to be able to render it an use .includes
@@ -63,8 +69,9 @@ export const SingleLocation = () => {
     return (
       <>
         <LocationWrapper>
-          <SingleLocationName> <a href={details.website} target="_blank">{details.name}</a></SingleLocationName>
+          <SingleLocationName> {details.name} </SingleLocationName>
           <Description>{details.description}</Description>
+          <WebSiteLink><Bold>Läs mer på: </Bold><a href={details.website} target="_blank">{details.website}</a></WebSiteLink>
           <SingleLocationDivs>
             <Link to="/locations"><BackLink>Tillbaka</BackLink></Link>
             <SingleLocationDivLeft>
@@ -76,10 +83,11 @@ export const SingleLocation = () => {
                 <li><Bold>Torsdag:</Bold> {details.opening_hours_thu}</li>
                 <li><Bold>Fredag:</Bold> {details.opening_hours_fri}</li>
                 <li><Bold>Lördag:</Bold> {details.opening_hours_sat}</li>
-                <li><Bold>Söndag:</Bold> {details.opening_hours_sun}</li>
+                <li><Bold>Söndag:</Bold> {details.opening_hours_sun}</li>   
               </OpeningHours>
             </SingleLocationDivLeft>
             <SingleLocationDivMiddle>
+              
               <GoogleLink href={details.googlemap} target="_blank">
                 <Image src={googleIcon} style={{ width: 220, height: 220 }} alt="googlemaps icon" />
               </GoogleLink>
@@ -95,8 +103,7 @@ export const SingleLocation = () => {
             <SingleLocationDivRight>
               <p>Jag vill gå! Kontakta mig ❤️</p>
               {idOfUserWhoWantsToGo.map((people) => (
-                <Users><Link to={`/profile/${idOfUserWhoWantsToGo}`}> {people}</Link></Users>
-                
+                <Users><Link to={`/profile/${idOfUserWhoWantsToGo}`}> {people}</Link></Users>   
               ))}
             </SingleLocationDivRight>
           </SingleLocationDivs>
@@ -106,7 +113,6 @@ export const SingleLocation = () => {
   } else {
     return (
       <>
-
         <LocationWrapper>
           <SingleLocationName> <a href={details.website} target="_blank">{details.name}</a></SingleLocationName>
           <Description>{details.description}</Description>
@@ -118,7 +124,6 @@ export const SingleLocation = () => {
               <LocationDetails><Bold>Aktiviteter:</Bold> {details.activities}</LocationDetails>
             </SingleLocationDivLeft>
             <SingleLocationDivMiddle>
-
               <GoogleLink href={details.googlemap} target="_blank">
                 <Image src={googleIcon} style={{ width: 220, height: 220 }} alt="googlemaps icon" />
               </GoogleLink>
@@ -133,16 +138,9 @@ export const SingleLocation = () => {
             </IWantToGoDiv>
             <SingleLocationDivRight>
               <p>Jag vill gå! Kontakta mig ❤️</p>
-              <Users>Cecilia</Users>
-              <Users>Maria</Users>
-              <Users>Jessica</Users>
-              <Users>Fanny</Users>
-              <Users>Jessika</Users>
-              <Users>Linnéa</Users>
-              <Users>Tina</Users>
-              <Users>Thérèse</Users>
-              <Users>Linda</Users>
-              <Users>Emil</Users>
+              {idOfUserWhoWantsToGo.map((people) => (
+                <Users><Link to={`/profile/${idOfUserWhoWantsToGo}`}> {people}</Link></Users>
+              ))}
             </SingleLocationDivRight>
           </SingleLocationDivs>
         </LocationWrapper>
@@ -150,6 +148,12 @@ export const SingleLocation = () => {
     )
   }
 }
+
+const WebSiteLink = styled.p`
+  margin-top: 10px;
+  text-align: center;
+  width: 70%;
+`
 
 const SingleLocationName = styled.h1`
   font-family: 'Girassol', cursive;
@@ -345,8 +349,8 @@ const Visitor = styled.button`
 `
 
 const GoogleLink = styled.a`
-&:hover {
-  transition: width 2s, height 4s;
+  &:hover {
+  transform: scale(1.1) rotate(0.01deg);
 }
 `
 const BackLink = styled.button`

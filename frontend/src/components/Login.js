@@ -204,12 +204,3 @@ const Button = styled.button`
     font-size:17px;
   }
 `
-//Används ej?
-const SignupSignin = styled.div`
-  padding: 1px;
-  margin-bottom: 20px;
-`
-const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-`
