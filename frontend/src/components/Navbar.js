@@ -1,4 +1,4 @@
-import React, { useState, useParams } from 'react';
+import React, { useState, useParams } from 'react'; //Ta bort useParams?
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, NavLink } from "react-router-dom";
 import user from "reducers/user";
@@ -84,10 +84,11 @@ const LogoTitle = styled.div`
   @media ${Devices.laptop} {
     justify-content: flex-start;
     padding: 10px;
-    }
-    @media ${Devices.desktop} {
-     justify-content: flex-start;
-    }
+  }
+  
+  @media ${Devices.desktop} {
+    justify-content: flex-start;
+  }
 `
 const Heading = styled.h1`
   font-family: 'Girassol', cursive;
@@ -95,10 +96,11 @@ const Heading = styled.h1`
 
   @media ${Devices.laptop} {
     font-size: 60px;
-    }
-    @media ${Devices.desktop} {
-     font-size: 100px;
-    }
+  }
+  
+  @media ${Devices.desktop} {
+    font-size: 100px;
+  }
 
 `
 

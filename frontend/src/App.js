@@ -1,6 +1,6 @@
 import React from 'react';
 import user from './reducers/user';
-import thunkMiddleware from "redux-thunk";
+import thunkMiddleware from "redux-thunk"; //Ta bort?
 import { GlobalStyle } from 'components/reusable-components/GlobalStyles';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
@@ -60,11 +60,11 @@ export const App = () => {
               submitBtn="Logga in" />} />
           <Route path='*' element={<NotFound />} />
         </Routes>
-
+        
       </BrowserRouter>
     </Provider>
   );
 }
 
-//Frontend: https://brilliant-taffy-d19d1f.netlify.app/
+//Frontend: https://kulturligtvis.netlify.app/
 //Backend: https://final-project-m2dbj6puqa-lz.a.run.app/

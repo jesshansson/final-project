@@ -27,12 +27,10 @@ const NotFoundSection = styled.section`
     transform: scale(1.05);
   }
   }
-
 `
 
 const H1 = styled.h1`
   margin-bottom: 20px;
   font-size: 40px;
   font-family: 'Girassol', cursive;
-
 `

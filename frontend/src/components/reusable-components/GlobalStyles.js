@@ -1,6 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 import styled from "styled-components";
 
+
 const sizes = {
   tablet: '668px',
   laptop: '1024px',
@@ -12,6 +13,12 @@ export const Devices = {
   laptop: `(min-width: ${sizes.laptop})`,
   desktop: `(min-width: ${sizes.desktop})`
 };
+
+//To use queries
+//@media ${Devices.tablet} 
+//@media ${Devices.laptop} 
+//@media ${Devices.desktop} 
+
 
 export const GlobalStyle = createGlobalStyle`
 
@@ -33,7 +40,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 `
 export const Headline = styled.h1`
- font-family: 'Girassol', cursive;
+  font-family: 'Girassol', cursive;
   text-align: center;
   font-size: 35px;
   grid-column: 1 / 4;
@@ -50,47 +57,9 @@ export const Headline = styled.h1`
 
 `
 
-export const Title = styled.h1`
-  color: black;
-`
 export const H1 = styled.h1`
   margin-bottom: 20px;
   font-size: 20px;
-`
-export const CenterFlexDiv = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  //margin: 15px;
-`
-export const PaigeWrapper = styled.section`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: linear-gradient(140deg, #FCF8E8 60%, #ECB390 60%);
-  //justify-content: center;
-  height: 80vh;
-  //width: 100vw;
-`
-
-//@media ${Devices.tablet} 
-//@media ${Devices.laptop} 
-//@media ${Devices.desktop} 
-
-
-//Colour scheme
-//#CEE5D0 - lightgreen
-//#FCF8E8 - lightbeige
-//#ECB390 - orange-ish
-
-export const DescriptionProfile = styled.div`
-font-size: 18px;
-@media ${Devices.laptop} {
-    font-size: 20px;
-    }
-    @media ${Devices.desktop} {
-      font-size: 25px;
-    }
 `
 
 export const SoMeIconLink = styled.i`
@@ -109,3 +78,8 @@ export const SoMeIcon = styled.a`
     transform: scale(1.2);
   }
 ` 
+
+//Colour scheme
+//#CEE5D0 - lightgreen
+//#FCF8E8 - lightbeige
+//#ECB390 - orange-ish

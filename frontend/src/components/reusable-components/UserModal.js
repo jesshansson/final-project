@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import user from 'reducers/user';
-import { Modal, Button } from 'react-bootstrap';
-import { PaigeWrapper } from './GlobalStyles';
+import { Modal, Button } from 'react-bootstrap'; //Ta bort button?
 import { API_URL } from 'utils/utils';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import styled from 'styled-components';
@@ -71,7 +70,6 @@ export const UserModal = ({userDetails}) => {
             dispatch(user.actions.setInstagram(null));
             dispatch(user.actions.setPresentation(null));
             dispatch(user.actions.setFacebook(null));
-            //window.alert(data.response)
             dispatch(user.actions.setError(data.response));
           });
         }
@@ -173,4 +171,4 @@ const ButtonOpen = styled(ButtonSave)`
     }`
   
 
-//https://react-bootstrap.github.io/components/modal/
+// NPM Modal from: https://react-bootstrap.github.io/components/modal/

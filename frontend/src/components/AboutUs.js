@@ -1,14 +1,11 @@
 import React from "react";
 import { Devices } from './reusable-components/GlobalStyles';
-import { Title } from "./reusable-components/GlobalStyles";
 import styled from "styled-components/macro";
-import { Description } from "./SingleLocation";
-import { DescriptionProfile, SoMeIcon, SoMeIconLink, Headline } from "./reusable-components/GlobalStyles"
+import { SoMeIcon, SoMeIconLink, Headline } from "./reusable-components/GlobalStyles"
 
 export const AboutUs = () => {
 
   return (
-
     <AboutUsWrapper>
       <AboutSection>
         <Headline>Om oss</Headline>
@@ -58,7 +55,6 @@ export const AboutUs = () => {
           </Container>
         </Card>
 
-
         <Card>
           <AboutUsImage src="https://i.postimg.cc/Nfd6YX0W/cicci.jpg" alt="Picture of Cecilia" width={300} height={300} />
           <Container>
@@ -80,18 +76,27 @@ export const AboutUs = () => {
         </Card>
       </CardWrapper>
     </AboutUsWrapper>
-
   )
 }
 
 
 const AboutUsWrapper = styled.section`
-background: linear-gradient(140deg, #FCF8E8 60%, #ECB390 60%);
- width: 100%;
- display: flex;
+  background: linear-gradient(140deg, #FCF8E8 60%, #ECB390 60%);
+  width: 100%;
+  display: flex;
   align-items: center;
- flex-direction: column;
- 
+  flex-direction: column;
+`
+const DescriptionProfile = styled.div`
+  font-size: 18px;
+
+  @media ${Devices.laptop} {
+    font-size: 20px;
+  }
+
+  @media ${Devices.desktop} {
+    font-size: 25px;
+  }
 `
 
 const CardWrapper = styled.div`
@@ -99,25 +104,26 @@ const CardWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
- width: 350px;
+  width: 350px;
+  margin-bottom: 40px;
 
-    @media ${Devices.laptop} {
-      flex-direction: row; 
-      width: 300px;
-    }
-    @media ${Devices.desktop} {
-     flex-direction: row;
+  @media ${Devices.laptop} {
+    flex-direction: row; 
+    width: 300px;
+  }
+  @media ${Devices.desktop} {
+    flex-direction: row;
     width: 200px;
-    }
+  }
 `
 
 const Card = styled.div`
-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-margin: 8px;
-display: flex; 
-justify-content: center;
-flex-direction: column;
-align-items: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 8px;
+  display: flex; 
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 `
 
 const AboutSection = styled.div`
@@ -130,44 +136,45 @@ const AboutSection = styled.div`
 
   @media ${Devices.laptop} {
     width: 50%;
-    }
-    @media ${Devices.desktop} {
-      width: 20%;
-    }
+  }
+  @media ${Devices.desktop} {
+    width: 20%;
+  }
 `
 
 const Container = styled.div`
-background-color: #FCF8E8;
-padding: 20px;
+  background-color: #FCF8E8;
+  padding: 20px;
 `
 const SmallTitle = styled.p`
  color: #ECB390;
  font-size: 17px;
  @media ${Devices.laptop} {
     font-size: 20px;
-    }
-    @media ${Devices.desktop} {
+  }
+  @media ${Devices.desktop} {
       font-size: 25px;
-    }
+  }
 `
 
 const NameTitle = styled.h2`
-font-size: 24px;
-font-family: 'Roboto', sans-serif;
-@media ${Devices.laptop} {
+  font-size: 24px;
+  font-family: 'Roboto', sans-serif;
+
+  @media ${Devices.laptop} {
     font-size: 30px;
     }
-    @media ${Devices.desktop} {
-      font-size: 36px;
+  @media ${Devices.desktop} {
+    font-size: 36px;
     }
 `
 
 const AboutUsImage = styled.img`
-object-fit: cover;
+  object-fit: cover;
 `
 
 const SoMeWrapper = styled.section`
-display: flex;
-flex-direction: row;
-justify-content: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 ` 

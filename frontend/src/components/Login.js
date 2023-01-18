@@ -4,14 +4,13 @@ import { useNavigate } from "react-router-dom";
 import { API_URL } from '../utils/utils';
 import user from '../reducers/user';
 import styled from "styled-components";
-import { H1, CenterFlexDiv, PaigeWrapper } from './reusable-components/GlobalStyles';
+import { H1 } from './reusable-components/GlobalStyles';
 import { Link } from 'react-router-dom';
 
 export const Login = ({ siteHeadline, siteType, submitBtn }) => {
   const [username, setUsername] = useState("");
-  //const [name, setName] = useState("");
+  //const [name, setName] = useState(""); //Om man ska fylla i namn också?
   const [password, setPassword] = useState("");
-  //const [mode, setMode] = useState("login"); //behövs?
   const [loginError, setLoginError] = useState("");
 
 
@@ -35,7 +34,7 @@ export const Login = ({ siteHeadline, siteType, submitBtn }) => {
       },
       body: JSON.stringify({ username: username, password: password })
     }
-    fetch(API_URL(siteType), options) //Ändrade mode till siteType
+    fetch(API_URL(siteType), options) 
       .then(response => response.json())
       .then(data => {
         if (data.success) {
@@ -65,8 +64,8 @@ export const Login = ({ siteHeadline, siteType, submitBtn }) => {
       })
   }
   return (
-
-    <PaigeWrapper>
+<>
+    <LoginWrapper>
       <LoginBox>
         <H1>{siteHeadline}</H1>
         <FormSubmit onSubmit={onFormSubmit}>
@@ -109,7 +108,8 @@ export const Login = ({ siteHeadline, siteType, submitBtn }) => {
         }
 
       </LoginBox>
-    </PaigeWrapper>
+    </LoginWrapper>
+    </>
   )
 }
 /*<Label htmlFor="name">Namn: </Label>
@@ -122,20 +122,36 @@ export const Login = ({ siteHeadline, siteType, submitBtn }) => {
   onChange={(e) => setName(e.target.value)}
 />*/
 
+const LoginWrapper = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(140deg, #FCF8E8 60%, #ECB390 60%);
+  height: 100vh;
+`
+
+const CenterFlexDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
+
 const LoginBox = styled.div`
   min-width: 45vw;
+  font-size: 17px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 15vh;
+  margin-top: 10vh;
   box-shadow: 0px 0px 7px 0px #888888;
   padding: 20px;
   background-color: #FEF5ED;
-  min-height: 35vh;
+  max-height: 80vh;
 `
 const ErrorText = styled.p`
-margin-top: 5px;
+  margin-top: 5px;
+  color: red;
 `
 const FormSubmit = styled.form`
   display: flex;
@@ -148,10 +164,6 @@ const Label = styled.label`
   font-weight: 600;
 `
 
-const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-`
 const Input = styled.input`
   border-radius: 3px;
   padding: 2px;
@@ -179,7 +191,7 @@ const Button = styled.button`
   background-color: #ECB390;
   border-radius: 5px;
   box-shadow: 0px 0px 7px 0px #888888;
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 600;
   text-align: center;
 
@@ -192,8 +204,12 @@ const Button = styled.button`
     font-size:17px;
   }
 `
-
+//Används ej?
 const SignupSignin = styled.div`
   padding: 1px;
   margin-bottom: 20px;
+`
+const Form = styled.form`
+  display: flex;
+  flex-direction: column;
 `

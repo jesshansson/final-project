@@ -43,13 +43,12 @@ export const Welcome = () => {
   )
 }
 
-const StyledLink = styled(Link)`
+const StyledLink = styled(Link)` //Funkar inte?
   transition: ease-out 0.2s;
 
   &:hover {
   transform: scale(1.1);
 };`
-
 
 export const WelcomeWrapper = styled.section`
   display: flex;
@@ -74,8 +73,9 @@ const SmallHeaderText = styled.p`
   font-size: 25px;
 `
 
-const Bigtext = styled.h4`
+const Bigtext = styled.p`
   font-family: "Montserrat";
+  line-height: normal;
   margin: 20px;
   font-size: 19px;
 
@@ -86,9 +86,10 @@ const Bigtext = styled.h4`
     font-size: 22px;
 }
 `
-const Smalltext = styled.h5`
+const Smalltext = styled.p`
   font-family: "Montserrat";
   padding: 20px;
+  line-height: normal;
   margin: 20px;
   font-size: 17px;
 
@@ -102,7 +103,7 @@ const Smalltext = styled.h5`
 
 const WelcomeText = styled.div`
   margin: 20px;
-  width: 90%;
+  width: 85%;
   text-align: center;
   border-radius: 10px;
   background-color: #FCF8E8;
@@ -114,8 +115,8 @@ const WelcomeText = styled.div`
 
 }
   @media ${Devices.laptop} {
-  width: 40%;
-  margin-top: 45px;
+  width: 50%;
+  margin-top: 30px;
 }
 `
 

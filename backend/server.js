@@ -7,11 +7,13 @@ import { UserSchema } from "./Schemas/user"
 import { NatureSchema } from "./Schemas/nature";
 import { CultureSchema } from "./Schemas/culture";
 import listEndpoints from "express-list-endpoints";
-import culture from "./data/culture.json";
-import nature from "./data/nature.json"
-import { EditUser, SingleUser, DeleteUser } from "./Userprofile";
+import culture from "./data/culture.json"; //Används?
+import nature from "./data/nature.json" //Används?
+import { EditUser, SingleUser, DeleteUser } from "./Userprofile"; //Används?
 
-const mongoUrl = process.env.MONGO_URL || "book";
+// Ta bort populate?
+
+const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/final-project";
 mongoose.connect(mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.Promise = Promise;
 
@@ -59,21 +61,21 @@ app.post("/register", async (req, res) => {
 const Nature = mongoose.model("Nature", NatureSchema);
 const Culture = mongoose.model("Culture", CultureSchema)
 
-if (true) {
-  const resetDatabase = async () => {
-    await Culture.deleteMany();
-    culture.forEach(singleCulture => {
-      const newCulture = new Culture(singleCulture);
-      newCulture.save()
-    })
-    await Nature.deleteMany();
-    nature.forEach(singleNature => {
-      const newNature = new Nature(singleNature)
-      newNature.save()
-    })
-  }
-  resetDatabase();
-}
+// if (true) {
+//   const resetDatabase = async () => {
+//     await Culture.deleteMany();
+//     culture.forEach(singleCulture => {
+//       const newCulture = new Culture(singleCulture);
+//       newCulture.save()
+//     })
+//     await Nature.deleteMany();
+//     nature.forEach(singleNature => {
+//       const newNature = new Nature(singleNature)
+//       newNature.save()
+//     })
+//   }
+//   resetDatabase();
+// }
 
 //Register new user
 app.post("/register", async (req, res) => {
@@ -141,39 +143,6 @@ app.post("/login", async (req, res) => {
   }
 });
 
-//To be able to bookmark a location
-app.post("/location/:locationId/bookmark/:userId", async (req, res) => {
-  const { locationId, userId } = req.params
-  try {
-    const locationVisitor = await User.findById(userId)
-    if (locationVisitor) {
-      const bookmarkedLocation = await Culture.findByIdAndUpdate(
-        locationId,
-        {
-          $push: { visitors: locationVisitor }
-        },
-        {
-          new: true
-        }
-      )
-      res.status(201).json({
-        response: bookmarkedLocation,
-        success: true
-      })
-    } else {
-      res.status(404).json({
-        response: "No visitor bookmarked location",
-        success: false
-      })
-    }
-  } catch (error) {
-    res.status(400).json({
-      response: "Super wrong",
-      success: false
-    })
-  }
-})
-
 // Authenticated endpoint - accesible after logged in
 const authenticateUser = async (req, res, next) => {
   const accessToken = req.header("Authorization");
@@ -195,12 +164,81 @@ const authenticateUser = async (req, res, next) => {
   }
 }
 
+//To be able to bookmark a location
+//app.post("/location/:locationId/bookmark/:userId", authenticateUser)
+app.post("/location/:locationId/bookmarkCulture/:userId", async (req, res) => {
+  const { locationId, userId } = req.params
+  try {
+    const locationVisitor = await User.findById(userId)
+    if (locationVisitor) {
+      const bookmarkedLocationCulture = await Culture.findByIdAndUpdate(
+        locationId,
+        {
+          $push: { visitors: locationVisitor }
+        },
+        {
+          new: true
+        }
+      )
+      res.status(201).json({
+        response: bookmarkedLocationCulture,
+        success: true
+      })
+    } else {
+      res.status(404).json({
+        response: "No visitor bookmarked location",
+        success: false
+      })
+    }
+  } catch (error) {
+    res.status(400).json({
+      response: "Super wrong", //Ändra?
+      success: false
+    })
+  }
+})
+
+//app.post("/location/:locationId/bookmark/:userId", authenticateUser)
+app.post("/location/:locationId/bookmarkNature/:userId", async (req, res) => {
+  const { locationId, userId } = req.params
+  try {
+    const locationVisitor = await User.findById(userId)
+    if (locationVisitor) {
+      const bookmarkedLocationNature = await Nature.findByIdAndUpdate(
+        locationId,
+        {
+          $push: { visitors: locationVisitor }
+        },
+        {
+          new: true
+        }
+      )
+
+      res.status(201).json({
+        response: bookmarkedLocationNature,
+        success: true
+      })
+    } else {
+      res.status(404).json({
+        response: "No visitor bookmarked location",
+        success: false
+      })
+    }
+  } catch (error) {
+    res.status(400).json({
+      response: "Super wrong",
+      success: false
+    })
+  }
+})
+
 // When user is authenticated they are directed to this endpoint
 app.get("/profile/:id", authenticateUser)
 app.get("/profile/:id", async (req, res) => {
   const { id } = req.params
   try {
-    const singleUser = await User.findById(id).populate("culture")
+    const singleUser = await User.findById(id)
+    //.populate("culture") //Ta bort?
     res.status(200).json({
       success: true,
       response: singleUser
@@ -217,7 +255,7 @@ app.patch("/profile/:id/update", async (req, res) => {
   const updatedProfileInfo = req.body
   const { id } = req.params
   try {
-    // const { email, name, age, presentation, facebook, instagram, bookmark, createdAt } = req.body
+    // const { email, name, age, presentation, facebook, instagram, bookmark, createdAt } = req.body //Ta bort?
 
     console.log(req.body)
     const updateProfile = await User.findByIdAndUpdate(
@@ -273,7 +311,7 @@ app.delete("/profile/:id/delete", async (req, res) => {
 
 app.get("/", (req, res) => {
   res.send([
-    { "test": "test" }
+    { "Welcome!": "See all endpoints at /endpoints. See live frontend at https://kulturligtvis.netlify.app/" }
   ]);
 });
 
@@ -284,20 +322,22 @@ app.get("/endpoints", (req, res) => {
 
 app.get("/locations", async (req, res) => {
   const nature = await Nature.find({})
-  const culture = await Culture.find({}).populate("visitors", {
-    username: 1,
-    name: 1
-  })
+  const culture = await Culture.find({})
+  // .populate("visitors", {
+  //   username: 1,
+  //   name: 1
+  // })
   res.status(200).json({ success: true, response: { culture, nature } })
 });
 
 app.get("/locations/:id", async (req, res) => {
   try {
     const singleLocationNature = await Nature.findById({ _id: req.params.id })
-    const singleLocationCulture = await Culture.findById({ _id: req.params.id }).populate('visitors', {
-      username: 1,
-      name: 1
-    })
+    const singleLocationCulture = await Culture.findById({ _id: req.params.id })
+    // .populate('visitors', {
+    //   username: 1,
+    //   name: 1
+    // })
     if (singleLocationCulture || singleLocationNature) {
       res.status(200).json({
         success: true,
@@ -316,9 +356,6 @@ app.get("/locations/:id", async (req, res) => {
     })
   }
 })
-
-
-
 
 
 // Start the server

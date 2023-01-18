@@ -59,11 +59,11 @@ export const CultureSchema = new mongoose.Schema({
   opening_hours_sun: {
     type: String
   }, 
-  visitors: [
+   visitors: [
     {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "User"
-    }
-  ]
+       type: mongoose.Schema.Types.ObjectId,
+       ref: "User"
+     }
+   ]
 
 })
