@@ -1,6 +1,7 @@
-import React, { useState, useParams } from 'react'; //Ta bort useParams?
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, NavLink } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import user from "reducers/user";
 import styled from "styled-components/macro";
 import Hamburger from 'hamburger-react'
@@ -17,7 +18,7 @@ export const Navbar = () => {
   return (
     <Nav>
       <LogoTitle>
-        <Heading>Kulturligtvis</Heading>
+        <Link to="/"><Heading> Kulturligtvis </Heading></Link>
       </LogoTitle>
       <HamburgerButton>
         <Hamburger
@@ -67,7 +68,7 @@ const Nav = styled.div`
 
   a:hover {
   color: black;
-  transform: scale(1.2);
+  transform: scale(1.1);
   transition: 0.3s;
   }
 `
@@ -75,6 +76,7 @@ const NavLinkLogOut = styled.a`
   cursor: pointer;
   margin-right: 5px;
 `
+
 
 const LogoTitle = styled.div`
   display: flex;
@@ -93,6 +95,8 @@ const LogoTitle = styled.div`
 const Heading = styled.h1`
   font-family: 'Girassol', cursive;
   font-size: 55px;
+ 
+  
 
   @media ${Devices.laptop} {
     font-size: 60px;
@@ -132,3 +136,4 @@ const Menu = styled.div`
     justify-content: flex-end;
   }
 `
+

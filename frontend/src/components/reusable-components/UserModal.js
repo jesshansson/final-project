@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import user from 'reducers/user';
-import { Modal, Button } from 'react-bootstrap'; //Ta bort button?
+import { Modal } from 'react-bootstrap'; 
 import { API_URL } from 'utils/utils';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import styled from 'styled-components';

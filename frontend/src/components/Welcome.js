@@ -1,7 +1,7 @@
 import React from "react";
 import user from "reducers/user";
 import styled from "styled-components/macro";
-import { Devices } from './reusable-components/GlobalStyles';
+import { Devices, StyledLink } from './reusable-components/GlobalStyles';
 import { Link } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 
@@ -43,12 +43,7 @@ export const Welcome = () => {
   )
 }
 
-const StyledLink = styled(Link)` //Funkar inte?
-  transition: ease-out 0.2s;
 
-  &:hover {
-  transform: scale(1.1);
-};`
 
 export const WelcomeWrapper = styled.section`
   display: flex;
@@ -65,7 +60,7 @@ const WelcomeHeader = styled.h1`
   @media ${Devices.tablet} {
   margin-bottom: 5px;
   font-size: 65px;
-}
+  }
 `
 const SmallHeaderText = styled.p`
   font-family: "Montserrat";
@@ -81,10 +76,10 @@ const Bigtext = styled.p`
 
   @media ${Devices.tablet} {
     font-size: 20px;
-}
+  }
   @media ${Devices.laptop} {
     font-size: 22px;
-}
+  }
 `
 const Smalltext = styled.p`
   font-family: "Montserrat";
@@ -95,10 +90,10 @@ const Smalltext = styled.p`
 
   @media ${Devices.tablet} {
     font-size: 19px;
-}
+  }
   @media ${Devices.laptop} {
     font-size: 20px;
-}
+  }
 `
 
 const WelcomeText = styled.div`
@@ -112,12 +107,12 @@ const WelcomeText = styled.div`
 
   @media ${Devices.tablet} {
   width: 80%;
+  }
 
-}
   @media ${Devices.laptop} {
   width: 50%;
   margin-top: 30px;
-}
+  }
 `
 
 
