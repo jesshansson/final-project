@@ -166,12 +166,12 @@ const authenticateUser = async (req, res, next) => {
 
 //To be able to bookmark a location
 //app.post("/location/:locationId/bookmarkCulture/:userId", authenticateUser)
-app.post("/location/:locationId/bookmarkCulture/:userId", async (req, res) => {
+app.patch("/location/:locationId/bookmarkCulture/:userId", async (req, res) => {
   const { locationId, userId } = req.params
   try {
     const locationVisitor = await User.findById(userId)
-    const locationPlace = await Culture.findById(locationId)
-    if (locationVisitor && locationPlace) {
+    const locationPlaceCulture = await Culture.findById(locationId)
+    if (locationVisitor && locationPlaceCulture) {
       const bookmarkedLocationCulture = await Culture.findByIdAndUpdate(
         locationId,
         {
@@ -183,7 +183,7 @@ app.post("/location/:locationId/bookmarkCulture/:userId", async (req, res) => {
       )
       await User.findByIdAndUpdate(
         userId, {
-        $push: { bookmarkCulture: locationPlace }
+        $push: { bookmarkCulture: locationPlaceCulture }
       }
       )
       res.status(201).json({
@@ -209,7 +209,8 @@ app.post("/location/:locationId/bookmarkNature/:userId", async (req, res) => {
   const { locationId, userId } = req.params
   try {
     const locationVisitor = await User.findById(userId)
-    if (locationVisitor) {
+    const locationPlaceNature = await Nature.findById(locationId)
+    if (locationVisitor && locationPlaceNature) {
       const bookmarkedLocationNature = await Nature.findByIdAndUpdate(
         locationId,
         {
@@ -219,7 +220,109 @@ app.post("/location/:locationId/bookmarkNature/:userId", async (req, res) => {
           new: true
         }
       )
+      await User.findByIdAndUpdate(
+        userId, {
+        $push: { bookmarkNature: locationPlaceNature }
+      }
+      )
+      res.status(201).json({
+        response: bookmarkedLocationNature,
+        success: true
+      })
 
+    } else if ((locationVisitor && !locationPlaceNature) || (!locationVisitor && locationPlaceNature)) {
+      const bookmarkedLocationNature = await Nature.findByIdAndUpdate(
+        locationId,
+        {
+          $pull: { visitors: locationVisitor }
+        },
+        {
+          new: true
+        }
+      )
+      await User.findByIdAndUpdate(
+        userId, {
+        $pull: { bookmarkNature: locationPlaceNature }
+      }
+      )
+      res.status(201).json({
+        response: bookmarkedLocationNature,
+        success: true
+      })
+
+    } else {
+      res.status(404).json({
+        response: "No visitor bookmarked location",
+        success: false
+      })
+    }
+  } catch (error) {
+    res.status(400).json({
+      response: "Super wrong",
+      success: false
+    })
+  }
+})
+
+//To be able to delete a bookmark 
+app.delete("/location/:locationId/bookmarkCulture/:userId", async (req, res) => {
+  const { locationId, userId } = req.params
+  try {
+    const locationVisitor = await User.findById(userId)
+    const locationPlaceCulture = await Culture.findById(locationId)
+    if (locationVisitor && locationPlaceCulture) {
+      const bookmarkedLocationCulture = await Culture.findByIdAndUpdate(
+        locationId,
+        {
+          visitors: locationVisitor
+        },
+        {
+          new: true
+        }
+      )
+      await User.findByIdAndUpdate(
+        userId, {
+        bookmarkCulture: locationPlaceCulture
+      }
+      )
+      res.status(201).json({
+        response: bookmarkedLocationCulture,
+        success: true
+      })
+    } else {
+      res.status(404).json({
+        response: "No visitor bookmarked location",
+        success: false
+      })
+    }
+  } catch (error) {
+    res.status(400).json({
+      response: "Super wrong",
+      success: false
+    })
+  }
+})
+
+app.delete("/location/:locationId/bookmarkNature/:userId", async (req, res) => {
+  const { locationId, userId } = req.params
+  try {
+    const locationVisitor = await User.findById(userId)
+    const locationPlaceNature = await Nature.findById(locationId)
+    if (locationVisitor && locationPlaceNature) {
+      const bookmarkedLocationNature = await Nature.findByIdAndUpdate(
+        locationId,
+        {
+          visitors: locationVisitor
+        },
+        {
+          new: true
+        }
+      )
+      await User.findByIdAndUpdate(
+        userId, {
+        bookmarkNature: locationPlaceNature
+      }
+      )
       res.status(201).json({
         response: bookmarkedLocationNature,
         success: true
@@ -237,6 +340,8 @@ app.post("/location/:locationId/bookmarkNature/:userId", async (req, res) => {
     })
   }
 })
+
+
 
 // When user is authenticated they are directed to this endpoint
 app.get("/profile/:id", authenticateUser)
