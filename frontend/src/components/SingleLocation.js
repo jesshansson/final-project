@@ -95,7 +95,8 @@ export const SingleLocation = () => {
             <SingleLocationDivRight>
               <p>Jag vill gå! Kontakta mig ❤️</p>
               {idOfUserWhoWantsToGo.map((people) => (
-                <Users>{people}</Users>
+                <Users><Link to={`/profile/${idOfUserWhoWantsToGo}`}> {people}</Link></Users>
+                
               ))}
             </SingleLocationDivRight>
           </SingleLocationDivs>
