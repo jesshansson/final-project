@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react'
-import { useSelector, useDispatch, batch } from "react-redux";
+import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import styled from "styled-components";
+//import { PopUp } from "./reusable-components/PopUp";
+import styled, { ThemeConsumer } from "styled-components";
 import { Devices } from './reusable-components/GlobalStyles';
 import { UserModal } from './reusable-components/UserModal';
-import user from 'reducers/user';
 
 export const UserProfile = () => {
-  const [userDetails, setUserDetails] = useState({})
+  const [updateUserProfile, setUpdateUserProfile] = useState([])
+  const [userDetails, setUserDetails] = useState([])
   const accessToken = useSelector((store) => store.user.accessToken);
   const username = useSelector((store) => store.user.username);
   const name = useSelector((store) => store.user.name);
@@ -18,7 +19,8 @@ export const UserProfile = () => {
   const instagram = useSelector((store) => store.user.instagram)
   const navigate = useNavigate();
   const { id } = useParams()
-  const dispatch = useDispatch();
+  console.log("id", id)
+
   useEffect(() => {
     if (!accessToken) {
       navigate("/unauthorized");
@@ -109,7 +111,6 @@ const ProfileWrapper = styled.section`
   display: flex;
   align-items: center;
   flex-direction: column;
-  background: linear-gradient(140deg, #FCF8E8 60%, #ECB390 60%);
 `
 
 const Card = styled.section`
@@ -117,10 +118,6 @@ const Card = styled.section`
   margin: 20px;
   padding: 20px 40px;
   text-align: center;
-  background-color: #FCF8E8;
-  border: 2px solid #e8894f;
-  box-shadow: 5px 3px 3px #e8894f;
-  border-radius: 10px;
   
   @media ${Devices.tablet} {
     width: 65%;
@@ -150,7 +147,7 @@ export const DescriptionProfile2 = styled.p`
     margin: 30px 80px;
   }
 `
-const SoMeWrapperProfile = styled.section`
+export const SoMeWrapperProfile = styled.section`
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -162,7 +159,7 @@ const SoMeWrapperProfile = styled.section`
   }
 `
 
-const SoMeIconLinkProfile = styled.i`
+export const SoMeIconLinkProfile = styled.i`
   display: flex;
   margin: 5px;
   font-size: 30px;
@@ -181,7 +178,7 @@ const SoMeIconLinkProfile = styled.i`
   }
 `
 
-const SoMeIconProfile = styled.a`
+export const SoMeIconProfile = styled.a`
   text-decoration: none;
   font-size: 22px;
   color: black;
@@ -190,9 +187,9 @@ const SoMeIconProfile = styled.a`
     opacity: 0.7;
     transform: scale(1.2);
   }
-`
+` 
 
-const ContactButton = styled.button`
+export const ContactButton = styled.button`
   border: none;
   outline: 0;
   margin-top: 15px;
@@ -219,5 +216,4 @@ const ContactButton = styled.button`
     padding: 20px;
   }
 `
-
 

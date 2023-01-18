@@ -7,6 +7,8 @@ import styled from "styled-components/macro";
 import { useParams } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import googleIcon from "./googleIcon.png"
+import { useDispatch, useSelector } from "react-redux";
+import user from "reducers/user";
 
 export const SingleLocation = () => {
   const [toggleBookmark, setToggleBookmark] = useState(false)

@@ -75,6 +75,19 @@ export const AboutUs = () => {
           </Container>
         </Card>
       </CardWrapper>
+      <AboutSite>
+        <Headline>Om Kulturligtvis</Headline>
+        <DescriptionProfile>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+           labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
+           laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+             non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </DescriptionProfile>
+          <NameTitle>Vi har lånat följande ikoner</NameTitle>
+          <ul><a target="_blank" href="https://icons8.com/icon/112792/google-maps-old">Google Maps Old</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a></ul>
+          <ul><a target="_blank" href="https://icons8.com/icon/112792/google-maps-old">Google Maps Old</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a></ul>
+          <ul><a target="_blank" href="https://icons8.com/icon/112792/google-maps-old">Google Maps Old</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a></ul>
+        </AboutSite>
     </AboutUsWrapper>
   )
 }
@@ -178,3 +191,12 @@ const SoMeWrapper = styled.section`
   flex-direction: row;
   justify-content: center;
 ` 
+const AboutSite = styled.section`
+ width: 350px;
+ @media ${Devices.laptop} {
+      width: 800px;
+    }
+    @media ${Devices.desktop} {
+    width: 1000px;
+    }
+`
