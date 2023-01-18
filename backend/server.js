@@ -165,7 +165,7 @@ const authenticateUser = async (req, res, next) => {
 }
 
 //To be able to bookmark a location
-//app.post("/location/:locationId/bookmark/:userId", authenticateUser)
+//app.post("/location/:locationId/bookmarkCulture/:userId", authenticateUser)
 app.post("/location/:locationId/bookmarkCulture/:userId", async (req, res) => {
   const { locationId, userId } = req.params
   try {
@@ -198,7 +198,7 @@ app.post("/location/:locationId/bookmarkCulture/:userId", async (req, res) => {
   }
 })
 
-//app.post("/location/:locationId/bookmark/:userId", authenticateUser)
+//app.post("/location/:locationId/bookmarkNature/:userId", authenticateUser)
 app.post("/location/:locationId/bookmarkNature/:userId", async (req, res) => {
   const { locationId, userId } = req.params
   try {

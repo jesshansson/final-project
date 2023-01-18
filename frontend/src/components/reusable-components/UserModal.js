@@ -17,9 +17,10 @@ export const UserModal = ({userDetails}) => {
   // const accessToken = useSelector((store) => store.user.accessToken);
 
   const userId = useSelector((store) => store.user.id)
-  const {age, name, email,facebook,instagram,presentation,accessToken} = userDetails
+  const {age, name, email,facebook,instagram,presentation,accessToken, profileImage} = userDetails
   const [show, setShow] = useState(false);
   const [userData, setUserData] = useState({});
+  //const ImageUrl =  URL.createObjectURL(file);
 
   const dispatch = useDispatch()
   useEffect(()=> {
@@ -60,6 +61,7 @@ export const UserModal = ({userDetails}) => {
             dispatch(user.actions.setPresentation(data.response.presentation));
             dispatch(user.actions.setFacebook(data.response.facebook));
             dispatch(user.actions.setError(null));
+            dispatch(user.actions.setProfileImage(data.response.profileImage));
           });
         } else {
           batch(() => {
@@ -70,6 +72,7 @@ export const UserModal = ({userDetails}) => {
             dispatch(user.actions.setInstagram(null));
             dispatch(user.actions.setPresentation(null));
             dispatch(user.actions.setFacebook(null));
+            dispatch(user.actions.setProfileImage(null));
             dispatch(user.actions.setError(data.response));
           });
         }
@@ -94,7 +97,7 @@ export const UserModal = ({userDetails}) => {
           <label id="profilepic" htmlFor="profilepic">
               Profilbild:
             </label>
-            <Input type="button" defaultValue={userDetails.profilepic} onChange={(e) => setUserData({ ...userData, profilepic: e.target.value })} />
+            <Input type="file" accept="image/png,image/jpeg,image/gif" onChange={e => setUserData({ ...userData, profileImage: e.target.value })}  />
           <label id="name" htmlFor="name">
               Namn:
             </label>
@@ -108,10 +111,10 @@ export const UserModal = ({userDetails}) => {
             <Input type="number" name="age" defaultValue={age} onChange={(e) => setUserData({ ...userData, age: e.target.value })} />
             <label id="facebook" htmlFor="facebook">Facebook:
             </label>
-            <Input type="text" name="facebook" defaultValue={facebook} onChange={(e) => setUserData({ ...userData, facebook: e.target.value })} />
+            <Input type="text" name="facebook" placeholder="Namn" defaultValue={facebook} onChange={(e) => setUserData({ ...userData, facebook: e.target.value })} />
             <label id="instagram" htmlFor="instagram">Instagram:
             </label>
-            <Input type="text" name="instagram" defaultValue={instagram} onChange={(e) => setUserData({ ...userData, instagram: e.target.value })} />
+            <Input type="text" name="instagram" placeholder="Användarnamn"  defaultValue={instagram} onChange={(e) => setUserData({ ...userData, instagram: e.target.value })} />
             <label id="presentation" htmlFor="presentation">Presentation:
             </label>
             <textarea type="text" name="presentation" defaultValue={presentation} onChange={(e) => setUserData({ ...userData, presentation: e.target.value })} />

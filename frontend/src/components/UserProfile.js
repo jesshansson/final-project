@@ -16,6 +16,7 @@ export const UserProfile = () => {
   const presentation = useSelector((store) => store.user.presentation)
   const facebook = useSelector((store) => store.user.facebook)
   const instagram = useSelector((store) => store.user.instagram)
+  const profileImage = useSelector((store) => store.user.profileImage)
   const navigate = useNavigate();
   const { id } = useParams()
   const dispatch = useDispatch();
@@ -47,6 +48,7 @@ export const UserProfile = () => {
           dispatch(user.actions.setInstagram(data.response.instagram));
           dispatch(user.actions.setFacebook(data.response.facebook));
           dispatch(user.actions.setError(null));
+          dispatch(user.actions.setProfileImage(data.response.profileImage));
         });
         console.log(userDetails);
       })
@@ -60,7 +62,7 @@ export const UserProfile = () => {
           <UserModalButton>
             <UserModal accessToken={accessToken} userDetails={userDetails} />
           </UserModalButton>
-          <ProfileImg src="https://th.bing.com/th/id/OIP.IB0XUg8PV5FGxOf0WWDdOQHaHa?pid=ImgDet&rs=1" alt="John" />
+          <ProfileImg src={profileImage} alt="Profilbild" />
           <h1>{name}</h1>
           <h2>{username}</h2>
           <Age>{age} år</Age>

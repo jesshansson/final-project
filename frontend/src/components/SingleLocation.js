@@ -36,9 +36,8 @@ export const SingleLocation = () => {
     // const [iWantToGo, SetIWantToGo] = useState()
 
 
-    //With useEffect: invalid Hook call
+    //With useEffect: invalid Hook call. Can´t use useEffect inside an onClick-function
     //Without useEffect: failed to load resource: bad request (400)
-    // useEffect(() => {
       const options = {
         method: "POST",
         headers: {
@@ -46,9 +45,9 @@ export const SingleLocation = () => {
           // "Authorization": accessToken
         },
             //Something needed here?
-      body: JSON.stringify(locationId, userId)
+      body: JSON.stringify({locationId, userId})
       }
-      fetch(`https://final-project-m2dbj6puqa-lz.a.run.app/location/${locationId}/bookmarkCulture/${userId}`, options)
+      fetch(`https://final-project-m2dbj6puqa-lz.a.run.app/location/${id}/bookmarkCulture/${visitorId}`, options)
         .then(res => res.json())
         .then((data) => {
           // SetIWantToGo(data.response.visitors)
@@ -58,7 +57,6 @@ export const SingleLocation = () => {
           // }
         })
         .catch(error => console.error(error))
-      // }, []);
   }
 
 
@@ -125,7 +123,7 @@ export const SingleLocation = () => {
                 <Image src={googleIcon} style={{ width: 220, height: 220 }} alt="googlemaps icon" />
               </GoogleLink>
               <LocationDetails><Bold>Närmaste station:</Bold> {details.closestStation}</LocationDetails>
-              <LocationDetails><Bold>Tillgång till café:</Bold> {details.cafe} </LocationDetails>
+            <LocationDetails><Bold>Tillgång till café:</Bold> {details.cafe} </LocationDetails>
               <LocationDetails><Bold>Tillgång till grillplats:</Bold> {details.barbecuePossibility} </LocationDetails>
               <LocationDetails><Bold>Tillgång till toalett:</Bold> {details.toilet} </LocationDetails>
             </SingleLocationDivMiddle>
@@ -136,7 +134,7 @@ export const SingleLocation = () => {
             <SingleLocationDivRight>
               <p>Jag vill gå! Kontakta mig ❤️</p>
               {idOfUserWhoWantsToGo.map((people) => (
-                <Users><Link to={`/profile/${idOfUserWhoWantsToGo}`}> {people}</Link></Users>
+                <Users><StyledLink to={`/profile/${idOfUserWhoWantsToGo}`}> {people}</StyledLink></Users>
               ))}
             </SingleLocationDivRight>
           </SingleLocationDivs>
