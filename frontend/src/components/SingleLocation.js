@@ -2,12 +2,10 @@ import React from "react";
 import { Devices, StyledLink } from './reusable-components/GlobalStyles';
 import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect } from "react";
-import user from "reducers/user";
 import styled from "styled-components/macro";
 import { useParams } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import googleIcon from "./googleIcon.png"
-import { useDispatch, useSelector } from "react-redux";
 import user from "reducers/user";
 
 export const SingleLocation = () => {
@@ -48,9 +46,9 @@ export const SingleLocation = () => {
           // "Authorization": accessToken
         },
             //Something needed here?
-        body: JSON.stringify({ body: visitors })
+      body: JSON.stringify(locationId, userId)
       }
-      fetch(`http://localhost:8080/location/${locationId}/bookmarkCulture/${userId}`, options)
+      fetch(`https://final-project-m2dbj6puqa-lz.a.run.app/location/${locationId}/bookmarkCulture/${userId}`, options)
         .then(res => res.json())
         .then((data) => {
           // SetIWantToGo(data.response.visitors)
@@ -69,7 +67,6 @@ export const SingleLocation = () => {
 
   if (filteredLocations.includes("genre")) {
     return (
-      <>
         <LocationWrapper>
           <SingleLocationName> {details.name} </SingleLocationName>
           <Description>{details.description}</Description>
@@ -105,16 +102,14 @@ export const SingleLocation = () => {
             <SingleLocationDivRight>
               <p>Jag vill gå! Kontakta mig ❤️</p>
               {idOfUserWhoWantsToGo.map((people) => (
-                <Users><Link to={`/profile/${idOfUserWhoWantsToGo}`}> {people}</Link></Users>   
+                <Users><StyledLink to={`/profile/${idOfUserWhoWantsToGo}`}> {people}</StyledLink></Users>   
               ))}
             </SingleLocationDivRight>
           </SingleLocationDivs>
         </LocationWrapper>
-      </>
     )
   } else {
     return (
-      <>
         <LocationWrapper>
           <SingleLocationName> <a href={details.website} target="_blank">{details.name}</a></SingleLocationName>
           <Description>{details.description}</Description>
@@ -146,7 +141,6 @@ export const SingleLocation = () => {
             </SingleLocationDivRight>
           </SingleLocationDivs>
         </LocationWrapper>
-      </>
     )
   }
 }
@@ -188,6 +182,7 @@ const SingleLocationDivs = styled.div`
   justify-items: center;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
+  margin-bottom: 25px;
 
 @media ${Devices.tablet} {
   grid-template-columns: 1fr;

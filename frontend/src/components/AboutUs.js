@@ -77,16 +77,18 @@ export const AboutUs = () => {
       </CardWrapper>
       <AboutSite>
         <Headline>Om Kulturligtvis</Headline>
-        <DescriptionProfile>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-           labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
-           laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-             non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        <DescriptionProfile>Kulturligtvis publicerades i januari 2023 som en del av Technigos 
+          utbildning Web Development. För vår backend har vi använt Node.js, MongoDB och Google 
+          Cloud som server. För vår frontend har vi valt att arbeta med React, Redux, Styled Components samt JSX.
           </DescriptionProfile>
-          <NameTitle>Vi har lånat följande ikoner</NameTitle>
-          <ul><a target="_blank" href="https://icons8.com/icon/112792/google-maps-old">Google Maps Old</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a></ul>
-          <ul><a target="_blank" href="https://icons8.com/icon/112792/google-maps-old">Google Maps Old</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a></ul>
-          <ul><a target="_blank" href="https://icons8.com/icon/112792/google-maps-old">Google Maps Old</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a></ul>
+          <IconTitle>Vi har lånat följande ikoner:</IconTitle>
+          <a target="_blank" href="https://icons8.com/icon/112792/google-maps-old">Google Maps Old</a>,  
+          <a target="_blank" href="https://icons8.com/icon/6c5aLYi4Ayel/physical-gallery"> Physical Gallery</a>, 
+          <a target="_blank" href="https://icons8.com/icon/h5VJ2aUGETKL/theatre-stage"> Theatre Stage</a>,
+          <a target="_blank" href="https://icons8.com/icon/13483/theatre-mask"> Theatre Mask</a>,
+          <a target="_blank" href="https://icons8.com/icon/JkMPhlUr4eQR/lake"> Lake</a>, 
+          <a target="_blank" href="https://icons8.com/icon/17605/museum"> Museum  </a>
+            icons by  <a target="_blank" href="https://icons8.com"> Icons8</a>
         </AboutSite>
     </AboutUsWrapper>
   )
@@ -193,6 +195,7 @@ const SoMeWrapper = styled.section`
 ` 
 const AboutSite = styled.section`
  width: 350px;
+ margin-bottom: 30px;
  @media ${Devices.laptop} {
       width: 800px;
     }
@@ -200,3 +203,8 @@ const AboutSite = styled.section`
     width: 1000px;
     }
 `
+
+const IconTitle = styled.p`
+font-size: 17px;
+margin-bottom: 5px;
+margin-top: 10px;`

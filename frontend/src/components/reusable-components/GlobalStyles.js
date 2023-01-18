@@ -80,9 +80,11 @@ export const SoMeIcon = styled.a`
   }
 ` 
 export const StyledLink = styled(Link)`
-:hover{
   text-decoration: none;
-}
+  
+  :hover{
+  text-decoration: underline;
+  }
 `
 //Colour scheme
 //#CEE5D0 - lightgreen

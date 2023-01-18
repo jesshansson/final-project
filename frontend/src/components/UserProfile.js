@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch, batch } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-//import { PopUp } from "./reusable-components/PopUp";
-import styled, { ThemeConsumer } from "styled-components";
+import styled from "styled-components";
 import { Devices } from './reusable-components/GlobalStyles';
 import { UserModal } from './reusable-components/UserModal';
+import user from 'reducers/user';
 
 export const UserProfile = () => {
-  const [updateUserProfile, setUpdateUserProfile] = useState([])
-  const [userDetails, setUserDetails] = useState([])
+  const [userDetails, setUserDetails] = useState({})
   const accessToken = useSelector((store) => store.user.accessToken);
   const username = useSelector((store) => store.user.username);
   const name = useSelector((store) => store.user.name);
@@ -19,8 +18,7 @@ export const UserProfile = () => {
   const instagram = useSelector((store) => store.user.instagram)
   const navigate = useNavigate();
   const { id } = useParams()
-  console.log("id", id)
-
+  const dispatch = useDispatch();
   useEffect(() => {
     if (!accessToken) {
       navigate("/unauthorized");
@@ -97,7 +95,6 @@ const ProfileImg = styled.img`
   margin: 20px;
   border-radius: 50%;
   border: 3px solid #ecb390;
-
   @media ${Devices.tablet} {
   width: 25vw;
     }
@@ -111,6 +108,7 @@ const ProfileWrapper = styled.section`
   display: flex;
   align-items: center;
   flex-direction: column;
+  background: linear-gradient(140deg, #FCF8E8 60%, #ECB390 60%);
 `
 
 const Card = styled.section`
@@ -118,6 +116,10 @@ const Card = styled.section`
   margin: 20px;
   padding: 20px 40px;
   text-align: center;
+  background-color: #FCF8E8;
+  border: 2px solid #e8894f;
+  box-shadow: 5px 3px 3px #e8894f;
+  border-radius: 10px;
   
   @media ${Devices.tablet} {
     width: 65%;
@@ -130,7 +132,6 @@ const Age = styled.p`
   color: #ecb390;
   font-weight: 600;
   font-size: 18px;
-
   @media ${Devices.tablet} {
     font-size: 20px;
   }
@@ -139,7 +140,6 @@ const Age = styled.p`
 export const DescriptionProfile2 = styled.p`
   font-size: 18px;
   margin: 30px;
-
   @media ${Devices.tablet} {
     margin: 35px;
   }
@@ -147,7 +147,7 @@ export const DescriptionProfile2 = styled.p`
     margin: 30px 80px;
   }
 `
-export const SoMeWrapperProfile = styled.section`
+const SoMeWrapperProfile = styled.section`
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -159,37 +159,34 @@ export const SoMeWrapperProfile = styled.section`
   }
 `
 
-export const SoMeIconLinkProfile = styled.i`
+const SoMeIconLinkProfile = styled.i`
   display: flex;
   margin: 5px;
   font-size: 30px;
   color: #ECB390;
   padding: 0px 10px;
   
-
   @media ${Devices.tablet} {
     font-size: 30px;
     padding: 0px 15px;
   }
-
   @media ${Devices.laptop} {
     font-size: 40px;
     margin-bottom: 20px;
   }
 `
 
-export const SoMeIconProfile = styled.a`
+const SoMeIconProfile = styled.a`
   text-decoration: none;
   font-size: 22px;
   color: black;
-
   :hover {
     opacity: 0.7;
     transform: scale(1.2);
   }
-` 
+`
 
-export const ContactButton = styled.button`
+const ContactButton = styled.button`
   border: none;
   outline: 0;
   margin-top: 15px;
@@ -202,18 +199,14 @@ export const ContactButton = styled.button`
   width: 100%;
   font-size: 30px;
   font-family: 'Caveat', cursive;
-
   :hover {
     opacity: 0.7;
   }
-
   @media ${Devices.tablet} {
     padding: 15px;
   }
-
   @media ${Devices.laptop} {
     font-size: 40px;
     padding: 20px;
   }
 `
-
