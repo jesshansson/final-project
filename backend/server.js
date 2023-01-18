@@ -170,7 +170,8 @@ app.post("/location/:locationId/bookmarkCulture/:userId", async (req, res) => {
   const { locationId, userId } = req.params
   try {
     const locationVisitor = await User.findById(userId)
-    if (locationVisitor) {
+    const locationPlace = await Culture.findById(locationId)
+    if (locationVisitor && locationPlace) {
       const bookmarkedLocationCulture = await Culture.findByIdAndUpdate(
         locationId,
         {
@@ -179,6 +180,11 @@ app.post("/location/:locationId/bookmarkCulture/:userId", async (req, res) => {
         {
           new: true
         }
+      )
+      await User.findByIdAndUpdate(
+        userId, {
+        $push: { bookmarkCulture: locationPlace }
+      }
       )
       res.status(201).json({
         response: bookmarkedLocationCulture,
