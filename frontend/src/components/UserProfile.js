@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react'
-import { useSelector, useDispatch, batch } from "react-redux";
+import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import styled from "styled-components";
+//import { PopUp } from "./reusable-components/PopUp";
+import styled, { ThemeConsumer } from "styled-components";
 import { Devices } from './reusable-components/GlobalStyles';
 import { UserModal } from './reusable-components/UserModal';
-import user from 'reducers/user';
 
 export const UserProfile = () => {
-  const [userDetails, setUserDetails] = useState({})
+  const [updateUserProfile, setUpdateUserProfile] = useState([])
+  const [userDetails, setUserDetails] = useState([])
   const accessToken = useSelector((store) => store.user.accessToken);
   const username = useSelector((store) => store.user.username);
   const name = useSelector((store) => store.user.name);
@@ -18,7 +19,8 @@ export const UserProfile = () => {
   const instagram = useSelector((store) => store.user.instagram)
   const navigate = useNavigate();
   const { id } = useParams()
-  const dispatch = useDispatch();
+  console.log("id", id)
+
   useEffect(() => {
     if (!accessToken) {
       navigate("/unauthorized");
@@ -37,17 +39,7 @@ export const UserProfile = () => {
     fetch(`https://final-project-m2dbj6puqa-lz.a.run.app/profile/${id}`, options)
       .then(res => res.json())
       .then(data => {
-        batch(() => {
-          dispatch(user.actions.setBookmark(data.response.bookmark));
-          dispatch(user.actions.setName(data.response.name));
-          dispatch(user.actions.setEmail(data.response.email));
-          dispatch(user.actions.setAge(data.response.age));
-          dispatch(user.actions.setPresentation(data.response.presentation));
-          dispatch(user.actions.setInstagram(data.response.instagram));
-          dispatch(user.actions.setFacebook(data.response.facebook));
-          dispatch(user.actions.setError(null));
-        });
-        console.log(userDetails);
+        console.log(data)
       })
       .catch(error => console.error(error))
   }, [])
@@ -57,33 +49,33 @@ export const UserProfile = () => {
     <>
 
       <ProfileWrapper>
-
-        <Card>
-          <UserModalButton>
-            <UserModal accessToken={accessToken} userDetails={userDetails} />
-          </UserModalButton>
-          <ProfileImg src="https://th.bing.com/th/id/OIP.IB0XUg8PV5FGxOf0WWDdOQHaHa?pid=ImgDet&rs=1" alt="John" />
-          <h1>{name}</h1>
-          <h2>{username}</h2>
-          <Age>{age} år</Age>
-          <DescriptionProfile2>{presentation}Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vulputate aliquet ex, tristique sagittis nisl hendrerit eu. Integer quis sapien fermentum justo convallis dignissim. Curabitur sem tortor, luctus eget sollicitudin vel, fermentum id justo. Cras interdum dolor vel neque dapibus, aliquam rhoncus nibh varius. Nam id ultrices leo. Morbi eu.
-          </DescriptionProfile2>
-          <SoMeWrapperProfile>
-            <SoMeIconProfile href={`https://instagram.com/${instagram}`}>
-              <SoMeIconLinkProfile className="fa fa-instagram" />
-            </SoMeIconProfile>
-            <SoMeIconProfile href={facebook}>
-              <SoMeIconLinkProfile className="fa fa-facebook" />
-            </SoMeIconProfile>
-          </SoMeWrapperProfile>
-          <p>
-            <a href={`mailto:${email}`}>
-              <ContactButton>Maila mig!</ContactButton>
-            </a>
-          </p>
-          <p>{email}</p>
-        </Card >
-      </ProfileWrapper >
+      
+      <Card>
+        <UserModalButton>
+          <UserModal accessToken={accessToken} />
+        </UserModalButton>
+        <ProfileImg src="https://th.bing.com/th/id/OIP.IB0XUg8PV5FGxOf0WWDdOQHaHa?pid=ImgDet&rs=1" alt="John"/>
+        <h1>{name}</h1>
+        <h2>{username}</h2>
+        <Age>{age} år</Age>
+        <DescriptionProfile2>{presentation}Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse purus odio, feugiat quis dolor non, tincidunt varius mauris. Duis at nibh nec urna hendrerit pulvinar. Quisque viverra finibus nisl quis bibendum. Donec a est leo. Quisque id consectetur ligula. Sed hendrerit vitae enim non rutrum. Praesent nibh est, feugiat hendrerit</DescriptionProfile2>
+        <SoMeWrapperProfile>
+          <SoMeIconProfile href={`https://instagram.com/${instagram}`}>
+            <SoMeIconLinkProfile className="fa fa-instagram" />
+          </SoMeIconProfile>
+          <SoMeIconProfile href={facebook}>
+            <SoMeIconLinkProfile className="fa fa-facebook" />
+          </SoMeIconProfile>
+        </SoMeWrapperProfile>
+        <p>
+          <a href={`mailto:${email}`}>
+            <ContactButton>Maila mig!</ContactButton>
+          </a>
+        </p>
+        <p>{email}</p>
+      </Card >
+      
+    </ProfileWrapper >
     </>
   );
 };
@@ -112,23 +104,19 @@ const ProfileImg = styled.img`
 const ProfileWrapper = styled.section`
   padding: 35px 0px;
   flex-direction: column;
-  background: linear-gradient(140deg, #FCF8E8 60%, #ECB390 60%);
 `
 
 const Card = styled.section`
-  max-width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 90%;
   margin: auto;
   text-align: center;
-  background-color: #FCF8E8;
-  border: 2px solid #e8894f;
-  box-shadow: 5px 3px 3px #e8894f;
-  border-radius: 10px;
   
   @media ${Devices.tablet} {
-    max-width: 65%;
+    max-width: 70%;
     }
   @media ${Devices.laptop} {
-      max-width: 45%;
+      max-width: 50%;
     }
 `
 const Age = styled.p`
@@ -152,7 +140,7 @@ export const DescriptionProfile2 = styled.p`
     margin: 30px 80px;
   }
 `
-const SoMeWrapperProfile = styled.section`
+export const SoMeWrapperProfile = styled.section`
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -164,7 +152,7 @@ const SoMeWrapperProfile = styled.section`
   }
 `
 
-const SoMeIconLinkProfile = styled.i`
+export const SoMeIconLinkProfile = styled.i`
   display: flex;
   margin: 5px;
   font-size: 30px;
@@ -184,7 +172,7 @@ const SoMeIconLinkProfile = styled.i`
 
 `
 
-const SoMeIconProfile = styled.a`
+export const SoMeIconProfile = styled.a`
   text-decoration: none;
   font-size: 22px;
   color: black;
@@ -193,9 +181,9 @@ const SoMeIconProfile = styled.a`
     opacity: 0.7;
     transform: scale(1.2);
   }
-`
+` 
 
-const ContactButton = styled.button`
+export const ContactButton = styled.button`
   border: none;
   outline: 0;
   margin-top: 15px;
@@ -223,5 +211,4 @@ const ContactButton = styled.button`
   }
 
 `
-
 

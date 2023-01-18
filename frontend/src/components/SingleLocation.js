@@ -5,6 +5,8 @@ import styled from "styled-components/macro";
 import { useParams } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import googleIcon from "./googleIcon.png"
+import { useDispatch, useSelector } from "react-redux";
+import user from "reducers/user";
 
 export const SingleLocation = () => {
   const { id } = useParams()
@@ -52,6 +54,10 @@ export const SingleLocation = () => {
             </SingleLocationDivMiddle>
             <IWantToGoDiv>
               <p>Jag vill gå! </p>
+              <button onClick={SubmitBookmark} >
+              <i class="fa fa-bookmark" aria-hidden="true"></i>
+              </button>
+              
               <Users>Klicka här</Users>
             </IWantToGoDiv>
             <SingleLocationDivRight>
