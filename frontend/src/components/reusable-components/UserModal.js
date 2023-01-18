@@ -60,8 +60,8 @@ export const UserModal = ({userDetails}) => {
             dispatch(user.actions.setInstagram(data.response.instagram));
             dispatch(user.actions.setPresentation(data.response.presentation));
             dispatch(user.actions.setFacebook(data.response.facebook));
-            dispatch(user.actions.setError(null));
             dispatch(user.actions.setProfileImage(data.response.profileImage));
+            dispatch(user.actions.setError(null));
           });
         } else {
           batch(() => {
@@ -97,7 +97,7 @@ export const UserModal = ({userDetails}) => {
           <label id="profilepic" htmlFor="profilepic">
               Profilbild:
             </label>
-            <Input type="file" accept="image/png,image/jpeg,image/gif" onChange={e => setUserData({ ...userData, profileImage: e.target.value })}  />
+            <Input type="file" accept="image/png,image/jpeg,image/gif" defaultValue={profileImage} onChange={e => setUserData({ ...userData, profileImage: e.target.value })}  />
           <label id="name" htmlFor="name">
               Namn:
             </label>

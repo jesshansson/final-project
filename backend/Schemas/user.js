@@ -53,6 +53,7 @@ export const UserSchema = new mongoose.Schema({
     default: Date.now
   },
   profileImage: {
+    data: Buffer,
     type: String
   }
 });

@@ -89,6 +89,7 @@ export const UserProfile = () => {
 const UserModalButton = styled.div`
   display: flex;
   justify-content: flex-end;
+  margin: 10px 20px;
 `
 
 const ProfileImg = styled.img`
@@ -110,13 +111,13 @@ const ProfileWrapper = styled.section`
   display: flex;
   align-items: center;
   flex-direction: column;
+  height: 100vh;
   background: linear-gradient(140deg, #FCF8E8 60%, #ECB390 60%);
 `
 
 const Card = styled.section`
   width: 80%;
   margin: 20px;
-  padding: 20px 40px;
   text-align: center;
   background-color: #FCF8E8;
   border: 2px solid #e8894f;

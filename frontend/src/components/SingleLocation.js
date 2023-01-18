@@ -12,8 +12,10 @@ export const SingleLocation = () => {
   const [toggleBookmark, setToggleBookmark] = useState(false)
   const [details, setDetails] = useState([])
   const [idOfUserWhoWantsToGo, SetIdOfUserWhoWantsToGo] = useState([])
+  const [idOfUserWhoClickedButton, SetIdOfUserWhoClickedButton] = useState({})
   const accessToken = useSelector((store) => store.user.accessToken);
   const visitorId = useSelector((store) => store.user.id)
+  const visitorUsername = useSelector((store) => store.user.username)
   const bookmark = useSelector((store) => store.user.bookmark)
   const { locationId, userId, visitors } = useParams()
   const { id } = useParams()
@@ -51,7 +53,7 @@ export const SingleLocation = () => {
         .then(res => res.json())
         .then((data) => {
           // SetIWantToGo(data.response.visitors)
-          console.log(data)
+          console.log(data.response._id)
           // if (data.success) {
           //   dispatch(user.actions.setBookmark(data.response.bookmark))
           // }

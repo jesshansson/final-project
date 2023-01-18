@@ -12,7 +12,8 @@ export const user = createSlice({
         email: "",
         instagram: "",
         facebook: "",
-        bookmark: ""
+        bookmark: "",
+        profileImage: null
     },
     reducers: {
         setUsername: (store, action) => {
@@ -47,7 +48,10 @@ export const user = createSlice({
         },
         setBookmark: (store, action) => {
             store.bookmark = action.payload
-        }
+        },
+        setProfileImage: (store, action) => {
+          store.profileImage = action.payload
+      }
     }
 });
 
