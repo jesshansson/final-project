@@ -166,7 +166,7 @@ const authenticateUser = async (req, res, next) => {
 
 //To be able to bookmark a location
 //app.post("/location/:locationId/bookmarkCulture/:userId", authenticateUser)
-app.patch("/location/:locationId/bookmarkCulture/:userId", async (req, res) => {
+app.post("/location/:locationId/bookmarkCulture/:userId", async (req, res) => {
   const { locationId, userId } = req.params
   try {
     const locationVisitor = await User.findById(userId)
