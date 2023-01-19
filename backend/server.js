@@ -230,25 +230,25 @@ app.post("/location/:locationId/bookmarkNature/:userId", async (req, res) => {
         success: true
       })
 
-    } else if ((locationVisitor && !locationPlaceNature) || (!locationVisitor && locationPlaceNature)) {
-      const bookmarkedLocationNature = await Nature.findByIdAndUpdate(
-        locationId,
-        {
-          $pull: { visitors: locationVisitor }
-        },
-        {
-          new: true
-        }
-      )
-      await User.findByIdAndUpdate(
-        userId, {
-        $pull: { bookmarkNature: locationPlaceNature }
-      }
-      )
-      res.status(201).json({
-        response: bookmarkedLocationNature,
-        success: true
-      })
+    // } else if ((locationVisitor && !locationPlaceNature) || (!locationVisitor && locationPlaceNature)) {
+    //   const bookmarkedLocationNature = await Nature.findByIdAndUpdate(
+    //     locationId,
+    //     {
+    //       $pull: { visitors: locationVisitor }
+    //     },
+    //     {
+    //       new: true
+    //     }
+    //   )
+    //   await User.findByIdAndUpdate(
+    //     userId, {
+    //     $pull: { bookmarkNature: locationPlaceNature }
+    //   }
+    //   )
+    //   res.status(201).json({
+    //     response: bookmarkedLocationNature,
+    //     success: true
+    //   })
 
     } else {
       res.status(404).json({
@@ -265,7 +265,7 @@ app.post("/location/:locationId/bookmarkNature/:userId", async (req, res) => {
 })
 
 //To be able to delete a bookmark 
-app.delete("/location/:locationId/bookmarkCulture/:userId", async (req, res) => {
+app.post("/location/:locationId/deleteBookmarkCulture/:userId", async (req, res) => {
   const { locationId, userId } = req.params
   try {
     const locationVisitor = await User.findById(userId)
@@ -274,7 +274,7 @@ app.delete("/location/:locationId/bookmarkCulture/:userId", async (req, res) => 
       const bookmarkedLocationCulture = await Culture.findByIdAndUpdate(
         locationId,
         {
-          visitors: locationVisitor
+          $pullAll: {visitors: [locationVisitor]}
         },
         {
           new: true
@@ -282,7 +282,7 @@ app.delete("/location/:locationId/bookmarkCulture/:userId", async (req, res) => 
       )
       await User.findByIdAndUpdate(
         userId, {
-        bookmarkCulture: locationPlaceCulture
+       $pullAll: { bookmarkCulture: [locationPlaceCulture]}
       }
       )
       res.status(201).json({

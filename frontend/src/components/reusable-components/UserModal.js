@@ -60,7 +60,7 @@ export const UserModal = ({userDetails}) => {
             dispatch(user.actions.setInstagram(data.response.instagram));
             dispatch(user.actions.setPresentation(data.response.presentation));
             dispatch(user.actions.setFacebook(data.response.facebook));
-            dispatch(user.actions.setProfileImage(data.response.profileImage));
+            //dispatch(user.actions.setProfileImage(data.response.profileImage));
             dispatch(user.actions.setError(null));
           });
         } else {
@@ -72,7 +72,7 @@ export const UserModal = ({userDetails}) => {
             dispatch(user.actions.setInstagram(null));
             dispatch(user.actions.setPresentation(null));
             dispatch(user.actions.setFacebook(null));
-            dispatch(user.actions.setProfileImage(null));
+            //dispatch(user.actions.setProfileImage(null));
             dispatch(user.actions.setError(data.response));
           });
         }
@@ -94,10 +94,7 @@ export const UserModal = ({userDetails}) => {
         </Modal.Header>
         <Modal.Body>
           <ModalForm onSubmit={editProfile}>
-          <label id="profilepic" htmlFor="profilepic">
-              Profilbild:
-            </label>
-            <Input type="file" accept="image/png,image/jpeg,image/gif" defaultValue={profileImage} onChange={e => setUserData({ ...userData, profileImage: e.target.value })}  />
+          
           <label id="name" htmlFor="name">
               Namn:
             </label>
@@ -128,8 +125,12 @@ export const UserModal = ({userDetails}) => {
     </>
   );
 }
-
-
+/*
+<label id="profilepic" htmlFor="profilepic">
+              Profilbild:
+            </label>
+            <Input type="file" accept="image/png,image/jpeg,image/gif" defaultValue={profileImage} onChange={e => setUserData({ ...userData, profileImage: e.target.value })}  />
+*/
 const ModalForm = styled.form`
   display: flex;
   flex-direction: column;

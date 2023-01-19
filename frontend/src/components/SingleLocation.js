@@ -16,7 +16,7 @@ export const SingleLocation = () => {
   const accessToken = useSelector((store) => store.user.accessToken);
   const visitorId = useSelector((store) => store.user.id)
   const visitorUsername = useSelector((store) => store.user.username)
-  const bookmark = useSelector((store) => store.user.bookmark)
+  const bookmark = useSelector((store) => store.user.bookmark)  
   const { locationId, userId, visitors } = useParams()
   const { id } = useParams()
   const dispatch = useDispatch()
@@ -34,7 +34,7 @@ export const SingleLocation = () => {
       .catch(error => console.error(error))
     }, []);
 
-  const onBookmarkButtonClick = () => {
+  const onBookmarkButtonClickCulture = () => {
     // const [iWantToGo, SetIWantToGo] = useState()
 
 
@@ -53,7 +53,7 @@ export const SingleLocation = () => {
         .then(res => res.json())
         .then((data) => {
           // SetIWantToGo(data.response.visitors)
-          console.log(data.response._id)
+          console.log(data)
           // if (data.success) {
           //   dispatch(user.actions.setBookmark(data.response.bookmark))
           // }
@@ -61,6 +61,27 @@ export const SingleLocation = () => {
         .catch(error => console.error(error))
   }
 
+  const onBookmarkButtonClickNature = () => {
+    
+    
+    const options = {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      body: JSON.stringify({locationId, userId, bookmark})
+      }
+      fetch(`https://final-project-m2dbj6puqa-lz.a.run.app/location/${id}/bookmarkNature/${visitorId}`, options)
+        .then(res => res.json())
+        .then((data) => {
+          if (data.success) {
+            dispatch(user.actions.setBookmark(data.bookmark));
+          } else {
+            dispatch(user.actions.bookmark(null))
+          } 
+        }) 
+        .catch(error => console.error(error))
+  }
 
   //turns object into array to be able to render it an use .includes
   const filteredLocations = Object.keys(details)
@@ -97,7 +118,7 @@ export const SingleLocation = () => {
               <p>Jag vill gå! </p>
               <Visitor
                 type="button"
-                onClick={() => onBookmarkButtonClick()}>Klicka här</Visitor>
+                onClick={() => onBookmarkButtonClickCulture()}>Klicka här</Visitor>
             </IWantToGoDiv>
             <SingleLocationDivRight>
               <p>Jag vill gå! Kontakta mig ❤️</p>
@@ -131,7 +152,9 @@ export const SingleLocation = () => {
             </SingleLocationDivMiddle>
             <IWantToGoDiv>
               <p>Jag vill gå!</p>
-              <Users>Klicka här</Users>
+              <Visitor
+                type="button"
+                onClick={() => onBookmarkButtonClickNature()}>Klicka här</Visitor>
             </IWantToGoDiv>
             <SingleLocationDivRight>
               <p>Jag vill gå! Kontakta mig ❤️</p>

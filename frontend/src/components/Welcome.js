@@ -12,6 +12,7 @@ export const Welcome = () => {
   const persistedStateJSON = localStorage.getItem("userReduxState");
   if (persistedStateJSON) {
     const persistedState = JSON.parse(persistedStateJSON);
+    dispatch(user.actions.setBookmark(persistedState.bookmark))
     dispatch(user.actions.setId(persistedState.id))
     dispatch(user.actions.setAccessToken(persistedState.accessToken));
     dispatch(user.actions.setUsername(persistedState.username));
@@ -36,7 +37,7 @@ export const Welcome = () => {
         </Bigtext>
         <Smalltext>
           Så letar du efter du ett spännande museum du inte ens visste fanns? En stig du aldrig vandrat? En ny kultur- eller naturupplevelse?
-          Spana in <StyledLink to="/locations">Besöksmålen!</StyledLink> Vill du komma i kontakt med någon som känner likadant? <StyledLink to="/register">Skapa ett konto</StyledLink> för att kunna kontakta varandra.
+          Spana in <Link to="/locations">Besöksmålen!</Link> Vill du komma i kontakt med någon som känner likadant? <Link to="/register">Skapa ett konto</Link> för att kunna kontakta varandra.
         </Smalltext>
       </WelcomeText>
     </WelcomeWrapper>
