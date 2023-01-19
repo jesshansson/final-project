@@ -62,8 +62,6 @@ export const SingleLocation = () => {
   }
 
   const onBookmarkButtonClickNature = () => {
-
-
     const options = {
       method: "POST",
       headers: {
