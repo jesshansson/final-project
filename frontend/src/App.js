@@ -14,6 +14,7 @@ import { SingleLocation } from 'components/SingleLocation';
 import { AboutUs } from 'components/AboutUs';
 import { NotLoggedIn } from 'components/NotLoggedIn';
 import { Navbar } from 'components/Navbar';
+import { VisitUserProfile } from 'components/VisitUserProfile';
 
 const reducer = combineReducers({
   user: user.reducer,
@@ -44,6 +45,10 @@ export const App = () => {
         <Routes>
           <Route path='/' element={<Welcome />} />
           <Route path='/profile/:id' element={<UserProfile />} />
+          <Route
+            path="/profile/:id/visit"
+            element={<VisitUserProfile />}
+          />
           <Route path='/locations' element={<Locations />} />
           <Route path='/locations/:id' element={<SingleLocation />} />
           <Route path='/about' element={<AboutUs />} />
@@ -59,6 +64,7 @@ export const App = () => {
               siteHeadline="Välkommen tillbaka!"
               submitBtn="Logga in" />} />
           <Route path='*' element={<NotFound />} />
+
         </Routes>
         
       </BrowserRouter>
@@ -66,5 +72,6 @@ export const App = () => {
   );
 }
 
+//          <Route path='/visit' element={<VisitUserProfile />} />
 //Frontend: https://kulturligtvis.netlify.app/
 //Backend: https://final-project-m2dbj6puqa-lz.a.run.app/

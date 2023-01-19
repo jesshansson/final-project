@@ -86,13 +86,13 @@ export const UserProfile = () => {
   );
 };
 
-const UserModalButton = styled.div`
+export const UserModalButton = styled.div`
   display: flex;
   justify-content: flex-end;
   margin: 10px 20px;
 `
 
-const ProfileImg = styled.img`
+export const ProfileImg = styled.img`
   width: 30vw;
   height: auto;
   margin: 20px;
@@ -106,7 +106,7 @@ const ProfileImg = styled.img`
     }
 `
 
-const ProfileWrapper = styled.section`
+export const ProfileWrapper = styled.section`
   padding: 35px 0px;
   display: flex;
   align-items: center;
@@ -115,7 +115,7 @@ const ProfileWrapper = styled.section`
   background: linear-gradient(140deg, #FCF8E8 60%, #ECB390 60%);
 `
 
-const Card = styled.section`
+export const Card = styled.section`
   width: 80%;
   margin: 20px;
   text-align: center;
@@ -131,7 +131,7 @@ const Card = styled.section`
     width: 45%;
     }
 `
-const Age = styled.p`
+export const Age = styled.p`
   color: #ecb390;
   font-weight: 600;
   font-size: 18px;
@@ -150,7 +150,7 @@ export const DescriptionProfile2 = styled.p`
     margin: 30px 80px;
   }
 `
-const SoMeWrapperProfile = styled.section`
+export const SoMeWrapperProfile = styled.section`
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -162,7 +162,7 @@ const SoMeWrapperProfile = styled.section`
   }
 `
 
-const SoMeIconLinkProfile = styled.i`
+export const SoMeIconLinkProfile = styled.i`
   display: flex;
   margin: 5px;
   font-size: 30px;
@@ -179,7 +179,7 @@ const SoMeIconLinkProfile = styled.i`
   }
 `
 
-const SoMeIconProfile = styled.a`
+export const SoMeIconProfile = styled.a`
   text-decoration: none;
   font-size: 22px;
   color: black;
@@ -189,7 +189,7 @@ const SoMeIconProfile = styled.a`
   }
 `
 
-const ContactButton = styled.button`
+export const ContactButton = styled.button`
   border: none;
   outline: 0;
   margin-top: 15px;

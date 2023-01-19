@@ -61,21 +61,21 @@ app.post("/register", async (req, res) => {
 const Nature = mongoose.model("Nature", NatureSchema);
 const Culture = mongoose.model("Culture", CultureSchema)
 
-// if (true) {
-//   const resetDatabase = async () => {
-//     await Culture.deleteMany();
-//     culture.forEach(singleCulture => {
-//       const newCulture = new Culture(singleCulture);
-//       newCulture.save()
-//     })
-//     await Nature.deleteMany();
-//     nature.forEach(singleNature => {
-//       const newNature = new Nature(singleNature)
-//       newNature.save()
-//     })
-//   }
-//   resetDatabase();
-// }
+ if (true) {
+  const resetDatabase = async () => {
+    await Culture.deleteMany();
+    culture.forEach(singleCulture => {
+      const newCulture = new Culture(singleCulture);
+      newCulture.save()
+     })
+    await Nature.deleteMany();
+     nature.forEach(singleNature => {
+       const newNature = new Nature(singleNature)
+       newNature.save()
+     })
+   }
+  resetDatabase();
+ }
 
 //Register new user
 app.post("/register", async (req, res) => {
@@ -171,7 +171,7 @@ app.post("/location/:locationId/bookmarkCulture/:userId", async (req, res) => {
   try {
     const locationVisitor = await User.findById(userId)
     const locationPlaceCulture = await Culture.findById(locationId)
-    if (locationVisitor && locationPlaceCulture) {
+    if (locationVisitor && locationPlaceCulture){
       const bookmarkedLocationCulture = await Culture.findByIdAndUpdate(
         locationId,
         {
@@ -229,27 +229,6 @@ app.post("/location/:locationId/bookmarkNature/:userId", async (req, res) => {
         response: bookmarkedLocationNature,
         success: true
       })
-
-    // } else if ((locationVisitor && !locationPlaceNature) || (!locationVisitor && locationPlaceNature)) {
-    //   const bookmarkedLocationNature = await Nature.findByIdAndUpdate(
-    //     locationId,
-    //     {
-    //       $pull: { visitors: locationVisitor }
-    //     },
-    //     {
-    //       new: true
-    //     }
-    //   )
-    //   await User.findByIdAndUpdate(
-    //     userId, {
-    //     $pull: { bookmarkNature: locationPlaceNature }
-    //   }
-    //   )
-    //   res.status(201).json({
-    //     response: bookmarkedLocationNature,
-    //     success: true
-    //   })
-
     } else {
       res.status(404).json({
         response: "No visitor bookmarked location",
@@ -303,7 +282,7 @@ app.post("/location/:locationId/deleteBookmarkCulture/:userId", async (req, res)
   }
 })
 
-app.delete("/location/:locationId/bookmarkNature/:userId", async (req, res) => {
+app.post("/location/:locationId/deleteBookmarkNature/:userId", async (req, res) => {
   const { locationId, userId } = req.params
   try {
     const locationVisitor = await User.findById(userId)
@@ -312,7 +291,7 @@ app.delete("/location/:locationId/bookmarkNature/:userId", async (req, res) => {
       const bookmarkedLocationNature = await Nature.findByIdAndUpdate(
         locationId,
         {
-          visitors: locationVisitor
+          $pullAll: {visitors: [locationVisitor]}
         },
         {
           new: true
@@ -320,7 +299,7 @@ app.delete("/location/:locationId/bookmarkNature/:userId", async (req, res) => {
       )
       await User.findByIdAndUpdate(
         userId, {
-        bookmarkNature: locationPlaceNature
+       $pullAll: { bookmarkNature: [locationPlaceNature]}
       }
       )
       res.status(201).json({

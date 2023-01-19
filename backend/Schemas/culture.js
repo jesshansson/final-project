@@ -30,7 +30,7 @@ export const CultureSchema = new mongoose.Schema({
     type: Number
   },
   cafe: {
-    type: Boolean
+    type: String
   },
   openingHours: {
     type: String

@@ -15,25 +15,25 @@ export const NatureSchema = new mongoose.Schema({
     type: String
   },
   beach: {
-    type: Boolean
+    type: String
   },
   closestStation: {
     type: String
   },
   strollerFriendly: {
-    type: Boolean
+    type: String
   },
   cafe: {
-    type: Boolean
+    type: String
   },
   barbecuePossibility: {
-    type: Boolean
+    type: String
   },
   highlights: {
     type: String
   },
   toilet: {
-    type: Boolean
+    type: String
   },
   activities: {
     type: String
