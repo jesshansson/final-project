@@ -45,10 +45,7 @@ export const App = () => {
         <Routes>
           <Route path='/' element={<Welcome />} />
           <Route path='/profile/:id' element={<UserProfile />} />
-          <Route
-            path="/profile/:id/visit"
-            element={<VisitUserProfile />}
-          />
+          <Route path="/profile/:id/visit" element={<VisitUserProfile />}/>
           <Route path='/locations' element={<Locations />} />
           <Route path='/locations/:id' element={<SingleLocation />} />
           <Route path='/about' element={<AboutUs />} />

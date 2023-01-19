@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { useSelector, useDispatch, batch } from "react-redux";
+import { useSelector} from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import user from 'reducers/user';
-import { ProfileWrapper, Card, UserModalButton, ProfileImg, Age, 
+import { ProfileWrapper, Card, ProfileImg, Age, 
 DescriptionProfile2, SoMeWrapperProfile, SoMeIconProfile, ContactButton, SoMeIconLinkProfile } from './UserProfile';
 
 
@@ -17,6 +16,7 @@ export const VisitUserProfile = () => {
     const facebook = useSelector((store) => store.user.facebook)
     const instagram = useSelector((store) => store.user.instagram)
     const profileImage = useSelector((store) => store.user.profileImage)
+
     const navigate = useNavigate();
     const { id } = useParams()
     useEffect(() => {
@@ -36,7 +36,7 @@ export const VisitUserProfile = () => {
   return (
       <ProfileWrapper>
         <Card accessToken={accessToken} userDetails={userDetails}>
-          <ProfileImg src={profileImage} alt="Profilbild" />
+        <ProfileImg src="https://th.bing.com/th/id/OIP.IB0XUg8PV5FGxOf0WWDdOQHaHa?pid=ImgDet&rs=1" alt="John" />
           <h1>{name}</h1>
           <h2>{username}</h2>
           <Age>{age} år</Age>

@@ -77,7 +77,7 @@
       "website": "https://tumbabruksmuseum.se/",
       "contact": "info@tumbabruksmuseum.se",
       "entranceFee": 0,
-      "cafe": "Vet ej" ,
+      "cafe": "Ja" ,
       "genre": "Museum"
     },
   
@@ -223,7 +223,7 @@
       "website": "https://www.kasiden.se/",
       "contact": "info@kasiden.se",
       "entranceFee": 80,
-      "cafe": "Vet ej",
+      "cafe": "Nej",
       "genre": "Museum"
     },
     {
@@ -243,7 +243,7 @@
       "website": "https://www.litografiskamuseet.se/",
       "contact": "info@litografiskamuseet.se",
       "entranceFee": 0,
-      "cafe": "Vet ej",
+      "cafe": "Nej",
       "genre": "Museum"
     },
     {
