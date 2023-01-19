@@ -123,7 +123,7 @@ export const SingleLocation = () => {
             <SingleLocationDivRight>
               <p>Jag vill gå! Kontakta mig ❤️</p>
               {idOfUserWhoWantsToGo.map((people) => (
-                <Users><StyledLink to={`/profile/${idOfUserWhoWantsToGo}`}> {people}</StyledLink></Users>   
+                <Users><StyledLink to={`/profile/${idOfUserWhoWantsToGo}/visit`}> {people}</StyledLink></Users>   
               ))}
             </SingleLocationDivRight>
           </SingleLocationDivs>
@@ -159,7 +159,7 @@ export const SingleLocation = () => {
             <SingleLocationDivRight>
               <p>Jag vill gå! Kontakta mig ❤️</p>
               {idOfUserWhoWantsToGo.map((people) => (
-                <Users><StyledLink to={`/profile/${idOfUserWhoWantsToGo}`}> {people}</StyledLink></Users>
+                <Users><StyledLink to={`/profile/${idOfUserWhoWantsToGo}/visit`}> {people}</StyledLink></Users>
               ))}
             </SingleLocationDivRight>
           </SingleLocationDivs>

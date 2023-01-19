@@ -16,7 +16,7 @@
       "website": "https://www.erstadiakoni.se/verksamheter/bo-och-motas/museum/om-ersta-museum/",
       "contact": "museum@erstadiakoni.se",
       "entranceFee": 0 ,
-      "cafe": "Vet ej" ,
+      "cafe": "Ja" ,
       "genre": "Museum"
     },
     {
@@ -36,7 +36,7 @@
       "website": "https://langholmen.com/upplev/fangelsemuseum/",
       "contact": "museum@langholmen.com" ,
       "entranceFee": 35,
-      "cafe": "Vet ej",
+      "cafe": "Ja",
       "genre": "Museum"
     },
     {
@@ -56,7 +56,7 @@
       "website": "https://gustavsbergsporslinsmuseum.se/",
       "contact": "info@gustavsbergsporslinsmuseum.se",
       "entranceFee": 100,
-      "cafe": "Vet ej" ,
+      "cafe": "Nej" ,
       "genre": "Museum"
     },
     

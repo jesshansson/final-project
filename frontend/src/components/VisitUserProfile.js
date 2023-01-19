@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch, batch } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import styled from "styled-components";
-import { Devices } from './reusable-components/GlobalStyles';
-import { UserModal } from './reusable-components/UserModal';
 import user from 'reducers/user';
 import { ProfileWrapper, Card, UserModalButton, ProfileImg, Age, 
 DescriptionProfile2, SoMeWrapperProfile, SoMeIconProfile, ContactButton, SoMeIconLinkProfile } from './UserProfile';
@@ -38,7 +35,7 @@ export const VisitUserProfile = () => {
 
   return (
       <ProfileWrapper>
-        <Card userDetails={userDetails}>
+        <Card accessToken={accessToken} userDetails={userDetails}>
           <ProfileImg src={profileImage} alt="Profilbild" />
           <h1>{name}</h1>
           <h2>{username}</h2>
