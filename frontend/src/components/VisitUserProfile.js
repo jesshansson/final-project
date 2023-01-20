@@ -6,9 +6,11 @@ DescriptionProfile2, SoMeWrapperProfile, SoMeIconProfile, ContactButton, SoMeIco
 
 
 export const VisitUserProfile = () => {
-    const [userDetails, setUserDetails] = useState({})
+    const [userDetails, setUserDetails] = useState("")
     const accessToken = useSelector((store) => store.user.accessToken);
-    const username = useSelector((store) => store.user.username);
+    const navigate = useNavigate();
+    const { id } = useParams()
+    /*const username = useSelector((store) => store.user.username);
     const name = useSelector((store) => store.user.name);
     const email = useSelector((store) => store.user.email);
     const age = useSelector((store) => store.user.age)
@@ -16,9 +18,19 @@ export const VisitUserProfile = () => {
     const facebook = useSelector((store) => store.user.facebook)
     const instagram = useSelector((store) => store.user.instagram)
     const profileImage = useSelector((store) => store.user.profileImage)
+*/
 
-    const navigate = useNavigate();
-    const { id } = useParams()
+  const [username, setUsername] = useState()
+  const [name, setName] = useState()
+  const [email, setEmail] = useState()
+  const [age, setAge] = useState()
+  const [presentation, setPresentation] = useState()
+  const [facebook, setFacebook] = useState()
+  const [instagram, setInstagram] = useState()
+
+  const userData = {age, name, email,facebook,instagram,presentation,accessToken, }
+
+
     useEffect(() => {
       if (!accessToken) {
         navigate("/unauthorized");
