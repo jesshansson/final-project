@@ -16,12 +16,12 @@ export const SingleLocation = () => {
   const accessToken = useSelector((store) => store.user.accessToken);
   const visitorId = useSelector((store) => store.user.id)
   const visitorUsername = useSelector((store) => store.user.username)
-  const bookmark = useSelector((store) => store.user.bookmark)  
+  const bookmark = useSelector((store) => store.user.bookmark)
   const { locationId, userId, visitors } = useParams()
   const { id } = useParams()
   const dispatch = useDispatch()
 
-// this useEffect needs to be here, otherwise tuggar den 1000 gånger i consollen
+  // this useEffect needs to be here, otherwise tuggar den 1000 gånger i consollen
   useEffect(() => {
     fetch(`https://final-project-m2dbj6puqa-lz.a.run.app/locations/${id}`)
       .then(res => res.json())
@@ -32,7 +32,7 @@ export const SingleLocation = () => {
         console.log(data.response.visitors)
       })
       .catch(error => console.error(error))
-    }, []);
+  }, []);
 
   const onBookmarkButtonClickCulture = () => {
     // const [iWantToGo, SetIWantToGo] = useState()
@@ -40,47 +40,85 @@ export const SingleLocation = () => {
 
     //With useEffect: invalid Hook call. Can´t use useEffect inside an onClick-function
     //Without useEffect: failed to load resource: bad request (400)
-      const options = {
-        method: "POST",
-        headers: {
-          'Content-Type': 'application/json',
-          // "Authorization": accessToken
-        },
-            //Something needed here?
-      body: JSON.stringify({locationId, userId})
-      }
-      fetch(`https://final-project-m2dbj6puqa-lz.a.run.app/location/${id}/bookmarkCulture/${visitorId}`, options)
-        .then(res => res.json())
-        .then((data) => {
-          // SetIWantToGo(data.response.visitors)
-          console.log(data)
-          // if (data.success) {
-          //   dispatch(user.actions.setBookmark(data.response.bookmark))
-          // }
-        })
-        .catch(error => console.error(error))
+    const options = {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json',
+        // "Authorization": accessToken
+      },
+      //Something needed here?
+      body: JSON.stringify({ locationId, userId })
+    }
+    fetch(`https://final-project-m2dbj6puqa-lz.a.run.app/location/${id}/bookmarkCulture/${visitorId}`, options)
+      .then(res => res.json())
+      .then((data) => {
+        // SetIWantToGo(data.response.visitors)
+        console.log(data)
+        // if (data.success) {
+        //   dispatch(user.actions.setBookmark(data.response.bookmark))
+        // }
+      })
+      .catch(error => console.error(error))
   }
 
   const onBookmarkButtonClickNature = () => {
-    
-    
     const options = {
-        method: "POST",
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      body: JSON.stringify({locationId, userId, bookmark})
-      }
-      fetch(`https://final-project-m2dbj6puqa-lz.a.run.app/location/${id}/bookmarkNature/${visitorId}`, options)
-        .then(res => res.json())
-        .then((data) => {
-          if (data.success) {
-            dispatch(user.actions.setBookmark(data.bookmark));
-          } else {
-            dispatch(user.actions.bookmark(null))
-          } 
-        }) 
-        .catch(error => console.error(error))
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ locationId, userId, bookmark })
+    }
+    fetch(`https://final-project-m2dbj6puqa-lz.a.run.app/location/${id}/bookmarkNature/${visitorId}`, options)
+      .then(res => res.json())
+      .then((data) => {
+        if (data.success) {
+          dispatch(user.actions.setBookmark(data.bookmark));
+        } else {
+          dispatch(user.actions.bookmark(null))
+        }
+      })
+      .catch(error => console.error(error))
+  }
+
+  const onRemoveCultureBookmarkClick = () => {
+    const options = {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ locationId, userId, bookmark })
+    }
+    fetch(`https://final-project-m2dbj6puqa-lz.a.run.app/location/${id}/deleteBookmarkCulture/${visitorId}`, options)
+      .then(res => res.json())
+      .then((data) => {
+        if (data.success) {
+          dispatch(user.actions.setBookmark(data.bookmark));
+        } else {
+          dispatch(user.actions.bookmark(null))
+        }
+      })
+      .catch(error => console.error(error))
+  }
+
+  const onRemoveNatureBookmarkClick = () => {
+    const options = {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ locationId, userId, bookmark })
+    }
+    fetch(`https://final-project-m2dbj6puqa-lz.a.run.app/location/${id}/deleteBookmarkNature/${visitorId}`, options)
+      .then(res => res.json())
+      .then((data) => {
+        if (data.success) {
+          dispatch(user.actions.setBookmark(data.bookmark));
+        } else {
+          dispatch(user.actions.bookmark(null))
+        }
+      })
+      .catch(error => console.error(error))
   }
 
   //turns object into array to be able to render it an use .includes
@@ -88,82 +126,92 @@ export const SingleLocation = () => {
 
   if (filteredLocations.includes("genre")) {
     return (
-        <LocationWrapper>
-          <SingleLocationName> {details.name} </SingleLocationName>
-          <Description>{details.description}</Description>
-          <WebSiteLink><Bold>Läs mer på: </Bold><a href={details.website} target="_blank">{details.website}</a></WebSiteLink>
-          <SingleLocationDivs>
-            <Link to="/locations"><BackLink>Tillbaka</BackLink></Link>
-            <SingleLocationDivLeft>
-              <Image src={details.img} style={{ width: 220, height: 220 }} alt="picture" />
-              <OpeningHours><Bold>Öppettider:</Bold>
-                <li><Bold>Måndag:</Bold> {details.opening_hours_mon}</li>
-                <li><Bold>Tisdag:</Bold> {details.opening_hours_tue}</li>
-                <li><Bold>Onsdag:</Bold> {details.opening_hours_wed}</li>
-                <li><Bold>Torsdag:</Bold> {details.opening_hours_thu}</li>
-                <li><Bold>Fredag:</Bold> {details.opening_hours_fri}</li>
-                <li><Bold>Lördag:</Bold> {details.opening_hours_sat}</li>
-                <li><Bold>Söndag:</Bold> {details.opening_hours_sun}</li>   
-              </OpeningHours>
-            </SingleLocationDivLeft>
-            <SingleLocationDivMiddle>
-              
-              <GoogleLink href={details.googlemap} target="_blank">
-                <Image src={googleIcon} style={{ width: 220, height: 220 }} alt="googlemaps icon" />
-              </GoogleLink>
-              <LocationDetails><Bold>Närmaste station:</Bold> {details.closestStation}</LocationDetails>
-              <LocationDetails><Bold>Inträde:</Bold> {details.entranceFee}:- </LocationDetails>
-            </SingleLocationDivMiddle>
-            <IWantToGoDiv>
-              <p>Jag vill gå! </p>
-              <Visitor
-                type="button"
-                onClick={() => onBookmarkButtonClickCulture()}>Klicka här</Visitor>
-            </IWantToGoDiv>
-            <SingleLocationDivRight>
-              <p>Jag vill gå! Kontakta mig ❤️</p>
-              {idOfUserWhoWantsToGo.map((people) => (
-                <Users><StyledLink to={`/profile/${idOfUserWhoWantsToGo}/visit`}> {people}</StyledLink></Users>   
-              ))}
-            </SingleLocationDivRight>
-          </SingleLocationDivs>
-        </LocationWrapper>
+      <LocationWrapper>
+        <SingleLocationName> {details.name} </SingleLocationName>
+        <Description>{details.description}</Description>
+        <WebSiteLink><Bold>Läs mer på: </Bold><a href={details.website} target="_blank">{details.website}</a></WebSiteLink>
+        <SingleLocationDivs>
+          <Link to="/locations"><BackLink>Tillbaka</BackLink></Link>
+          <SingleLocationDivLeft>
+            <Image src={details.img} style={{ width: 220, height: 220 }} alt="picture" />
+            <OpeningHours><Bold>Öppettider:</Bold>
+              <li><Bold>Måndag:</Bold> {details.opening_hours_mon}</li>
+              <li><Bold>Tisdag:</Bold> {details.opening_hours_tue}</li>
+              <li><Bold>Onsdag:</Bold> {details.opening_hours_wed}</li>
+              <li><Bold>Torsdag:</Bold> {details.opening_hours_thu}</li>
+              <li><Bold>Fredag:</Bold> {details.opening_hours_fri}</li>
+              <li><Bold>Lördag:</Bold> {details.opening_hours_sat}</li>
+              <li><Bold>Söndag:</Bold> {details.opening_hours_sun}</li>
+            </OpeningHours>
+          </SingleLocationDivLeft>
+          <SingleLocationDivMiddle>
+
+            <GoogleLink href={details.googlemap} target="_blank">
+              <Image src={googleIcon} style={{ width: 220, height: 220 }} alt="googlemaps icon" />
+            </GoogleLink>
+            <LocationDetails><Bold>Närmaste station:</Bold> {details.closestStation}</LocationDetails>
+            <LocationDetails><Bold>Inträde:</Bold> {details.entranceFee}:- </LocationDetails>
+          </SingleLocationDivMiddle>
+          <IWantToGoDiv>
+            <p>Jag vill gå! </p>
+            <Visitor
+              type="button"
+              onClick={() => onBookmarkButtonClickCulture()}>Klicka här</Visitor>
+          </IWantToGoDiv>
+          <SingleLocationDivRight>
+            <p>Jag vill gå! Kontakta mig ❤️</p>
+            {idOfUserWhoWantsToGo.map((people) => (
+              <Users><StyledLink to={`/profile/${idOfUserWhoWantsToGo}/visit`}> {people}</StyledLink></Users>
+            ))}
+            <Visitor
+              type="button"
+              onClick={() => onRemoveCultureBookmarkClick()}>
+              Ta bort mig
+            </Visitor>
+          </SingleLocationDivRight>
+        </SingleLocationDivs>
+      </LocationWrapper>
     )
   } else {
     return (
-        <LocationWrapper>
-          <SingleLocationName> <a href={details.website} target="_blank">{details.name}</a></SingleLocationName>
-          <Description>{details.description}</Description>
-          <SingleLocationDivs>
-            <Link to="/locations"><BackLink>Tillbaka</BackLink></Link>
-            <SingleLocationDivLeft>
-              <Image src={details.img} style={{ width: 220, height: 220 }} alt="picture" />
-              <LocationDetails><Bold>Höjdpunkter:</Bold> {details.highlights}</LocationDetails>
-              <LocationDetails><Bold>Aktiviteter:</Bold> {details.activities}</LocationDetails>
-            </SingleLocationDivLeft>
-            <SingleLocationDivMiddle>
-              <GoogleLink href={details.googlemap} target="_blank">
-                <Image src={googleIcon} style={{ width: 220, height: 220 }} alt="googlemaps icon" />
-              </GoogleLink>
-              <LocationDetails><Bold>Närmaste station:</Bold> {details.closestStation}</LocationDetails>
+      <LocationWrapper>
+        <SingleLocationName> <a href={details.website} target="_blank">{details.name}</a></SingleLocationName>
+        <Description>{details.description}</Description>
+        <SingleLocationDivs>
+          <Link to="/locations"><BackLink>Tillbaka</BackLink></Link>
+          <SingleLocationDivLeft>
+            <Image src={details.img} style={{ width: 220, height: 220 }} alt="picture" />
+            <LocationDetails><Bold>Höjdpunkter:</Bold> {details.highlights}</LocationDetails>
+            <LocationDetails><Bold>Aktiviteter:</Bold> {details.activities}</LocationDetails>
+          </SingleLocationDivLeft>
+          <SingleLocationDivMiddle>
+            <GoogleLink href={details.googlemap} target="_blank">
+              <Image src={googleIcon} style={{ width: 220, height: 220 }} alt="googlemaps icon" />
+            </GoogleLink>
+            <LocationDetails><Bold>Närmaste station:</Bold> {details.closestStation}</LocationDetails>
             <LocationDetails><Bold>Tillgång till café:</Bold> {details.cafe} </LocationDetails>
-              <LocationDetails><Bold>Tillgång till grillplats:</Bold> {details.barbecuePossibility} </LocationDetails>
-              <LocationDetails><Bold>Tillgång till toalett:</Bold> {details.toilet} </LocationDetails>
-            </SingleLocationDivMiddle>
-            <IWantToGoDiv>
-              <p>Jag vill gå!</p>
-              <Visitor
-                type="button"
-                onClick={() => onBookmarkButtonClickNature()}>Klicka här</Visitor>
-            </IWantToGoDiv>
-            <SingleLocationDivRight>
-              <p>Jag vill gå! Kontakta mig ❤️</p>
-              {idOfUserWhoWantsToGo.map((people) => (
-                <Users><StyledLink to={`/profile/${idOfUserWhoWantsToGo}/visit`}> {people}</StyledLink></Users>
-              ))}
-            </SingleLocationDivRight>
-          </SingleLocationDivs>
-        </LocationWrapper>
+            <LocationDetails><Bold>Tillgång till grillplats:</Bold> {details.barbecuePossibility} </LocationDetails>
+            <LocationDetails><Bold>Tillgång till toalett:</Bold> {details.toilet} </LocationDetails>
+          </SingleLocationDivMiddle>
+          <IWantToGoDiv>
+            <p>Jag vill gå!</p>
+            <Visitor
+              type="button"
+              onClick={() => onBookmarkButtonClickNature()}>Klicka här</Visitor>
+          </IWantToGoDiv>
+          <SingleLocationDivRight>
+            <p>Jag vill gå! Kontakta mig ❤️</p>
+            {idOfUserWhoWantsToGo.map((people) => (
+              <Users><StyledLink to={`/profile/${idOfUserWhoWantsToGo}/visit`}> {people}</StyledLink></Users>
+            ))}
+            <Visitor
+              type="button"
+              onClick={() => onRemoveNatureBookmarkClick()}>
+              Ta bort mig
+            </Visitor>
+          </SingleLocationDivRight>
+        </SingleLocationDivs>
+      </LocationWrapper>
     )
   }
 }
@@ -295,7 +343,7 @@ const SingleLocationDivRight = styled.div`
   width: 300px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   padding: 10px;
   margin-top: 20px;
   align-items: center;
