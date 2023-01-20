@@ -8,8 +8,7 @@ import { Link } from 'react-router-dom';
 import googleIcon from "./googleIcon.png"
 import user from "reducers/user";
 
-export const SingleLocation = () => {
-  const [toggleBookmark, setToggleBookmark] = useState(false)
+export const SingleLocation = ({}) => {
   const [details, setDetails] = useState([])
   const [idOfUserWhoWantsToGo, SetIdOfUserWhoWantsToGo] = useState([])
   const [idOfUserWhoClickedButton, SetIdOfUserWhoClickedButton] = useState({})
@@ -30,13 +29,12 @@ export const SingleLocation = () => {
         setDetails(data.response)
         SetIdOfUserWhoWantsToGo(data.response.visitors)
         console.log(data.response.visitors)
+        //SetIdOfUserWhoClickedButton(data.response.visitor)
       })
       .catch(error => console.error(error))
   }, []);
 
   const onBookmarkButtonClickCulture = () => {
-    // const [iWantToGo, SetIWantToGo] = useState()
-
 
     //With useEffect: invalid Hook call. Can´t use useEffect inside an onClick-function
     //Without useEffect: failed to load resource: bad request (400)
@@ -52,11 +50,11 @@ export const SingleLocation = () => {
     fetch(`https://final-project-m2dbj6puqa-lz.a.run.app/location/${id}/bookmarkCulture/${visitorId}`, options)
       .then(res => res.json())
       .then((data) => {
-        // SetIWantToGo(data.response.visitors)
-        console.log(data)
-        // if (data.success) {
-        //   dispatch(user.actions.setBookmark(data.response.bookmark))
-        // }
+ 
+        console.log(data.response.visitors)
+        if (data.success) {
+          dispatch(user.actions.setBookmark(data.response.bookmark))
+        }
       })
       .catch(error => console.error(error))
   }
@@ -126,6 +124,7 @@ export const SingleLocation = () => {
       .catch(error => console.error(error))
   }
 
+  //const idToName = idOfUserWhoWantsToGo 
   //turns object into array to be able to render it an use .includes
   const filteredLocations = Object.keys(details)
 

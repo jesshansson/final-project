@@ -30,7 +30,7 @@ export const UserProfile = () => {
       method: "GET",
       headers: {
         'Content-Type': 'application/json',
-        "Authorization": accessToken
+       "Authorization": accessToken
       }
     }
 
