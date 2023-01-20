@@ -60,7 +60,6 @@ export const UserModal = ({userDetails}) => {
             dispatch(user.actions.setInstagram(data.response.instagram));
             dispatch(user.actions.setPresentation(data.response.presentation));
             dispatch(user.actions.setFacebook(data.response.facebook));
-            //dispatch(user.actions.setProfileImage(data.response.profileImage));
             dispatch(user.actions.setError(null));
           });
         } else {

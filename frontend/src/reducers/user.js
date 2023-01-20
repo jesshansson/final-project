@@ -13,7 +13,7 @@ export const user = createSlice({
         instagram: "",
         facebook: "",
         bookmark: [],
-        profileImage: null
+        name: null
     },
     reducers: {
         setUsername: (store, action) => {

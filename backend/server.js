@@ -30,7 +30,7 @@ app.use(express.json());
 
 const User = mongoose.model("User", UserSchema);
 app.post("/register", async (req, res) => {
-  const { username, password } = req.body;
+  const { username, password, name } = req.body;
   try {
     const salt = bcrypt.genSaltSync();
     if (password.length < 5) {
@@ -39,11 +39,12 @@ app.post("/register", async (req, res) => {
         response: "Lösenordet måste vara minst 5 tecken långt"
       });
     } else {
-      const newUser = await new User({ username: username, password: bcrypt.hashSync(password, salt) }).save();
+      const newUser = await new User({ name: name, username: username, password: bcrypt.hashSync(password, salt) }).save();
       res.status(201).json({
         success: true,
         response: {
           username: newUser.username,
+          name: newUser.name,
           accessToken: newUser.accessToken,
           id: newUser.id
         }
@@ -79,7 +80,7 @@ if (true) {
 
 //Register new user
 app.post("/register", async (req, res) => {
-  const { username, password } = req.body;
+  const { username, password, name } = req.body;
 
   try {
     const salt = bcrypt.genSaltSync();
@@ -90,10 +91,11 @@ app.post("/register", async (req, res) => {
         response: "Lösenordet måste vara minst 5 tecken långt"
       });
     } else {
-      const newUser = await new User({ username: username, password: bcrypt.hashSync(password, salt) }).save();
+      const newUser = await new User({ username: username, name: name, password: bcrypt.hashSync(password, salt) }).save();
       res.status(201).json({
         success: true,
         response: {
+          name: newUser.name,
           username: newUser.username,
           accessToken: newUser.accessToken,
           id: newUser._id

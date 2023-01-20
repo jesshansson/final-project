@@ -110,7 +110,6 @@ export const ProfileWrapper = styled.section`
   display: flex;
   align-items: center;
   flex-direction: column;
-  height: 100vh;
   background: linear-gradient(140deg, #FCF8E8 60%, #ECB390 60%);
 `
 

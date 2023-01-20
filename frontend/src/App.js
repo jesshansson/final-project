@@ -69,6 +69,5 @@ export const App = () => {
   );
 }
 
-//          <Route path='/visit' element={<VisitUserProfile />} />
 //Frontend: https://kulturligtvis.netlify.app/
 //Backend: https://final-project-m2dbj6puqa-lz.a.run.app/

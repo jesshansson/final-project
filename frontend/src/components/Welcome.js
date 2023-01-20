@@ -1,7 +1,7 @@
 import React from "react";
 import user from "reducers/user";
 import styled from "styled-components/macro";
-import { Devices, StyledLink } from './reusable-components/GlobalStyles';
+import { Devices } from './reusable-components/GlobalStyles';
 import { Link } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 
@@ -44,14 +44,15 @@ export const Welcome = () => {
   )
 }
 
-
-
 export const WelcomeWrapper = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
   background: linear-gradient(140deg, #FCF8E8 60%, #ECB390 60%);
-  height: 100vh;
+
+  @media ${Devices.tablet} {
+    height: 100vh;
+  }
 `
 
 const WelcomeHeader = styled.h1`
@@ -98,7 +99,7 @@ const Smalltext = styled.p`
 `
 
 const WelcomeText = styled.div`
-  margin: 20px;
+  margin: 30px;
   width: 85%;
   text-align: center;
   border-radius: 10px;
@@ -108,6 +109,7 @@ const WelcomeText = styled.div`
 
   @media ${Devices.tablet} {
   width: 80%;
+  margin: 20px;
   }
 
   @media ${Devices.laptop} {

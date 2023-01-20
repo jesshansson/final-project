@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 
 export const Login = ({ siteHeadline, siteType, submitBtn }) => {
   const [username, setUsername] = useState("");
-  //const [name, setName] = useState(""); //Om man ska fylla i namn också?
+  const [name, setName] = useState(""); //Om man ska fylla i namn också?
   const [password, setPassword] = useState("");
   const [loginError, setLoginError] = useState("");
 
@@ -18,6 +18,8 @@ export const Login = ({ siteHeadline, siteType, submitBtn }) => {
   const navigate = useNavigate();
   const accessToken = useSelector((store) => store.user.accessToken);
   const userId = useSelector((store) => store.user.id)
+  //const usersName = useSelector((store) => store.user.name)
+
 
   useEffect(() => {
     if (accessToken) {
@@ -32,7 +34,7 @@ export const Login = ({ siteHeadline, siteType, submitBtn }) => {
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({ username: username, password: password })
+      body: JSON.stringify({ username: username, name: name, password: password })
     }
     fetch(API_URL(siteType), options) 
       .then(response => response.json())
@@ -40,13 +42,14 @@ export const Login = ({ siteHeadline, siteType, submitBtn }) => {
         if (data.success) {
           batch(() => {
             dispatch(user.actions.setUsername(data.response.username));
-            //dispatch(user.actions.setName(data.response.name));
+            dispatch(user.actions.setName(data.response.name));
             dispatch(user.actions.setId(data.response.id))
             dispatch(user.actions.setAccessToken(data.response.accessToken));
             dispatch(user.actions.setError(null));
           });
           const persistedStateJSON = {
             username: data.response.username,
+            name: data.response.name,
             id: data.response.id,
             accessToken: data.response.accessToken
           }
@@ -54,7 +57,7 @@ export const Login = ({ siteHeadline, siteType, submitBtn }) => {
         } else {
           batch(() => {
             dispatch(user.actions.setUsername(null));
-            //dispatch(user.actions.setName(null));
+            dispatch(user.actions.setName(null));
             dispatch(user.actions.setId(null))
             dispatch(user.actions.setAccessToken(null));
             dispatch(user.actions.setError(data.response));
@@ -78,6 +81,18 @@ export const Login = ({ siteHeadline, siteType, submitBtn }) => {
             placeholder=""
             onChange={(e) => setUsername(e.target.value)}
           />
+         {siteType === "register" && (
+          <>
+          <Label htmlFor="name">Namn: </Label>
+          <Input
+            type="text"
+            id="name"
+            value={name}
+            required
+            placeholder=""
+            onChange={(e) => setName(e.target.value)} />
+            </>
+            )}
 
           <Label htmlFor="password">Lösenord: </Label>
           <Input
@@ -120,7 +135,18 @@ export const Login = ({ siteHeadline, siteType, submitBtn }) => {
   required
   placeholder=""
   onChange={(e) => setName(e.target.value)}
-/>*/
+/>
+
+       /* {siteType === "register" &&(
+        <Label htmlFor="name">Namn: </Label>
+        <Input
+          type="text"
+          id="name"
+          value={name}
+          placeholder=""
+          onChange={(e) => setName(e.target.value)}
+        />) }*/
+        
 
 const LoginWrapper = styled.section`
   display: flex;
