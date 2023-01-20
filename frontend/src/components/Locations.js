@@ -1,25 +1,14 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components/macro";
-import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Devices, Headline } from './reusable-components/GlobalStyles';
 
-
 export const Locations = () => {
-  const navigate = useNavigate();
 
   const [cultureLocation, setCultureLocation] = useState([])
   const [natureLocation, setNatureLocation] = useState([])
 
   useEffect(() => {
-    const options = {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        // "Authorization": accessToken
-      }
-    }
-
     fetch("https://final-project-m2dbj6puqa-lz.a.run.app/locations")
       .then(res => res.json())
       .then(data => {
@@ -27,14 +16,11 @@ export const Locations = () => {
         setCultureLocation(data.response.culture)
         console.log(data.response.culture)
         console.log(data.response.nature)
-
       })
       .catch(error => console.error(error))
-
   }, []);
 
   return (
-
     <LocationsWrapper>
       <Headline>För dig som gillar kultur</Headline>
       <LocationGrid>

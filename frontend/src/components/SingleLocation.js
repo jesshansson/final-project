@@ -1,34 +1,27 @@
 import React from "react";
 import { Devices, StyledLink } from './reusable-components/GlobalStyles';
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import styled from "styled-components/macro";
 import { useParams } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import googleIcon from "./googleIcon.png"
-import user from "reducers/user";
 
 export const SingleLocation = ({}) => {
   const [details, setDetails] = useState([])
-  const [idOfUserWhoWantsToGo, SetIdOfUserWhoWantsToGo] = useState([])
-  const [idOfUserWhoClickedButton, SetIdOfUserWhoClickedButton] = useState([])
-  const [removeUser, setRemoveUser] = useState()
+  const [idOfUserWhoClickedButton, setIdOfUserWhoClickedButton] = useState([])
   const accessToken = useSelector((store) => store.user.accessToken);
   const visitorId = useSelector((store) => store.user.id)
-  const visitorUsername = useSelector((store) => store.user.username)
-  const bookmark = useSelector((store) => store.user.bookmark)
-  const { locationId, userId, visitors } = useParams()
+  const { locationId, userId } = useParams()
   const { id } = useParams()
-  const dispatch = useDispatch()
 
-  // this useEffect needs to be here, otherwise tuggar den 1000 gånger i consollen
   useEffect(() => {
     fetch(`https://final-project-m2dbj6puqa-lz.a.run.app/locations/${id}`)
       .then(res => res.json())
       .then((data) => {
         console.log(data.response)
         setDetails(data.response)
-        SetIdOfUserWhoClickedButton(data.response.visitors)
+        setIdOfUserWhoClickedButton(data.response.visitors)
         console.log(data.response.visitors)
       })
       .catch(error => console.error(error))
@@ -41,17 +34,12 @@ export const SingleLocation = ({}) => {
         'Content-Type': 'application/json',
         "Authorization": accessToken
       },
-      //Something needed here?
-      body: JSON.stringify({ ...idOfUserWhoClickedButton })
     }
     fetch(`https://final-project-m2dbj6puqa-lz.a.run.app/location/${id}/bookmarkCulture/${visitorId}`, options)
       .then(res => res.json())
       .then((data) => {
         console.log(data.response.visitors)
-        SetIdOfUserWhoClickedButton(data.response.visitors)
-        // if (data.success) {
-        //   dispatch(user.actions.setBookmark(data.response.bookmark))
-        // }
+        setIdOfUserWhoClickedButton(data.response.visitors)
       })
       .catch(error => console.error(error))
   }
@@ -62,19 +50,13 @@ export const SingleLocation = ({}) => {
       headers: {
         'Content-Type': 'application/json',
         "Authorization": accessToken
-      },
-      body: JSON.stringify({ ...idOfUserWhoClickedButton })
+      },   
     }
     fetch(`https://final-project-m2dbj6puqa-lz.a.run.app/location/${id}/bookmarkNature/${visitorId}`, options)
       .then(res => res.json())
       .then((data) => {
         console.log(data.response.visitors)
-        SetIdOfUserWhoClickedButton(data.response.visitors)
-      //   if (data.success) {
-      //     dispatch(user.actions.setBookmark(data.bookmark));
-      //   } else {
-      //     dispatch(user.actions.bookmark(null))
-      //   }
+        setIdOfUserWhoClickedButton(data.response.visitors)
       })
       .catch(error => console.error(error))
   }
@@ -86,17 +68,12 @@ export const SingleLocation = ({}) => {
         'Content-Type': 'application/json',
         "Authorization": accessToken
       },
-      body: JSON.stringify({ locationId, userId, bookmark })
     }
     fetch(`https://final-project-m2dbj6puqa-lz.a.run.app/location/${id}/deleteBookmarkCulture/${visitorId}`, options)
       .then(res => res.json())
       .then((data) => {
-        console.log(data)
-        if (data.success) {
-          dispatch(user.actions.setBookmark(data.bookmark));
-        } else {
-          dispatch(user.actions.bookmark(null))
-        }
+        setIdOfUserWhoClickedButton(data.response.visitors)
+        console.log(data.response.visitors)
       })
       .catch(error => console.error(error))
   }
@@ -108,21 +85,16 @@ export const SingleLocation = ({}) => {
         'Content-Type': 'application/json',
         "Authorization": accessToken
       },
-      body: JSON.stringify({ locationId, userId, bookmark })
     }
     fetch(`https://final-project-m2dbj6puqa-lz.a.run.app/location/${id}/deleteBookmarkNature/${visitorId}`, options)
       .then(res => res.json())
       .then((data) => {
-        if (data.success) {
-          dispatch(user.actions.setBookmark(data.bookmark));
-        } else {
-          dispatch(user.actions.bookmark(null))
-        }
+        setIdOfUserWhoClickedButton(data.response.visitors)
+        console.log(data.response.visitors)
       })
       .catch(error => console.error(error))
   }
 
-  //turns object into array to be able to render it an use .includes
   const filteredLocations = Object.keys(details)
 
   if (filteredLocations.includes("genre")) {
@@ -202,8 +174,8 @@ export const SingleLocation = ({}) => {
           </IWantToGoDiv>
           <SingleLocationDivRight>
             <p>Jag vill gå! Kontakta mig ❤️</p>
-            {idOfUserWhoWantsToGo.map((people) => (
-              <Users><StyledLink to={`/profile/${idOfUserWhoWantsToGo}/visit`}> {people}</StyledLink></Users>
+            {idOfUserWhoClickedButton.map((people) => (
+              <Users><StyledLink to={`/profile/${people}/visit`}> {people}</StyledLink></Users>
             ))}
             <Visitor
               type="button"
@@ -220,7 +192,8 @@ export const SingleLocation = ({}) => {
 const WebSiteLink = styled.p`
   margin-top: 10px;
   text-align: center;
-  width: 70%;
+  width: 80%;
+  word-wrap: break-word;
 `
 
 const SingleLocationName = styled.h1`
@@ -231,6 +204,7 @@ const SingleLocationName = styled.h1`
   text-decoration: none;
   border-radius: 3px;
   background-color: #FCF8E8;
+  text-align: center;
 
   @media ${Devices.tablet} {
   font-size: 35px;
@@ -382,9 +356,14 @@ const Image = styled.img`
 `
 
 const Description = styled.p`
-  width: 70%;
-  padding: 15px;
+  width: 80%;
+  padding: 12px;
   text-align: center;
+
+  @media ${Devices.tablet} {
+    padding: 15px;
+    width: 70%;
+  } 
 `
 
 const LocationDetails = styled.p`
@@ -412,9 +391,15 @@ const Users = styled.button`
 const Visitor = styled.button`
   padding: 0px, 5px;
   background-color: #CEE5D0;
+  color: black;
   border-radius: 5px;
   width: 100px;
   margin: 2px;
+  transition: ease-out 0.2s;
+
+  &:hover {
+    transform: scale(1.05);
+  }
 `
 
 const GoogleLink = styled.a`
@@ -429,4 +414,9 @@ const BackLink = styled.button`
   width: 150px;
   margin: 0px 0px 20px 0px;
   align-self: flex-start;
+  transition: ease-out 0.2s;
+
+&:hover {
+  transform: scale(1.05);
+}
 `

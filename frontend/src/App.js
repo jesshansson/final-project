@@ -1,6 +1,5 @@
 import React from 'react';
 import user from './reducers/user';
-import thunkMiddleware from "redux-thunk"; //Ta bort?
 import { GlobalStyle } from 'components/reusable-components/GlobalStyles';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
@@ -19,18 +18,6 @@ import { VisitUserProfile } from 'components/VisitUserProfile';
 const reducer = combineReducers({
   user: user.reducer,
 });
-// const persistedStateJSON = localStorage.getItem("userReduxState");
-// let persistedState = {};
-
-// if (persistedStateJSON) {
-//   persistedState = JSON.parse(persistedStateJSON);
-
-//   compose;
-
-// Ska in i store  persistedState
-// store.subscribe(() => {
-//   localStorage.setItem("userReduxState", JSON.stringify(store.getState()));
-// });
 
 const store = configureStore({ reducer });
 

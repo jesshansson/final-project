@@ -8,30 +8,13 @@ import { useSelector, batch, useDispatch } from 'react-redux';
 import { Devices } from './GlobalStyles';
 
 export const UserModal = ({userDetails}) => {
-  // const age = useSelector((store) => store.user.age)
-  // const name = useSelector((store) => store.user.name)
-  // const email = useSelector((store) => store.user.email)
-  // const facebook = useSelector((store) => store.user.facebook)
-  // const instagram = useSelector((store) => store.user.instagram)
-  // const presentation = useSelector((store) => store.user.presentation)
-  // const accessToken = useSelector((store) => store.user.accessToken);
-
   const userId = useSelector((store) => store.user.id)
   const {age, name, email,facebook,instagram,presentation,accessToken} = userDetails
   const [show, setShow] = useState(false);
   const [userData, setUserData] = useState({});
-  //const ImageUrl =  URL.createObjectURL(file);
 
   const dispatch = useDispatch()
   useEffect(()=> {
-    // setUserData({
-    //   age: age,
-    //   name: name,
-    //   email: email,
-    //   facebook: facebook,
-    //   instagram: instagram,
-    //   presentation: presentation
-    // });
     console.log({age, name, email,facebook,instagram,presentation,accessToken})
   }, []);
   const handleClose = () => setShow(false);
@@ -71,7 +54,6 @@ export const UserModal = ({userDetails}) => {
             dispatch(user.actions.setInstagram(null));
             dispatch(user.actions.setPresentation(null));
             dispatch(user.actions.setFacebook(null));
-            //dispatch(user.actions.setProfileImage(null));
             dispatch(user.actions.setError(data.response));
           });
         }
@@ -93,11 +75,6 @@ export const UserModal = ({userDetails}) => {
         </Modal.Header>
         <Modal.Body>
           <ModalForm onSubmit={editProfile}>
-          
-          <label id="name" htmlFor="name">
-              Namn:
-            </label>
-            <Input type="string" defaultValue={name} onChange={(e) => setUserData({ ...userData, name: e.target.value })} />
             <label id="email" htmlFor="email">
               Email:
             </label>
@@ -107,7 +84,7 @@ export const UserModal = ({userDetails}) => {
             <Input type="number" name="age" defaultValue={age} onChange={(e) => setUserData({ ...userData, age: e.target.value })} />
             <label id="facebook" htmlFor="facebook">Facebook:
             </label>
-            <Input type="text" name="facebook" placeholder="Namn" defaultValue={facebook} onChange={(e) => setUserData({ ...userData, facebook: e.target.value })} />
+            <Input type="text" name="facebook" placeholder="Länkadress till profilsida" defaultValue={facebook} onChange={(e) => setUserData({ ...userData, facebook: e.target.value })} />
             <label id="instagram" htmlFor="instagram">Instagram:
             </label>
             <Input type="text" name="instagram" placeholder="Användarnamn"  defaultValue={instagram} onChange={(e) => setUserData({ ...userData, instagram: e.target.value })} />
@@ -124,12 +101,8 @@ export const UserModal = ({userDetails}) => {
     </>
   );
 }
-/*
-<label id="profilepic" htmlFor="profilepic">
-              Profilbild:
-            </label>
-            <Input type="file" accept="image/png,image/jpeg,image/gif" defaultValue={profileImage} onChange={e => setUserData({ ...userData, profileImage: e.target.value })}  />
-*/
+
+
 const ModalForm = styled.form`
   display: flex;
   flex-direction: column;
@@ -173,5 +146,3 @@ const ButtonOpen = styled(ButtonSave)`
     padding: 5px;
     }`
   
-
-// NPM Modal from: https://react-bootstrap.github.io/components/modal/

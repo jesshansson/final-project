@@ -86,7 +86,3 @@ export const StyledLink = styled(Link)`
   text-decoration: underline;
   }
 `
-//Colour scheme
-//#CEE5D0 - lightgreen
-//#FCF8E8 - lightbeige
-//#ECB390 - orange-ish

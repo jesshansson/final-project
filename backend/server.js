@@ -1,7 +1,6 @@
 import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
-import crypto from "crypto"
 import bcrypt from "bcrypt"
 import { UserSchema } from "./Schemas/user"
 import { NatureSchema } from "./Schemas/nature";
@@ -9,9 +8,7 @@ import { CultureSchema } from "./Schemas/culture";
 import listEndpoints from "express-list-endpoints";
 import culture from "./data/culture.json";
 import nature from "./data/nature.json";
-import { EditUser, SingleUser, DeleteUser } from "./Userprofile"; //Används?
 
-// Ta bort populate?
 
 const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/final-project";
 mongoose.connect(mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true });
@@ -200,7 +197,7 @@ app.post("/location/:locationId/bookmarkCulture/:userId", async (req, res) => {
     }
   } catch (error) {
     res.status(400).json({
-      response: "Super wrong", //Ändra?
+      response: "Super wrong",
       success: false
     })
   }
@@ -246,7 +243,7 @@ app.post("/location/:locationId/bookmarkNature/:userId", async (req, res) => {
 })
 
 //To be able to delete a bookmark 
-//app.post("/location/:locationId/deleteBookmarkCulture/:userId", authenticateUser)
+app.post("/location/:locationId/deleteBookmarkCulture/:userId", authenticateUser)
 app.post("/location/:locationId/deleteBookmarkCulture/:userId", async (req, res) => {
   const { locationId, userId } = req.params
   try {
@@ -285,7 +282,7 @@ app.post("/location/:locationId/deleteBookmarkCulture/:userId", async (req, res)
   }
 })
 
-//app.post("/location/:locationId/deleteBookmarkNature/:userId", authenticateUser)
+app.post("/location/:locationId/deleteBookmarkNature/:userId", authenticateUser)
 app.post("/location/:locationId/deleteBookmarkNature/:userId", async (req, res) => {
   const { locationId, userId } = req.params
   try {
@@ -325,7 +322,6 @@ app.post("/location/:locationId/deleteBookmarkNature/:userId", async (req, res) 
 })
 
 
-
 // When user is authenticated they are directed to this endpoint
 app.get("/profile/:id", authenticateUser)
 app.get("/profile/:id", async (req, res) => {
@@ -349,7 +345,6 @@ app.patch("/profile/:id/update", async (req, res) => {
   const updatedProfileInfo = req.body
   const { id } = req.params
   try {
-    // const { email, name, age, presentation, facebook, instagram, bookmark, createdAt } = req.body //Ta bort?
 
     console.log(req.body)
     const updateProfile = await User.findByIdAndUpdate(
@@ -417,10 +412,7 @@ app.get("/endpoints", (req, res) => {
 app.get("/locations", async (req, res) => {
   const nature = await Nature.find({})
   const culture = await Culture.find({})
-  // .populate("visitors", {
-  //   username: 1,
-  //   name: 1
-  // })
+
   res.status(200).json({ success: true, response: { culture, nature } })
 });
 
@@ -428,10 +420,7 @@ app.get("/locations/:id", async (req, res) => {
   try {
     const singleLocationNature = await Nature.findById({ _id: req.params.id })
     const singleLocationCulture = await Culture.findById({ _id: req.params.id })
-    // .populate('visitors', {
-    //   username: 1,
-    //   name: 1
-    // })
+
     if (singleLocationCulture || singleLocationNature) {
       res.status(200).json({
         success: true,
@@ -450,7 +439,6 @@ app.get("/locations/:id", async (req, res) => {
     })
   }
 })
-
 
 // Start the server
 app.listen(port, () => {

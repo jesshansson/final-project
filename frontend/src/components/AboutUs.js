@@ -20,7 +20,7 @@ export const AboutUs = () => {
           <Container>
             <NameTitle>Maria Westling</NameTitle>
             <SmallTitle>Frontend developer</SmallTitle>
-            <DescriptionProfile>Frontendutvecklare med en förkärlek för gröna växter och pingviner</DescriptionProfile>
+            <DescriptionProfile>Frontendutvecklare som trivs bäst med sin stickning och ett glas rött</DescriptionProfile>
             <SoMeWrapper>
               <SoMeIcon href="https://github.com/marwebdesign">
                 <SoMeIconLink className="fa-brands fa-github" />
@@ -40,7 +40,7 @@ export const AboutUs = () => {
           <Container>
             <NameTitle>Jessica Hansson</NameTitle>
             <SmallTitle>Frontend developer</SmallTitle>
-            <DescriptionProfile>Frontendutvecklare med en förkärlek för gröna växter och pingviner</DescriptionProfile>
+            <DescriptionProfile>Frontendutvecklare som vill göra världen lite bättre genom sitt kodande</DescriptionProfile>
             <SoMeWrapper>
               <SoMeIcon href="https://github.com/jesshansson">
                 <SoMeIconLink className="fa-brands fa-github" />
@@ -104,6 +104,7 @@ const AboutUsWrapper = styled.section`
 `
 const DescriptionProfile = styled.div`
   font-size: 18px;
+  text-align: center;
 
   @media ${Devices.laptop} {
     font-size: 20px;

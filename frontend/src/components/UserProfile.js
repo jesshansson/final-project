@@ -39,7 +39,6 @@ export const UserProfile = () => {
       .then(data => {
         setUserDetails(data.response)
         batch(() => {
-          dispatch(user.actions.setBookmark(data.response.bookmark));
           dispatch(user.actions.setName(data.response.name));
           dispatch(user.actions.setEmail(data.response.email));
           dispatch(user.actions.setAge(data.response.age));
