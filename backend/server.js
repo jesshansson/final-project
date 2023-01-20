@@ -244,7 +244,7 @@ app.post("/location/:locationId/bookmarkNature/:userId", async (req, res) => {
 })
 
 //To be able to delete a bookmark 
-app.post("/location/:locationId/deleteBookmarkCulture/:userId", authenticateUser)
+//app.post("/location/:locationId/deleteBookmarkCulture/:userId", authenticateUser)
 app.post("/location/:locationId/deleteBookmarkCulture/:userId", async (req, res) => {
   const { locationId, userId } = req.params
   try {
@@ -283,7 +283,7 @@ app.post("/location/:locationId/deleteBookmarkCulture/:userId", async (req, res)
   }
 })
 
-app.post("/location/:locationId/deleteBookmarkNature/:userId", authenticateUser)
+//app.post("/location/:locationId/deleteBookmarkNature/:userId", authenticateUser)
 app.post("/location/:locationId/deleteBookmarkNature/:userId", async (req, res) => {
   const { locationId, userId } = req.params
   try {

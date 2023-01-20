@@ -20,13 +20,13 @@ export const VisitUserProfile = () => {
     const profileImage = useSelector((store) => store.user.profileImage)
 */
 
-  const [username, setUsername] = useState()
-  const [name, setName] = useState()
-  const [email, setEmail] = useState()
-  const [age, setAge] = useState()
-  const [presentation, setPresentation] = useState()
-  const [facebook, setFacebook] = useState()
-  const [instagram, setInstagram] = useState()
+  const [username, setUsername] = useState("")
+  const [name, setName] = useState("")
+  const [email, setEmail] = useState("")
+  const [age, setAge] = useState("")
+  const [presentation, setPresentation] = useState("")
+  const [facebook, setFacebook] = useState("")
+  const [instagram, setInstagram] = useState("")
 
   const userData = {age, name, email,facebook,instagram,presentation,accessToken, }
 

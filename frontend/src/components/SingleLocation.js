@@ -44,7 +44,7 @@ export const SingleLocation = () => {
       method: "POST",
       headers: {
         'Content-Type': 'application/json',
-        // "Authorization": accessToken
+        "Authorization": accessToken
       },
       //Something needed here?
       body: JSON.stringify({ locationId, userId })
@@ -66,17 +66,20 @@ export const SingleLocation = () => {
       method: "POST",
       headers: {
         'Content-Type': 'application/json',
+        "Authorization": accessToken
       },
-      body: JSON.stringify({ locationId, userId, bookmark })
+      body: JSON.stringify({ locationId, userId })
     }
     fetch(`https://final-project-m2dbj6puqa-lz.a.run.app/location/${id}/bookmarkNature/${visitorId}`, options)
       .then(res => res.json())
       .then((data) => {
-        if (data.success) {
-          dispatch(user.actions.setBookmark(data.bookmark));
-        } else {
-          dispatch(user.actions.bookmark(null))
-        }
+           // SetIWantToGo(data.response.visitors)
+           console.log(data)
+      //   if (data.success) {
+      //     dispatch(user.actions.setBookmark(data.bookmark));
+      //   } else {
+      //     dispatch(user.actions.bookmark(null))
+      //   }
       })
       .catch(error => console.error(error))
   }
@@ -86,6 +89,7 @@ export const SingleLocation = () => {
       method: "POST",
       headers: {
         'Content-Type': 'application/json',
+        "Authorization": accessToken
       },
       body: JSON.stringify({ locationId, userId, bookmark })
     }
@@ -106,6 +110,7 @@ export const SingleLocation = () => {
       method: "POST",
       headers: {
         'Content-Type': 'application/json',
+        "Authorization": accessToken
       },
       body: JSON.stringify({ locationId, userId, bookmark })
     }

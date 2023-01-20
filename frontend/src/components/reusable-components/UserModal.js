@@ -17,7 +17,7 @@ export const UserModal = ({userDetails}) => {
   // const accessToken = useSelector((store) => store.user.accessToken);
 
   const userId = useSelector((store) => store.user.id)
-  const {age, name, email,facebook,instagram,presentation,accessToken, profileImage} = userDetails
+  const {age, name, email,facebook,instagram,presentation,accessToken} = userDetails
   const [show, setShow] = useState(false);
   const [userData, setUserData] = useState({});
   //const ImageUrl =  URL.createObjectURL(file);
