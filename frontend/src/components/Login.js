@@ -9,17 +9,14 @@ import { Link } from 'react-router-dom';
 
 export const Login = ({ siteHeadline, siteType, submitBtn }) => {
   const [username, setUsername] = useState("");
-  const [name, setName] = useState(""); //Om man ska fylla i namn också?
+  const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [loginError, setLoginError] = useState("");
-
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const accessToken = useSelector((store) => store.user.accessToken);
   const userId = useSelector((store) => store.user.id)
-  //const usersName = useSelector((store) => store.user.name)
-
 
   useEffect(() => {
     if (accessToken) {
@@ -108,7 +105,6 @@ export const Login = ({ siteHeadline, siteType, submitBtn }) => {
           )}
           <Button type="submit">{submitBtn}</Button>
         </FormSubmit>
-
         {siteType === "login" && (
           <CenterFlexDiv>
             <p>Inte medlem ännu?</p>
@@ -127,26 +123,7 @@ export const Login = ({ siteHeadline, siteType, submitBtn }) => {
     </>
   )
 }
-/*<Label htmlFor="name">Namn: </Label>
-<Input
-  type="text"
-  id="username"
-  value={name}
-  required
-  placeholder=""
-  onChange={(e) => setName(e.target.value)}
-/>
-
-       /* {siteType === "register" &&(
-        <Label htmlFor="name">Namn: </Label>
-        <Input
-          type="text"
-          id="name"
-          value={name}
-          placeholder=""
-          onChange={(e) => setName(e.target.value)}
-        />) }*/
-        
+   
 
 const LoginWrapper = styled.section`
   display: flex;
