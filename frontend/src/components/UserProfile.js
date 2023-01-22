@@ -46,7 +46,6 @@ export const UserProfile = () => {
           dispatch(user.actions.setInstagram(data.response.instagram));
           dispatch(user.actions.setFacebook(data.response.facebook));
           dispatch(user.actions.setError(null));
-          dispatch(user.actions.setProfileImage(data.response.profileImage));
         });
         console.log(userDetails);
       })
