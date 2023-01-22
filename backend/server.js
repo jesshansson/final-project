@@ -418,8 +418,8 @@ app.get("/locations", async (req, res) => {
 
 app.get("/locations/:id", async (req, res) => {
   try {
-    const singleLocationNature = await Nature.findById({ _id: req.params.id })
-    const singleLocationCulture = await Culture.findById({ _id: req.params.id })
+    const singleLocationNature = await Nature.findById({ _id: req.params.id }).populate("visitors");
+    const singleLocationCulture = await Culture.findById({ _id: req.params.id }).populate("visitors");
 
     if (singleLocationCulture || singleLocationNature) {
       res.status(200).json({
