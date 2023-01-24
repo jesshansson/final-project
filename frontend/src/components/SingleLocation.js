@@ -7,7 +7,7 @@ import { useParams } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import googleIcon from "./googleIcon.png"
 
-export const SingleLocation = ({}) => {
+export const SingleLocation = ({ }) => {
   const [details, setDetails] = useState([])
   const [idOfUserWhoClickedButton, setIdOfUserWhoClickedButton] = useState([])
   const accessToken = useSelector((store) => store.user.accessToken);
@@ -50,7 +50,7 @@ export const SingleLocation = ({}) => {
       headers: {
         'Content-Type': 'application/json',
         "Authorization": accessToken
-      },   
+      },
     }
     fetch(`https://final-project-m2dbj6puqa-lz.a.run.app/location/${id}/bookmarkNature/${visitorId}`, options)
       .then(res => res.json())
@@ -134,7 +134,11 @@ export const SingleLocation = ({}) => {
           <SingleLocationDivRight>
             <p>Jag vill gå! Kontakta mig ❤️</p>
             {idOfUserWhoClickedButton.map((people) => (
-              <Users><StyledLink to={`/profile/${people}/visit`}> {people}</StyledLink></Users>
+              <Users>
+                <StyledLink to={`/profile/${people._id}/visit`}>
+                  {people.username}
+                </StyledLink>
+              </Users>
             ))}
             <Visitor
               type="button"
@@ -175,7 +179,11 @@ export const SingleLocation = ({}) => {
           <SingleLocationDivRight>
             <p>Jag vill gå! Kontakta mig ❤️</p>
             {idOfUserWhoClickedButton.map((people) => (
-              <Users><StyledLink to={`/profile/${people}/visit`}> {people}</StyledLink></Users>
+              <Users>
+                <StyledLink to={`/profile/${people._id}/visit`}>
+                  {people.username}
+                </StyledLink>
+              </Users>
             ))}
             <Visitor
               type="button"

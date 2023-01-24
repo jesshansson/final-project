@@ -59,21 +59,21 @@ app.post("/register", async (req, res) => {
 const Nature = mongoose.model("Nature", NatureSchema);
 const Culture = mongoose.model("Culture", CultureSchema)
 
-if (true) {
-  const resetDatabase = async () => {
-    await Culture.deleteMany();
-    culture.forEach(singleCulture => {
-      const newCulture = new Culture(singleCulture);
-      newCulture.save()
-    })
-    await Nature.deleteMany();
-    nature.forEach(singleNature => {
-      const newNature = new Nature(singleNature)
-      newNature.save()
-    })
-  }
-  resetDatabase();
-}
+// if (true) {
+//   const resetDatabase = async () => {
+//     await Culture.deleteMany();
+//     culture.forEach(singleCulture => {
+//       const newCulture = new Culture(singleCulture);
+//       newCulture.save()
+//     })
+//     await Nature.deleteMany();
+//     nature.forEach(singleNature => {
+//       const newNature = new Nature(singleNature)
+//       newNature.save()
+//     })
+//   }
+//   resetDatabase();
+// }
 
 //Register new user
 app.post("/register", async (req, res) => {
@@ -420,7 +420,6 @@ app.get("/locations/:id", async (req, res) => {
   try {
     const singleLocationNature = await Nature.findById({ _id: req.params.id }).populate("visitors");
     const singleLocationCulture = await Culture.findById({ _id: req.params.id }).populate("visitors");
-
     if (singleLocationCulture || singleLocationNature) {
       res.status(200).json({
         success: true,
