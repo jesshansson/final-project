@@ -12,7 +12,6 @@ export const Login = ({ siteHeadline, siteType, submitBtn }) => {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [loginError, setLoginError] = useState("");
-
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const accessToken = useSelector((store) => store.user.accessToken);
@@ -33,7 +32,7 @@ export const Login = ({ siteHeadline, siteType, submitBtn }) => {
       },
       body: JSON.stringify({ username: username, name: name, password: password })
     }
-    fetch(API_URL(siteType), options) 
+    fetch(API_URL(siteType), options)
       .then(response => response.json())
       .then(data => {
         if (data.success) {
@@ -64,66 +63,66 @@ export const Login = ({ siteHeadline, siteType, submitBtn }) => {
       })
   }
   return (
-<>
-    <LoginWrapper>
-      <LoginBox>
-        <H1>{siteHeadline}</H1>
-        <FormSubmit onSubmit={onFormSubmit}>
-          <Label htmlFor="username">Användarnamn: </Label>
-          <Input
-            type="text"
-            id="username"
-            value={username}
-            required
-            placeholder=""
-            onChange={(e) => setUsername(e.target.value)}
-          />
-         {siteType === "register" && (
-          <>
-          <Label htmlFor="name">Namn: </Label>
-          <Input
-            type="text"
-            id="name"
-            value={name}
-            required
-            placeholder=""
-            onChange={(e) => setName(e.target.value)} />
-            </>
+    <>
+      <LoginWrapper>
+        <LoginBox>
+          <H1>{siteHeadline}</H1>
+          <FormSubmit onSubmit={onFormSubmit}>
+            <Label htmlFor="username">Användarnamn: </Label>
+            <Input
+              type="text"
+              id="username"
+              value={username}
+              required
+              placeholder=""
+              onChange={(e) => setUsername(e.target.value)}
+            />
+            {siteType === "register" && (
+              <>
+                <Label htmlFor="name">Namn: </Label>
+                <Input
+                  type="text"
+                  id="name"
+                  value={name}
+                  required
+                  placeholder=""
+                  onChange={(e) => setName(e.target.value)} />
+              </>
             )}
 
-          <Label htmlFor="password">Lösenord: </Label>
-          <Input
-            type="password"
-            id="password"
-            value={password}
-            required
-            placeholder="******"
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          {loginError !== '' && (
-            <ErrorText>{loginError} </ErrorText>
-          )}
-          <Button type="submit">{submitBtn}</Button>
-        </FormSubmit>
-        {siteType === "login" && (
-          <CenterFlexDiv>
-            <p>Inte medlem ännu?</p>
-            <Link to="/register">Registrera nytt konto här</Link>
-          </CenterFlexDiv>)
-        }
-        {siteType === "register" && (
-          <CenterFlexDiv>
-            <p>Redan medlem?</p>
-            <Link to="/login">Logga in här </Link>
-          </CenterFlexDiv>)
-        }
+            <Label htmlFor="password">Lösenord: </Label>
+            <Input
+              type="password"
+              id="password"
+              value={password}
+              required
+              placeholder="******"
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            {loginError !== '' && (
+              <ErrorText>{loginError} </ErrorText>
+            )}
+            <Button type="submit">{submitBtn}</Button>
+          </FormSubmit>
+          {siteType === "login" && (
+            <CenterFlexDiv>
+              <p>Inte medlem ännu?</p>
+              <Link to="/register">Registrera nytt konto här</Link>
+            </CenterFlexDiv>)
+          }
+          {siteType === "register" && (
+            <CenterFlexDiv>
+              <p>Redan medlem?</p>
+              <Link to="/login">Logga in här </Link>
+            </CenterFlexDiv>)
+          }
 
-      </LoginBox>
-    </LoginWrapper>
+        </LoginBox>
+      </LoginWrapper>
     </>
   )
 }
-   
+
 
 const LoginWrapper = styled.section`
   display: flex;

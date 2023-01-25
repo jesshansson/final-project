@@ -19,6 +19,7 @@ export const UserProfile = () => {
   const navigate = useNavigate();
   const { id } = useParams()
   const dispatch = useDispatch();
+
   useEffect(() => {
     if (!accessToken) {
       navigate("/unauthorized");
@@ -30,7 +31,7 @@ export const UserProfile = () => {
       method: "GET",
       headers: {
         'Content-Type': 'application/json',
-       "Authorization": accessToken
+        "Authorization": accessToken
       }
     }
 
@@ -54,32 +55,32 @@ export const UserProfile = () => {
 
 
   return (
-      <ProfileWrapper>
-        <Card>
-          <UserModalButton>
-            <UserModal accessToken={accessToken} userDetails={userDetails} />
-          </UserModalButton>
-          <ProfileImg src="https://th.bing.com/th/id/OIP.IB0XUg8PV5FGxOf0WWDdOQHaHa?pid=ImgDet&rs=1" alt="John" />
-          <h1>{name}</h1>
-          <h2>{username}</h2>
-          <Age>{age} år</Age>
-          <DescriptionProfile2>{presentation}
-          </DescriptionProfile2>
-          <SoMeWrapperProfile>
-            <SoMeIconProfile href={`https://instagram.com/${instagram}`}>
-              <SoMeIconLinkProfile className="fa fa-instagram" />
-            </SoMeIconProfile>
-            <SoMeIconProfile href={facebook}>
-              <SoMeIconLinkProfile className="fa fa-facebook" />
-            </SoMeIconProfile>
-          </SoMeWrapperProfile>
-          <p>
-            <a href={`mailto:${email}`}>
-              <ContactButton>Maila mig!</ContactButton>
-            </a>
-          </p>
-        </Card >
-      </ProfileWrapper >
+    <ProfileWrapper>
+      <Card>
+        <UserModalButton>
+          <UserModal accessToken={accessToken} userDetails={userDetails} />
+        </UserModalButton>
+        <ProfileImg src="https://th.bing.com/th/id/OIP.IB0XUg8PV5FGxOf0WWDdOQHaHa?pid=ImgDet&rs=1" alt="John" />
+        <h1>{name}</h1>
+        <h2>{username}</h2>
+        <Age>{age} år</Age>
+        <DescriptionProfile2>{presentation}
+        </DescriptionProfile2>
+        <SoMeWrapperProfile>
+          <SoMeIconProfile href={`https://instagram.com/${instagram}`}>
+            <SoMeIconLinkProfile className="fa fa-instagram" />
+          </SoMeIconProfile>
+          <SoMeIconProfile href={facebook}>
+            <SoMeIconLinkProfile className="fa fa-facebook" />
+          </SoMeIconProfile>
+        </SoMeWrapperProfile>
+        <p>
+          <a href={`mailto:${email}`}>
+            <ContactButton>Maila mig!</ContactButton>
+          </a>
+        </p>
+      </Card >
+    </ProfileWrapper >
   );
 };
 

@@ -3,26 +3,35 @@ import { Devices, StyledLink } from './reusable-components/GlobalStyles';
 import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import styled from "styled-components/macro";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Link } from 'react-router-dom';
-import googleIcon from "./googleIcon.png"
+import googleIcon from "./googleIcon.png";
 
 export const SingleLocation = ({ }) => {
   const [details, setDetails] = useState([])
+  const navigate = useNavigate();
   const [idOfUserWhoClickedButton, setIdOfUserWhoClickedButton] = useState([])
   const accessToken = useSelector((store) => store.user.accessToken);
   const visitorId = useSelector((store) => store.user.id)
   const { locationId, userId } = useParams()
   const { id } = useParams()
 
+  //IF USER IS LOGGED OUT 
+  useEffect(() => {
+    if (!accessToken) {
+      navigate(`/unauthorized`);
+    }
+  }, [accessToken])
+
+
   useEffect(() => {
     fetch(`https://final-project-m2dbj6puqa-lz.a.run.app/locations/${id}`)
       .then(res => res.json())
       .then((data) => {
-        console.log(data.response)
+        //console.log(data.response)
         setDetails(data.response)
         setIdOfUserWhoClickedButton(data.response.visitors)
-        console.log(data.response.visitors)
+        //console.log(data.response.visitors)
       })
       .catch(error => console.error(error))
   }, []);
@@ -38,10 +47,14 @@ export const SingleLocation = ({ }) => {
     fetch(`https://final-project-m2dbj6puqa-lz.a.run.app/location/${id}/bookmarkCulture/${visitorId}`, options)
       .then(res => res.json())
       .then((data) => {
-        console.log(data.response.visitors)
+        //console.log(data.response.visitors)
         setIdOfUserWhoClickedButton(data.response.visitors)
+        //TO GET THE USERNAME TO SHOW DIRECTLY 
+        //window.location.reload()
       })
       .catch(error => console.error(error))
+
+
   }
 
   const onBookmarkButtonClickNature = () => {
@@ -129,14 +142,19 @@ export const SingleLocation = ({ }) => {
             <p>Jag vill gå! </p>
             <Visitor
               type="button"
-              onClick={() => onBookmarkButtonClickCulture()}>Klicka här</Visitor>
+              onClick={() =>
+                onBookmarkButtonClickCulture()}>
+              Klicka här</Visitor>
           </IWantToGoDiv>
           <SingleLocationDivRight>
             <p>Jag vill gå! Kontakta mig ❤️</p>
             {idOfUserWhoClickedButton.map((people) => (
               <Users>
-                <StyledLink to={`/profile/${people._id}/visit`}>
+                <StyledLink
+                  key={people._id}
+                  to={`/profile/${people._id}/visit`}>
                   {people.username}
+                  {console.log(people.username)}
                 </StyledLink>
               </Users>
             ))}
@@ -147,7 +165,7 @@ export const SingleLocation = ({ }) => {
             </Visitor>
           </SingleLocationDivRight>
         </SingleLocationDivs>
-      </LocationWrapper>
+      </LocationWrapper >
     )
   } else {
     return (
@@ -180,7 +198,9 @@ export const SingleLocation = ({ }) => {
             <p>Jag vill gå! Kontakta mig ❤️</p>
             {idOfUserWhoClickedButton.map((people) => (
               <Users>
-                <StyledLink to={`/profile/${people._id}/visit`}>
+                <StyledLink
+                  key={people._id}
+                  to={`/profile/${people._id}/visit`}>
                   {people.username}
                 </StyledLink>
               </Users>
