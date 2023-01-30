@@ -2,7 +2,6 @@ import { createGlobalStyle } from "styled-components";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-
 const sizes = {
   tablet: '668px',
   laptop: '1024px',
@@ -14,12 +13,6 @@ export const Devices = {
   laptop: `(min-width: ${sizes.laptop})`,
   desktop: `(min-width: ${sizes.desktop})`
 };
-
-//To use queries
-//@media ${Devices.tablet} 
-//@media ${Devices.laptop} 
-//@media ${Devices.desktop} 
-
 
 export const GlobalStyle = createGlobalStyle`
 

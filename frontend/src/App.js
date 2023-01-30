@@ -55,6 +55,3 @@ export const App = () => {
     </Provider>
   );
 }
-
-//Frontend: https://kulturligtvis.netlify.app/
-//Backend: https://final-project-m2dbj6puqa-lz.a.run.app/

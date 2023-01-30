@@ -5,6 +5,7 @@ import styled from "styled-components";
 import { Devices } from './reusable-components/GlobalStyles';
 import { UserModal } from './reusable-components/UserModal';
 import user from 'reducers/user';
+import { BASE_URL } from 'utils/utils';
 
 export const UserProfile = () => {
   const [userDetails, setUserDetails] = useState({})
@@ -35,7 +36,7 @@ export const UserProfile = () => {
       }
     }
 
-    fetch(`https://final-project-m2dbj6puqa-lz.a.run.app/profile/${id}`, options)
+    fetch(`${BASE_URL}/profile/${id}`, options)
       .then(res => res.json())
       .then(data => {
         setUserDetails(data.response)
@@ -48,7 +49,6 @@ export const UserProfile = () => {
           dispatch(user.actions.setFacebook(data.response.facebook));
           dispatch(user.actions.setError(null));
         });
-        console.log(userDetails);
       })
       .catch(error => console.error(error))
   }, [])

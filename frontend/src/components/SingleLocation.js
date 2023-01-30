@@ -6,6 +6,7 @@ import styled from "styled-components/macro";
 import { useNavigate, useParams } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import googleIcon from "./googleIcon.png";
+import { BASE_URL } from "utils/utils";
 
 export const SingleLocation = ({ }) => {
   const [details, setDetails] = useState([])
@@ -13,7 +14,6 @@ export const SingleLocation = ({ }) => {
   const [idOfUserWhoClickedButton, setIdOfUserWhoClickedButton] = useState([])
   const accessToken = useSelector((store) => store.user.accessToken);
   const visitorId = useSelector((store) => store.user.id)
-  const { locationId, userId } = useParams()
   const { id } = useParams()
 
   //IF USER IS LOGGED OUT 
@@ -25,13 +25,11 @@ export const SingleLocation = ({ }) => {
 
 
   useEffect(() => {
-    fetch(`https://final-project-m2dbj6puqa-lz.a.run.app/locations/${id}`)
+    fetch(`${BASE_URL}/locations/${id}`)
       .then(res => res.json())
       .then((data) => {
-        //console.log(data.response)
         setDetails(data.response)
         setIdOfUserWhoClickedButton(data.response.visitors)
-        //console.log(data.response.visitors)
       })
       .catch(error => console.error(error))
   }, []);
@@ -44,10 +42,9 @@ export const SingleLocation = ({ }) => {
         "Authorization": accessToken
       },
     }
-    fetch(`https://final-project-m2dbj6puqa-lz.a.run.app/location/${id}/bookmarkCulture/${visitorId}`, options)
+    fetch(`${BASE_URL}/location/${id}/bookmarkCulture/${visitorId}`, options)
       .then(res => res.json())
       .then((data) => {
-        //console.log(data.response.visitors)
         setIdOfUserWhoClickedButton(data.response.visitors)
         //TO GET THE USERNAME TO SHOW DIRECTLY 
         //window.location.reload()
@@ -65,10 +62,9 @@ export const SingleLocation = ({ }) => {
         "Authorization": accessToken
       },
     }
-    fetch(`https://final-project-m2dbj6puqa-lz.a.run.app/location/${id}/bookmarkNature/${visitorId}`, options)
+    fetch(`${BASE_URL}/location/${id}/bookmarkNature/${visitorId}`, options)
       .then(res => res.json())
       .then((data) => {
-        console.log(data.response.visitors)
         setIdOfUserWhoClickedButton(data.response.visitors)
       })
       .catch(error => console.error(error))
@@ -82,11 +78,10 @@ export const SingleLocation = ({ }) => {
         "Authorization": accessToken
       },
     }
-    fetch(`https://final-project-m2dbj6puqa-lz.a.run.app/location/${id}/deleteBookmarkCulture/${visitorId}`, options)
+    fetch(`${BASE_URL}/location/${id}/deleteBookmarkCulture/${visitorId}`, options)
       .then(res => res.json())
       .then((data) => {
         setIdOfUserWhoClickedButton(data.response.visitors)
-        console.log(data.response.visitors)
       })
       .catch(error => console.error(error))
   }
@@ -99,11 +94,10 @@ export const SingleLocation = ({ }) => {
         "Authorization": accessToken
       },
     }
-    fetch(`https://final-project-m2dbj6puqa-lz.a.run.app/location/${id}/deleteBookmarkNature/${visitorId}`, options)
+    fetch(`${BASE_URL}/location/${id}/deleteBookmarkNature/${visitorId}`, options)
       .then(res => res.json())
       .then((data) => {
         setIdOfUserWhoClickedButton(data.response.visitors)
-        console.log(data.response.visitors)
       })
       .catch(error => console.error(error))
   }
@@ -154,7 +148,6 @@ export const SingleLocation = ({ }) => {
                   key={people._id}
                   to={`/profile/${people._id}/visit`}>
                   {people.username}
-                  {console.log(people.username)}
                 </StyledLink>
               </Users>
             ))}

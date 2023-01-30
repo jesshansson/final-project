@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import user from 'reducers/user';
 import { Modal } from 'react-bootstrap'; 
 import { API_URL } from 'utils/utils';
@@ -9,14 +9,11 @@ import { Devices } from './GlobalStyles';
 
 export const UserModal = ({userDetails}) => {
   const userId = useSelector((store) => store.user.id)
-  const {age, name, email,facebook,instagram,presentation,accessToken} = userDetails
+  const {age, email,facebook,instagram,presentation,accessToken} = userDetails
   const [show, setShow] = useState(false);
   const [userData, setUserData] = useState({});
 
   const dispatch = useDispatch()
-  useEffect(()=> {
-    console.log({age, name, email,facebook,instagram,presentation,accessToken})
-  }, []);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 

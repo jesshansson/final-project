@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components/macro";
 import { Link } from "react-router-dom";
 import { Devices, Headline } from './reusable-components/GlobalStyles';
+import { BASE_URL } from "utils/utils";
 
 export const Locations = () => {
 
@@ -9,13 +10,11 @@ export const Locations = () => {
   const [natureLocation, setNatureLocation] = useState([])
 
   useEffect(() => {
-    fetch("https://final-project-m2dbj6puqa-lz.a.run.app/locations")
+    fetch(`${BASE_URL}/locations`)
       .then(res => res.json())
       .then(data => {
         setNatureLocation(data.response.nature)
         setCultureLocation(data.response.culture)
-        console.log(data.response.culture)
-        console.log(data.response.nature)
       })
       .catch(error => console.error(error))
   }, []);

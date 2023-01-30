@@ -33,7 +33,7 @@ export const VisitUserProfile = () => {
         }
       }
   
-   fetch(`https://final-project-m2dbj6puqa-lz.a.run.app/profile/${id}`, options)
+   fetch(`${BASE_URL}/profile/${id}`, options)
         .then((res) => res.json())
         .then((data) => 
         setUserDetails(data.response));

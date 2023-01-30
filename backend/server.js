@@ -6,17 +6,12 @@ import { UserSchema } from "./Schemas/user"
 import { NatureSchema } from "./Schemas/nature";
 import { CultureSchema } from "./Schemas/culture";
 import listEndpoints from "express-list-endpoints";
-import culture from "./data/culture.json";
-import nature from "./data/nature.json";
-
 
 const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/final-project";
 mongoose.connect(mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.Promise = Promise;
 
-// Defines the port the app will run on. Defaults to 8080, but can be overridden
-// when starting the server. Example command to overwrite PORT env variable value:
-// PORT=9000 npm start
+
 const port = process.env.PORT || 8080;
 const app = express();
 
@@ -58,22 +53,6 @@ app.post("/register", async (req, res) => {
 
 const Nature = mongoose.model("Nature", NatureSchema);
 const Culture = mongoose.model("Culture", CultureSchema)
-
-// if (true) {
-//   const resetDatabase = async () => {
-//     await Culture.deleteMany();
-//     culture.forEach(singleCulture => {
-//       const newCulture = new Culture(singleCulture);
-//       newCulture.save()
-//     })
-//     await Nature.deleteMany();
-//     nature.forEach(singleNature => {
-//       const newNature = new Nature(singleNature)
-//       newNature.save()
-//     })
-//   }
-//   resetDatabase();
-// }
 
 //Register new user
 app.post("/register", async (req, res) => {
@@ -345,8 +324,6 @@ app.patch("/profile/:id/update", async (req, res) => {
   const updatedProfileInfo = req.body
   const { id } = req.params
   try {
-
-    console.log(req.body)
     const updateProfile = await User.findByIdAndUpdate(
       id,
       { $set: updatedProfileInfo },
