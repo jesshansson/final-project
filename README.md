@@ -8,7 +8,6 @@ This is the final project of our education, Technigo Web Development Boot Camp.
 ## Tech used
 - Backend: Node.js, MongoDB, Google Cloud
 - Frontend: React, Redux, Styled Components, JSX
-- Assets: Icons from Icons8
 
 ## View it live
 

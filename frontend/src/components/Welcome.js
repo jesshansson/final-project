@@ -35,8 +35,9 @@ export const Welcome = () => {
         <Bigtext>Kanske kan vår sida bidra till minskad ensamhet, nya intressen och vänner för livet? Det är åtminstone det som är tanken.
         </Bigtext>
         <Smalltext>
-          Så letar du efter du ett spännande museum du inte ens visste fanns? En stig du aldrig vandrat? En ny kultur- eller naturupplevelse?
-          Spana in <Link to="/locations">Besöksmålen!</Link> Vill du komma i kontakt med någon som känner likadant? <Link to="/register">Skapa ett konto</Link> för att kunna kontakta varandra.
+          Så letar du efter du ett spännande museum du inte ens visste fanns? En stig du aldrig vandrat? En ny kultur- eller naturupplevelse? Börja med
+          att <Link to="/register">Skapa ett konto</Link>. Spana sedan in <Link to="/locations">Besöksmålen</Link> och bokmärk platsen om du är intresserad
+          av att gå dit. Vill du slå följe? Kolla vilka andra som har bokmärkt, och kontakta den!
         </Smalltext>
       </WelcomeText>
     </WelcomeWrapper>
