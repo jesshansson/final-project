@@ -52,25 +52,6 @@ export const SingleLocation = ({ }) => {
       .catch(error => console.error(error))
   }
 
-  // const onBookmarkButtonClickNature = () => {
-  //   const options = {
-  //     method: "POST",
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //       "Authorization": accessToken
-  //     },
-  //   }
-
-  //   fetch(`${BASE_URL}/location/${id}/bookmarkNature/${visitorId}`, options)
-  //     .then(res => res.json())
-  //     .then((data) => {
-  //       setIdOfUserWhoClickedButton(data.response.visitors)
-  //       window.location.reload()
-  //     })
-  //     .catch(error => console.error(error))
-  // }
-
-
   const onRemoveBookmarkClick = () => {
     const options = {
       method: "POST",
