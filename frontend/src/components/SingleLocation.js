@@ -34,7 +34,7 @@ export const SingleLocation = ({ }) => {
       .catch(error => console.error(error))
   }, []);
 
-  const onBookmarkButtonClickCulture = () => {
+  const onBookmarkButtonClick = () => {
     const options = {
       method: "POST",
       headers: {
@@ -43,35 +43,35 @@ export const SingleLocation = ({ }) => {
       },
     }
     fetch(`${BASE_URL}/location/${id}/bookmarkCulture/${visitorId}`, options)
-      .then(res => res.json())
-      .then((data) => {
-        setIdOfUserWhoClickedButton(data.response.visitors)
-        // TO GET THE USERNAME TO SHOW DIRECTLY 
-        window.location.reload()
-      })
-      .catch(error => console.error(error))
-
-
-  }
-
-  const onBookmarkButtonClickNature = () => {
-    const options = {
-      method: "POST",
-      headers: {
-        'Content-Type': 'application/json',
-        "Authorization": accessToken
-      },
-    }
     fetch(`${BASE_URL}/location/${id}/bookmarkNature/${visitorId}`, options)
       .then(res => res.json())
       .then((data) => {
         setIdOfUserWhoClickedButton(data.response.visitors)
-           window.location.reload()
+        window.location.reload()
       })
       .catch(error => console.error(error))
   }
 
-  const onRemoveCultureBookmarkClick = () => {
+  // const onBookmarkButtonClickNature = () => {
+  //   const options = {
+  //     method: "POST",
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //       "Authorization": accessToken
+  //     },
+  //   }
+
+  //   fetch(`${BASE_URL}/location/${id}/bookmarkNature/${visitorId}`, options)
+  //     .then(res => res.json())
+  //     .then((data) => {
+  //       setIdOfUserWhoClickedButton(data.response.visitors)
+  //       window.location.reload()
+  //     })
+  //     .catch(error => console.error(error))
+  // }
+
+
+  const onRemoveBookmarkClick = () => {
     const options = {
       method: "POST",
       headers: {
@@ -80,22 +80,6 @@ export const SingleLocation = ({ }) => {
       },
     }
     fetch(`${BASE_URL}/location/${id}/deleteBookmarkCulture/${visitorId}`, options)
-      .then(res => res.json())
-      .then((data) => {
-        setIdOfUserWhoClickedButton(data.response.visitors)
-        window.location.reload()
-      })
-      .catch(error => console.error(error))
-  }
-
-  const onRemoveNatureBookmarkClick = () => {
-    const options = {
-      method: "POST",
-      headers: {
-        'Content-Type': 'application/json',
-        "Authorization": accessToken
-      },
-    }
     fetch(`${BASE_URL}/location/${id}/deleteBookmarkNature/${visitorId}`, options)
       .then(res => res.json())
       .then((data) => {
@@ -140,7 +124,7 @@ export const SingleLocation = ({ }) => {
             <Visitor
               type="button"
               onClick={() =>
-                onBookmarkButtonClickCulture()}>
+                onBookmarkButtonClick()}>
               Klicka här</Visitor>
           </IWantToGoDiv>
           <SingleLocationDivRight>
@@ -156,7 +140,7 @@ export const SingleLocation = ({ }) => {
             ))}
             <Visitor
               type="button"
-              onClick={() => onRemoveCultureBookmarkClick()}>
+              onClick={() => onRemoveBookmarkClick()}>
               Ta bort mig
             </Visitor>
           </SingleLocationDivRight>
@@ -188,7 +172,7 @@ export const SingleLocation = ({ }) => {
             <p>Jag vill gå!</p>
             <Visitor
               type="button"
-              onClick={() => onBookmarkButtonClickNature()}>Klicka här</Visitor>
+              onClick={() => onBookmarkButtonClick()}>Klicka här</Visitor>
           </IWantToGoDiv>
           <SingleLocationDivRight>
             <p>Jag vill gå! Kontakta mig ❤️</p>
@@ -203,7 +187,7 @@ export const SingleLocation = ({ }) => {
             ))}
             <Visitor
               type="button"
-              onClick={() => onRemoveNatureBookmarkClick()}>
+              onClick={() => onRemoveBookmarkClick()}>
               Ta bort mig
             </Visitor>
           </SingleLocationDivRight>
